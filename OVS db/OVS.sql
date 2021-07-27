@@ -76,74 +76,58 @@ Branch_ID int references Branch(Branch_ID),
 Employee_ID int references Employee(Employee_ID)
 )
 
+
+
 Create table Quote_Status
-(
-Quote_Status_ID int primary key ,
-Quote_Status_Description varchar(50)
-)
+(Quote_Status_ID int primary key ,
+Quote_Status_Description varchar(50))
 
 Create table Request_Quote
-(
-Request_Quote_ID int primary key ,
-Date varchar(20),
-Quote_Status_ID int references Quote_Status(Quote_Status_ID)
-)
+(Request_Quote_ID int primary key ,
+[Date] varchar(20),
+Quote_Status int references Quote_Status(Quote_Status_ID))
 
 Create table Quote_Line
-(
-Quote_Line_ID int primary key ,
+(Quote_Line_ID int primary key ,
 Quantity varchar(50),
 Product int references Product(Product_ID),
-Request_Quote_ID int references Request_Quote(Request_Quote_ID)
-)
-
-Create table Sale_Line
-(
-Sale_Line_ID int primary key,
-Sale int references Sale(Sale_ID),
-Product_ID int references Product(Product_ID)
-)
+Request_Quote_ID int references Request_Quote(Request_Quote_ID))
 
 Create table Sale
-(
-Sale_ID int primary key ,
+(Sale_ID int primary key ,
 Sale_Date varchar(20),
-Request_Quote_ID int references Request_Quote(Request_Quote_ID)
-)
+Request_Quote int references Request_Quote(Request_Quote_ID))
+
+Create table Sale_Line
+(Sale_Line_ID int primary key,
+Sale int references Sale(Sale_ID),
+Product int references Product(Product_ID))
 
 Create table Return_Sale_Request
-(
-Return_Sale_Request_ID int primary key,
+(Return_Sale_Request_ID int primary key,
 Return_Request_Date varchar(20),
-Customer_ID int references Customer(Customer_ID)
-)
+Customer int references Customer(Customer_ID))
+
 
 Create table Return_Sale_Request_SaleLine
-(
-Quantity varchar(5),
+(Quantity varchar(5),
 Return_Sale_Reason varchar(50),
 Return_Sale_Request int references Return_Sale_Request(Return_Sale_Request_ID),
 Product int references Product(Product_ID),
 Customer int references Customer(Customer_ID),
-Sale_ID int references Sale(Sale_ID)
-)
+Sale int references Sale(Sale_ID))
 
 Create table Sale_Payment_Status
-(
-Sale_Payment_Status_ID int primary key,
-Sale_Payment_Status_Desc varchar(50)
-)
+(Sale_Payment_Status_ID int primary key,
+Sale_Payment_Status_Desc varchar(50))
 
 Create table Payment_Type
-(
-Payment_Type_ID int primary key,
+(Payment_Type_ID int primary key,
 Payment_Type_Description varchar(50),
-Payment_Type_Name varchar(20)
-)
+Payment_Type_Name varchar(20))
 
 Create table Sale_Payment
-(
-Sale_Payment_ID int primary key,
+(Sale_Payment_ID int primary key,
 Sale_Payment_Amount varchar(10),
 Sale_Payment_Date varchar(20),
 Sale_Payment_Name varchar(50),
@@ -152,18 +136,14 @@ Sale_ID int references Sale(Sale_ID),
 Payment_Type_ID int references Payment_Type(Payment_Type_ID))
 
 Create table Order_Payment_Status
-(
-Order_Payment_Status_ID int primary key,
-Order_Payment_Status_Description varchar(50)
-)
+(Order_Payment_Status_ID int primary key,
+Order_Payment_Status_Description varchar(50))
 
 Create table Order_Payment
-(
-Order_Payment_ID int primary key,
+(Order_Payment_ID int primary key,
 Order_Payment_Amount varchar(10),
 Order_Payment_Date varchar(20),
 Customer int references Customer(Customer_ID),
 Payment_Type_ID int references Payment_Type(Payment_Type_ID),
 Order_Payment_Status int references Order_Payment_Status(Order_Payment_Status_ID),
-Order_ID int references Order(Order_ID)
-)
+Order_ID int references [Order](Order_ID))
