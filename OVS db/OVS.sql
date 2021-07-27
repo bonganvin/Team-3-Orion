@@ -118,7 +118,6 @@ Return_Request_Date varchar(20),
 Customer int references Customer(Customer_ID)
 )
 
-
 Create table Return_Sale_Request_SaleLine
 (
 Quantity varchar(5),
