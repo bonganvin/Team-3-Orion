@@ -86,7 +86,7 @@ Create table Request_Quote
 (
 Request_Quote_ID int primary key ,
 Date varchar(20),
-Quote_Status int references Quote_Status(Quote_Status_ID)
+Quote_Status_ID int references Quote_Status(Quote_Status_ID)
 )
 
 Create table Quote_Line
@@ -101,21 +101,21 @@ Create table Sale_Line
 (
 Sale_Line_ID int primary key,
 Sale int references Sale(Sale_ID),
-Product int references Product(Product_ID)
+Product_ID int references Product(Product_ID)
 )
 
 Create table Sale
 (
 Sale_ID int primary key ,
 Sale_Date varchar(20),
-Request_Quote int references Request_Quote(Request_Quote_ID)
+Request_Quote_ID int references Request_Quote(Request_Quote_ID)
 )
 
 Create table Return_Sale_Request
 (
 Return_Sale_Request_ID int primary key,
 Return_Request_Date varchar(20),
-Customer int references Customer(Customer_ID)
+Customer_ID int references Customer(Customer_ID)
 )
 
 Create table Return_Sale_Request_SaleLine
@@ -125,7 +125,7 @@ Return_Sale_Reason varchar(50),
 Return_Sale_Request int references Return_Sale_Request(Return_Sale_Request_ID),
 Product int references Product(Product_ID),
 Customer int references Customer(Customer_ID),
-Sale int references Sale(Sale_ID)
+Sale_ID int references Sale(Sale_ID)
 )
 
 Create table Sale_Payment_Status
