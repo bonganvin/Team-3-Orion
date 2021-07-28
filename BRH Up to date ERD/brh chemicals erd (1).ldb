@@ -1826,7 +1826,7 @@ Relationship.Entity2ToEntity1RoleDominant 1</a:SymbolContent>
 <o:RelationshipSymbol Id="o37">
 <a:CreationDate>1620379325</a:CreationDate>
 <a:ModificationDate>1626533377</a:ModificationDate>
-<a:Rect>((17526,9546), (30696,35006))</a:Rect>
+<a:Rect>((17526,9569), (30696,35006))</a:Rect>
 <a:ListOfPoints>((18426,34606),(18426,24866),(25442,24866),(25442,11149),(30296,11149))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>5906</a:ArrowStyle>
@@ -2269,7 +2269,7 @@ Relationship.Entity2ToEntity1RoleDominant 1</a:SymbolContent>
 <o:RelationshipSymbol Id="o77">
 <a:CreationDate>1620645244</a:CreationDate>
 <a:ModificationDate>1627332521</a:ModificationDate>
-<a:Rect>((-11334,37162), (13047,51883))</a:Rect>
+<a:Rect>((-11334,37185), (13047,51883))</a:Rect>
 <a:ListOfPoints>((-8553,51071),(-8109,51071),(-8109,38531),(12647,38531))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>4631</a:ArrowStyle>
@@ -2645,7 +2645,7 @@ Relationship.Entity2ToEntity1RoleDominant 1</a:SymbolContent>
 <o:RelationshipSymbol Id="o113">
 <a:CreationDate>1620650510</a:CreationDate>
 <a:ModificationDate>1627499814</a:ModificationDate>
-<a:Rect>((50093,10091), (80956,12530))</a:Rect>
+<a:Rect>((50093,10114), (80956,12530))</a:Rect>
 <a:ListOfPoints>((50493,11630),(80556,11630))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>4631</a:ArrowStyle>
@@ -8488,11 +8488,10 @@ Entity.Comment 0</a:SymbolContent>
 <a:Code>IDENTIFIER_1</a:Code>
 <a:CreationDate>1622123714</a:CreationDate>
 <a:Creator>Pride</a:Creator>
-<a:ModificationDate>1627504558</a:ModificationDate>
+<a:ModificationDate>1627504492</a:ModificationDate>
 <a:Modifier>bonga</a:Modifier>
 <c:Identifier.Attributes>
 <o:EntityAttribute Ref="o491"/>
-<o:EntityAttribute Ref="o492"/>
 </c:Identifier.Attributes>
 </o:Identifier>
 </c:Identifiers>
@@ -8517,10 +8516,9 @@ Entity.Comment 0</a:SymbolContent>
 <a:Code>PRODUCT_ID</a:Code>
 <a:CreationDate>1622123753</a:CreationDate>
 <a:Creator>Pride</a:Creator>
-<a:ModificationDate>1627504558</a:ModificationDate>
+<a:ModificationDate>1627504492</a:ModificationDate>
 <a:Modifier>bonga</a:Modifier>
 <a:DataType>I</a:DataType>
-<a:LogicalAttribute.Mandatory>1</a:LogicalAttribute.Mandatory>
 </o:EntityAttribute>
 <o:EntityAttribute Id="o493">
 <a:ObjectID>AFDBA638-8577-45DA-81D8-954946B7DA0C</a:ObjectID>
@@ -8528,8 +8526,8 @@ Entity.Comment 0</a:SymbolContent>
 <a:Code>QUANTITY</a:Code>
 <a:CreationDate>1622123778</a:CreationDate>
 <a:Creator>Pride</a:Creator>
-<a:ModificationDate>1627504565</a:ModificationDate>
-<a:Modifier>bonga</a:Modifier>
+<a:ModificationDate>1624788729</a:ModificationDate>
+<a:Modifier>Pride</a:Modifier>
 <a:DataType>I</a:DataType>
 </o:EntityAttribute>
 </c:Attributes>
