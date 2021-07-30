@@ -300,7 +300,7 @@ Quantity int not null,
 Return_Sale_Reason varchar(100),
 Return_Sale_Request_ID int references Return_Sale_Request(Return_Sale_Request_ID),
 Product_ID int references Product(Product_ID),
-Sale int references Sale(Sale_ID)
+Sale_ID int references Sale(Sale_ID)
 )
 
 Create table Sale_Payment_Status
@@ -321,7 +321,7 @@ Create table Sale_Payment
 Sale_Payment_ID int primary key identity(1,1) not null,
 Sale_Payment_Amount float not null,
 Sale_Payment_Date Datetime not null,
-Sale_Payment_Status int foreign key references Sale_Payment_Status(Sale_Payment_Status_ID),
+Sale_Payment_Status_ID int foreign key references Sale_Payment_Status(Sale_Payment_Status_ID),
 Sale_ID int foreign key references Sale(Sale_ID),
 Payment_Type_ID int foreign key references Payment_Type(Payment_Type_ID),
 Register_ID int foreign key references Cash_Register(Register_ID)
@@ -339,7 +339,7 @@ Order_Payment_ID int primary key identity(1,1) not null,
 Order_Payment_Amount int not null,
 Order_Payment_Date Datetime not null,
 Payment_Type_ID int foreign key references Payment_Type(Payment_Type_ID),
-Order_Payment_Status int foreign key references Order_Payment_Status(Order_Payment_Status_ID),
+Order_Payment_Status_ID int foreign key references Order_Payment_Status(Order_Payment_Status_ID),
 Order_ID int foreign key references [Order](Order_ID)
 )
 
