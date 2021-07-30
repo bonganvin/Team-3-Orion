@@ -199,7 +199,7 @@ CREATE TABLE [dbo].[Customer](
 
  Create table Wishlist_Product (
  Product_ID int references Product(Product_ID),
- Wishlist_ID int references Wushlist(Wishlist_ID),
+ Wishlist_ID int references Wishlist(Wishlist_ID),
  Quantity int not null
  )
 
@@ -283,7 +283,7 @@ Request_Quote_ID int foreign key references Request_Quote(Request_Quote_ID)
 Create table Sale_Line
 (
 Sale_ID int references Sale(Sale_ID),
-Product_ID int references Product(Product_ID)
+Product_ID int references Product(Product_ID),
 Quantity int not null,
 )
 
@@ -443,3 +443,8 @@ Branch_ID int foreign key references Branch(Branch_ID),
  [Start_Date] date not null,
 [End_Date] date not null,
  )
+<<<<<<< Updated upstream
+=======
+
+ Insert into customer values ('Bongani', 'Nkomo','0627157091', '2001/01/01 00:00:00', 'u19232812@gmail.co.za', 'University of Pretoria, Gauteng')
+>>>>>>> Stashed changes
