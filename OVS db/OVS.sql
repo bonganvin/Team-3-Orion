@@ -296,7 +296,7 @@ Customer_ID int foreign key references Customer(Customer_ID)
 
 Create table Return_Sale_Request_Sale_Line
 (
-Quantity int not null,
+Quantity int primary key identity(1,1) not null,
 Return_Sale_Reason varchar(100),
 Return_Sale_Request_ID int references Return_Sale_Request(Return_Sale_Request_ID),
 Product_ID int references Product(Product_ID),
@@ -305,13 +305,13 @@ Sale_ID int references Sale(Sale_ID)
 
 Create table Sale_Payment_Status
 (
-Sale_Payment_Status_ID int primary key,
+Sale_Payment_Status_ID int primary key identity(1,1) not null,
 Sale_Payment_Status_Desc varchar(50)
 )
 
 Create table Payment_Type
 (
-Payment_Type_ID int primary key,
+Payment_Type_ID int primary key identity(1,1) not null,
 Payment_Type_Description varchar(50),
 Payment_Type_Name varchar(20)
 )
@@ -443,8 +443,4 @@ Branch_ID int foreign key references Branch(Branch_ID),
  [Start_Date] date not null,
 [End_Date] date not null,
  )
-<<<<<<< Updated upstream
-=======
 
- Insert into customer values ('Bongani', 'Nkomo','0627157091', '2001/01/01 00:00:00', 'u19232812@gmail.co.za', 'University of Pretoria, Gauteng')
->>>>>>> Stashed changes
