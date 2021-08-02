@@ -9,7 +9,6 @@ namespace OVS_API.EF
     {
         public UserAccessPermission()
         {
-            Carts = new HashSet<Cart>();
             Users = new HashSet<User>();
         }
 
@@ -17,7 +16,7 @@ namespace OVS_API.EF
         public string UserRoleName { get; set; }
         public string UserRoleDescription { get; set; }
 
-        public virtual ICollection<Cart> Carts { get; set; }
+
         public virtual ICollection<User> Users { get; set; }
     }
 }

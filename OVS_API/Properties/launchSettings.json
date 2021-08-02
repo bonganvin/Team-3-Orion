@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/customers/viewall",
+      "launchUrl": "userpermisson/viewalluseraccess",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

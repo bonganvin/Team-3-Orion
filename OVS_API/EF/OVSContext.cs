@@ -131,10 +131,6 @@ namespace OVS_API.EF
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK__Cart__Customer_I__5441852A");
 
-                entity.HasOne(d => d.UserAccessPermission)
-                    .WithMany(p => p.Carts)
-                    .HasForeignKey(d => d.UserAccessPermissionId)
-                    .HasConstraintName("FK__Cart__User_Acces__5535A963");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Carts)

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bonga\\Documents\\GitHub\\OVS_API\\OVS_API.csproj": {}
+    "C:\\Users\\bonga\\Documents\\GitHub\\Team-3-Orion\\OVS_API\\OVS_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bonga\\Documents\\GitHub\\OVS_API\\OVS_API.csproj": {
+    "C:\\Users\\bonga\\Documents\\GitHub\\Team-3-Orion\\OVS_API\\OVS_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bonga\\Documents\\GitHub\\OVS_API\\OVS_API.csproj",
+        "projectUniqueName": "C:\\Users\\bonga\\Documents\\GitHub\\Team-3-Orion\\OVS_API\\OVS_API.csproj",
         "projectName": "OVS_API",
-        "projectPath": "C:\\Users\\bonga\\Documents\\GitHub\\OVS_API\\OVS_API.csproj",
+        "projectPath": "C:\\Users\\bonga\\Documents\\GitHub\\Team-3-Orion\\OVS_API\\OVS_API.csproj",
         "packagesPath": "C:\\Users\\bonga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bonga\\Documents\\GitHub\\OVS_API\\obj\\",
+        "outputPath": "C:\\Users\\bonga\\Documents\\GitHub\\Team-3-Orion\\OVS_API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bonga\\AppData\\Roaming\\NuGet\\NuGet.Config",

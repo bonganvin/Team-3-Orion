@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OVS_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace OVS_API.Controllers
             _db = db;
         }
 
-       [Route("ViewAll")]
+       [Route("ViewAllCustomers")]
        [HttpGet]
        public IActionResult ViewAll()
         {
@@ -33,7 +33,7 @@ namespace OVS_API.Controllers
 
         }
 
-        [Route("View/{id}")]
+        [Route("ViewCustomer/{id}")]
         [HttpGet]
         public IActionResult View(int id)
         {
@@ -45,15 +45,15 @@ namespace OVS_API.Controllers
             return Ok(customer);
         }
 
-        [Route("Register")]
+        [Route("RegisterCustomer")]
         [HttpPost]
-        public IActionResult Register(CustomerClass model )
+        public IActionResult Register(CustomerClass model)
         {
             Customer customer = new Customer();
             customer.CustomerName = model.Customer;
             customer.CustomerSurname = model.Customer;
             customer.CustomerCellphoneNumber = model.Customer;
-            customer.CustomerDateOfBirth = model.Customer;
+            //customer.CustomerDateOfBirth = model.Customer; 
             customer.CustomerEmailAddress = model.Customer;
             customer.CustomerPhysicalAddress = model.Customer;
 
@@ -61,7 +61,19 @@ namespace OVS_API.Controllers
             _db.SaveChanges();
 
             return Ok(customer);
-
         }
+        [Route("UpdateCustomer/{id}")]
+        [HttpPut]
+        public IActionResult Update(int id)
+        {
+            var customer = _db.Customers.Find(id);
+
+            if (customer is null)
+                return BadRequest("This customer does not exist");
+
+            return Ok(customer);
+        }
+
+
     }
 }
