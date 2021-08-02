@@ -180,8 +180,7 @@ CREATE TABLE [dbo].[Customer](
  (
  Cart_ID int primary key identity(1,1),
  User_ID int foreign key references [User](User_ID),
- Customer_ID int foreign key references Customer(Customer_ID),
- User_Access_Permission_ID int foreign key references User_Access_Permission (User_Access_Permission_ID)
+ Customer_ID int foreign key references Customer(Customer_ID)
  
  )
 
