@@ -84,7 +84,7 @@ namespace OVS_Team_3_API.Controllers
 
         [Route("UpdateUserAcess")]
         [HttpPut]
-        public ResponseObject UpdateTenant([FromBody] UserAccessPermissionVM useraccess)
+        public ResponseObject UpdateUserAccess([FromBody] UserAccessPermissionVM useraccess)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
@@ -117,10 +117,12 @@ namespace OVS_Team_3_API.Controllers
                 return response;
             }
         }
+
+        //Delete User
         [System.Web.Http.Route("DeleteUserAccess/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteBursary(int id)
+        public object DeleteUserAccess(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
 
