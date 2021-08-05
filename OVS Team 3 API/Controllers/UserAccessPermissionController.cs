@@ -95,7 +95,7 @@ namespace OVS_Team_3_API.Controllers
             if (toUpdate == null)
             {
                 response.Success = false;
-                response.ErrorMessage = "The tenant that you are trying to update was not found in the system.";
+                response.ErrorMessage = "The user access that you are trying to update was not found in the system.";
                 return response;
             }
 
@@ -134,7 +134,7 @@ namespace OVS_Team_3_API.Controllers
             db.User_Access_Permission.Remove(bur);
             db.SaveChanges();
 
-            return "The bursary record has been deleted";
+            return "The user access permission has been deleted";
 
         }
     }

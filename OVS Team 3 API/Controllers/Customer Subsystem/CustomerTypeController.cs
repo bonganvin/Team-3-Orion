@@ -136,7 +136,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Customer_Type.Remove(c_Type);
             db.SaveChanges();
 
-            return "The discount record has been deleted";
+            return "The Customer type has been deleted";
 
         }
 

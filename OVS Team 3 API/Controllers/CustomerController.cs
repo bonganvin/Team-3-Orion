@@ -154,7 +154,7 @@ namespace OVS_Team_3_API.Controllers
             db.Customers.Remove(cust);
             db.SaveChanges();
 
-            return "deleted";
+            return "Customer deleted";
 
         }
     }
