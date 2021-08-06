@@ -171,6 +171,7 @@
     <Compile Include="Controllers\Customer Subsystem\CustomerTypeController.cs" />
     <Compile Include="Controllers\Customer Subsystem\DiscountController.cs" />
     <Compile Include="Controllers\Customer Subsystem\CustomerController.cs" />
+    <Compile Include="Controllers\Customer Subsystem\OrderController.cs" />
     <Compile Include="Controllers\Order\OrderController.cs" />
     <Compile Include="Controllers\Other\HomeController.cs" />
     <Compile Include="Controllers\User\UserAccessPermissionController.cs" />

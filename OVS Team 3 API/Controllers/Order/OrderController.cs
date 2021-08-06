@@ -16,8 +16,10 @@ using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
 namespace OVS_Team_3_API.Controllers.Order
 {
+    [RoutePrefix("api/Order")]
     public class OrderController : ApiController
     {
+      
         //[RoutePrefix("api/Order")]
 
         OVSEntities5 db = new OVSEntities5();
@@ -51,7 +53,7 @@ namespace OVS_Team_3_API.Controllers.Order
         {
             db.Configuration.ProxyCreationEnabled = false;
 
-            Order order = db.Orders.Find(id);
+            Models.Order order = db.Orders.Find(id);
             if (order == null)
             {
                 return NotFound();
@@ -67,21 +69,21 @@ namespace OVS_Team_3_API.Controllers.Order
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
-            var Neworder = new Order
+            var Neworder = new Models.Order
             {
-                Order_Date = Order_Date,
-                Order_Finalizastion_Date = Order_Finalizastion_Date,
-                Delivery = Delivery,
-                Customer_ID = Customer_ID,
-                Order_Status_ID = Order_Status_ID,
-                Employee_ID = Employee_ID,
-                Customer = Customer,
-                Employee = Employee
+                Order_Date = order.Order_Date,
+                Order_Finalizastion_Date = order.Order_Finalizastion_Date,
+                Delivery = order.Delivery,
+                Customer_ID = order.Customer_ID,
+                Order_Status_ID = order.Order_Status_ID,
+                Employee_ID = order.Employee_ID,
+                Customer = order.Customer,
+                Employee = order.Employee
             };
 
             try
             {
-                db.Customers.Add(Neworder);
+                db.Orders.Add(Neworder);
                 db.SaveChanges();
 
                 response.Success = true;
@@ -147,7 +149,7 @@ namespace OVS_Team_3_API.Controllers.Order
         {
             db.Configuration.ProxyCreationEnabled = false;
 
-            Orders order = db.Orders.Find(id);
+            Models.Order order = db.Orders.Find(id);
             if (order == null)
             {
                 return NotFound();
