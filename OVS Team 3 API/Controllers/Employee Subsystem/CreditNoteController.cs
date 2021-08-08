@@ -1,50 +1,46 @@
 ﻿using OVS_Team_3_API.Models;
 using OVS_Team_3_API.ViewModels;
+using OVS_Team_3_API.ViewModels.Credit_Note;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
-using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
-using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
-using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
-using HttpPutAttribute = System.Web.Http.HttpPutAttribute;
-using RouteAttribute = System.Web.Http.RouteAttribute;
-using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
-namespace OVS_Team_3_API.Controllers
+namespace OVS_Team_3_API.Controllers.Employee_Subsystem
 {
     [RoutePrefix("api/User")]
-    public class UserController : ApiController
+    public class CreditNoteController : ApiController
     {
         OVSEntities5 db = new OVSEntities5();
         // GET: User
-        [Route("GetUser")]
+        [Route("GetCreditNotes")]
         [HttpGet]
-        public List<UserVM> GetUser()
+        public List<CreditNoteVM> GetCreditNotes()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Users.Select(zz => new UserVM
+            return db.Credit_Note.Select(zz => new CreditNoteVM
             {
-                User_ID = zz.User_ID,
-                User_Name = zz.User_Name,
-                User_Password = zz.User_Password,
-                User_Access_Permission_ID = zz.User_Access_Permission_ID
+                CreditNoteID = zz.Credit_Note_ID,
+                ReturnOrderRequestID = zz.Return_Order_Request_ID,
+                CustomerID = zz.Customer_ID,
+                Customer = zz.Customer,
+                ReturnOrderRequest = zz.Return_Order_Request,
 
             }).ToList();
         }
 
-        // Get User by ID
 
-        [System.Web.Http.Route("getUserByID/{id:int}")]
+        // Get Credit Note by ID
+        [System.Web.Http.Route("GetCreditNoteByID/{id:int}")]
         [System.Web.Mvc.HttpPost]
         [HttpPost]
-        public object getUserByID(int id)
+        public object GetCreditNoteByID(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
 
-            User user = db.Users.Find(id);
+            Credit_Note user = db.Credit_Note.Find(id);
             if (user == null)
             {
                 return NotFound();
@@ -53,23 +49,27 @@ namespace OVS_Team_3_API.Controllers
 
         }
 
-        //Add: User
-        [Route("CreateUser")]
+
+        //Add: Credit Note
+        [Route("CreateCreditNote")]
         [HttpPost]
-        public ResponseObject CreateUser([FromBody] UserVM user)
+        public ResponseObject CreateCreditNote([FromBody] CreditNoteVM credit)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
-            var Newuser = new User
+            var newcreditNote = new Credit_Note
             {
-                User_Name = user.User_Name,
-                User_Password = user.User_Password
+                Credit_Note_ID = credit.CreditNoteID,
+                Return_Order_Request_ID = credit.ReturnOrderRequestID,
+                Customer_ID = credit.CustomerID,
+                Customer = credit.Customer,
+                Return_Order_Request = credit.ReturnOrderRequest,
 
             };
 
             try
             {
-                db.Users.Add(Newuser);
+                db.Credit_Note.Add(newcreditNote);
                 db.SaveChanges();
 
                 response.Success = true;
@@ -84,17 +84,18 @@ namespace OVS_Team_3_API.Controllers
             }
         }
 
-        // Update User
 
-        [Route("UpdateUser")]
+        // Update Credit Note
+
+        [Route("UpdateCreditNote")]
         [HttpPut]
-        public ResponseObject UpdateUser([FromBody] UserVM user)
+        public ResponseObject UpdateCreditNote([FromBody] CreditNoteVM credit)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Users.Where(zz => zz.User_ID
-            == user.User_ID).FirstOrDefault();
+            var toUpdate = db.Credit_Note.Where(zz => zz.Credit_Note_ID
+            == credit.CreditNoteID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -105,10 +106,11 @@ namespace OVS_Team_3_API.Controllers
 
             try
             {
-                toUpdate.User_Name = user.User_Name;
-                toUpdate.User_Password = user.User_Password;
-                toUpdate.User_Access_Permission_ID = user.User_Access_Permission_ID;
-
+              
+                toUpdate.Return_Order_Request_ID = credit.ReturnOrderRequestID;
+                toUpdate.Customer_ID = credit.CustomerID;
+                toUpdate.Return_Order_Request = credit.ReturnOrderRequest;
+                toUpdate.Customer = credit.Customer;
                 db.SaveChanges();
 
                 response.Success = true;
@@ -123,20 +125,20 @@ namespace OVS_Team_3_API.Controllers
             }
         }
 
-        //Delete User
-        [System.Web.Http.Route("DeleteUser/{id:int}")]
+        //Delete Credit NOte
+        [System.Web.Http.Route("DeleteCreditNote/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteUser(int id)
+        public object DeleteCreditNote(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
 
-            User users = db.Users.Find(id);
-            if (users == null)
+            Credit_Note creditN = db.Credit_Note.Find(id);
+            if (creditN == null)
             {
                 return NotFound();
             }
-            db.Users.Remove(users);
+            db.Credit_Note.Remove(creditN);
             db.SaveChanges();
 
             return "deleted";

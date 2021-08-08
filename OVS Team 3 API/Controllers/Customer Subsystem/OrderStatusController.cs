@@ -1,50 +1,47 @@
 ﻿using OVS_Team_3_API.Models;
 using OVS_Team_3_API.ViewModels;
+using OVS_Team_3_API.ViewModels.Order;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
-using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
-using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
-using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
-using HttpPutAttribute = System.Web.Http.HttpPutAttribute;
-using RouteAttribute = System.Web.Http.RouteAttribute;
-using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
-namespace OVS_Team_3_API.Controllers
+namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 {
-    [RoutePrefix("api/User")]
-    public class UserController : ApiController
+    [RoutePrefix("api/orderstatus")]
+    public class OrderStatusController : ApiController
     {
         OVSEntities5 db = new OVSEntities5();
-        // GET: User
-        [Route("GetUser")]
+
+        // GET: Order Status 
+        [Route("GetOrderStatus")]
         [HttpGet]
-        public List<UserVM> GetUser()
+        public List<OrderStatusVM> GetOrderStatus()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Users.Select(zz => new UserVM
+            return db.Order_Status.Select(zz => new OrderStatusVM
             {
-                User_ID = zz.User_ID,
-                User_Name = zz.User_Name,
-                User_Password = zz.User_Password,
-                User_Access_Permission_ID = zz.User_Access_Permission_ID
+                OrderStatusID= zz.Order_Status_ID,
+                OrderStatusDescription = zz.Order_Status_Description
 
             }).ToList();
         }
 
-        // Get User by ID
 
-        [System.Web.Http.Route("getUserByID/{id:int}")]
+        // Get Order Status by ID
+
+        [System.Web.Http.Route("getOrderStatusByID/{id:int}")]
         [System.Web.Mvc.HttpPost]
         [HttpPost]
-        public object getUserByID(int id)
+        public object GetOrderStatusByID(int id)
+
         {
+
             db.Configuration.ProxyCreationEnabled = false;
 
-            User user = db.Users.Find(id);
+            Order_Status user = db.Order_Status.Find(id);
             if (user == null)
             {
                 return NotFound();
@@ -53,23 +50,23 @@ namespace OVS_Team_3_API.Controllers
 
         }
 
-        //Add: User
-        [Route("CreateUser")]
+        //Add: Order Status
+        [Route("CreateOrderStatus")]
         [HttpPost]
-        public ResponseObject CreateUser([FromBody] UserVM user)
+        public ResponseObject CreateUserAccess([FromBody] OrderStatusVM orderStatus)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
-            var Newuser = new User
+            var newOrderStatus = new Order_Status
             {
-                User_Name = user.User_Name,
-                User_Password = user.User_Password
+                Order_Status_Description = orderStatus.OrderStatusDescription
+               
 
             };
 
             try
             {
-                db.Users.Add(Newuser);
+                db.Order_Status.Add(newOrderStatus);
                 db.SaveChanges();
 
                 response.Success = true;
@@ -84,30 +81,29 @@ namespace OVS_Team_3_API.Controllers
             }
         }
 
-        // Update User
 
-        [Route("UpdateUser")]
+        // Update OrderStatus
+
+        [Route("UpdateOrderStatus")]
         [HttpPut]
-        public ResponseObject UpdateUser([FromBody] UserVM user)
+        public ResponseObject UpdateOrderStatus([FromBody] OrderStatusVM orderStatus)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Users.Where(zz => zz.User_ID
-            == user.User_ID).FirstOrDefault();
+            var toUpdate = db.Order_Status.Where(zz => zz.Order_Status_ID
+            == orderStatus.OrderStatusID).FirstOrDefault();
 
             if (toUpdate == null)
             {
                 response.Success = false;
-                response.ErrorMessage = "Not found";
+                response.ErrorMessage = "The order that you are trying to update was not found in the system.";
                 return response;
             }
 
             try
             {
-                toUpdate.User_Name = user.User_Name;
-                toUpdate.User_Password = user.User_Password;
-                toUpdate.User_Access_Permission_ID = user.User_Access_Permission_ID;
+                toUpdate.Order_Status_Description = orderStatus.OrderStatusDescription;
 
                 db.SaveChanges();
 
@@ -123,25 +119,24 @@ namespace OVS_Team_3_API.Controllers
             }
         }
 
-        //Delete User
-        [System.Web.Http.Route("DeleteUser/{id:int}")]
+        //Delete OrderStatus
+        [System.Web.Http.Route("DeleteOrderStatus/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteUser(int id)
+        public object DeleteOrderStatus(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
 
-            User users = db.Users.Find(id);
-            if (users == null)
+            Order_Status order = db.Order_Status.Find(id);
+            if (order == null)
             {
                 return NotFound();
             }
-            db.Users.Remove(users);
+            db.Order_Status.Remove(order);
             db.SaveChanges();
 
-            return "deleted";
+            return "The Order Status has been deleted";
 
         }
-
     }
 }

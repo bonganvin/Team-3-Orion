@@ -86,6 +86,7 @@ namespace OVS_Team_3_API.Models
         public virtual DbSet<Unit> Units { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<User_Access_Permission> User_Access_Permission { get; set; }
+        public virtual DbSet<VAT> VATs { get; set; }
         public virtual DbSet<Wishlist> Wishlists { get; set; }
         public virtual DbSet<Wishlist_Product> Wishlist_Product { get; set; }
     }

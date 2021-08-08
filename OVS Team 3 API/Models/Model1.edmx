@@ -531,6 +531,14 @@
           <Property Name="User_Role_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="User_Role_Description" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="VAT">
+          <Key>
+            <PropertyRef Name="VAT_ID" />
+          </Key>
+          <Property Name="VAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VAT_Percentage" Type="int" Nullable="false" />
+          <Property Name="VAT_Date" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="Wishlist">
           <Key>
             <PropertyRef Name="Wishlist_ID" />
@@ -1509,6 +1517,7 @@
           <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Access_Permission" EntityType="Self.User_Access_Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VAT" EntityType="Self.VAT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wishlist" EntityType="Self.Wishlist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wishlist_Product" EntityType="Self.Wishlist_Product" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Cart__Customer_I__571DF1D5" Association="Self.FK__Cart__Customer_I__571DF1D5">
@@ -2488,6 +2497,14 @@
           <Property Name="User_Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_Role_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK__User__User_Acces__1273C1CD" FromRole="User_Access_Permission" ToRole="User" />
+        </EntityType>
+        <EntityType Name="VAT">
+          <Key>
+            <PropertyRef Name="VAT_ID" />
+          </Key>
+          <Property Name="VAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VAT_Percentage" Type="Int32" Nullable="false" />
+          <Property Name="VAT_Date" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Wishlist">
           <Key>
@@ -3471,6 +3488,7 @@
           <EntitySet Name="Units" EntityType="Self.Unit" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="User_Access_Permission" EntityType="Self.User_Access_Permission" />
+          <EntitySet Name="VATs" EntityType="Self.VAT" />
           <EntitySet Name="Wishlists" EntityType="Self.Wishlist" />
           <EntitySet Name="Wishlist_Product" EntityType="Self.Wishlist_Product" />
           <AssociationSet Name="FK__Cash_Regi__Branc__4316F928" Association="Self.FK__Cash_Regi__Branc__4316F928">
@@ -4364,6 +4382,15 @@
                 <ScalarProperty Name="User_Access_Permission_ID" ColumnName="User_Access_Permission_ID" />
                 <ScalarProperty Name="User_Role_Name" ColumnName="User_Role_Name" />
                 <ScalarProperty Name="User_Role_Description" ColumnName="User_Role_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VATs">
+            <EntityTypeMapping TypeName="OVSModel.VAT">
+              <MappingFragment StoreEntitySet="VAT">
+                <ScalarProperty Name="VAT_ID" ColumnName="VAT_ID" />
+                <ScalarProperty Name="VAT_Percentage" ColumnName="VAT_Percentage" />
+                <ScalarProperty Name="VAT_Date" ColumnName="VAT_Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

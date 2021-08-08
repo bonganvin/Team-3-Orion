@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="12c9a71df7184ef88da367764ead2afd" Name="Diagram1">
+      <Diagram DiagramId="ad890c1e50634b299559f14e6344c5fb" Name="Diagram1">
         <EntityTypeShape EntityType="OVSModel.Branch" Width="1.5" PointX="8.25" PointY="29.125" IsExpanded="true" />
         <EntityTypeShape EntityType="OVSModel.Cart" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OVSModel.Cart_Line" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
@@ -66,6 +66,7 @@
         <EntityTypeShape EntityType="OVSModel.Unit" Width="1.5" PointX="9" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="OVSModel.User" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OVSModel.User_Access_Permission" Width="1.5" PointX="1.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OVSModel.VAT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OVSModel.Wishlist" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OVSModel.Wishlist_Product" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
         <AssociationConnector Association="OVSModel.FK__Cash_Regi__Branc__4316F928" ManuallyRouted="false" />
