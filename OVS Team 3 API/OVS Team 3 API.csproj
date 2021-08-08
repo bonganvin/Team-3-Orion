@@ -172,8 +172,19 @@
     <Compile Include="Controllers\Customer Subsystem\DiscountController.cs" />
     <Compile Include="Controllers\Customer Subsystem\CustomerController.cs" />
     <Compile Include="Controllers\Customer Subsystem\OrderController.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Controllers\Customer Subsystem\OrderStatusController.cs" />
     <Compile Include="Controllers\Employee Subsystem\CreditNoteController.cs" />
+=======
+    <Compile Include="Controllers\Customer Subsystem\VATController.cs" />
+    <Compile Include="Controllers\Employee Subsystem\EmployeeController.cs" />
+    <Compile Include="Controllers\Employee Subsystem\EmployeeTypeController.cs" />
+    <Compile Include="Controllers\Manager Subsystem\BranchController.cs" />
+    <Compile Include="Controllers\Manager Subsystem\DateController.cs" />
+    <Compile Include="Controllers\Manager Subsystem\ShiftController.cs" />
+    <Compile Include="Controllers\Manager Subsystem\ShiftTypeController.cs" />
+    <Compile Include="Controllers\Order\OrderController.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Controllers\Other\HomeController.cs" />
     <Compile Include="Controllers\User\UserAccessPermissionController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
@@ -393,7 +404,16 @@
     <Compile Include="ViewModels\Customer Subsystem\CustomerTypeVM.cs" />
     <Compile Include="ViewModels\Customer Subsystem\DiscountVM.cs" />
     <Compile Include="ViewModels\Customer Subsystem\CustomerVM.cs" />
+<<<<<<< Updated upstream
     <Compile Include="ViewModels\Order\OrderStatusVM.cs" />
+=======
+    <Compile Include="ViewModels\Employee Subsystem\EmployeeTypeVM.cs" />
+    <Compile Include="ViewModels\Employee Subsystem\EmployeeVM.cs" />
+    <Compile Include="ViewModels\Manager Subsystem\BranchVM.cs" />
+    <Compile Include="ViewModels\Manager Subsystem\DateVM.cs" />
+    <Compile Include="ViewModels\Manager Subsystem\ShiftTypeVM.cs" />
+    <Compile Include="ViewModels\Manager Subsystem\ShiftVM.cs" />
+>>>>>>> Stashed changes
     <Compile Include="ViewModels\Order\OrderVM.cs" />
     <Compile Include="ViewModels\Response\ResponseObject.cs" />
     <Compile Include="ViewModels\User\UserAccessPermissionVM.cs" />
@@ -469,8 +489,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< Updated upstream
     <Folder Include="Controllers\Manager Subsystem\" />
     <Folder Include="Controllers\Order\" />
+=======
+    <Folder Include="Views\Date\" />
+    <Folder Include="Views\Employee\" />
+>>>>>>> Stashed changes
     <Folder Include="Views\Order\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
