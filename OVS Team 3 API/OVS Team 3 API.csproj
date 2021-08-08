@@ -171,7 +171,7 @@
     <Compile Include="Controllers\Customer Subsystem\CustomerTypeController.cs" />
     <Compile Include="Controllers\Customer Subsystem\DiscountController.cs" />
     <Compile Include="Controllers\Customer Subsystem\CustomerController.cs" />
-<<<<<<< HEAD
+/<<<<<<< HEAD
     <Compile Include="Controllers\Order\CartController.cs" />
     <Compile Include="Controllers\Order\CartLineController.cs" />
     <Compile Include="Controllers\Order\OrderController.cs" />
