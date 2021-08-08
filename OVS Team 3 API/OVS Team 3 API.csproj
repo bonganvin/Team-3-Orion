@@ -171,6 +171,7 @@
     <Compile Include="Controllers\Customer Subsystem\CustomerTypeController.cs" />
     <Compile Include="Controllers\Customer Subsystem\DiscountController.cs" />
     <Compile Include="Controllers\Customer Subsystem\CustomerController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\Order\CartController.cs" />
     <Compile Include="Controllers\Order\CartLineController.cs" />
     <Compile Include="Controllers\Order\OrderController.cs" />
@@ -179,6 +180,25 @@
     <Compile Include="Controllers\Order\CreditNoteController.cs" />
     <Compile Include="Controllers\Order\ReturnOrderRequestController.cs" />
     <Compile Include="Controllers\Order\WishListController.cs" />
+=======
+    <Compile Include="Controllers\Customer Subsystem\OrderController.cs" />
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+    <Compile Include="Controllers\Customer Subsystem\OrderStatusController.cs" />
+    <Compile Include="Controllers\Employee Subsystem\CreditNoteController.cs" />
+=======
+=======
+>>>>>>> Stashed changes
+    <Compile Include="Controllers\Customer Subsystem\VATController.cs" />
+    <Compile Include="Controllers\Employee Subsystem\EmployeeController.cs" />
+    <Compile Include="Controllers\Employee Subsystem\EmployeeTypeController.cs" />
+    <Compile Include="Controllers\Manager Subsystem\BranchController.cs" />
+    <Compile Include="Controllers\Manager Subsystem\DateController.cs" />
+    <Compile Include="Controllers\Manager Subsystem\ShiftController.cs" />
+    <Compile Include="Controllers\Manager Subsystem\ShiftTypeController.cs" />
+    <Compile Include="Controllers\Order\OrderController.cs" />
+>>>>>>> Stashed changes
+>>>>>>> 24c34b6bd789cb86a0ad895184919a5f9b3c879c
     <Compile Include="Controllers\Other\HomeController.cs" />
     <Compile Include="Controllers\Raw Materials\RawMaterialController.cs" />
     <Compile Include="Controllers\Raw Materials\UnitController.cs" />
@@ -400,10 +420,28 @@
     <Compile Include="ViewModels\Customer Subsystem\CustomerTypeVM.cs" />
     <Compile Include="ViewModels\Customer Subsystem\DiscountVM.cs" />
     <Compile Include="ViewModels\Customer Subsystem\CustomerVM.cs" />
+<<<<<<< HEAD
     <Compile Include="ViewModels\Order\CartLineVM.cs" />
     <Compile Include="ViewModels\Order\CartVM.cs" />
     <Compile Include="ViewModels\Order\OrderLineVM.cs" />
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> 24c34b6bd789cb86a0ad895184919a5f9b3c879c
     <Compile Include="ViewModels\Order\OrderStatusVM.cs" />
+=======
+=======
+>>>>>>> Stashed changes
+    <Compile Include="ViewModels\Employee Subsystem\EmployeeTypeVM.cs" />
+    <Compile Include="ViewModels\Employee Subsystem\EmployeeVM.cs" />
+    <Compile Include="ViewModels\Manager Subsystem\BranchVM.cs" />
+    <Compile Include="ViewModels\Manager Subsystem\DateVM.cs" />
+    <Compile Include="ViewModels\Manager Subsystem\ShiftTypeVM.cs" />
+    <Compile Include="ViewModels\Manager Subsystem\ShiftVM.cs" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     <Compile Include="ViewModels\Order\OrderVM.cs" />
     <Compile Include="ViewModels\Order\ReturnOrderRequest.cs" />
     <Compile Include="ViewModels\Order\WishListVM.cs" />
@@ -483,10 +521,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< HEAD
     <Folder Include="Controllers\Employee Subsystem\" />
     <Folder Include="Controllers\Manager Subsystem\" />
     <Folder Include="Controllers\Return Order\" />
     <Folder Include="ViewModels\Return Order\" />
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+    <Folder Include="Controllers\Manager Subsystem\" />
+    <Folder Include="Controllers\Order\" />
+=======
+    <Folder Include="Views\Date\" />
+    <Folder Include="Views\Employee\" />
+>>>>>>> Stashed changes
+=======
+    <Folder Include="Views\Date\" />
+    <Folder Include="Views\Employee\" />
+>>>>>>> Stashed changes
+>>>>>>> 24c34b6bd789cb86a0ad895184919a5f9b3c879c
     <Folder Include="Views\Order\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
