@@ -491,3 +491,8 @@ Job_task_ID int foreign key references Job_task(Job_task_ID),
  [End_Date] date not null,
  )
 
+ Create Table VAT (
+ VAT_ID int identity(1,1) primary key not null,
+ VAT_Percentage int not null,
+ VAT_Date date not null
+ )
