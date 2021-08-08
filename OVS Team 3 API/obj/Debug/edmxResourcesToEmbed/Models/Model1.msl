@@ -588,6 +588,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VATs">
+      <EntityTypeMapping TypeName="OVSModel.VAT">
+        <MappingFragment StoreEntitySet="VAT">
+          <ScalarProperty Name="VAT_ID" ColumnName="VAT_ID" />
+          <ScalarProperty Name="VAT_Percentage" ColumnName="VAT_Percentage" />
+          <ScalarProperty Name="VAT_Date" ColumnName="VAT_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Wishlists">
       <EntityTypeMapping TypeName="OVSModel.Wishlist">
         <MappingFragment StoreEntitySet="Wishlist">

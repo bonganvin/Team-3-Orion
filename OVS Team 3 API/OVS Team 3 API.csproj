@@ -171,10 +171,17 @@
     <Compile Include="Controllers\Customer Subsystem\CustomerTypeController.cs" />
     <Compile Include="Controllers\Customer Subsystem\DiscountController.cs" />
     <Compile Include="Controllers\Customer Subsystem\CustomerController.cs" />
-    <Compile Include="Controllers\Customer Subsystem\OrderController.cs" />
-    <Compile Include="Controllers\Customer Subsystem\OrderStatusController.cs" />
-    <Compile Include="Controllers\Employee Subsystem\CreditNoteController.cs" />
+    <Compile Include="Controllers\Order\CartController.cs" />
+    <Compile Include="Controllers\Order\CartLineController.cs" />
+    <Compile Include="Controllers\Order\OrderController.cs" />
+    <Compile Include="Controllers\Order\OrderLineController.cs" />
+    <Compile Include="Controllers\Order\OrderStatusController.cs" />
+    <Compile Include="Controllers\Order\CreditNoteController.cs" />
+    <Compile Include="Controllers\Order\ReturnOrderRequestController.cs" />
+    <Compile Include="Controllers\Order\WishListController.cs" />
     <Compile Include="Controllers\Other\HomeController.cs" />
+    <Compile Include="Controllers\Raw Materials\RawMaterialController.cs" />
+    <Compile Include="Controllers\Raw Materials\UnitController.cs" />
     <Compile Include="Controllers\User\UserAccessPermissionController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\Other\ValuesController.cs" />
@@ -393,8 +400,15 @@
     <Compile Include="ViewModels\Customer Subsystem\CustomerTypeVM.cs" />
     <Compile Include="ViewModels\Customer Subsystem\DiscountVM.cs" />
     <Compile Include="ViewModels\Customer Subsystem\CustomerVM.cs" />
+    <Compile Include="ViewModels\Order\CartLineVM.cs" />
+    <Compile Include="ViewModels\Order\CartVM.cs" />
+    <Compile Include="ViewModels\Order\OrderLineVM.cs" />
     <Compile Include="ViewModels\Order\OrderStatusVM.cs" />
     <Compile Include="ViewModels\Order\OrderVM.cs" />
+    <Compile Include="ViewModels\Order\ReturnOrderRequest.cs" />
+    <Compile Include="ViewModels\Order\WishListVM.cs" />
+    <Compile Include="ViewModels\Raw Materials\RawMaterialVM.cs" />
+    <Compile Include="ViewModels\Raw Materials\UnitVM.cs" />
     <Compile Include="ViewModels\Response\ResponseObject.cs" />
     <Compile Include="ViewModels\User\UserAccessPermissionVM.cs" />
     <Compile Include="ViewModels\User\UserVM.cs" />
@@ -469,8 +483,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Employee Subsystem\" />
     <Folder Include="Controllers\Manager Subsystem\" />
-    <Folder Include="Controllers\Order\" />
+    <Folder Include="Controllers\Return Order\" />
+    <Folder Include="ViewModels\Return Order\" />
     <Folder Include="Views\Order\" />
     <Folder Include="Views\User\" />
   </ItemGroup>

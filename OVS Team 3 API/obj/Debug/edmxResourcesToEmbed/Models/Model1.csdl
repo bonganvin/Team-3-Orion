@@ -672,6 +672,14 @@
     <Property Name="User_Role_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Users" Relationship="Self.FK__User__User_Acces__1273C1CD" FromRole="User_Access_Permission" ToRole="User" />
   </EntityType>
+  <EntityType Name="VAT">
+    <Key>
+      <PropertyRef Name="VAT_ID" />
+    </Key>
+    <Property Name="VAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VAT_Percentage" Type="Int32" Nullable="false" />
+    <Property Name="VAT_Date" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
   <EntityType Name="Wishlist">
     <Key>
       <PropertyRef Name="Wishlist_ID" />
@@ -1654,6 +1662,7 @@
     <EntitySet Name="Units" EntityType="Self.Unit" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="User_Access_Permission" EntityType="Self.User_Access_Permission" />
+    <EntitySet Name="VATs" EntityType="Self.VAT" />
     <EntitySet Name="Wishlists" EntityType="Self.Wishlist" />
     <EntitySet Name="Wishlist_Product" EntityType="Self.Wishlist_Product" />
     <AssociationSet Name="FK__Cash_Regi__Branc__4316F928" Association="Self.FK__Cash_Regi__Branc__4316F928">
