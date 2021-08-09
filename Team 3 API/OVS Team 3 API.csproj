@@ -181,6 +181,8 @@
     <Compile Include="Controllers\Order\ReturnOrderRequestOrderLineController.cs" />
     <Compile Include="Controllers\Order\WishListController.cs" />
     <Compile Include="Controllers\Other\HomeController.cs" />
+    <Compile Include="Controllers\Product\ProductController.cs" />
+    <Compile Include="Controllers\Product\ProductTypeController.cs" />
     <Compile Include="Controllers\Raw Materials\RawMaterialController.cs" />
     <Compile Include="Controllers\Raw Materials\UnitController.cs" />
     <Compile Include="Controllers\User\UserAccessPermissionController.cs" />
@@ -409,6 +411,8 @@
     <Compile Include="ViewModels\Order\ReturnOrderRequest.cs" />
     <Compile Include="ViewModels\Order\ReturnOrderRequestOrderLineVM.cs" />
     <Compile Include="ViewModels\Order\WishListVM.cs" />
+    <Compile Include="ViewModels\Product\ProductTypeVM.cs" />
+    <Compile Include="ViewModels\Product\ProductVM.cs" />
     <Compile Include="ViewModels\Raw Materials\RawMaterialVM.cs" />
     <Compile Include="ViewModels\Raw Materials\UnitVM.cs" />
     <Compile Include="ViewModels\Response\ResponseObject.cs" />
