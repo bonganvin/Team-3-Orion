@@ -10,6 +10,7 @@
 namespace OVS_Team_3_API.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -89,5 +90,6 @@ namespace OVS_Team_3_API.Models
         public virtual DbSet<VAT> VATs { get; set; }
         public virtual DbSet<Wishlist> Wishlists { get; set; }
         public virtual DbSet<Wishlist_Product> Wishlist_Product { get; set; }
+        public IEnumerable<object> Size { get; internal set; }
     }
 }

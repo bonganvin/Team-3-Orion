@@ -181,8 +181,15 @@
     <Compile Include="Controllers\Order\ReturnOrderRequestOrderLineController.cs" />
     <Compile Include="Controllers\Order\WishListController.cs" />
     <Compile Include="Controllers\Other\HomeController.cs" />
+    <Compile Include="Controllers\Product\ColourController.cs" />
+    <Compile Include="Controllers\Product\PriceController.cs" />
+    <Compile Include="Controllers\Product\ProductCatagoryController.cs" />
     <Compile Include="Controllers\Product\ProductController.cs" />
+    <Compile Include="Controllers\Product\ProductSizeController.cs" />
+    <Compile Include="Controllers\Product\ProductSpecialController.cs" />
     <Compile Include="Controllers\Product\ProductTypeController.cs" />
+    <Compile Include="Controllers\Product\SizeController.cs" />
+    <Compile Include="Controllers\Product\SpecialController.cs" />
     <Compile Include="Controllers\Raw Materials\RawMaterialController.cs" />
     <Compile Include="Controllers\Raw Materials\UnitController.cs" />
     <Compile Include="Controllers\User\UserAccessPermissionController.cs" />
@@ -411,8 +418,15 @@
     <Compile Include="ViewModels\Order\ReturnOrderRequest.cs" />
     <Compile Include="ViewModels\Order\ReturnOrderRequestOrderLineVM.cs" />
     <Compile Include="ViewModels\Order\WishListVM.cs" />
+    <Compile Include="ViewModels\Product\ColourVM.cs" />
+    <Compile Include="ViewModels\Product\PriceVM.cs" />
+    <Compile Include="ViewModels\Product\ProductCatagoryVM.cs" />
+    <Compile Include="ViewModels\Product\ProductSizeVM.cs" />
+    <Compile Include="ViewModels\Product\ProductSpecialVM.cs" />
     <Compile Include="ViewModels\Product\ProductTypeVM.cs" />
     <Compile Include="ViewModels\Product\ProductVM.cs" />
+    <Compile Include="ViewModels\Product\SizeVM.cs" />
+    <Compile Include="ViewModels\Product\SpecialVM.cs" />
     <Compile Include="ViewModels\Raw Materials\RawMaterialVM.cs" />
     <Compile Include="ViewModels\Raw Materials\UnitVM.cs" />
     <Compile Include="ViewModels\Response\ResponseObject.cs" />
@@ -493,7 +507,14 @@
     <Folder Include="Controllers\Manager Subsystem\" />
     <Folder Include="Controllers\Return Order\" />
     <Folder Include="ViewModels\Return Order\" />
+    <Folder Include="Views\Colour\" />
     <Folder Include="Views\Order\" />
+    <Folder Include="Views\Price\" />
+    <Folder Include="Views\ProductCatagory\" />
+    <Folder Include="Views\ProductSize\" />
+    <Folder Include="Views\ProductSpecial\" />
+    <Folder Include="Views\Size\" />
+    <Folder Include="Views\Special\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
