@@ -192,6 +192,9 @@
     <Compile Include="Controllers\Product\SpecialController.cs" />
     <Compile Include="Controllers\Raw Materials\RawMaterialController.cs" />
     <Compile Include="Controllers\Raw Materials\UnitController.cs" />
+    <Compile Include="Controllers\Supplier\SupplierController.cs" />
+    <Compile Include="Controllers\Supplier\SupplierOrderController.cs" />
+    <Compile Include="Controllers\Supplier\SupplierOrderLineController.cs" />
     <Compile Include="Controllers\User\UserAccessPermissionController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\Other\ValuesController.cs" />
@@ -431,8 +434,12 @@
     <Compile Include="ViewModels\Raw Materials\RawMaterialVM.cs" />
     <Compile Include="ViewModels\Raw Materials\UnitVM.cs" />
     <Compile Include="ViewModels\Response\ResponseObject.cs" />
+    <Compile Include="ViewModels\Supplier\SupplierOrderLineVM.cs" />
+    <Compile Include="ViewModels\Supplier\SupplierOrderVM.cs" />
+    <Compile Include="ViewModels\Supplier\SupplierVM.cs" />
     <Compile Include="ViewModels\User\UserAccessPermissionVM.cs" />
     <Compile Include="ViewModels\User\UserVM.cs" />
+    <Compile Include="ViewModels\Wishlist\WishlistProductVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -516,6 +523,9 @@
     <Folder Include="Views\ProductSpecial\" />
     <Folder Include="Views\Size\" />
     <Folder Include="Views\Special\" />
+    <Folder Include="Views\SupplierOrderLine\" />
+    <Folder Include="Views\SupplierOrder\" />
+    <Folder Include="Views\Supplier\" />
     <Folder Include="Views\User\" />
     <Folder Include="Views\WishlistProduct\" />
     <Folder Include="Views\Wishlist\" />
