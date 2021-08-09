@@ -11,6 +11,8 @@ namespace OVS_Team_3_API.ViewModels.Product
         public Nullable<int> Product_Size_ID { get; set; }
         public Nullable<int> Special_ID { get; set; }
         public float Price_Amount { get; set; }
+        public virtual ProductSizeVM Product_Size { get; set; }
+        public virtual SpecialVM Special { get; set; }
 
     }
 }

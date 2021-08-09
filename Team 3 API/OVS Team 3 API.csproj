@@ -195,6 +195,7 @@
     <Compile Include="Controllers\User\UserAccessPermissionController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\Other\ValuesController.cs" />
+    <Compile Include="Controllers\Wishlist\WishlistProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -516,6 +517,8 @@
     <Folder Include="Views\Size\" />
     <Folder Include="Views\Special\" />
     <Folder Include="Views\User\" />
+    <Folder Include="Views\WishlistProduct\" />
+    <Folder Include="Views\Wishlist\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
