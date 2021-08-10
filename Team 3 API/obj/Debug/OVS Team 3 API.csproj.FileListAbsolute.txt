@@ -473,3 +473,7 @@ C:\Users\chase\INF370\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.csproj.Co
 C:\Users\chase\INF370\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.csproj.CopyComplete
 C:\Users\chase\INF370\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.dll
 C:\Users\chase\INF370\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.pdb
+C:\Users\User\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.dll
+C:\Users\User\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.pdb
