@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace OVS_Team_3_API.ViewModels
+namespace OVS_Team_3_API.ViewModels.Customer_Subsystem
 {
     public class PaymentTypeVM : Controller
     {
@@ -13,3 +13,4 @@ namespace OVS_Team_3_API.ViewModels
         public string Payment_Type_Description { get; set; }
         public string Payment_Type_Name { get; set; }
     }
+}

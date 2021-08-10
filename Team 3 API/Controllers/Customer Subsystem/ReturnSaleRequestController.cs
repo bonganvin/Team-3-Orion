@@ -1,6 +1,6 @@
 ﻿using OVS_Team_3_API.Models;
 using OVS_Team_3_API.ViewModels;
-using OVS_Team_3_API.ViewModels.Order;
+using OVS_Team_3_API.ViewModels.Customer_Subsystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using HttpPutAttribute = System.Web.Http.HttpPutAttribute;
 using RouteAttribute = System.Web.Http.RouteAttribute;
 using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
-namespace OVS_Team_3_API.Controllers
+namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 {
     [RoutePrefix("api/ReturnSaleRequest")]
     public class ReturnSaleRequestController : ApiController
@@ -110,7 +110,7 @@ namespace OVS_Team_3_API.Controllers
             {
                 toUpdate.Return_Sale_Request_ID = ReturnSaleReq.Return_Sale_Request_ID;
                 toUpdate.Return_Request_Date = ReturnSaleReq.Return_Request_Date;
-                toUpdate.Customer_ID = ReturnSaleReq.Customer_ID;             
+                toUpdate.Customer_ID = ReturnSaleReq.Customer_ID;
 
                 db.SaveChanges();
 

@@ -1,6 +1,6 @@
 ﻿using OVS_Team_3_API.Models;
 using OVS_Team_3_API.ViewModels;
-using OVS_Team_3_API.ViewModels.Order;
+using OVS_Team_3_API.ViewModels.Customer_Subsystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using HttpPutAttribute = System.Web.Http.HttpPutAttribute;
 using RouteAttribute = System.Web.Http.RouteAttribute;
 using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
-namespace OVS_Team_3_API.Controllers
+namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 {
     [RoutePrefix("api/OrderPayment")]
     public class OrderPaymentController : ApiController
@@ -62,7 +62,7 @@ namespace OVS_Team_3_API.Controllers
         //Add:OrderPayment
         [Route("CreateOrderPayment")]
         [HttpPost]
-        public ResponseObject CreateOrderPayment([FromBody]OrderPaymentVM OrderPay)
+        public ResponseObject CreateOrderPayment([FromBody] OrderPaymentVM OrderPay)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
@@ -97,7 +97,7 @@ namespace OVS_Team_3_API.Controllers
 
         [Route("UpdateOrderPayment")]
         [HttpPut]
-        public ResponseObject UpdateOrderPayment([FromBody]OrderPaymentVM OrderPay)
+        public ResponseObject UpdateOrderPayment([FromBody] OrderPaymentVM OrderPay)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
@@ -110,7 +110,7 @@ namespace OVS_Team_3_API.Controllers
                 response.ErrorMessage = "Not found";
                 return response;
             }
-        
+
             try
             {
                 toUpdate.Order_Payment_Amount = OrderPay.Order_Payment_Amount;
