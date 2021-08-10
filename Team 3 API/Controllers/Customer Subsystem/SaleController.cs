@@ -29,7 +29,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
         public List<SaleVM> GetSale()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Sale.Select(zz => new SaleVM
+            return db.Sales.Select(zz => new SaleVM
             {
                 Sale_ID = zz.Sale_ID,
                 Sale_Date = zz.Sale_Date,
@@ -47,7 +47,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
         {
             db.Configuration.ProxyCreationEnabled = false;
 
-            Models.Sale sale = db.Sale.Find(id);
+            Models.Sale sale = db.Sales.Find(id);
             if (sale == null)
             {
                 return NotFound();
@@ -72,7 +72,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                db.Sale.Add(NewSale);
+                db.Sales.Add(NewSale);
                 db.SaveChanges();
 
                 response.Success = true;
@@ -96,7 +96,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Sale.Where(zz => zz.Sale_ID == sale.Sale_ID).FirstOrDefault();
+            var toUpdate = db.Sales.Where(zz => zz.Sale_ID == sale.Sale_ID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -131,12 +131,12 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
         {
             db.Configuration.ProxyCreationEnabled = false;
 
-            Models.Sale sale = db.Sale.Find(id);
+            Models.Sale sale = db.Sales.Find(id);
             if (sale == null)
             {
                 return NotFound();
             }
-            db.Sale.Remove(sale);
+            db.Sales.Remove(sale);
             db.SaveChanges();
 
             return "Sale deleted";

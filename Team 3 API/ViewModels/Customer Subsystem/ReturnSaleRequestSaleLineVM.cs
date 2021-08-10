@@ -15,3 +15,4 @@ namespace OVS_Team_3_API.ViewModels.Customer_Subsystem
         public Nullable<int> Sale_Line_ID { get; set; }
         public Nullable<int> Quantity { get; set; }
     }
+}
