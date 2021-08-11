@@ -77,10 +77,13 @@ namespace OVS_Team_3_API.Controllers
             var Newuser = new User
             {
                 User_Name = user.User_Name,
-               // User_Password = this.ComputeSha256Hash(user.User_Password),
-                User_Password = user.User_Password
+               User_Password = ComputeSha256Hash(user.User_Password),
+              //User_Password = user.User_Password
 
             };
+
+
+
 
             try
             {
@@ -90,6 +93,7 @@ namespace OVS_Team_3_API.Controllers
                 response.Success = true;
                 response.ErrorMessage = null;
                 return response;
+               // return Ok(Newuser);
             }
             catch (Exception e)
             {
@@ -109,9 +113,9 @@ namespace OVS_Team_3_API.Controllers
 
 
            string hashedPassword = this.ComputeSha256Hash(vm.User_Password);
-          //  var user = db.Users.Where(zz => zz.User_Name == vm.User_Name && zz.User_Password == hashedPassword).FirstOrDefault();
+           var user = db.Users.Where(zz => zz.User_Name == vm.User_Name && zz.User_Password == hashedPassword).FirstOrDefault();
 
-            var user = db.Users.Where(zz => zz.User_Name == vm.User_Name && zz.User_Password == zz.User_Password).FirstOrDefault();
+           // var user = db.Users.Where(zz => zz.User_Name == vm.User_Name && zz.User_Password == zz.User_Password).FirstOrDefault();
             if (user == null)
             {
                 response.Success = false;

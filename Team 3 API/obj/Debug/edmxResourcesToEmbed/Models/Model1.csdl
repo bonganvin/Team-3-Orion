@@ -655,7 +655,7 @@
       <PropertyRef Name="User_ID" />
     </Key>
     <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="User_Password" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_Password" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="User_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="User_Access_Permission_ID" Type="Int32" />
     <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__User_ID__5629CD9C" FromRole="User" ToRole="Cart" />

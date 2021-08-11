@@ -24,7 +24,8 @@ Create table [User]
 [User_Password] varchar(12)not null,
 [User_Name] varchar(20) not null,
  User_Access_Permission_ID int foreign key references User_Access_Permission (User_Access_Permission_ID))
-
+ Alter table [User]
+alter column  User_Password varchar (256) not null
 
 create table Employee_Type(
 Employee_Type_ID int identity(1,1) primary key not null,

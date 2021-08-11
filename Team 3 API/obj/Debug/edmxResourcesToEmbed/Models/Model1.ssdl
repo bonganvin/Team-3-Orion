@@ -514,7 +514,7 @@
       <PropertyRef Name="User_ID" />
     </Key>
     <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="User_Password" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="User_Password" Type="varchar" MaxLength="256" Nullable="false" />
     <Property Name="User_Name" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="User_Access_Permission_ID" Type="int" />
   </EntityType>
