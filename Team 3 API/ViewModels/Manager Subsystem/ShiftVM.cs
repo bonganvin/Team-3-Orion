@@ -9,5 +9,5 @@ namespace OVS_Team_3_API.ViewModels.Manager_Subsystem
     {
         public int ShiftID { get; set; }
         public Nullable<int> ShiftTypeID { get; set; }
-    
+    }
 }

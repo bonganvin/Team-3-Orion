@@ -41,7 +41,7 @@ namespace OVS_Team_3_API.Controllers.Order
 
             db.Configuration.ProxyCreationEnabled = false;
 
-            Wishlist list = db.Wishlists.Find(id);
+            Models.Wishlist list = db.Wishlists.Find(id);
             if (list == null)
             {
                 return NotFound();
@@ -57,7 +57,7 @@ namespace OVS_Team_3_API.Controllers.Order
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
-            var newWishlist = new Wishlist
+            var newWishlist = new Models.Wishlist
             {
                 Wishlist_ID = list.WishlistID,
                 Customer_ID = list.CustomerID,
@@ -130,7 +130,7 @@ namespace OVS_Team_3_API.Controllers.Order
         {
             db.Configuration.ProxyCreationEnabled = false;
 
-            Wishlist list = db.Wishlists.Find(id);
+            Models.Wishlist list = db.Wishlists.Find(id);
             if (list == null)
             {
                 return NotFound();
