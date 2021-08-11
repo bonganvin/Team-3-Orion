@@ -3,6 +3,9 @@ using OVS_Team_3_API.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -60,9 +63,21 @@ namespace OVS_Team_3_API.Controllers
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
+           
+            
+            if (this.UserExists(user.User_Name))
+            {
+                response.Success = false;
+                return response;
+            }
+
+
+
+
             var Newuser = new User
             {
                 User_Name = user.User_Name,
+               // User_Password = this.ComputeSha256Hash(user.User_Password),
                 User_Password = user.User_Password
 
             };
@@ -83,6 +98,32 @@ namespace OVS_Team_3_API.Controllers
                 return response;
             }
         }
+
+
+        [HttpPost]
+        [Route("Login")]
+        public ResponseObject Login([FromBody] UserVM vm)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            var response = new ResponseObject();
+
+
+           string hashedPassword = this.ComputeSha256Hash(vm.User_Password);
+          //  var user = db.Users.Where(zz => zz.User_Name == vm.User_Name && zz.User_Password == hashedPassword).FirstOrDefault();
+
+            var user = db.Users.Where(zz => zz.User_Name == vm.User_Name && zz.User_Password == zz.User_Password).FirstOrDefault();
+            if (user == null)
+            {
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
+            }
+            response.Success = true;
+            return response; 
+
+            //return Ok(vm);
+        }
+
 
         // Update User
 
@@ -141,6 +182,35 @@ namespace OVS_Team_3_API.Controllers
 
             return "deleted";
 
+        }
+
+
+        // Helper functions
+        private bool UserExists(string username)
+        {
+           
+            var user = db.Users.Where(zz => zz.User_Name == username).FirstOrDefault();
+
+            return user != null;
+        }
+
+
+        private string ComputeSha256Hash(string rawData)
+        {
+            // Create a SHA256   
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // ComputeHash - returns byte array  
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                // Convert byte array to a string   
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
 
     }
