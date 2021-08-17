@@ -2,6 +2,9 @@
 using OVS_Team_3_API.ViewModels.Product;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -59,14 +62,16 @@ namespace OVS_Team_3_API.Controllers.Product
         [HttpPost]
         public ViewModels.ResponseObject CreateProduct([FromBody] ProductVM product)
         {
+            
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ViewModels.ResponseObject();
             var Newpord = new Models.Product
             {
-                Product_Name = product.Product_Name,
+              
+            Product_Name = product.Product_Name,
                 Product_Description = product.Product_Description,
-                Product_Image = product.Product_Image,
-                Product_Type_ID = product.Product_Type_ID,
+                Product_Image = System.Text.Encoding.UTF8.GetBytes( WriteImage(product.Product_Image)),
+            Product_Type_ID = product.Product_Type_ID,
                 Quantity_on_hand = product.Quantity_on_hand,
             };
 
@@ -128,6 +133,8 @@ namespace OVS_Team_3_API.Controllers.Product
             }
         }
 
+
+
         //Delete Product
         [System.Web.Http.Route("DeleteProduct/{id:int}")]
         [System.Web.Mvc.HttpDelete]
@@ -147,5 +154,32 @@ namespace OVS_Team_3_API.Controllers.Product
             return "Product deleted";
 
         }
+
+        private string WriteImage(byte[] arr)
+        {
+            var filename = $@"images\{DateTime.Now.Ticks}.";
+
+            using (var im = Image.FromStream(new MemoryStream(arr)))
+            {
+                ImageFormat frmt;
+                if (ImageFormat.Png.Equals(im.RawFormat))
+                {
+                    filename += "png";
+                    frmt = ImageFormat.Png;
+                }
+                else
+                {
+                    filename += "jpg";
+                    frmt = ImageFormat.Jpeg;
+                }
+                string path = HttpContext.Current.Server.MapPath("~/") + filename;
+                im.Save(path, frmt);
+            }
+
+            return $@"http:\\{Request.RequestUri.Host}\{filename}";
+        }
+
+
+
     }
 }

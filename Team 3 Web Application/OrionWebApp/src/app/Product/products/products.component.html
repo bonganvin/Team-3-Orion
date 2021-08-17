@@ -1,0 +1,93 @@
+<p>
+  <mat-toolbar class = "flex">
+    <button
+      mat-icon-button
+      class="example-icon"
+      
+    [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Product</span>
+    <span class="example-spacer"></span>
+    <button (click)="openLogin()"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon> person_pin</mat-icon>
+    <span>Personal details</span>
+  </button>
+  <button mat-menu-item >
+ <mat-icon>settings</mat-icon>
+    <span>Settings</span>
+  </button>
+  <button routerLink="/" mat-menu-item >
+    <mat-icon>lock</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>
+
+
+<div  class="heading">
+  <section>
+    <div class="example-button-row">
+      <button mat-button [matMenuTriggerFor]="menuu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">House Hold Care</button>
+
+      <mat-menu #menuu="matMenu" [overlapTrigger]="false">
+        <span (mouseleave)="menuTrigger.closeMenu()">
+          <button mat-menu-item>
+          
+            <span>Detergents</span>
+          </button>
+          <button mat-menu-item>
+         
+            <span>Disinfects</span>
+          </button>
+          <button mat-menu-item>
+         
+            <span>Laundry products</span>
+          </button>
+                   <button mat-menu-item>
+         
+            <span>Bathroom Supplies</span>
+          </button>
+
+        </span>
+      </mat-menu>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-button>Personal Care</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-button>Automative Care</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-button>General Care</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-button>Offers</button>
+ 
+    
+    </div>
+  </section>
+</div>

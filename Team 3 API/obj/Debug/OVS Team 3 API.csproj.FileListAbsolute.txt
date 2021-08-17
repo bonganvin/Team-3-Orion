@@ -572,3 +572,39 @@ C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.C
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.csproj.CopyComplete
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.dll
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.pdb
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Cors.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Extensions.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.Options.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Net.Http.Headers.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Buffers.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.ComponentModel.Annotations.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Memory.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Numerics.Vectors.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Text.Encodings.Web.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Web.Cors.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Web.Http.Cors.dll
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Cors.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Extensions.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.Options.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.Net.Http.Headers.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Buffers.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Memory.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Numerics.Vectors.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Text.Encodings.Web.xml
+C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Web.Http.Cors.xml

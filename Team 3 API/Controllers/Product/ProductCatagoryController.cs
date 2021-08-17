@@ -15,14 +15,14 @@ using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
 namespace OVS_Team_3_API.Controllers.Product
 {
-    [RoutePrefix("api/ProductCatagory")]
+    [RoutePrefix("api/ProductCategory")]
     public class ProductCatagoryController : ApiController
     {
         OVSEntities5 db = new OVSEntities5();
         // GET: ProductCatagory
-        [Route("GetProductCatagory")]
+        [Route("GetProductCategory")]
         [HttpGet]
-        public List<ProductCatagoryVM> GetProductCatagory()
+        public List<ProductCatagoryVM> GetProductCategory()
         {
             db.Configuration.ProxyCreationEnabled = false;
             return db.Product_Category.Select(zz => new ProductCatagoryVM

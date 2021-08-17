@@ -15,9 +15,11 @@ using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
 using HttpPutAttribute = System.Web.Http.HttpPutAttribute;
 using RouteAttribute = System.Web.Http.RouteAttribute;
 using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
+using System.Web.Http.Cors;
 
 namespace OVS_Team_3_API.Controllers
 {
+    [EnableCors(origins:"http://localhost:44387", headers: "*", methods: "*")]
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
