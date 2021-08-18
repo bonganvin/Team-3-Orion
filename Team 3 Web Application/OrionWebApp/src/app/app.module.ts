@@ -26,6 +26,7 @@ import { OpenDialogComponent } from './Dialog/open-dialog/open-dialog.component'
 import { RegisterComponent } from './Customer/RegisterCusomter/register/register.component';
 import { EmployeesComponent } from './Employee/employees/employees.component';
 import { AddEmployeeComponent } from './Employee/add-employee/add-employee.component';
+import { AddUserComponent } from './User/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AddEmployeeComponent } from './Employee/add-employee/add-employee.compo
     OpenDialogComponent,
     RegisterComponent,
     EmployeesComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

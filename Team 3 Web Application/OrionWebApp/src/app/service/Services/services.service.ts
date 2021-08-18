@@ -19,7 +19,11 @@ export class ServicesService {
       })
   };
   constructor(private http: HttpClient) { }
+//
 
+AddUser(user: User){
+  return this.http.post<User>(`${this.server}User/CreateUser`, user, this.httpOptions);
+}
   //Login
   sendUserLogin(user: User){
     return this.http.post<User>(`${this.server}User/Login`, user, this.httpOptions);
