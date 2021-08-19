@@ -10,8 +10,9 @@ namespace OVS_Team_3_API
     {
         public static void Register(HttpConfiguration config)
         {
+            var cors = new EnableCorsAttribute(origins: "*", headers: "*", methods: "*");
             // Web API configuration and services
-            config.EnableCors();
+            config.EnableCors(cors);
             // Web API routes
             config.MapHttpAttributeRoutes();
 

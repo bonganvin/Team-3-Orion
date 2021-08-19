@@ -28,13 +28,36 @@ export class AddUserComponent implements OnInit {
 
 
   RegisterUser() {
-    this.service.AddUser(this.form.value).subscribe(res => {
-      this.dialogRef.close();
+    this.service.AddUser(this.form.value).subscribe((res:any) => {
+     // this.dialogRef.close();
+     console.log(res);
       this.snack.open('Successful registration', 'OK', {
         horizontalPosition: 'center',
         verticalPosition: 'bottom',
         duration: 3000
       });
+ 
+      if (res.Success===false)
+      {
+        this.snack.open('Enter valid details.', 'OK', {
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center',
+          duration: 3000
+        });
+        this.form.reset();
+        return;
+      }
+
+      else if (res.Success===true)
+      {
+        this.snack.open('This user has already been registered.', 'OK', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 3000
+      
+        });
+        this.router.navigateByUrl("Login")
+      }
     }, (error: HttpErrorResponse) => {
       if (error.status === 403) {
         this.snack.open('This user has already been registered.', 'OK', {
@@ -48,11 +71,15 @@ export class AddUserComponent implements OnInit {
         verticalPosition: 'bottom',
         duration: 3000
       });
-      this.dialogRef.close();
+     // this.dialogRef.close();
     })
   }
 
   back(){
+    this.router.navigateByUrl("Login")
+  }
+
+  backLogin(){
     this.router.navigateByUrl("Login")
   }
 }

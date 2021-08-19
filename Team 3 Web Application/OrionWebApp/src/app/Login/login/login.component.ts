@@ -28,10 +28,27 @@ export class LoginComponent implements OnInit {
   }
 
   Login(): void {
-    this.service.sendUserLogin(this.loginGroup.value).subscribe(res => {
+    this.service.sendUserLogin(this.loginGroup.value).subscribe((res:any) => {
       // route to home
       localStorage.setItem('user', JSON.stringify(res));
-      this.router.navigateByUrl('Login');
+      console.log(res);
+
+      if (res.Success===false)
+      {
+        this.snack.open('Invalid credentials.', 'OK', {
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center',
+          duration: 3000
+        });
+        this.loginGroup.reset();
+        return;
+      }
+
+      else if (res.Success===true)
+      {
+        this.router.navigateByUrl('');
+      }
+     
     }, (error: HttpErrorResponse) => {
 
       if (error.status === 404) {

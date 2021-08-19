@@ -18,9 +18,9 @@ export class RegisterComponent implements OnInit {
   form: FormGroup = this.fb.group({
     CustomerName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     CustomerSurname: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
-    CustomerCellphone: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
-    EmailAddress: ['', Validators.compose([Validators.required, Validators.email])],
-    CustomerAddress: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+    CustomerCellphoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+    CustomerEmailAddress: ['', Validators.compose([Validators.required, Validators.email])],
+    CustomerPhysicalAddress: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     CustomerDateOfBirth: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
  
   });
@@ -33,13 +33,33 @@ export class RegisterComponent implements OnInit {
   }
 
   Register() {
-    this.service.RegisterCustomer(this.form.value).subscribe(res => {
+    this.service.RegisterCustomer(this.form.value).subscribe((res:any)=> {
       this.dialogRef.close();
-      this.snack.open('Successful registration', 'OK', {
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-        duration: 3000
-      });
+      console.log(res);
+    
+
+      if (res.Success===false)
+      {
+        this.snack.open('Registration cancelled.', 'OK', {
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center',
+          duration: 3000
+        });
+        this.form.reset();
+        return;
+      }
+
+      else if (res.Success===true)
+      {
+        this.snack.open('Successful registration', 'OK', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 3000
+          
+          
+        });
+ 
+      }
     }, (error: HttpErrorResponse) => {
       if (error.status === 403) {
         this.snack.open('This user has already been registered.', 'OK', {
@@ -59,6 +79,10 @@ export class RegisterComponent implements OnInit {
 
   back(){
     this.router.navigateByUrl("Login")
+  }
+
+  addUser(){
+    this.router.navigateByUrl("AddUser")
   }
 
 }

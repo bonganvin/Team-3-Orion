@@ -572,7 +572,6 @@ C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.C
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.csproj.CopyComplete
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.dll
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\obj\Debug\OVS Team 3 API.pdb
-C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Cors.dll
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Abstractions.dll
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Extensions.dll
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Features.dll
@@ -591,7 +590,6 @@ C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Runt
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Text.Encodings.Web.dll
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Web.Cors.dll
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\System.Web.Http.Cors.dll
-C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Cors.xml
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Abstractions.xml
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Extensions.xml
 C:\Users\Pride\OneDrive\Documents\GitHub\Team-3-Orion\Team 3 API\bin\Microsoft.AspNetCore.Http.Features.xml

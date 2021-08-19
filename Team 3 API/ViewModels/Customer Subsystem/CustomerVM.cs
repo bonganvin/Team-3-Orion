@@ -7,14 +7,14 @@ namespace OVS_Team_3_API.ViewModels
 {
     public class CustomerVM
     {
-        public int Customer_ID { get; set; }
-        public string Customer_Name { get; set; }
-        public string Customer_Surname { get; set; }
-        public string Customer_Cellphone_Number { get; set; }
-        public System.DateTime Customer_Date_Of_Birth { get; set; }
-        public string Customer_Email_Address { get; set; }
-        public string Customer_Physical_Address { get; set; }
-        public Nullable<int> Customer_Type_ID { get; set; }
-        public Nullable<int> User_ID { get; set; }
+        public int CustomerID { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerSurname { get; set; }
+        public string CustomerCellphoneNumber { get; set; }
+        public System.DateTime CustomerDateOfBirth { get; set; }
+        public string CustomerEmailAddress { get; set; }
+        public string CustomerPhysicalAddress { get; set; }
+        public Nullable<int> CustomerTypeID { get; set; }
+        public Nullable<int> UserID { get; set; }
     }
 }

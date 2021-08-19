@@ -27,15 +27,15 @@ namespace OVS_Team_3_API.Controllers
             db.Configuration.ProxyCreationEnabled = false;
             return db.Customers.Select(zz => new CustomerVM
             {
-                Customer_ID = zz.Customer_ID,
-                Customer_Name = zz.Customer_Name,
-                Customer_Surname = zz.Customer_Surname,
-                Customer_Cellphone_Number = zz.Customer_Cellphone_Number,
-                Customer_Date_Of_Birth = zz.Customer_Date_Of_Birth,
-                Customer_Email_Address = zz.Customer_Email_Address,
-                Customer_Physical_Address = zz.Customer_Physical_Address,
-                Customer_Type_ID = zz.Customer_Type_ID,
-                User_ID = zz.User_ID
+                CustomerID = zz.Customer_ID,
+                CustomerName = zz.Customer_Name,
+                CustomerSurname = zz.Customer_Surname,
+                CustomerCellphoneNumber = zz.Customer_Cellphone_Number,
+                CustomerDateOfBirth = zz.Customer_Date_Of_Birth,
+                CustomerEmailAddress = zz.Customer_Email_Address,
+                CustomerPhysicalAddress = zz.Customer_Physical_Address,
+                CustomerTypeID = zz.Customer_Type_ID,
+                UserID = zz.User_ID
 
             }).ToList();
         }
@@ -67,14 +67,14 @@ namespace OVS_Team_3_API.Controllers
             var response = new ResponseObject();
             var NewCust = new Customer
             {
-                Customer_Name = cust.Customer_Name,
-                Customer_Surname = cust.Customer_Surname,
-                Customer_Cellphone_Number = cust.Customer_Cellphone_Number,
-                Customer_Date_Of_Birth = cust.Customer_Date_Of_Birth,
-                Customer_Email_Address = cust.Customer_Email_Address,
-                Customer_Physical_Address = cust.Customer_Physical_Address,
-                Customer_Type_ID = cust.Customer_Type_ID,
-                User_ID = cust.User_ID
+                Customer_Name = cust.CustomerName,
+                Customer_Surname = cust.CustomerSurname,
+                Customer_Cellphone_Number = cust.CustomerCellphoneNumber,
+                Customer_Date_Of_Birth = cust.CustomerDateOfBirth,
+                Customer_Email_Address = cust.CustomerEmailAddress,
+                Customer_Physical_Address = cust.CustomerPhysicalAddress,
+                Customer_Type_ID = cust.CustomerTypeID,
+                User_ID = cust.UserID
             };
 
             try
@@ -104,7 +104,7 @@ namespace OVS_Team_3_API.Controllers
             var response = new ResponseObject();
 
             var toUpdate = db.Customers.Where(zz => zz.Customer_ID
-            == cust.Customer_ID).FirstOrDefault();
+            == cust.CustomerID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -115,14 +115,14 @@ namespace OVS_Team_3_API.Controllers
 
             try
             {
-                toUpdate.Customer_Name = cust.Customer_Name;
-                toUpdate.Customer_Surname = cust.Customer_Surname;
-                toUpdate.Customer_Cellphone_Number = cust.Customer_Cellphone_Number;
-                toUpdate.Customer_Date_Of_Birth = cust.Customer_Date_Of_Birth;
-                toUpdate.Customer_Email_Address = cust.Customer_Email_Address;
-                toUpdate.Customer_Physical_Address = cust.Customer_Physical_Address;
-                toUpdate.Customer_Type_ID = cust.Customer_Type_ID;
-                toUpdate.User_ID = cust.User_ID;
+                toUpdate.Customer_Name = cust.CustomerName;
+                toUpdate.Customer_Surname = cust.CustomerSurname;
+                toUpdate.Customer_Cellphone_Number = cust.CustomerCellphoneNumber;
+                toUpdate.Customer_Date_Of_Birth = cust.CustomerDateOfBirth;
+                toUpdate.Customer_Email_Address = cust.CustomerEmailAddress;
+                toUpdate.Customer_Physical_Address = cust.CustomerPhysicalAddress;
+                toUpdate.Customer_Type_ID = cust.CustomerTypeID;
+                toUpdate.User_ID = cust.UserID;
 
                 db.SaveChanges();
 

@@ -22,11 +22,11 @@ export class ServicesService {
 //
 
 AddUser(user: User){
-  return this.http.post<User>(`${this.server}User/CreateUser`, user, this.httpOptions);
+  return this.http.post(`${this.server}User/CreateUser`, user, this.httpOptions);
 }
   //Login
   sendUserLogin(user: User){
-    return this.http.post<User>(`${this.server}User/Login`, user, this.httpOptions);
+    return this.http.post(`${this.server}User/Login`, user, this.httpOptions);
   }
 
   //UserPermission
@@ -39,7 +39,7 @@ AddUser(user: User){
 
   //Register Customer 
   RegisterCustomer(customer: Customer) {
-    return this.http.post<Customer>(`${this.server}Customer/CreateCustomer`, customer, this.httpOptions);
+    return this.http.post(`${this.server}Customer/CreateCustomer`,customer, this.httpOptions);
   }
 
   //Get Customer

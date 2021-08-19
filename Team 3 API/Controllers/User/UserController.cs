@@ -19,7 +19,7 @@ using System.Web.Http.Cors;
 
 namespace OVS_Team_3_API.Controllers
 {
-    [EnableCors(origins:"http://localhost:44387", headers: "*", methods: "*")]
+   // [EnableCors(origins:"http://localhost:44387", headers: "*", methods: "*")]
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
@@ -32,10 +32,10 @@ namespace OVS_Team_3_API.Controllers
             db.Configuration.ProxyCreationEnabled = false;
             return db.Users.Select(zz => new UserVM
             {
-                User_ID = zz.User_ID,
-                User_Name = zz.User_Name,
-                User_Password = zz.User_Password,
-                User_Access_Permission_ID = zz.User_Access_Permission_ID
+                UserID = zz.User_ID,
+                UserName = zz.User_Name,
+                UserPassword = zz.User_Password,
+                UserAccessPermissionID = zz.User_Access_Permission_ID
 
             }).ToList();
         }
@@ -67,7 +67,7 @@ namespace OVS_Team_3_API.Controllers
             var response = new ResponseObject();
            
             
-            if (this.UserExists(user.User_Name))
+            if (this.UserExists(user.UserName))
             {
                 response.Success = false;
                 return response;
@@ -78,8 +78,8 @@ namespace OVS_Team_3_API.Controllers
 
             var Newuser = new User
             {
-                User_Name = user.User_Name,
-               User_Password = ComputeSha256Hash(user.User_Password),
+                User_Name = user.UserName,
+               User_Password = ComputeSha256Hash(user.UserPassword),
               //User_Password = user.User_Password
 
             };
@@ -114,8 +114,8 @@ namespace OVS_Team_3_API.Controllers
             var response = new ResponseObject();
 
 
-           string hashedPassword = this.ComputeSha256Hash(vm.User_Password);
-           var user = db.Users.Where(zz => zz.User_Name == vm.User_Name && zz.User_Password == hashedPassword).FirstOrDefault();
+           string hashedPassword = this.ComputeSha256Hash(vm.UserPassword);
+           var user = db.Users.Where(zz => zz.User_Name == vm.UserName && zz.User_Password == hashedPassword).FirstOrDefault();
 
            // var user = db.Users.Where(zz => zz.User_Name == vm.User_Name && zz.User_Password == zz.User_Password).FirstOrDefault();
             if (user == null)
@@ -141,7 +141,7 @@ namespace OVS_Team_3_API.Controllers
             var response = new ResponseObject();
 
             var toUpdate = db.Users.Where(zz => zz.User_ID
-            == user.User_ID).FirstOrDefault();
+            == user.UserID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -152,9 +152,9 @@ namespace OVS_Team_3_API.Controllers
 
             try
             {
-                toUpdate.User_Name = user.User_Name;
-                toUpdate.User_Password = user.User_Password;
-                toUpdate.User_Access_Permission_ID = user.User_Access_Permission_ID;
+                toUpdate.User_Name = user.UserName;
+                toUpdate.User_Password = user.UserPassword;
+                toUpdate.User_Access_Permission_ID = user.UserAccessPermissionID;
 
                 db.SaveChanges();
 

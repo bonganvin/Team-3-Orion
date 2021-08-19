@@ -21,9 +21,6 @@ namespace OVS_Team_3_API
             
         }
 
-        protected void Application_BeginRequest()
-        {
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
-        }
+
     }
 }

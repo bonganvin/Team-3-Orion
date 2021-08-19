@@ -20,10 +20,10 @@ export interface Customer {
 CustomerId: number;
 CustomerName: string;
 CustomerSurname : string;
-CustomerCellphone : number ;
+CustomerCellphoneNumber : number ;
 CustomerDateOfBirth : Date;
-CustomerEmail: string ;
-CustomerAddress : string ;
+CustomerEmailAddress: string ;
+CustomerPhysicalAddress : string ;
 }
 
 export interface UserAccess {
