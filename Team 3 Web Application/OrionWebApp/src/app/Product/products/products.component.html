@@ -55,37 +55,11 @@
 <div  class="heading">
   <section>
     <div class="example-button-row">
-      <button mat-button [matMenuTriggerFor]="menuu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">House Hold Care</button>
+      <button mat-button *ngFor="let item of CategoryData" [value] = "item.ProductCategoryID" >  {{item.ProductCategoryName}}</button>
 
-      <mat-menu #menuu="matMenu" [overlapTrigger]="false">
-        <span (mouseleave)="menuTrigger.closeMenu()">
-          <button mat-menu-item>
-          
-            <span>Detergents</span>
-          </button>
-          <button mat-menu-item>
-         
-            <span>Disinfects</span>
-          </button>
-          <button mat-menu-item>
-         
-            <span>Laundry products</span>
-          </button>
-                   <button mat-menu-item>
-         
-            <span>Bathroom Supplies</span>
-          </button>
-
-        </span>
-      </mat-menu>
+ 
             &nbsp;&nbsp;&nbsp;&nbsp;
-      <button mat-button>Personal Care</button>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <button mat-button>Automative Care</button>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <button mat-button>General Care</button>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <button mat-button>Offers</button>
+
  
     
     </div>

@@ -27,15 +27,15 @@ namespace OVS_Team_3_API.Controllers.Product
             db.Configuration.ProxyCreationEnabled = false;
             return db.Product_Category.Select(zz => new ProductCatagoryVM
             {
-                Product_Category_ID = zz.Product_Category_ID,
-                Product_Category_Name = zz.Product_Category_Name,
+                ProductCategoryID = zz.Product_Category_ID,
+                ProductCategoryName = zz.Product_Category_Name,
 
             }).ToList();
         }
 
         // Get ProductCatagory by ID
 
-        [System.Web.Http.Route("getProductCatagoryByID/{id:int}")]
+        [System.Web.Http.Route("getProductCategoryByID/{id:int}")]
         [System.Web.Mvc.HttpPost]
         [HttpPost]
         public object getProductCatagoryByID(int id)
@@ -51,7 +51,7 @@ namespace OVS_Team_3_API.Controllers.Product
         }
 
         //Add: ProductCatagory
-        [Route("CreateProductCatagory")]
+        [Route("CreateProductCategory")]
         [HttpPost]
         public ViewModels.ResponseObject CreateProductCatagory([FromBody] ProductCatagoryVM product)
         {
@@ -59,7 +59,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
             var Newpord = new Models.Product_Category
             {
-                Product_Category_Name = product.Product_Category_Name,
+                Product_Category_Name = product.ProductCategoryName,
             };
 
             try
@@ -81,7 +81,7 @@ namespace OVS_Team_3_API.Controllers.Product
 
         // Update ProductCatagory
 
-        [Route("UpdateProductCatagory")]
+        [Route("UpdateProductCategory")]
         [HttpPut]
         public ViewModels.ResponseObject UpdateProductCatagory([FromBody] ProductCatagoryVM product)
         {
@@ -89,7 +89,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Product_Category.Where(zz => zz.Product_Category_ID
-            == product.Product_Category_ID).FirstOrDefault();
+            == product.ProductCategoryID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -100,7 +100,7 @@ namespace OVS_Team_3_API.Controllers.Product
 
             try
             {
-                toUpdate.Product_Category_Name = product.Product_Category_Name;
+                toUpdate.Product_Category_Name = product.ProductCategoryName;
 
                 db.SaveChanges();
 

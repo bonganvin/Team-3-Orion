@@ -2,6 +2,10 @@ import { OpenDialogComponent } from './../../Dialog/open-dialog/open-dialog.comp
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicesService } from 'src/app/service/Services/services.service';
+import { InterfacesService , ProductCategory } from 'src/app/service/Interface/interfaces.service';
+import { Observable } from 'rxjs';
+
+
 
 
 @Component({
@@ -10,9 +14,10 @@ import { ServicesService } from 'src/app/service/Services/services.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  observeCategories: Observable<ProductCategory[]> = this.service.getCategories();
+  CategoryData!: ProductCategory[];
   
-
-  constructor(private route: Router , private service : ServicesService) { }
+  constructor(private route: Router , private service : ServicesService , private interfaces : InterfacesService) { }
 
   ngOnInit(): void {
   }

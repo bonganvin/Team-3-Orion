@@ -29,13 +29,31 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   RegisterEmployee() {
-    this.service.RegisterEmployee(this.form.value).subscribe(res => {
-      this.dialogRef.close();
-      this.snack.open('Successful registration', 'OK', {
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-        duration: 3000
-      });
+    this.service.RegisterEmployee(this.form.value).subscribe((res:any) => {
+      //this.dialogRef.close();
+
+      if (res.Success===false)
+      {
+        this.snack.open('Registration cancelled.', 'OK', {
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center',
+          duration: 3000
+        });
+        this.form.reset();
+        return;
+      }
+
+      else if (res.Success===true)
+      {
+        this.snack.open('Successful registration', 'OK', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 3000
+          
+          
+        });
+        this.router.navigateByUrl("AddUser")
+      }
     }, (error: HttpErrorResponse) => {
       if (error.status === 403) {
         this.snack.open('This user has already been registered.', 'OK', {
@@ -49,7 +67,7 @@ export class AddEmployeeComponent implements OnInit {
         verticalPosition: 'bottom',
         duration: 3000
       });
-      this.dialogRef.close();
+     // this.dialogRef.close();
     })
   }
 

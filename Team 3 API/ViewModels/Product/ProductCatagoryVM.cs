@@ -7,7 +7,7 @@ namespace OVS_Team_3_API.ViewModels.Product
 {
     public class ProductCatagoryVM
     {
-        public int Product_Category_ID { get; set; }
-        public string Product_Category_Name { get; set; }
+        public int ProductCategoryID { get; set; }
+        public string ProductCategoryName { get; set; }
     }
 }

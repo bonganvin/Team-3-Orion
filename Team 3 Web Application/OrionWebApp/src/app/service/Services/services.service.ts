@@ -92,7 +92,7 @@ AddUser(user: User){
 
   //Create EmployeesComponent
   RegisterEmployee(employee: Employee){
-    return this.http.post<Employee>(`${this.server}Employee/CreateEmployee`, employee, this.httpOptions);
+    return this.http.post(`${this.server}Employee/CreateEmployee`, employee, this.httpOptions);
   }
 
   //Update Employee

@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
 
       else if (res.Success===true)
       {
+        
         this.router.navigateByUrl('');
       }
      
