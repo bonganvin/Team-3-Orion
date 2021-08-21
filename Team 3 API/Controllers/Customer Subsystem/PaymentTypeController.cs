@@ -31,9 +31,9 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Payment_Type.Select(zz => new PaymentTypeVM
             {
-                Payment_Type_ID = zz.Payment_Type_ID,
-                Payment_Type_Description = zz.Payment_Type_Description,
-                Payment_Type_Name = zz.Payment_Type_Name
+                PaymentTypeID = zz.Payment_Type_ID,
+                PaymentTypeDescription = zz.Payment_Type_Description,
+                PaymentTypeName = zz.Payment_Type_Name
 
             }).ToList();
         }
@@ -65,9 +65,9 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewPayType = new Models.Payment_Type
             {
-                Payment_Type_ID = PayType.Payment_Type_ID,
-                Payment_Type_Description = PayType.Payment_Type_Description,
-                Payment_Type_Name = PayType.Payment_Type_Name
+                Payment_Type_ID = PayType.PaymentTypeID,
+                Payment_Type_Description = PayType.PaymentTypeDescription,
+                Payment_Type_Name = PayType.PaymentTypeName
             };
 
             try
@@ -96,7 +96,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Payment_Type.Where(zz => zz.Payment_Type_ID == PayType.Payment_Type_ID).FirstOrDefault();
+            var toUpdate = db.Payment_Type.Where(zz => zz.Payment_Type_ID == PayType.PaymentTypeID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -107,8 +107,8 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                toUpdate.Payment_Type_Name = PayType.Payment_Type_Name;
-                toUpdate.Payment_Type_Description = PayType.Payment_Type_Description;
+                toUpdate.Payment_Type_Name = PayType.PaymentTypeName;
+                toUpdate.Payment_Type_Description = PayType.PaymentTypeDescription;
 
                 db.SaveChanges();
 

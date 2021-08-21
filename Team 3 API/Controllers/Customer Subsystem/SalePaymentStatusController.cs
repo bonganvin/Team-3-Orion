@@ -31,8 +31,8 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Sale_Payment_Status.Select(zz => new SalePaymentStatusVM
             {
-                Sale_Payment_Status_ID = zz.Sale_Payment_Status_ID,
-                Sale_Payment_Status_Desc = zz.Sale_Payment_Status_Desc
+                SalePaymentStatusID = zz.Sale_Payment_Status_ID,
+                SalePaymentStatusDesc = zz.Sale_Payment_Status_Desc
 
             }).ToList();
         }
@@ -64,8 +64,8 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewSalePayStatus = new Models.Sale_Payment_Status
             {
-                Sale_Payment_Status_ID = salepaystatus.Sale_Payment_Status_ID,
-                Sale_Payment_Status_Desc = salepaystatus.Sale_Payment_Status_Desc
+                Sale_Payment_Status_ID = salepaystatus.SalePaymentStatusID,
+                Sale_Payment_Status_Desc = salepaystatus.SalePaymentStatusDesc
             };
 
             try
@@ -94,7 +94,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Sale_Payment_Status.Where(zz => zz.Sale_Payment_Status_ID == salepaystatus.Sale_Payment_Status_ID).FirstOrDefault();
+            var toUpdate = db.Sale_Payment_Status.Where(zz => zz.Sale_Payment_Status_ID == salepaystatus.SalePaymentStatusID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -105,7 +105,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                toUpdate.Sale_Payment_Status_Desc = salepaystatus.Sale_Payment_Status_Desc;
+                toUpdate.Sale_Payment_Status_Desc = salepaystatus.SalePaymentStatusDesc;
 
                 db.SaveChanges();
 

@@ -31,10 +31,10 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Sale_Line.Select(zz => new SaleLineVM
             {
-                Sale_Line_ID = zz.Sale_Line_ID,
+                SaleLineID = zz.Sale_Line_ID,
                 Quantity = zz.Quantity,
-                Product_ID = zz.Product_ID,
-                Sale_ID = zz.Sale_ID
+                ProductID = zz.Product_ID,
+                SaleID = zz.Sale_ID
 
 
             }).ToList();
@@ -67,10 +67,10 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewSaleline = new Models.Sale_Line
             {
-                Sale_Line_ID = saleline.Sale_Line_ID,
+                Sale_Line_ID = saleline.SaleLineID,
                 Quantity = saleline.Quantity,
-                Sale_ID = saleline.Sale_ID,
-                Product_ID = saleline.Product_ID
+                Sale_ID = saleline.SaleID,
+                Product_ID = saleline.ProductID
             };
 
             try
@@ -99,7 +99,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Sale_Line.Where(zz => zz.Sale_Line_ID == saleline.Sale_Line_ID).FirstOrDefault();
+            var toUpdate = db.Sale_Line.Where(zz => zz.Sale_Line_ID == saleline.SaleLineID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -111,8 +111,8 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             try
             {
                 toUpdate.Quantity = saleline.Quantity;
-                toUpdate.Sale_ID = saleline.Sale_ID;
-                toUpdate.Product_ID = saleline.Product_ID;
+                toUpdate.Sale_ID = saleline.SaleID;
+                toUpdate.Product_ID = saleline.ProductID;
 
                 db.SaveChanges();
 

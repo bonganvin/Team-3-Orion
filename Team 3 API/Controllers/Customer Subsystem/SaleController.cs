@@ -31,9 +31,9 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Sales.Select(zz => new SaleVM
             {
-                Sale_ID = zz.Sale_ID,
-                Sale_Date = zz.Sale_Date,
-                Request_Quote_ID = zz.Request_Quote_ID
+                SaleID = zz.Sale_ID,
+                SaleDate = zz.Sale_Date,
+                RequestQuoteID = zz.Request_Quote_ID
 
             }).ToList();
         }
@@ -65,9 +65,9 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewSale = new Models.Sale
             {
-                Sale_ID = sale.Sale_ID,
-                Sale_Date = sale.Sale_Date,
-                Request_Quote_ID = sale.Request_Quote_ID
+                Sale_ID = sale.SaleID,
+                Sale_Date = sale.SaleDate,
+                Request_Quote_ID = sale.RequestQuoteID
             };
 
             try
@@ -96,7 +96,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Sales.Where(zz => zz.Sale_ID == sale.Sale_ID).FirstOrDefault();
+            var toUpdate = db.Sales.Where(zz => zz.Sale_ID == sale.SaleID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -107,8 +107,8 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                toUpdate.Sale_Date = sale.Sale_Date;
-                toUpdate.Request_Quote_ID = sale.Request_Quote_ID;
+                toUpdate.Sale_Date = sale.SaleDate;
+                toUpdate.Request_Quote_ID = sale.RequestQuoteID;
 
                 db.SaveChanges();
 

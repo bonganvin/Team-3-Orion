@@ -31,10 +31,10 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Quote_Line.Select(zz => new QuoteLineVM
             {
-                Quote_Line_ID = zz.Quote_Line_ID,
+                QuoteLineID = zz.Quote_Line_ID,
                 Quantity = zz.Quantity,
-                Product_ID = zz.Product_ID,
-                Request_Quote_ID = zz.Product_ID
+                ProductID = zz.Product_ID,
+                RequestQuoteID = zz.Product_ID
 
 
             }).ToList();
@@ -67,10 +67,10 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var Newquoteline = new Models.Quote_Line
             {
-                Quote_Line_ID = quoteline.Quote_Line_ID,
+                Quote_Line_ID = quoteline.QuoteLineID,
                 Quantity = quoteline.Quantity,
-                Product_ID = quoteline.Product_ID,
-                Request_Quote_ID = quoteline.Request_Quote_ID
+                Product_ID = quoteline.ProductID,
+                Request_Quote_ID = quoteline.RequestQuoteID
             };
 
             try
@@ -99,7 +99,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Quote_Line.Where(zz => zz.Quote_Line_ID == quoteline.Quote_Line_ID).FirstOrDefault();
+            var toUpdate = db.Quote_Line.Where(zz => zz.Quote_Line_ID == quoteline.QuoteLineID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -111,8 +111,8 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             try
             {
                 toUpdate.Quantity = quoteline.Quantity;
-                toUpdate.Product_ID = quoteline.Product_ID;
-                toUpdate.Request_Quote_ID = quoteline.Request_Quote_ID;
+                toUpdate.Product_ID = quoteline.ProductID;
+                toUpdate.Request_Quote_ID = quoteline.RequestQuoteID;
 
                 db.SaveChanges();
 
