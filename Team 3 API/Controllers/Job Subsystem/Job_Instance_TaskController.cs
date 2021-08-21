@@ -30,11 +30,11 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Job_Instance_Task.Select(zz => new Job_Instance_TaskVM
             {
-                Job_Instance_Task_ID = zz.Job_Instance_Task_ID,
-                Job_task_ID = zz.Job_task_ID,
-                Job_Instance_ID = zz.Job_Instance_ID,
-                Start_Date = zz.Start_Date,
-                End_Date = zz.End_Date
+                JobInstanceTaskID = zz.Job_Instance_Task_ID,
+                JobTaskID = zz.Job_task_ID,
+                JobInstanceID = zz.Job_Instance_ID,
+                StartDate = zz.Start_Date,
+                EndDate = zz.End_Date
 
             }).ToList();
         }
@@ -68,11 +68,11 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newjonbinsttask = new Job_Instance_Task
             {
-                Job_Instance_Task_ID = jonbinsttask.Job_Instance_Task_ID,
-                Job_task_ID = jonbinsttask.Job_task_ID,
-                Job_Instance_ID = jonbinsttask.Job_Instance_ID,
-                Start_Date = jonbinsttask.Start_Date,
-                End_Date = jonbinsttask.End_Date
+                Job_Instance_Task_ID = jonbinsttask.JobInstanceTaskID,
+                Job_task_ID = jonbinsttask.JobTaskID,
+                Job_Instance_ID = jonbinsttask.JobInstanceID,
+                Start_Date = jonbinsttask.StartDate,
+                End_Date = jonbinsttask.EndDate
             };
 
             try
@@ -103,7 +103,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Job_Instance_Task.Where(zz => zz.Job_Instance_Task_ID
-            == jonbinsttask.Job_Instance_Task_ID).FirstOrDefault();
+            == jonbinsttask.JobInstanceTaskID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -114,11 +114,8 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Job_Instance_Task_ID = jonbinsttask.Job_Instance_Task_ID;
-                toUpdate.Job_task_ID = jonbinsttask.Job_task_ID;
-                toUpdate.Job_Instance_ID = jonbinsttask.Job_Instance_ID;
-                toUpdate.Start_Date = jonbinsttask.Start_Date;
-                toUpdate.End_Date = jonbinsttask.End_Date;
+                toUpdate.Start_Date = jonbinsttask.StartDate;
+                toUpdate.End_Date = jonbinsttask.EndDate;
 
                 db.SaveChanges();
 

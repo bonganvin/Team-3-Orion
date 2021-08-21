@@ -30,8 +30,8 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Job_Task_Type.Select(zz => new Job_Task_TypeVM
             {
-                Job_Task_Type_ID = zz.Job_Task_Type_ID,
-                Job_Task_Type_Description = zz.Job_Task_Type_Description
+                JobTaskTypeID = zz.Job_Task_Type_ID,
+                JobTaskTypeDescription = zz.Job_Task_Type_Description
 
             }).ToList();
         }
@@ -66,8 +66,8 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newjobtasktype = new Job_Task_Type
             {
-                Job_Task_Type_ID = jobtasktype.Job_Task_Type_ID,
-                Job_Task_Type_Description = jobtasktype.Job_Task_Type_Description
+                Job_Task_Type_ID = jobtasktype.JobTaskTypeID,
+                Job_Task_Type_Description = jobtasktype.JobTaskTypeDescription
             };
 
             try
@@ -99,7 +99,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Job_Task_Type.Where(zz => zz.Job_Task_Type_ID
-            == jobtasktype.Job_Task_Type_ID).FirstOrDefault();
+            == jobtasktype.JobTaskTypeID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -110,8 +110,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Job_Task_Type_ID = jobtasktype.Job_Task_Type_ID;
-                toUpdate.Job_Task_Type_Description = jobtasktype.Job_Task_Type_Description;
+                toUpdate.Job_Task_Type_Description = jobtasktype.JobTaskTypeDescription;
 
                 db.SaveChanges();
 

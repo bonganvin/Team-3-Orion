@@ -29,11 +29,11 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Job_Instance.Select(zz => new Job_InstanceVM
             {
-                Job_Instance_ID = zz.Job_Instance_ID,
-                Job_task_ID = zz.Job_task_ID,
-                Shift_Branch_Employee_ID = zz.Shift_Branch_Employee_ID,
-                Start_Date = zz.Start_Date,
-                End_Date = zz.End_Date
+                JobInstanceID = zz.Job_Instance_ID,
+                JobtaskID = zz.Job_task_ID,
+                ShiftBranchEmployeeID = zz.Shift_Branch_Employee_ID,
+                StartDate = zz.Start_Date,
+                EndDate = zz.End_Date
 
             }).ToList();
         }
@@ -66,10 +66,11 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newjonbinst = new Job_Instance
             {
-                Job_task_ID = jonbinst.Job_task_ID,
-                Shift_Branch_Employee_ID = jonbinst.Shift_Branch_Employee_ID,
-                Start_Date = jonbinst.Start_Date,
-                End_Date = jonbinst.End_Date
+                Job_Instance_ID = jonbinst.JobInstanceID,
+                Job_task_ID = jonbinst.JobtaskID,
+                Shift_Branch_Employee_ID = jonbinst.ShiftBranchEmployeeID,
+                Start_Date = jonbinst.StartDate,
+                End_Date = jonbinst.EndDate
             };
 
             try
@@ -99,7 +100,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Job_Instance.Where(zz => zz.Job_Instance_ID
-            == jobinst.Job_Instance_ID).FirstOrDefault();
+            == jobinst.JobInstanceID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -110,10 +111,9 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Job_task_ID = jobinst.Job_task_ID;
-                toUpdate.Shift_Branch_Employee_ID = jobinst.Shift_Branch_Employee_ID;
-                toUpdate.Start_Date = jobinst.Start_Date;
-                toUpdate.End_Date = jobinst.End_Date;
+
+                toUpdate.Start_Date = jobinst.StartDate;
+                toUpdate.End_Date = jobinst.EndDate;
 
                 db.SaveChanges();
 

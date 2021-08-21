@@ -29,8 +29,8 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Job_Status.Select(zz => new Job_StatusVM
             {
-                Job_Status_ID = zz.Job_Status_ID,
-                Job_Status_Description = zz.Job_Status_Description
+                JobStatusID = zz.Job_Status_ID,
+                JobStatusDescription = zz.Job_Status_Description
 
             }).ToList();
         }
@@ -63,8 +63,8 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newjobstat = new Job_Status
             {
-                Job_Status_ID = jobstat.Job_Status_ID,
-                Job_Status_Description = jobstat.Job_Status_Description
+                Job_Status_ID = jobstat.JobStatusID,
+                Job_Status_Description = jobstat.JobStatusDescription
             };
 
             try
@@ -95,7 +95,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Job_Status.Where(zz => zz.Job_Status_ID
-            == jobstat.Job_Status_ID).FirstOrDefault();
+            == jobstat.JobStatusID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -106,8 +106,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Job_Status_ID = jobstat.Job_Status_ID;
-                toUpdate.Job_Status_Description = jobstat.Job_Status_Description;
+                toUpdate.Job_Status_Description = jobstat.JobStatusDescription;
 
                 db.SaveChanges();
 
