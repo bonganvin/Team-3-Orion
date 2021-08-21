@@ -1,21 +1,21 @@
 <p>
-  <mat-toolbar class = "flex">
+  <mat-toolbar class="flex">
     <button
       mat-icon-button
       class="example-icon"
-      
-    [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
     >
       <mat-icon>menu</mat-icon>
     </button>
     <span>Product</span>
     <span class="example-spacer"></span>
-    <button (click)="openLogin()"
+    <button
+      (click)="openLogin()"
       mat-icon-button
       class="example-icon"
       aria-label="Example icon-button with share icon"
     >
-
       <mat-icon>account_circle</mat-icon>
     </button>
     <button
@@ -35,33 +35,47 @@
   </mat-toolbar>
 </p>
 
-
 <mat-menu #menu="matMenu">
   <button mat-menu-item>
     <mat-icon> person_pin</mat-icon>
     <span>Personal details</span>
   </button>
-  <button mat-menu-item >
- <mat-icon>settings</mat-icon>
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
     <span>Settings</span>
   </button>
-  <button routerLink="/" mat-menu-item >
+  <button routerLink="/" mat-menu-item>
     <mat-icon>lock</mat-icon>
     <span>Logout</span>
   </button>
 </mat-menu>
 
-
-<div  class="heading">
+<div class="heading">
   <section>
     <div class="example-button-row">
-      <button mat-button *ngFor="let item of CategoryData" [value] = "item.ProductCategoryID" >  {{item.ProductCategoryName}}</button>
+      
+      <button
+        mat-button [matMenuTriggerFor]="menuu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()"
+        *ngFor="let item of CategoryData"
+        [value]="item.ProductCategoryID"
+      >
+        {{ item.ProductCategoryName }}
+      </button>
+      <mat-menu #menuu="matMenu" [overlapTrigger]="false"  >
+      
+          <button mat-menu-item 
+     
+          *ngFor = "let type of TypeData"
+          [value] = "type.ProductTypeID"
 
- 
-            &nbsp;&nbsp;&nbsp;&nbsp;
+         
+          >
+           <span>{{type.ProductTypeName}}</span>
+          </button>
+   
+      </mat-menu>
 
- 
-    
+      &nbsp;&nbsp;&nbsp;&nbsp;
     </div>
   </section>
 </div>

@@ -27,9 +27,9 @@ namespace OVS_Team_3_API.Controllers.Product
             db.Configuration.ProxyCreationEnabled = false;
             return db.Product_Type.Select(zz => new ProductTypeVM
             {
-                Product_Type_ID = zz.Product_Type_ID,
-                Product_Type_Name = zz.Product_Type_Name,
-                Product_Category_ID = zz.Product_Category_ID,
+                ProductTypeID = zz.Product_Type_ID,
+                ProductTypeName = zz.Product_Type_Name,
+                ProductCategoryID = zz.Product_Category_ID,
 
             }).ToList();
         }
@@ -60,9 +60,9 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
             var Newpord = new Models.Product_Type
             {
-                Product_Type_ID = product.Product_Type_ID,
-                Product_Type_Name = product.Product_Type_Name,
-                Product_Category_ID = product.Product_Category_ID,
+                Product_Type_ID = product.ProductTypeID,
+                Product_Type_Name = product.ProductTypeName,
+                Product_Category_ID = product.ProductCategoryID,
             };
 
             try
@@ -92,7 +92,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Product_Type.Where(zz => zz.Product_Type_ID
-            == product.Product_Type_ID).FirstOrDefault();
+            == product.ProductTypeID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -103,8 +103,8 @@ namespace OVS_Team_3_API.Controllers.Product
 
             try
             {
-                toUpdate.Product_Type_Name = product.Product_Type_Name;
-                toUpdate.Product_Category_ID = product.Product_Category_ID;
+                toUpdate.Product_Type_Name = product.ProductTypeName;
+                toUpdate.Product_Category_ID = product.ProductCategoryID;
 
                 db.SaveChanges();
 
