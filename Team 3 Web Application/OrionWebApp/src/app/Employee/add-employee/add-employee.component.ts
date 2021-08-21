@@ -30,7 +30,7 @@ export class AddEmployeeComponent implements OnInit {
 
   RegisterEmployee() {
     this.service.RegisterEmployee(this.form.value).subscribe((res:any) => {
-      //this.dialogRef.close();
+      this.dialogRef.close();
 
       if (res.Success===false)
       {
@@ -67,7 +67,7 @@ export class AddEmployeeComponent implements OnInit {
         verticalPosition: 'bottom',
         duration: 3000
       });
-     // this.dialogRef.close();
+     this.dialogRef.close();
     })
   }
 

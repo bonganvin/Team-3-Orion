@@ -42,7 +42,7 @@ ProductCategoryName: string;
 export interface ProductType {
   ProductTypeID: number;
   ProductTypeName: string;
-  CategoryID: number;
+  ProductCategoryID: number;
 }
 
 export interface Employee{
@@ -59,4 +59,18 @@ export interface Employee{
 export interface EmployeeType{
   EmployeeTypeID: number;
   EmployeeDescription: number;
+}
+
+
+export interface VAT {
+  VATID : number;
+  VATDate : Date ;
+  VATPercentage: number;
+}
+
+export interface Branches{
+  BranchID: number;
+  BranchName: string;
+  BranchLocationStorageCapacity: number;
+  BranchAddress: string;
 }
