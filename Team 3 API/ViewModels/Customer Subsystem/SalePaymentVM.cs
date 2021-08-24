@@ -1,20 +1,19 @@
-﻿using System;
+﻿using OVS_Team_3_API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace OVS_Team_3_API.ViewModels.Customer_Subsystem
 {
-    public class SalePaymentVM : Controller
+    public class SalePaymentVM
     {
-        // GET: SalePaymentVM
-        public int Sale_Payment_ID { get; set; }
-        public double Sale_Payment_Amount { get; set; }
-        public System.DateTime Sale_Payment_Date { get; set; }
-        public Nullable<int> Sale_Payment_Status_ID { get; set; }
-        public Nullable<int> Sale_ID { get; set; }
-        public Nullable<int> Payment_Type_ID { get; set; }
-        public Nullable<int> Register_ID { get; set; }
+        public int SalePaymentID { get; set; }
+        public double SalePaymentAmount { get; set; }
+        public System.DateTime SalePaymentDate { get; set; }
+        public Nullable<int> SalePaymentStatusID { get; set; }
+        public Nullable<int> SaleID { get; set; }
+        public Nullable<int> PaymentTypeID { get; set; }
+        public Nullable<int> RegisterID { get; set; }
     }
 }

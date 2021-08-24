@@ -31,9 +31,9 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Request_Quote.Select(zz => new RequestQuoteVM
             {
-                Request_Quote_ID = zz.Request_Quote_ID,
+                RequestQuoteID = zz.Request_Quote_ID,
                 Date = zz.Date,
-                Quote_Status_ID = zz.Quote_Status_ID
+                QuoteStatusID = zz.Quote_Status_ID
 
             }).ToList();
         }
@@ -65,9 +65,9 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewQuote = new Models.Request_Quote
             {
-                Request_Quote_ID = quote.Request_Quote_ID,
+                Request_Quote_ID = quote.RequestQuoteID,
                 Date = quote.Date,
-                Quote_Status_ID = quote.Quote_Status_ID
+                Quote_Status_ID = quote.QuoteStatusID
             };
 
             try
@@ -97,7 +97,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Request_Quote.Where(zz => zz.Request_Quote_ID
-            == quote.Request_Quote_ID).FirstOrDefault();
+            == quote.RequestQuoteID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -109,7 +109,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             try
             {
                 toUpdate.Date = quote.Date;
-                toUpdate.Quote_Status_ID = quote.Quote_Status_ID;
+                toUpdate.Quote_Status_ID = quote.QuoteStatusID;
 
                 db.SaveChanges();
 

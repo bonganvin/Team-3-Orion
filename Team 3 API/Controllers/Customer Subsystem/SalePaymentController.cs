@@ -31,13 +31,13 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Sale_Payment.Select(zz => new SalePaymentVM
             {
-                Sale_Payment_ID = zz.Sale_Payment_ID,
-                Sale_Payment_Amount = zz.Sale_Payment_Amount,
-                Sale_Payment_Date = zz.Sale_Payment_Date,
-                Sale_ID = zz.Sale_ID,
-                Sale_Payment_Status_ID = zz.Sale_Payment_Status_ID,
-                Payment_Type_ID = zz.Payment_Type_ID,
-                Register_ID = zz.Register_ID
+                SalePaymentID = zz.Sale_Payment_ID,
+                SalePaymentAmount = zz.Sale_Payment_Amount,
+                SalePaymentDate = zz.Sale_Payment_Date,
+                SaleID = zz.Sale_ID,
+                SalePaymentStatusID = zz.Sale_Payment_Status_ID,
+                PaymentTypeID = zz.Payment_Type_ID,
+                RegisterID = zz.Register_ID
 
             }).ToList();
         }
@@ -69,12 +69,12 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewSalepay = new Models.Sale_Payment
             {
-                Sale_Payment_ID = salepay.Sale_Payment_ID,
-                Sale_Payment_Amount = salepay.Sale_Payment_Amount,
-                Sale_Payment_Date = salepay.Sale_Payment_Date,
-                Sale_ID = salepay.Sale_ID,
-                Sale_Payment_Status_ID = salepay.Sale_Payment_Status_ID,
-                Payment_Type_ID = salepay.Payment_Type_ID
+                Sale_Payment_ID = salepay.SalePaymentID,
+                Sale_Payment_Amount = salepay.SalePaymentAmount,
+                Sale_Payment_Date = salepay.SalePaymentDate,
+                Sale_ID = salepay.SaleID,
+                Sale_Payment_Status_ID = salepay.SalePaymentStatusID,
+                Payment_Type_ID = salepay.PaymentTypeID
 
             };
 
@@ -104,7 +104,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Sale_Payment.Where(zz => zz.Sale_Payment_ID == salepay.Sale_Payment_ID).FirstOrDefault();
+            var toUpdate = db.Sale_Payment.Where(zz => zz.Sale_Payment_ID == salepay.SalePaymentID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -115,12 +115,12 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                toUpdate.Sale_Payment_Amount = salepay.Sale_Payment_Amount;
-                toUpdate.Sale_Payment_Date = salepay.Sale_Payment_Date;
-                toUpdate.Sale_ID = salepay.Sale_ID;
-                toUpdate.Sale_Payment_Status_ID = salepay.Sale_Payment_Status_ID;
-                toUpdate.Payment_Type_ID = salepay.Sale_Payment_Status_ID;
-                toUpdate.Register_ID = salepay.Register_ID;
+                toUpdate.Sale_Payment_Amount = salepay.SalePaymentAmount;
+                toUpdate.Sale_Payment_Date = salepay.SalePaymentDate;
+                toUpdate.Sale_ID = salepay.SaleID;
+                toUpdate.Sale_Payment_Status_ID = salepay.SalePaymentStatusID;
+                toUpdate.Payment_Type_ID = salepay.SalePaymentStatusID;
+                toUpdate.Register_ID = salepay.RegisterID;
 
                 db.SaveChanges();
 

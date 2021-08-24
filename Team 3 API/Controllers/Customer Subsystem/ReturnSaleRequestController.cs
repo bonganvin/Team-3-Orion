@@ -31,9 +31,9 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Return_Sale_Request.Select(zz => new ReturnSaleRequestVM
             {
-                Return_Sale_Request_ID = zz.Return_Sale_Request_ID,
-                Return_Request_Date = zz.Return_Request_Date,
-                Customer_ID = zz.Customer_ID
+                ReturnSaleRequestID = zz.Return_Sale_Request_ID,
+                ReturnRequestDate = zz.Return_Request_Date,
+                CustomerID = zz.Customer_ID
 
 
             }).ToList();
@@ -66,9 +66,9 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewReturnSaleReq = new Models.Return_Sale_Request
             {
-                Return_Sale_Request_ID = ReturnSaleReq.Return_Sale_Request_ID,
-                Return_Request_Date = ReturnSaleReq.Return_Request_Date,
-                Customer_ID = ReturnSaleReq.Customer_ID
+                Return_Sale_Request_ID = ReturnSaleReq.ReturnSaleRequestID,
+                Return_Request_Date = ReturnSaleReq.ReturnRequestDate,
+                Customer_ID = ReturnSaleReq.CustomerID
             };
 
             try
@@ -97,7 +97,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Return_Sale_Request.Where(zz => zz.Return_Sale_Request_ID == ReturnSaleReq.Return_Sale_Request_ID).FirstOrDefault();
+            var toUpdate = db.Return_Sale_Request.Where(zz => zz.Return_Sale_Request_ID == ReturnSaleReq.ReturnSaleRequestID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -108,9 +108,9 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                toUpdate.Return_Sale_Request_ID = ReturnSaleReq.Return_Sale_Request_ID;
-                toUpdate.Return_Request_Date = ReturnSaleReq.Return_Request_Date;
-                toUpdate.Customer_ID = ReturnSaleReq.Customer_ID;
+                toUpdate.Return_Sale_Request_ID = ReturnSaleReq.ReturnSaleRequestID;
+                toUpdate.Return_Request_Date = ReturnSaleReq.ReturnRequestDate;
+                toUpdate.Customer_ID = ReturnSaleReq.CustomerID;
 
                 db.SaveChanges();
 

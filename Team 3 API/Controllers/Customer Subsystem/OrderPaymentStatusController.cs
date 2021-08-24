@@ -31,8 +31,8 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Order_Payment_Status.Select(zz => new OrderPaymentStatusVM
             {
-                Order_Payment_Status_ID = zz.Order_Payment_Status_ID,
-                Order_Payment_Status_Description = zz.Order_Payment_Status_Description
+                OrderPaymentStatusID = zz.Order_Payment_Status_ID,
+                OrderPaymentStatusDescription = zz.Order_Payment_Status_Description
 
             }).ToList();
         }
@@ -64,8 +64,8 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewOrderPayType = new Models.Order_Payment_Status
             {
-                Order_Payment_Status_ID = OrderPayType.Order_Payment_Status_ID,
-                Order_Payment_Status_Description = OrderPayType.Order_Payment_Status_Description
+                Order_Payment_Status_ID = OrderPayType.OrderPaymentStatusID,
+                Order_Payment_Status_Description = OrderPayType.OrderPaymentStatusDescription
             };
 
             try
@@ -94,7 +94,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Order_Payment_Status.Where(zz => zz.Order_Payment_Status_ID == PayType.Order_Payment_Status_ID).FirstOrDefault();
+            var toUpdate = db.Order_Payment_Status.Where(zz => zz.Order_Payment_Status_ID == PayType.OrderPaymentStatusID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -105,7 +105,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                toUpdate.Order_Payment_Status_Description = PayType.Order_Payment_Status_Description;
+                toUpdate.Order_Payment_Status_Description = PayType.OrderPaymentStatusDescription;
 
                 db.SaveChanges();
 

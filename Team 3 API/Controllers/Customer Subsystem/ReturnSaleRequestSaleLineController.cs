@@ -31,11 +31,11 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Return_Sale_Request_Sale_Line.Select(zz => new ReturnSaleRequestSaleLineVM
             {
-                Return_Sale_Request_Sale_Line_ID = zz.Return_Sale_Request_Sale_Line_ID,
-                Return_Sale_Reason = zz.Return_Sale_Reason,
+                ReturnSaleRequestSaleLineID = zz.Return_Sale_Request_Sale_Line_ID,
+                ReturnSaleReason = zz.Return_Sale_Reason,
                 Quantity = zz.Quantity,
-                Sale_Line_ID = zz.Sale_Line_ID,
-                Return_Sale_Request_ID = zz.Return_Sale_Request_ID
+                SaleLineID = zz.Sale_Line_ID,
+                ReturnSaleRequestID = zz.Return_Sale_Request_ID
 
 
             }).ToList();
@@ -68,11 +68,11 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewReturnSaleReq = new Models.Return_Sale_Request_Sale_Line
             {
-                Return_Sale_Request_Sale_Line_ID = ReturnSaleReq.Return_Sale_Request_Sale_Line_ID,
-                Return_Sale_Reason = ReturnSaleReq.Return_Sale_Reason,
+                Return_Sale_Request_Sale_Line_ID = ReturnSaleReq.ReturnSaleRequestSaleLineID,
+                Return_Sale_Reason = ReturnSaleReq.ReturnSaleReason,
                 Quantity = ReturnSaleReq.Quantity,
-                Sale_Line_ID = ReturnSaleReq.Sale_Line_ID,
-                Return_Sale_Request_ID = ReturnSaleReq.Return_Sale_Request_ID
+                Sale_Line_ID = ReturnSaleReq.SaleLineID,
+                Return_Sale_Request_ID = ReturnSaleReq.ReturnSaleRequestID
             };
 
             try
@@ -101,7 +101,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Return_Sale_Request_Sale_Line.Where(zz => zz.Return_Sale_Request_Sale_Line_ID == ReturnSaleReq.Return_Sale_Request_Sale_Line_ID).FirstOrDefault();
+            var toUpdate = db.Return_Sale_Request_Sale_Line.Where(zz => zz.Return_Sale_Request_Sale_Line_ID == ReturnSaleReq.ReturnSaleRequestSaleLineID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -112,10 +112,10 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                toUpdate.Return_Sale_Reason = ReturnSaleReq.Return_Sale_Reason;
+                toUpdate.Return_Sale_Reason = ReturnSaleReq.ReturnSaleReason;
                 toUpdate.Quantity = ReturnSaleReq.Quantity;
-                toUpdate.Sale_Line_ID = ReturnSaleReq.Sale_Line_ID;
-                toUpdate.Return_Sale_Request_ID = ReturnSaleReq.Return_Sale_Request_ID;
+                toUpdate.Sale_Line_ID = ReturnSaleReq.SaleLineID;
+                toUpdate.Return_Sale_Request_ID = ReturnSaleReq.ReturnSaleRequestID;
 
                 db.SaveChanges();
 

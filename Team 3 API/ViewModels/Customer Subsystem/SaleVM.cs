@@ -1,15 +1,15 @@
-﻿using System;
+﻿using OVS_Team_3_API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace OVS_Team_3_API.ViewModels.Customer_Subsystem
 {
-    public class SaleVM : Controller
+    public class SaleVM
     {
-        public int Sale_ID { get; set; }
-        public System.DateTime Sale_Date { get; set; }
-        public Nullable<int> Request_Quote_ID { get; set; }
+        public int SaleID { get; set; }
+        public System.DateTime SaleDate { get; set; }
+        public Nullable<int> RequestQuoteID { get; set; }
     }
 }
