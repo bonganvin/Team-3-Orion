@@ -7,10 +7,10 @@ namespace OVS_Team_3_API.ViewModels.Job_Subsystem
 {
     public class RecipeVM
     {
-        public int Recipe_ID { get; set; }
-        public string Recipe_Description { get; set; }
-        public int Quantity_produced { get; set; }
-        public string Recipe_Name { get; set; }
+        public int RecipeID { get; set; }
+        public string RecipeDescription { get; set; }
+        public int QuantityProduced { get; set; }
+        public string RecipeName { get; set; }
 
     }
 }

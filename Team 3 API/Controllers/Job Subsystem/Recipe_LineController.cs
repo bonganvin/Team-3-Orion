@@ -29,11 +29,11 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Reciple_Line.Select(zz => new Recipe_LineVM
             {
-                Reciple_Line_ID = zz.Reciple_Line_ID,
+                RecipleLineID = zz.Reciple_Line_ID,
                 Quantity = zz.Quantity,
-                Recipe_ID = zz.Recipe_ID,
-                Raw_Material_ID = zz.Raw_Material_ID,
-                Recipe_Line_unit_ID = zz.Recipe_Line_unit_ID
+                RecipeID = zz.Recipe_ID,
+                RawMaterialID = zz.Raw_Material_ID,
+                RecipeLineUnitID = zz.Recipe_Line_unit_ID
 
             }).ToList();
         }
@@ -69,11 +69,11 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newrecipeline = new Reciple_Line
             {
-                Reciple_Line_ID = recipeline.Reciple_Line_ID,
+                Reciple_Line_ID = recipeline.RecipleLineID,
                 Quantity = recipeline.Quantity,
-                Recipe_ID = recipeline.Recipe_ID,
-                Raw_Material_ID = recipeline.Raw_Material_ID,
-                Recipe_Line_unit_ID = recipeline.Recipe_Line_unit_ID
+                Recipe_ID = recipeline.RecipeID,
+                Raw_Material_ID = recipeline.RawMaterialID,
+                Recipe_Line_unit_ID = recipeline.RecipeLineUnitID
             };
 
             try
@@ -105,7 +105,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Reciple_Line.Where(zz => zz.Reciple_Line_ID
-            == recipeline.Reciple_Line_ID).FirstOrDefault();
+            == recipeline.RecipleLineID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -116,11 +116,10 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Reciple_Line_ID = recipeline.Reciple_Line_ID;
                 toUpdate.Quantity = recipeline.Quantity;
-                toUpdate.Recipe_ID = recipeline.Recipe_ID;
-                toUpdate.Raw_Material_ID = recipeline.Raw_Material_ID;
-                toUpdate.Recipe_Line_unit_ID = recipeline.Reciple_Line_ID;
+                toUpdate.Recipe_ID = recipeline.RecipeID;
+                toUpdate.Raw_Material_ID = recipeline.RawMaterialID;
+                toUpdate.Recipe_Line_unit_ID = recipeline.RecipeLineUnitID;
 
                 db.SaveChanges();
 

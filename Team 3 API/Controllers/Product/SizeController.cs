@@ -28,8 +28,8 @@ namespace OVS_Team_3_API.Controllers.Product
             db.Configuration.ProxyCreationEnabled = false;
             return db.Sizes.Select(zz => new SizeVM
             {
-                Size_ID = zz.Size_ID,
-                Size_Description = zz.Size_Description
+                SizeID = zz.Size_ID,
+                SizeDescription = zz.Size_Description
 
             }).ToList();
         }
@@ -60,7 +60,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
             var NewSize = new Models.Size
             {
-                Size_Description = size.Size_Description,
+                Size_Description = size.SizeDescription,
 
             };
 
@@ -91,7 +91,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Sizes.Where(zz => zz.Size_ID
-            == size.Size_ID).FirstOrDefault();
+            == size.SizeID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -102,7 +102,7 @@ namespace OVS_Team_3_API.Controllers.Product
 
             try
             {
-                toUpdate.Size_Description = size.Size_Description;
+                toUpdate.Size_Description = size.SizeDescription;
 
                 db.SaveChanges();
 

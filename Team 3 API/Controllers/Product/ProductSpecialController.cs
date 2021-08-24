@@ -28,10 +28,10 @@ namespace OVS_Team_3_API.Controllers.Product
             db.Configuration.ProxyCreationEnabled = false;
             return db.Product_Special.Select(zz => new ProductSpecialVM
             {
-                Product_Special_ID = zz.Product_Special_ID,
-                Special_ID = zz.Special_ID,
-                Product_Size_ID = zz.Product_Size_ID,
-                Price_Amount = zz.Price_Amount
+                ProductSpecialID = zz.Product_Special_ID,
+                SpecialID = zz.Special_ID,
+                ProductSizeID = zz.Product_Size_ID,
+                PriceAmount = zz.Price_Amount
 
             }).ToList();
         }
@@ -62,9 +62,9 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
             var Newpord = new Models.Product_Special
             {
-                Product_Size_ID = product.Product_Size_ID,
-                Special_ID = product.Special_ID,
-                Price_Amount = product.Price_Amount,
+                Product_Size_ID = product.ProductSizeID,
+                Special_ID = product.SpecialID,
+                Price_Amount = product.PriceAmount,
             };
 
             try
@@ -94,7 +94,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Product_Special.Where(zz => zz.Product_Special_ID
-            == product.Product_Special_ID).FirstOrDefault();
+            == product.ProductSpecialID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -105,9 +105,9 @@ namespace OVS_Team_3_API.Controllers.Product
 
             try
             {
-                toUpdate.Special_ID = product.Special_ID;
-                toUpdate.Product_Size_ID = product.Product_Size_ID;
-                toUpdate.Price_Amount = product.Price_Amount;
+                toUpdate.Special_ID = product.SpecialID;
+                toUpdate.Product_Size_ID = product.ProductSizeID;
+                toUpdate.Price_Amount = product.PriceAmount;
 
                 db.SaveChanges();
 

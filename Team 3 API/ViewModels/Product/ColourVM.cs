@@ -7,10 +7,9 @@ namespace OVS_Team_3_API.ViewModels.Product
 {
     public class ColourVM
     {
-        public int Colour_ID { get; set; }
-        public string Colour_Description { get; set; }
-        public Nullable<int> Product_Size_ID { get; set; }
+        public int ColourID { get; set; }
+        public string ColourDescription { get; set; }
+        public Nullable<int> ProductSizeID { get; set; }
 
-        public virtual ProductSizeVM Product_Size { get; set; }
     }
 }

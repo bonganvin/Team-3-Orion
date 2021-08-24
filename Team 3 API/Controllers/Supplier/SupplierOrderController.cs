@@ -28,9 +28,9 @@ namespace OVS_Team_3_API.Controllers.Supplier
             db.Configuration.ProxyCreationEnabled = false;
             return db.Supplier_Order.Select(zz => new SupplierOrderVM
             {
-                Supplier_ID = zz.Supplier_ID,
-                Supplier_Order_ID = zz.Supplier_Order_ID,
-                Supplier_Order_Description = zz.Supplier_Order_Description,
+                SupplierID = zz.Supplier_ID,
+                SupplierOrderID = zz.Supplier_Order_ID,
+                SupplierOrderDescription = zz.Supplier_Order_Description,
 
             }).ToList();
         }
@@ -62,8 +62,8 @@ namespace OVS_Team_3_API.Controllers.Supplier
             var response = new ViewModels.ResponseObject();
             var NewSup = new Models.Supplier_Order
             {
-                Supplier_ID = supplier.Supplier_ID,
-                Supplier_Order_Description = supplier.Supplier_Order_Description,
+                Supplier_ID = supplier.SupplierID,
+                Supplier_Order_Description = supplier.SupplierOrderDescription,
             };
 
             try
@@ -93,7 +93,7 @@ namespace OVS_Team_3_API.Controllers.Supplier
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Supplier_Order.Where(zz => zz.Supplier_Order_ID
-            == supplier.Supplier_Order_ID).FirstOrDefault();
+            == supplier.SupplierOrderID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -104,8 +104,8 @@ namespace OVS_Team_3_API.Controllers.Supplier
 
             try
             {
-                toUpdate.Supplier_ID = supplier.Supplier_ID;
-                toUpdate.Supplier_Order_Description = supplier.Supplier_Order_Description;
+                toUpdate.Supplier_ID = supplier.SupplierID;
+                toUpdate.Supplier_Order_Description = supplier.SupplierOrderDescription;
 
                 db.SaveChanges();
 

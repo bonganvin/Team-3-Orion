@@ -29,11 +29,11 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Job_task.Select(zz => new Job_TaskVM
             {
-                Job_task_ID = zz.Job_task_ID,
-                Job_ID = zz.Job_ID,
-                Task_ID = zz.Task_ID,
-                Job_Task_Status_ID = zz.Job_Task_Status_ID,
-                Job_Task_Type_ID = zz.Job_Task_Type_ID
+                JobtaskID = zz.Job_task_ID,
+                JobID = zz.Job_ID,
+                TaskID = zz.Task_ID,
+                JobTaskStatusID = zz.Job_Task_Status_ID,
+                JobTaskTypeID = zz.Job_Task_Type_ID
 
             }).ToList();
         }
@@ -69,11 +69,11 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newjobtask = new Job_task
             {
-                Job_task_ID = jobtask.Job_task_ID,
-                Job_ID = jobtask.Job_ID,
-                Task_ID = jobtask.Task_ID,
-                Job_Task_Status_ID = jobtask.Job_Task_Status_ID,
-                Job_Task_Type_ID = jobtask.Job_Task_Type_ID
+                Job_task_ID = jobtask.JobtaskID,
+                Job_ID = jobtask.JobID,
+                Task_ID = jobtask.TaskID,
+                Job_Task_Status_ID = jobtask.JobTaskStatusID,
+                Job_Task_Type_ID = jobtask.JobTaskTypeID
             };
 
             try
@@ -105,7 +105,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Job_task.Where(zz => zz.Job_task_ID
-            == jobtask.Job_task_ID).FirstOrDefault();
+            == jobtask.JobtaskID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -116,11 +116,11 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Job_task_ID = jobtask.Job_task_ID;
-                toUpdate.Job_ID = jobtask.Job_ID;
-                toUpdate.Task_ID = jobtask.Task_ID;
-                toUpdate.Job_Task_Status_ID = jobtask.Job_Task_Status_ID;
-                toUpdate.Job_Task_Type_ID = jobtask.Job_Task_Type_ID;
+                toUpdate.Job_task_ID = jobtask.JobtaskID;
+                toUpdate.Job_ID = jobtask.JobID;
+                toUpdate.Task_ID = jobtask.TaskID;
+                toUpdate.Job_Task_Status_ID = jobtask.JobTaskStatusID;
+                toUpdate.Job_Task_Type_ID = jobtask.JobTaskTypeID;
 
                 db.SaveChanges();
 

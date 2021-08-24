@@ -28,9 +28,9 @@ namespace OVS_Team_3_API.Controllers.Product
             db.Configuration.ProxyCreationEnabled = false;
             return db.Colours.Select(zz => new ColourVM
             {
-                Colour_ID = zz.Colour_ID,
-                Colour_Description = zz.Colour_Description,
-                Product_Size_ID = zz.Product_Size_ID,
+                ColourID = zz.Colour_ID,
+                ColourDescription = zz.Colour_Description,
+                ProductSizeID = zz.Product_Size_ID,
 
             }).ToList();
         }
@@ -61,8 +61,8 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
             var NewCol = new Models.Colour
             {
-                Colour_Description = colour.Colour_Description,
-                Product_Size_ID = colour.Product_Size_ID,
+                Colour_Description = colour.ColourDescription,
+                Product_Size_ID = colour.ProductSizeID,
             };
 
             try
@@ -92,7 +92,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Colours.Where(zz => zz.Colour_ID
-            == colour.Colour_ID).FirstOrDefault();
+            == colour.ColourID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -103,8 +103,8 @@ namespace OVS_Team_3_API.Controllers.Product
 
             try
             {
-                toUpdate.Colour_Description = colour.Colour_Description;
-                toUpdate.Product_Size_ID = colour.Product_Size_ID;
+                toUpdate.Colour_Description = colour.ColourDescription;
+                toUpdate.Product_Size_ID = colour.ProductSizeID;
 
                 db.SaveChanges();
 

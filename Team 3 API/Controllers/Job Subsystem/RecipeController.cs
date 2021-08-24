@@ -30,10 +30,10 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Recipes.Select(zz => new RecipeVM
             {
-                Recipe_ID = zz.Recipe_ID,
-                Recipe_Description = zz.Recipe_Description,
-                Quantity_produced = zz.Quantity_produced,
-                Recipe_Name = zz.Recipe_Name
+                RecipeID = zz.Recipe_ID,
+                RecipeDescription = zz.Recipe_Description,
+                QuantityProduced = zz.Quantity_produced,
+                RecipeName = zz.Recipe_Name
 
             }).ToList();
         }
@@ -67,10 +67,10 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newrecipe = new Recipe
             {
-                Recipe_ID = recipe.Recipe_ID,
-                Recipe_Description = recipe.Recipe_Description,
-                Quantity_produced = recipe.Quantity_produced,
-                Recipe_Name = recipe.Recipe_Name
+                Recipe_ID = recipe.RecipeID,
+                Recipe_Description = recipe.RecipeDescription,
+                Quantity_produced = recipe.QuantityProduced,
+                Recipe_Name = recipe.RecipeName
             };
 
             try
@@ -102,7 +102,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Recipes.Where(zz => zz.Recipe_ID
-            == recipe.Recipe_ID).FirstOrDefault();
+            == recipe.RecipeID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -113,10 +113,9 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Recipe_ID = recipe.Recipe_ID;
-                toUpdate.Recipe_Description = recipe.Recipe_Description;
-                toUpdate.Quantity_produced = recipe.Quantity_produced;
-                toUpdate.Recipe_Name = recipe.Recipe_Name;
+                toUpdate.Recipe_Description = recipe.RecipeDescription;
+                toUpdate.Quantity_produced = recipe.QuantityProduced;
+                toUpdate.Recipe_Name = recipe.RecipeName;
 
                 db.SaveChanges();
 

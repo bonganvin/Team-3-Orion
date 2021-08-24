@@ -7,7 +7,7 @@ namespace OVS_Team_3_API.ViewModels.Product
 {
     public class SizeVM
     {
-        public int Size_ID { get; set; }
-        public string Size_Description { get; set; }
+        public int SizeID { get; set; }
+        public string SizeDescription { get; set; }
     }
 }

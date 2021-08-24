@@ -29,10 +29,10 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Jobs.Select(zz => new JobVM
             {
-                Job_ID = zz.Job_ID,
-                Job_Description = zz.Job_Description,
-                Job_Status_ID = zz.Job_Status_ID,
-                Product_ID = zz.Product_ID
+                JobID = zz.Job_ID,
+                JobDescription = zz.Job_Description,
+                JobStatusID = zz.Job_Status_ID,
+                ProductID = zz.Product_ID
 
             }).ToList();
         }
@@ -69,10 +69,10 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newjob = new Job
             {
-                Job_ID = job.Job_ID,
-                Job_Description = job.Job_Description,
-                Job_Status_ID = job.Job_Status_ID,
-                Product_ID = job.Product_ID
+                Job_ID = job.JobID,
+                Job_Description = job.JobDescription,
+                Job_Status_ID = job.JobStatusID,
+                Product_ID = job.ProductID
             };
 
             try
@@ -98,13 +98,13 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
         [Route("UpdateJob")]
         [HttpPut]
-        public ResponseObject UpdateJob([FromBody] Job job)
+        public ResponseObject UpdateJob([FromBody] JobVM job)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
             var toUpdate = db.Jobs.Where(zz => zz.Job_ID
-            == job.Job_ID).FirstOrDefault();
+            == job.JobID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -115,10 +115,9 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Job_ID = job.Job_ID;
-                toUpdate.Job_Description = job.Job_Description;
-                toUpdate.Job_Status_ID = job.Job_Status_ID;
-                toUpdate.Product_ID = job.Product_ID;
+                toUpdate.Job_Description = job.JobDescription;
+                toUpdate.Job_Status_ID = job.JobStatusID;
+                toUpdate.Product_ID = job.ProductID;
 
                 db.SaveChanges();
 

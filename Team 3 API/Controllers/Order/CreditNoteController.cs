@@ -25,8 +25,6 @@ namespace OVS_Team_3_API.Controllers.Employee_Subsystem
                 CreditNoteID = zz.Credit_Note_ID,
                 ReturnOrderRequestID = zz.Return_Order_Request_ID,
                 CustomerID = zz.Customer_ID,
-                Customer = zz.Customer,
-                ReturnOrderRequest = zz.Return_Order_Request,
 
             }).ToList();
         }
@@ -62,8 +60,7 @@ namespace OVS_Team_3_API.Controllers.Employee_Subsystem
                 Credit_Note_ID = credit.CreditNoteID,
                 Return_Order_Request_ID = credit.ReturnOrderRequestID,
                 Customer_ID = credit.CustomerID,
-                Customer = credit.Customer,
-                Return_Order_Request = credit.ReturnOrderRequest,
+
 
             };
 
@@ -109,8 +106,7 @@ namespace OVS_Team_3_API.Controllers.Employee_Subsystem
               
                 toUpdate.Return_Order_Request_ID = credit.ReturnOrderRequestID;
                 toUpdate.Customer_ID = credit.CustomerID;
-                toUpdate.Return_Order_Request = credit.ReturnOrderRequest;
-                toUpdate.Customer = credit.Customer;
+
                 db.SaveChanges();
 
                 response.Success = true;

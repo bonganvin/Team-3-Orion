@@ -28,9 +28,9 @@ namespace OVS_Team_3_API.Controllers.Product
             db.Configuration.ProxyCreationEnabled = false;
             return db.Prices.Select(zz => new PriceVM
             {
-                Price_ID = zz.Price_ID,
-                Price_Amount = zz.Price_Amount,
-                Price_Date = zz.Price_Date,
+                PriceID = zz.Price_ID,
+                PriceAmount = zz.Price_Amount,
+                PriceDate = zz.Price_Date,
 
             }).ToList();
         }
@@ -61,8 +61,8 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
             var NewPrice = new Models.Price
             {
-                Price_Amount = price.Price_Amount,
-                Price_Date = price.Price_Date,
+                Price_Amount = price.PriceAmount,
+                Price_Date = price.PriceDate,
             };
 
             try
@@ -86,13 +86,13 @@ namespace OVS_Team_3_API.Controllers.Product
 
         [Route("UpdatePrice")]
         [HttpPut]
-        public ViewModels.ResponseObject UpdatePrice([FromBody] Price price)
+        public ViewModels.ResponseObject UpdatePrice([FromBody] PriceVM price)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Prices.Where(zz => zz.Price_ID
-            == price.Price_ID).FirstOrDefault();
+            == price.PriceID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -103,8 +103,8 @@ namespace OVS_Team_3_API.Controllers.Product
 
             try
             {
-                toUpdate.Price_Amount = price.Price_Amount;
-                toUpdate.Price_Date = price.Price_Date;
+                toUpdate.Price_Amount = price.PriceAmount;
+                toUpdate.Price_Date = price.PriceDate;
 
                 db.SaveChanges();
 

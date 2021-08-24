@@ -28,11 +28,11 @@ namespace OVS_Team_3_API.Controllers.Supplier
             db.Configuration.ProxyCreationEnabled = false;
             return db.Supplier_Order_Line.Select(zz => new SupplierOrderLineVM
             {
-                Supplier_Order_Line_ID = zz.Supplier_Order_Line_ID,
+                SupplierOrderLineID = zz.Supplier_Order_Line_ID,
                 Quantity = zz.Quantity,
-                Product_ID = zz.Product_ID,
-                Raw_Material_ID = zz.Raw_Material_ID,
-                Supplier_Order_ID = zz.Supplier_Order_ID
+                ProductID = zz.Product_ID,
+                RawMaterialID = zz.Raw_Material_ID,
+                SupplierOrderID = zz.Supplier_Order_ID
 
             }).ToList();
         }
@@ -64,10 +64,10 @@ namespace OVS_Team_3_API.Controllers.Supplier
             var response = new ViewModels.ResponseObject();
             var NewSup = new Models.Supplier_Order_Line
             {
-                Supplier_Order_ID = supplier.Supplier_Order_ID,
+                Supplier_Order_ID = supplier.SupplierOrderID,
                 Quantity = supplier.Quantity,
-                Product_ID = supplier.Product_ID,
-                Raw_Material_ID = supplier.Raw_Material_ID
+                Product_ID = supplier.ProductID,
+                Raw_Material_ID = supplier.RawMaterialID
             };
 
             try
@@ -97,7 +97,7 @@ namespace OVS_Team_3_API.Controllers.Supplier
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Supplier_Order_Line.Where(zz => zz.Supplier_Order_Line_ID
-            == supplier.Supplier_Order_Line_ID).FirstOrDefault();
+            == supplier.SupplierOrderLineID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -108,10 +108,10 @@ namespace OVS_Team_3_API.Controllers.Supplier
 
             try
             {
-                toUpdate.Supplier_Order_ID = supplier.Supplier_Order_ID;
+                toUpdate.Supplier_Order_ID = supplier.SupplierOrderID;
                 toUpdate.Quantity = supplier.Quantity;
-                toUpdate.Product_ID = supplier.Product_ID; 
-                toUpdate.Raw_Material_ID = supplier.Raw_Material_ID;
+                toUpdate.Product_ID = supplier.ProductID; 
+                toUpdate.Raw_Material_ID = supplier.RawMaterialID;
 
                 db.SaveChanges();
 

@@ -27,9 +27,10 @@ namespace OVS_Team_3_API.Controllers.Wishlist
             db.Configuration.ProxyCreationEnabled = false;
             return db.Wishlist_Product.Select(zz => new WishlistProductVM
             {
-                Wishlist_ID = zz.Wishlist_ID,
-                Wishlist_Product_ID = zz.Wishlist_Product_ID,
+                WishlistID = zz.Wishlist_ID,
+                WishlistProductID = zz.Wishlist_Product_ID,
                 Quantity = zz.Quantity,
+                ProductID = zz.Product_ID
 
             }).ToList();
         }
@@ -60,8 +61,9 @@ namespace OVS_Team_3_API.Controllers.Wishlist
             var response = new ViewModels.ResponseObject();
             var NewWP = new Models.Wishlist_Product
             {
-                Wishlist_ID = wishlistProduct.Wishlist_ID,
+                Wishlist_ID = wishlistProduct.WishlistID,
                 Quantity = wishlistProduct.Quantity,
+                Product_ID = wishlistProduct.ProductID
             };
 
             try
@@ -91,7 +93,7 @@ namespace OVS_Team_3_API.Controllers.Wishlist
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Wishlist_Product.Where(zz => zz.Wishlist_Product_ID
-            == wishlistProduct.Wishlist_Product_ID).FirstOrDefault();
+            == wishlistProduct.WishlistProductID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -102,8 +104,9 @@ namespace OVS_Team_3_API.Controllers.Wishlist
 
             try
             {
-                toUpdate.Wishlist_ID = wishlistProduct.Wishlist_ID;
+                toUpdate.Wishlist_ID = wishlistProduct.WishlistID;
                 toUpdate.Quantity = wishlistProduct.Quantity;
+                toUpdate.Product_ID = wishlistProduct.ProductID;
 
                 db.SaveChanges();
 

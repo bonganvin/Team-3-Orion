@@ -7,9 +7,9 @@ namespace OVS_Team_3_API.ViewModels.Supplier
 {
     public class SupplierVM
     {
-        public int Supplier_ID { get; set; }
-        public string Supplier_Name { get; set; }
-        public string Supplier_Phone_Number { get; set; }
-        public string Supplier_Address { get; set; }
+        public int SupplierID { get; set; }
+        public string SupplierName { get; set; }
+        public string SupplierPhoneNumber { get; set; }
+        public string SupplierAddress { get; set; }
     }
 }
