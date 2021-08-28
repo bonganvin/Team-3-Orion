@@ -9,12 +9,10 @@ namespace OVS_Team_3_API.ViewModels.Wishlist
 {
     public class WishlistProductVM
     {
-        public int Wishlist_Product_ID { get; set; }
-        public Nullable<int> Product_ID { get; set; }
-        public Nullable<int> Wishlist_ID { get; set; }
+        public int WishlistProductID { get; set; }
+        public Nullable<int> ProductID { get; set; }
+        public Nullable<int> WishlistID { get; set; }
         public int Quantity { get; set; }
 
-        public virtual ProductVM Product { get; set; }
-        public virtual WishListVM Wishlist { get; set; }
     }
 }

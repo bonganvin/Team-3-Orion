@@ -31,12 +31,12 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Order_Payment.Select(zz => new OrderPaymentVM
             {
-                Order_Payment_ID = zz.Order_Payment_ID,
-                Order_Payment_Amount = zz.Order_Payment_Amount,
-                Order_Payment_Date = zz.Order_Payment_Date,
-                Payment_Type_ID = zz.Payment_Type_ID,
-                Order_Payment_Status_ID = zz.Order_Payment_Status_ID,
-                Order_ID = zz.Order_ID
+                OrderPaymentID = zz.Order_Payment_ID,
+                OrderPaymentAmount = zz.Order_Payment_Amount,
+                OrderPaymentDate = zz.Order_Payment_Date,
+                PaymentTypeID = zz.Payment_Type_ID,
+                OrderPaymentStatusID = zz.Order_Payment_Status_ID,
+                OrderID = zz.Order_ID
 
             }).ToList();
         }
@@ -68,12 +68,12 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var NewOrderPay = new Models.Order_Payment
             {
-                Order_Payment_ID = OrderPay.Order_Payment_ID,
-                Order_Payment_Amount = OrderPay.Order_Payment_Amount,
-                Order_Payment_Date = OrderPay.Order_Payment_Date,
-                Payment_Type_ID = OrderPay.Payment_Type_ID,
-                Order_Payment_Status_ID = OrderPay.Order_Payment_Status_ID,
-                Order_ID = OrderPay.Order_ID
+                Order_Payment_ID = OrderPay.OrderPaymentID,
+                Order_Payment_Amount = OrderPay.OrderPaymentAmount,
+                Order_Payment_Date = OrderPay.OrderPaymentDate,
+                Payment_Type_ID = OrderPay.PaymentTypeID,
+                Order_Payment_Status_ID = OrderPay.OrderPaymentStatusID,
+                Order_ID = OrderPay.OrderID
             };
 
             try
@@ -102,7 +102,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Order_Payment.Where(zz => zz.Order_Payment_ID == OrderPay.Order_Payment_ID).FirstOrDefault();
+            var toUpdate = db.Order_Payment.Where(zz => zz.Order_Payment_ID == OrderPay.OrderPaymentID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -113,11 +113,11 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                toUpdate.Order_Payment_Amount = OrderPay.Order_Payment_Amount;
-                toUpdate.Order_Payment_Date = OrderPay.Order_Payment_Date;
-                toUpdate.Payment_Type_ID = OrderPay.Payment_Type_ID;
-                toUpdate.Order_Payment_Status_ID = OrderPay.Order_Payment_Status_ID;
-                toUpdate.Order_ID = OrderPay.Order_ID;
+                toUpdate.Order_Payment_Amount = OrderPay.OrderPaymentAmount;
+                toUpdate.Order_Payment_Date = OrderPay.OrderPaymentDate;
+                toUpdate.Payment_Type_ID = OrderPay.PaymentTypeID;
+                toUpdate.Order_Payment_Status_ID = OrderPay.OrderPaymentStatusID;
+                toUpdate.Order_ID = OrderPay.OrderID;
 
                 db.SaveChanges();
 

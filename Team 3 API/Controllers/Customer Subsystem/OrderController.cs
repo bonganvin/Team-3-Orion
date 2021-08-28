@@ -22,15 +22,13 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Orders.Select(zz => new OrderVM
             {
-                Order_ID = zz.Order_ID,
-                Order_Date = zz.Order_Date,
-                Order_Finalizastion_Date = zz.Order_Finalizastion_Date,
+                OrderID = zz.Order_ID,
+                OrderDate = zz.Order_Date,
+                OrderFinalizastionDate = zz.Order_Finalizastion_Date,
                 Delivery = zz.Delivery,
-                Customer_ID = zz.Customer_ID,
-                Order_Status_ID = zz.Order_Status_ID,
-                Employee_ID = zz.Employee_ID,
-                Customer = zz.Customer,
-                Employee = zz.Employee
+                CustomerID = zz.Customer_ID,
+                OrderStatusID = zz.Order_Status_ID,
+                EmployeeID = zz.Employee_ID,
 
             }).ToList();
         }
@@ -62,14 +60,13 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
             var Neworder = new Models.Order
             {
-                Order_Date = order.Order_Date,
-                Order_Finalizastion_Date = order.Order_Finalizastion_Date,
+               
+                Order_Date = order.OrderDate,
+                Order_Finalizastion_Date = order.OrderFinalizastionDate,
                 Delivery = order.Delivery,
-                Customer_ID = order.Customer_ID,
-                Order_Status_ID = order.Order_Status_ID,
-                Employee_ID = order.Employee_ID,
-                Customer = order.Customer,
-                Employee = order.Employee
+                Customer_ID = order.CustomerID,
+                Order_Status_ID = order.OrderStatusID,
+                Employee_ID = order.EmployeeID
             };
 
             try
@@ -99,7 +96,7 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Orders.Where(zz => zz.Order_ID
-            == order.Order_ID).FirstOrDefault();
+            == order.OrderID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -110,14 +107,13 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 
             try
             {
-                toUpdate.Order_Date = order.Order_Date;
-                toUpdate.Order_Finalizastion_Date = order.Order_Finalizastion_Date;
+                toUpdate.Order_Date = order.OrderDate;
+                toUpdate.Order_Finalizastion_Date = order.OrderFinalizastionDate;
                 toUpdate.Delivery = order.Delivery;
-                toUpdate.Customer_ID = order.Customer_ID;
-                toUpdate.Order_Status_ID = order.Order_Status_ID;
-                toUpdate.Employee_ID = order.Employee_ID;
-                toUpdate.Customer = order.Customer;
-                toUpdate.Employee = order.Employee;
+                toUpdate.Customer_ID = order.CustomerID;
+                toUpdate.Order_Status_ID = order.OrderStatusID;
+                toUpdate.Employee_ID = order.EmployeeID;
+
 
                 db.SaveChanges();
 

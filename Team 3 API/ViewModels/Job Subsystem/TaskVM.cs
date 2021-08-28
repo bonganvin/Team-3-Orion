@@ -7,7 +7,7 @@ namespace OVS_Team_3_API.ViewModels.Job_Subsystem
 {
     public class TaskVM
     {
-        public int Task_ID { get; set; }
-        public string Task_Description { get; set; }
+        public int TaskID { get; set; }
+        public string TaskDescription { get; set; }
     }
 }

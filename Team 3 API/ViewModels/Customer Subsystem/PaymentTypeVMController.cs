@@ -1,16 +1,15 @@
-﻿using System;
+﻿using OVS_Team_3_API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace OVS_Team_3_API.ViewModels.Customer_Subsystem
 {
-    public class PaymentTypeVM : Controller
+    public class PaymentTypeVM
     {
-        // GET: PaymentTypeVM
-        public int Payment_Type_ID { get; set; }
-        public string Payment_Type_Description { get; set; }
-        public string Payment_Type_Name { get; set; }
+        public int PaymentTypeID { get; set; }
+        public string PaymentTypeDescription { get; set; }
+        public string PaymentTypeName { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace OVS_Team_3_API.ViewModels.Job_Subsystem
     {
         public int RecipeID { get; set; }
         public string RecipeDescription { get; set; }
-        public int Quantityproduced { get; set; }
+        public int QuantityProduced { get; set; }
         public string RecipeName { get; set; }
 
     }

@@ -7,8 +7,8 @@ namespace OVS_Team_3_API.ViewModels.Product
 {
     public class SpecialVM
     {
-        public int Special_ID { get; set; }
-        public System.DateTime Start_Date { get; set; }
-        public System.DateTime End_Date { get; set; }
+        public int SpecialID { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
     }
 }

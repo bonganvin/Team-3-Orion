@@ -32,7 +32,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             {
                 RecipeID = zz.Recipe_ID,
                 RecipeDescription = zz.Recipe_Description,
-                Quantityproduced = zz.Quantity_produced,
+                QuantityProduced = zz.Quantity_produced,
                 RecipeName = zz.Recipe_Name
 
             }).ToList();
@@ -69,7 +69,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             {
                 Recipe_ID = recipe.RecipeID,
                 Recipe_Description = recipe.RecipeDescription,
-                Quantity_produced = recipe.Quantityproduced,
+                Quantity_produced = recipe.QuantityProduced,
                 Recipe_Name = recipe.RecipeName
             };
 
@@ -113,9 +113,8 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Recipe_ID = recipe.RecipeID;
                 toUpdate.Recipe_Description = recipe.RecipeDescription;
-                toUpdate.Quantity_produced = recipe.Quantityproduced;
+                toUpdate.Quantity_produced = recipe.QuantityProduced;
                 toUpdate.Recipe_Name = recipe.RecipeName;
 
                 db.SaveChanges();
@@ -137,36 +136,26 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
         [System.Web.Http.Route("DeleteRecipe/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public ViewModels.ResponseObject DeleteRecipe(int id)
+        public object DeleteRecipe(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            var response = new ViewModels.ResponseObject();
 
             Recipe recipe = db.Recipes.Find(id);
             if (recipe == null)
             {
-                response.Success = false;
-                response.ErrorMessage = "Not found";
-                return response;
+                return NotFound();
             }
-            try
-            {
-                db.Recipes.Remove(recipe);
-                db.SaveChanges();
+            db.Recipes.Remove(recipe);
+            db.SaveChanges();
 
-                response.Success = true;
-                response.ErrorMessage = null;
-                return response;
-            }
-             
-            catch (Exception e)
-            {
-                response.Success = false;
-                response.ErrorMessage = e.Message;
-                return response;
-            }
+            return "Recipe deleted";
 
         }
+
+
+
+
+
 
     }
 }

@@ -28,10 +28,10 @@ namespace OVS_Team_3_API.Controllers.Product
             db.Configuration.ProxyCreationEnabled = false;
             return db.Product_Size.Select(zz => new ProductSizeVM
             {
-                Product_ID = zz.Product_ID,
-                Product_Size_ID = zz.Product_Size_ID,
-                Price_ID = zz.Price_ID,
-                Size_ID = zz.Size_ID
+                ProductID = zz.Product_ID,
+                ProductSizeID = zz.Product_Size_ID,
+                PriceID = zz.Price_ID,
+                SizeID = zz.Size_ID
 
             }).ToList();
         }
@@ -62,10 +62,10 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
             var Newpord = new Models.Product_Size
             {
-                Product_ID = product.Product_ID,
-                Product_Size_ID = product.Product_Size_ID,
-                Size_ID = product.Size_ID,
-                Price_ID = product.Price_ID
+                Product_ID = product.ProductID,
+                Product_Size_ID = product.ProductSizeID,
+                Size_ID = product.SizeID,
+                Price_ID = product.PriceID
             };
 
             try
@@ -95,7 +95,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Product_Size.Where(zz => zz.Product_Size_ID
-            == product.Product_Size_ID).FirstOrDefault();
+            == product.ProductSizeID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -106,9 +106,9 @@ namespace OVS_Team_3_API.Controllers.Product
 
             try
             {
-                toUpdate.Product_ID = product.Product_ID;
-                toUpdate.Price_ID = product.Price_ID;
-                toUpdate.Size_ID = product.Size_ID;
+                toUpdate.Product_ID = product.ProductID;
+                toUpdate.Price_ID = product.PriceID;
+                toUpdate.Size_ID = product.SizeID;
 
                 db.SaveChanges();
 

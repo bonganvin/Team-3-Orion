@@ -28,9 +28,9 @@ namespace OVS_Team_3_API.Controllers.Product
             db.Configuration.ProxyCreationEnabled = false;
             return db.Specials.Select(zz => new SpecialVM
             {
-                Special_ID = zz.Special_ID,
-                Start_Date = zz.Start_Date,
-                End_Date = zz.End_Date,
+                SpecialID = zz.Special_ID,
+                StartDate = zz.Start_Date,
+                EndDate = zz.End_Date,
 
             }).ToList();
         }
@@ -61,8 +61,8 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
             var NewSpecial = new Models.Special
             {
-                Start_Date = special.Start_Date,
-                End_Date = special.End_Date,
+                Start_Date = special.StartDate,
+                End_Date = special.EndDate,
             };
 
             try
@@ -92,7 +92,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Specials.Where(zz => zz.Special_ID
-            == special.Special_ID).FirstOrDefault();
+            == special.SpecialID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -103,8 +103,8 @@ namespace OVS_Team_3_API.Controllers.Product
 
             try
             {
-                toUpdate.Start_Date = special.Start_Date;
-                toUpdate.End_Date = special.End_Date;
+                toUpdate.Start_Date = special.StartDate;
+                toUpdate.End_Date = special.EndDate;
 
                 db.SaveChanges();
 

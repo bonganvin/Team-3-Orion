@@ -64,9 +64,8 @@ namespace OVS_Team_3_API.Controllers.Supplier
             var NewSup = new Models.Supplier
             {
                 Supplier_Name = supplier.SupplierName,
-                Supplier_Address = supplier.SupplierAddress,
+                Supplier_Address = supplier.SupplierName,
                 Supplier_Phone_Number = supplier.SupplierPhoneNumber,
-                
             };
 
             try
@@ -129,36 +128,19 @@ namespace OVS_Team_3_API.Controllers.Supplier
         [System.Web.Http.Route("DeleteSupplier/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public ViewModels.ResponseObject DeleteSupplier(int id)
+        public object DeleteSupplier(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            var response = new ViewModels.ResponseObject();
 
             Models.Supplier supplier = db.Suppliers.Find(id);
             if (supplier == null)
             {
-                response.Success = false;
-                response.ErrorMessage = "Not found";
-                return response;
+                return NotFound();
             }
+            db.Suppliers.Remove(supplier);
+            db.SaveChanges();
 
-
-            try
-            {
-                db.Suppliers.Remove(supplier);
-                db.SaveChanges();
-
-                response.Success = true;
-                response.ErrorMessage = null;
-                return response;
-            }
-
-            catch (Exception e)
-            {
-                response.Success = false;
-                response.ErrorMessage = e.Message;
-                return response;
-            }
+            return "supplier deleted";
 
         }
     }

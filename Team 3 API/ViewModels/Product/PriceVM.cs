@@ -7,8 +7,8 @@ namespace OVS_Team_3_API.ViewModels.Product
 {
     public class PriceVM
     {
-        public int Price_ID { get; set; }
-        public float Price_Amount { get; set; }
-        public System.DateTime Price_Date { get; set; }
+        public int PriceID { get; set; }
+        public float PriceAmount { get; set; }
+        public System.DateTime PriceDate { get; set; }
     }
 }

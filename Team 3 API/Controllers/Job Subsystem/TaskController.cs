@@ -31,8 +31,8 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Tasks.Select(zz => new TaskVM
             {
-                Task_ID = zz.Task_ID,
-                Task_Description = zz.Task_Description
+                TaskID = zz.Task_ID,
+                TaskDescription = zz.Task_Description
 
             }).ToList();
         }
@@ -67,8 +67,8 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newtask = new Task
             {
-                Task_ID = task.Task_ID,
-                Task_Description = task.Task_Description
+                Task_ID = task.TaskID,
+                Task_Description = task.TaskDescription
             };
 
             try
@@ -94,13 +94,13 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
         [Route("UpdateTask")]
         [HttpPut]
-        public ResponseObject UpdateTask([FromBody] Task task)
+        public ResponseObject UpdateTask([FromBody] TaskVM task)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
             var toUpdate = db.Tasks.Where(zz => zz.Task_ID
-            == task.Task_ID).FirstOrDefault();
+            == task.TaskID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -111,8 +111,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Task_ID = task.Task_ID;
-                toUpdate.Task_Description = task.Task_Description;
+                toUpdate.Task_Description = task.TaskDescription;
 
                 db.SaveChanges();
 

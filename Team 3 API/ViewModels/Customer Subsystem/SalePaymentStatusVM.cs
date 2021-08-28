@@ -1,15 +1,15 @@
-﻿using System;
+﻿using OVS_Team_3_API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace OVS_Team_3_API.ViewModels.Customer_Subsystem
 {
-    public class SalePaymentStatusVM : Controller
+    public class SalePaymentStatusVM
     {
-        // GET: SalePaymentStatusVM
-        public int Sale_Payment_Status_ID { get; set; }
-        public string Sale_Payment_Status_Desc { get; set; }
+        
+        public int SalePaymentStatusID { get; set; }
+        public string SalePaymentStatusDesc { get; set; }
     }
 }

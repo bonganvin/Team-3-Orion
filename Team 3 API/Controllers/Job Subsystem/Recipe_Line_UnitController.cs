@@ -29,7 +29,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Recipe_Line_Unit.Select(zz => new Recipe_Line_UnitVM
             {
-                Recipe_Line_unit_ID = zz.Recipe_Line_unit_ID,
+                RecipeLineUnitID = zz.Recipe_Line_unit_ID,
                 Unit = zz.Unit
 
             }).ToList();
@@ -65,7 +65,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newrecipelineunit = new Recipe_Line_Unit
             {
-                Recipe_Line_unit_ID = recipelineunit.Recipe_Line_unit_ID,
+                Recipe_Line_unit_ID = recipelineunit.RecipeLineUnitID,
                 Unit = recipelineunit.Unit
             };
 
@@ -92,13 +92,13 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
         [Route("UpdateRecipe_Line_Unit")]
         [HttpPut]
-        public ResponseObject UpdateRecipe_Line_Unit([FromBody] Recipe_Line_Unit recipelineunit)
+        public ResponseObject UpdateRecipe_Line_Unit([FromBody] Recipe_Line_UnitVM recipelineunit)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
             var toUpdate = db.Recipe_Line_Unit.Where(zz => zz.Recipe_Line_unit_ID
-            == recipelineunit.Recipe_Line_unit_ID).FirstOrDefault();
+            == recipelineunit.RecipeLineUnitID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -109,7 +109,6 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Recipe_Line_unit_ID = recipelineunit.Recipe_Line_unit_ID;
                 toUpdate.Unit = recipelineunit.Unit;
 
                 db.SaveChanges();

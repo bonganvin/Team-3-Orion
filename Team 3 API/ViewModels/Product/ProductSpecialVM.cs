@@ -7,11 +7,11 @@ namespace OVS_Team_3_API.ViewModels.Product
 {
     public class ProductSpecialVM
     {
-        public int Product_Special_ID { get; set; }
-        public Nullable<int> Product_Size_ID { get; set; }
-        public Nullable<int> Special_ID { get; set; }
-        public float Price_Amount { get; set; }
-        public virtual ProductSizeVM Product_Size { get; set; }
+        public int ProductSpecialID { get; set; }
+        public Nullable<int> ProductSizeID { get; set; }
+        public Nullable<int> SpecialID { get; set; }
+        public float PriceAmount { get; set; }
+        public virtual ProductSizeVM ProductSize { get; set; }
         public virtual SpecialVM Special { get; set; }
 
     }

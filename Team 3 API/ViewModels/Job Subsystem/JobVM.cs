@@ -7,9 +7,9 @@ namespace OVS_Team_3_API.ViewModels.Job_Subsystem
 {
     public class JobVM
     {
-        public int Job_ID { get; set; }
-        public string Job_Description { get; set; }
-        public Nullable<int> Job_Status_ID { get; set; }
-        public Nullable<int> Product_ID { get; set; }
+        public int JobID { get; set; }
+        public string JobDescription { get; set; }
+        public Nullable<int> JobStatusID { get; set; }
+        public Nullable<int> ProductID { get; set; }
     }
 }
