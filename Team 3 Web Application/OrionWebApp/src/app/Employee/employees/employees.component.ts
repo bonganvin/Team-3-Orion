@@ -19,7 +19,11 @@ export class EmployeesComponent implements OnInit {
   observeEmployees: Observable<Employee[]> = this.service.getEmployee();
   EmployeeData!: Employee[];
 
-  constructor(private router : Router, private service : ServicesService) { }
+  constructor(private router: Router,
+    private service: ServicesService,
+    private fb: FormBuilder,
+    private snack: MatSnackBar,
+    private dialogRef: MatDialog,) { }
 
   ngOnInit(): void {
     this.observeEmployees.subscribe(res => {
@@ -27,17 +31,37 @@ export class EmployeesComponent implements OnInit {
     })
   }
 
-  AddEmployee()
-  {
+  AddEmployee() {
 
-  
+
     this.router.navigateByUrl("AddEmployee")
   }
-  editEmployee(){
+  editEmployee() {
     this.router.navigateByUrl("EditEmployee")
   }
-  deleteEmployee(){
-    this.router.navigateByUrl("AddEmployee")
-  }
+  deleteEmployee(EmployeeID: number) {
+    this.service.deleteEmployee(EmployeeID).subscribe((res: any) => {
+      console.log(res);
+      if (res.Success === false) {
+        this.snack.open('Employee not deleted.', 'OK', {
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center',
+          duration: 3000
+        });
 
+        return;
+      }
+
+      else if (res.Success === true) {
+        this.snack.open('Successful Deleted Employee', 'OK', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 3000
+        });
+      }
+      window.location.reload();
+    });
+
+  }
 }
+

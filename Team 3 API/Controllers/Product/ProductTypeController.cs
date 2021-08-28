@@ -1,7 +1,9 @@
 ﻿using OVS_Team_3_API.Models;
+using OVS_Team_3_API.ViewModels;
 using OVS_Team_3_API.ViewModels.Product;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -22,6 +24,21 @@ namespace OVS_Team_3_API.Controllers.Product
         // GET: ProductType
         [Route("GetProductType")]
         [HttpGet]
+
+        //public IQueryable<Object> GetProductTypes()
+        //{
+        //    return from a in db.Product_Type
+        //           join p in db.Product_Category on a.Product_Category_ID equals p.Product_Category_ID
+        //           select new
+        //           {
+        //               ProductTypeID = a.Product_Type_ID,
+        //               ProductTypeName = a.Product_Type_Name,
+        //               ProductCategoryName = p.Product_Category_Name,
+        //               ProductCategoryID = p.Product_Category_ID
+        //           };
+        //}
+
+
         public List<ProductTypeVM> GetProductType()
         {
             db.Configuration.ProxyCreationEnabled = false;
@@ -31,13 +48,14 @@ namespace OVS_Team_3_API.Controllers.Product
                 ProductTypeName = zz.Product_Type_Name,
                 ProductCategoryID = zz.Product_Category_ID,
 
-            }).ToList();
+            }).Where(zz => zz.ProductCategoryID == zz.ProductTypeID).ToList();
+            // )
+
         }
 
         // Get ProductType by ID
 
         [System.Web.Http.Route("getProductTypeByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
         [HttpPost]
         public object getProductTypeByID(int id)
         {
@@ -54,11 +72,11 @@ namespace OVS_Team_3_API.Controllers.Product
         //Add: ProductType
         [Route("CreateProductType")]
         [HttpPost]
-        public ViewModels.ResponseObject CreateProductType([FromBody] ProductTypeVM product)
+        public ResponseObject CreateProductType([FromBody] ProductTypeVM product)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            var response = new ViewModels.ResponseObject();
-            var Newpord = new Models.Product_Type
+            var response = new ResponseObject();
+            var Newpord = new Product_Type
             {
                 Product_Type_ID = product.ProductTypeID,
                 Product_Type_Name = product.ProductTypeName,
@@ -124,19 +142,39 @@ namespace OVS_Team_3_API.Controllers.Product
         [System.Web.Http.Route("DeleteProductType/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteProductType(int id)
+        public ViewModels.ResponseObject DeleteProductType(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
+            var response = new ViewModels.ResponseObject();
 
             Models.Product_Type product = db.Product_Type.Find(id);
             if (product == null)
             {
-                return NotFound();
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
             }
-            db.Product_Type.Remove(product);
-            db.SaveChanges();
+         
 
-            return "ProductType deleted";
+            try
+            {
+                db.Product_Type.Remove(product);
+                db.SaveChanges();
+
+                response.Success = true;
+                response.ErrorMessage = null;
+                return response;
+
+
+
+            }
+
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+                return response;
+            }
 
         }
 

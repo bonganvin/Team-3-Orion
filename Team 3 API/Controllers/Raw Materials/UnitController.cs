@@ -23,7 +23,7 @@ namespace OVS_Team_3_API.Controllers.Raw_Materials
             return db.Units.Select(zz => new UnitVM
             {
                 UnitID = zz.Unit_ID,
-                UnitQuantity = zz.Unit_Quantity,
+                UnitMeasurement = zz.Unit_Measurement,
 
             }).ToList();
         }
@@ -59,7 +59,7 @@ namespace OVS_Team_3_API.Controllers.Raw_Materials
             var response = new ResponseObject();
             var newUnit = new Unit
             {
-                Unit_Quantity = unit.UnitQuantity,
+                Unit_Measurement = unit.UnitMeasurement,
 
             };
 
@@ -102,7 +102,7 @@ namespace OVS_Team_3_API.Controllers.Raw_Materials
 
             try
             {
-                toUpdate.Unit_Quantity = unit.UnitQuantity;
+                toUpdate.Unit_Measurement = unit.UnitMeasurement;
              
 
                 db.SaveChanges();

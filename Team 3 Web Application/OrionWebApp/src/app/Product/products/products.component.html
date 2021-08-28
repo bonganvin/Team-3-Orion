@@ -79,3 +79,43 @@
     </div>
   </section>
 </div>
+
+ <!--<div *ngFor = "let item of ProductData">
+  <p>{{item.ProductName}}</p>
+  <p>{{item.ProductDescription}}</p>
+  <p>{{item.Quantityonhand}}</p>
+  <p>{{item.ProductTypeID}}</p>
+  <img src="data:image/jpg;base64,{{item.ProductImage}}">
+  <p>{{item.ProductImage}}</p>
+</div> -->
+
+<div class="container">
+  <div class="col" *ngFor = "let item of ProductData">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{item.ProductName}}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <div >
+        <img class="image" src="data:image/jpg;base64,{{item.ProductImage}}">    
+      </div>
+      <mat-card-actions>
+        <div class="button">
+          <button
+            mat-raised-button
+            class="buttons"
+            routerLink="/Product-details"
+            color="primary"
+            
+          >
+            View {{item.ProductName}}
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  </div>
+
+
+
+

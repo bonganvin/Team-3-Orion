@@ -80,6 +80,7 @@ namespace OVS_Team_3_API.Controllers
             {
                 User_Name = user.UserName,
                User_Password = ComputeSha256Hash(user.UserPassword),
+               User_Access_Permission_ID=user.UserAccessPermissionID
               //User_Password = user.User_Password
 
             };

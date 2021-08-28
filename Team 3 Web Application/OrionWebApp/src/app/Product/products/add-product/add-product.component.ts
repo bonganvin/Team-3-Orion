@@ -1,0 +1,115 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Product, ProductCategory, ProductType } from 'src/app/service/Interface/interfaces.service';
+import { ServicesService } from 'src/app/service/Services/services.service';
+
+
+@Component({
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.scss']
+})
+export class AddProductComponent implements OnInit {
+image : any ;
+
+  form: FormGroup = this.fb.group({
+    ProductName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+    ProductDescription: ['', Validators.compose([Validators.required, Validators.maxLength(50), Validators.minLength(2)])],
+    Quantityonhand: ['', Validators.compose([Validators.required])],
+    ProductTypeID: ['', Validators.compose([Validators.required])],
+    ProductImage: ['', Validators.compose([Validators.required])],
+  });
+
+  observeData: Observable<ProductType[]> = this.service.getProductTypes();
+  ProductTypeData!: ProductType[];
+  typeparams: ProductType=
+  {
+ProductTypeID:0,
+ProductTypeName:'',
+ProductCategoryID:0,
+  }
+
+
+  constructor(private service: ServicesService, private fb: FormBuilder,
+    private snack: MatSnackBar, private dialogRef: MatDialogRef<AddProductComponent>,
+    private router: Router) { }
+
+  ngOnInit(): void {
+
+    this.observeData.subscribe(res => {
+      this.ProductTypeData = res;
+      console.log(res);
+     
+    })
+  }
+
+  CreateProduct()
+  {
+    console.log(this.image)
+    const form = this.form.value
+    const formData = new FormData();
+    formData.append('ProductName',form.ProductName)
+    formData.append('ProductDescription',form.ProductDescription)
+    formData.append('Quantityonhand',form.Quantityonhand)
+    formData.append('ProductTypeID',form.ProductTypeID)
+    formData.append('ProductImage',form.ProductImage)
+    formData.append('image',this.image)
+    this.service.CreateProduct(formData).subscribe((res:any) => {
+      
+      if (res.Success===false)
+      {
+        this.snack.open('Product not created.', 'OK', {
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center',
+          duration: 3000
+        });
+        this.form.reset();
+        return;
+      }
+
+      else if (res.Success===true)
+      {
+        this.snack.open('Successful Added Product ', 'OK', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 3000
+        });
+        this.router.navigateByUrl("Product")
+        console.log(res);
+        
+      }
+    }, (error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        this.snack.open('This branch has already exists.', 'OK', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 3000
+        });
+      }
+      this.snack.open('An error occurred on our servers, try again', 'OK', {
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        duration: 3000
+      });
+     //this.dialogRef.close();
+    })
+  }
+
+  SelectFile(event:any)
+  {
+    if(event.target.files)
+    {
+      this.image=event.target.files[0];
+    }
+  }
+
+  back(){
+    this.router.navigateByUrl("Product")
+  }
+
+}

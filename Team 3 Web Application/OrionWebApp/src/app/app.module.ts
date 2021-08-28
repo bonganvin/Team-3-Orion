@@ -39,6 +39,32 @@ import { AddVATComponent } from './Manager/VAT/add-vat/add-vat.component';
 import { AddBranchComponent } from './Manager/Branch/branches/AddBranch/add-branch/add-branch.component';
 import { EditBranchComponent } from './Manager/Branch/branches/editBranch/edit-branch/edit-branch.component';
 import { DeleteBranchComponent } from './Manager/Branch/branches/deleteBranch/delete-branch/delete-branch.component';
+import { AddCashRegisterComponent } from './Manager/CashRegister/add-cash-register/add-cash-register.component';
+import { EditCashRegisterComponent } from './Manager/CashRegister/edit-cash-register/edit-cash-register.component';
+import { ProductCategoryComponent } from './Product/product-category/product-category.component';
+import { ProductTypeComponent } from './Product/product-type/product-type.component';
+import { AddProductCategoryComponent } from './Product/product-category/add-product-category/add-product-category.component';
+import { AddProductTypeComponent } from './Product/product-type/add-product-type/add-product-type.component';
+import { AddProductComponent } from './Product/products/add-product/add-product.component';
+import { ManageProductsComponent } from './Manager/manager/manage-products/manage-products.component';
+import { EditProductComponent } from './Product/products/editProduct/edit-product/edit-product.component';
+import { DeleteProductComponent } from './Product/products/deleteProduct/delete-product/delete-product.component';
+import { RawMaterialsComponent } from './Manager/raw-materials/raw-materials.component';
+import { AddRawMaterialComponent } from './Manager/raw-materials/add-raw-material/add-raw-material.component';
+import { UpdateRawMaterialComponent } from './Manager/raw-materials/update-raw-material/update-raw-material.component';
+import { DeleteRawMaterialComponent } from './Manager/raw-materials/delete-raw-material/delete-raw-material.component';
+import { DiscountComponent } from './Manager/discount/discount.component';
+import { AddEditDiscountComponent } from './Manager/discount/add-edit-discount/add-edit-discount.component';
+import { EmployeeTypeComponent } from './Manager/EmployeeType/employee-type/employee-type.component';
+import { AddEmployeeTypeComponent } from './Manager/EmployeeType/add-employee-type/add-employee-type.component';
+import { RecipeComponent } from './Manager/recipe/recipe.component';
+import { AddRecipeComponent } from './Manager/recipe/add-recipe/add-recipe.component';
+import { EditRecipeComponent } from './Manager/recipe/edit-recipe/edit-recipe.component';
+import { ManagerUsersComponent } from './Manager/manager/manager-users/manager-users.component';
+import { SupplierComponent } from './Manager/supplier/supplier.component';
+import { AddSupplierComponent } from './Manager/supplier/add-supplier/add-supplier.component';
+import { EmployeeDutiesComponent } from './Employee/employee-duties/employee-duties.component';
+import { QuoteComponent } from './Employee/employee-duties/quote/quote.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +88,33 @@ import { DeleteBranchComponent } from './Manager/Branch/branches/deleteBranch/de
     AddVATComponent,
     AddBranchComponent,
     EditBranchComponent,
-    DeleteBranchComponent
+    DeleteBranchComponent,
+    AddCashRegisterComponent,
+    EditCashRegisterComponent,
+    ProductCategoryComponent,
+    ProductTypeComponent,
+    AddProductCategoryComponent,
+    AddProductTypeComponent,
+    AddProductComponent,
+    ManageProductsComponent,
+    EditProductComponent,
+    DeleteProductComponent,
+    RawMaterialsComponent,
+    AddRawMaterialComponent,
+    UpdateRawMaterialComponent,
+    DeleteRawMaterialComponent,
+    DiscountComponent,
+    AddEditDiscountComponent,
+    EmployeeTypeComponent,
+    AddEmployeeTypeComponent,
+    RecipeComponent,
+    AddRecipeComponent,
+    EditRecipeComponent,
+    ManagerUsersComponent,
+    SupplierComponent,
+    AddSupplierComponent,
+    EmployeeDutiesComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,

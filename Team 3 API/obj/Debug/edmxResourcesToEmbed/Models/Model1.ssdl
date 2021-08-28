@@ -507,7 +507,7 @@
       <PropertyRef Name="Unit_ID" />
     </Key>
     <Property Name="Unit_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Unit_Quantity" Type="int" Nullable="false" />
+    <Property Name="Unit_Measurement" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>

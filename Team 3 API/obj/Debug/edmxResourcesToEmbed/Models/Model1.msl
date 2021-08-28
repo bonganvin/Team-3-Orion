@@ -565,7 +565,7 @@
       <EntityTypeMapping TypeName="OVSModel.Unit">
         <MappingFragment StoreEntitySet="Unit">
           <ScalarProperty Name="Unit_ID" ColumnName="Unit_ID" />
-          <ScalarProperty Name="Unit_Quantity" ColumnName="Unit_Quantity" />
+          <ScalarProperty Name="Unit_Measurement" ColumnName="Unit_Measurement" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

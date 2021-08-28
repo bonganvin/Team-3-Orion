@@ -28,10 +28,10 @@ namespace OVS_Team_3_API.Controllers.Supplier
             db.Configuration.ProxyCreationEnabled = false;
             return db.Suppliers.Select(zz => new SupplierVM
             {
-                Supplier_ID = zz.Supplier_ID,
-                Supplier_Address = zz.Supplier_Address,
-                Supplier_Name = zz.Supplier_Name,
-                Supplier_Phone_Number = zz.Supplier_Phone_Number,
+                SupplierID = zz.Supplier_ID,
+                SupplierAddress = zz.Supplier_Address,
+                SupplierName = zz.Supplier_Name,
+                SupplierPhoneNumber = zz.Supplier_Phone_Number,
 
             }).ToList();
         }
@@ -63,9 +63,10 @@ namespace OVS_Team_3_API.Controllers.Supplier
             var response = new ViewModels.ResponseObject();
             var NewSup = new Models.Supplier
             {
-                Supplier_Name = supplier.Supplier_Name,
-                Supplier_Address = supplier.Supplier_Address,
-                Supplier_Phone_Number = supplier.Supplier_Phone_Number,
+                Supplier_Name = supplier.SupplierName,
+                Supplier_Address = supplier.SupplierAddress,
+                Supplier_Phone_Number = supplier.SupplierPhoneNumber,
+                
             };
 
             try
@@ -95,7 +96,7 @@ namespace OVS_Team_3_API.Controllers.Supplier
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Suppliers.Where(zz => zz.Supplier_ID
-            == supplier.Supplier_ID).FirstOrDefault();
+            == supplier.SupplierID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -106,9 +107,9 @@ namespace OVS_Team_3_API.Controllers.Supplier
 
             try
             {
-                toUpdate.Supplier_Name = supplier.Supplier_Name;
-                toUpdate.Supplier_Address = supplier.Supplier_Address;
-                toUpdate.Supplier_Phone_Number = supplier.Supplier_Phone_Number;
+                toUpdate.Supplier_Name = supplier.SupplierName;
+                toUpdate.Supplier_Address = supplier.SupplierAddress;
+                toUpdate.Supplier_Phone_Number = supplier.SupplierPhoneNumber;
 
                 db.SaveChanges();
 
@@ -128,19 +129,36 @@ namespace OVS_Team_3_API.Controllers.Supplier
         [System.Web.Http.Route("DeleteSupplier/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteSupplier(int id)
+        public ViewModels.ResponseObject DeleteSupplier(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
+            var response = new ViewModels.ResponseObject();
 
             Models.Supplier supplier = db.Suppliers.Find(id);
             if (supplier == null)
             {
-                return NotFound();
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
             }
-            db.Suppliers.Remove(supplier);
-            db.SaveChanges();
 
-            return "supplier deleted";
+
+            try
+            {
+                db.Suppliers.Remove(supplier);
+                db.SaveChanges();
+
+                response.Success = true;
+                response.ErrorMessage = null;
+                return response;
+            }
+
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+                return response;
+            }
 
         }
     }

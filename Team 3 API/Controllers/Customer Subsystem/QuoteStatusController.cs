@@ -31,8 +31,8 @@ namespace OVS_Team_3_API.Controllers
             db.Configuration.ProxyCreationEnabled = false;
             return db.Quote_Status.Select(zz => new QuoteStatusVM
             {
-                Quote_Status_ID = zz.Quote_Status_ID,
-                Quote_Status_Description = zz.Quote_Status_Description
+                QuoteStatusID = zz.Quote_Status_ID,
+                QuoteStatusDescription = zz.Quote_Status_Description
 
             }).ToList();
         }
@@ -64,8 +64,8 @@ namespace OVS_Team_3_API.Controllers
             var response = new ResponseObject();
             var NewQuoteStatus = new Models.Quote_Status
             {
-                Quote_Status_ID = quotestat.Quote_Status_ID,
-                Quote_Status_Description = quotestat.Quote_Status_Description
+                Quote_Status_ID = quotestat.QuoteStatusID,
+                Quote_Status_Description = quotestat.QuoteStatusDescription
             };
 
             try
@@ -94,7 +94,7 @@ namespace OVS_Team_3_API.Controllers
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
 
-            var toUpdate = db.Quote_Status.Where(zz => zz.Quote_Status_ID == quote.Quote_Status_ID).FirstOrDefault();
+            var toUpdate = db.Quote_Status.Where(zz => zz.Quote_Status_ID == quote.QuoteStatusID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -105,7 +105,7 @@ namespace OVS_Team_3_API.Controllers
 
             try
             {
-                toUpdate.Quote_Status_Description = quote.Quote_Status_Description;
+                toUpdate.Quote_Status_Description = quote.QuoteStatusDescription;
 
                 db.SaveChanges();
 

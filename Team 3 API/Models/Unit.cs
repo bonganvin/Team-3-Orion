@@ -21,7 +21,7 @@ namespace OVS_Team_3_API.Models
         }
     
         public int Unit_ID { get; set; }
-        public int Unit_Quantity { get; set; }
+        public string Unit_Measurement { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Raw_Material> Raw_Material { get; set; }

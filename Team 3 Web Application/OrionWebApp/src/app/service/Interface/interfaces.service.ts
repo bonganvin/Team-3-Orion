@@ -10,10 +10,17 @@ export class InterfacesService {
 }
 
 export interface User {
-  UserId: number;
+  UserID: number;
   UserPassword: string;
   UserName: string;
   UserRoleDesc: string;
+  UserAccessPermissionID: number;
+}
+
+export interface UserAccess{
+  UserAccessPermissionID: number;
+  UserRoleName: string;
+  UserRoleDescription: string;
 }
 
 export interface Customer {
@@ -26,11 +33,7 @@ CustomerEmailAddress: string ;
 CustomerPhysicalAddress : string ;
 }
 
-export interface UserAccess {
-  UserAccessID: number;
-  UserRoleName: string;
-  UserRoleDesc: string;
-}
+
 
 
 export interface ProductCategory {
@@ -56,10 +59,7 @@ export interface Employee{
 
 }
 
-export interface EmployeeType{
-  EmployeeTypeID: number;
-  EmployeeDescription: number;
-}
+
 
 
 export interface VAT {
@@ -73,4 +73,62 @@ export interface Branches{
   BranchName: string;
   BranchLocationStorageCapacity: number;
   BranchAddress: string;
+}
+
+export interface Product{
+  ProductID: number;
+  ProductName : string;
+  ProductDescription: string;
+  ProductImage: any;
+  ProductTypeID: number;
+  Quantityonhand:number;
+}
+
+
+export interface CashRegister{
+  RegisterID: number;
+  CashRegisterName: string;
+  BranchID: number;
+}
+
+export interface RawMaterial{
+  RawMaterialID : number;
+  RawMaterialName : string;
+  QuantityOnhand : number;
+  Rawmaterialdescription: string;
+  UnitID : number;
+}
+
+
+export interface Unit {
+  UnitID : number;
+  UnitMeasurement: string;
+}
+
+
+export interface Discount {
+  DiscountID : number;
+  DiscountName: string;
+  DiscountDescription: string;
+  DiscountPercentage: number;
+}
+
+export interface EmployeeType{
+
+  EmployeeTypeID: number;
+  EmployeeTypeDescription: string;
+}
+
+export interface Recipe{
+  RecipeID: number;
+  RecipeDescription: string;
+  QuantityProduced: number;
+  RecipeName: string;
+}
+
+export interface Supplier{
+  SupplierID : number;
+  SupplierName : string;
+  SupplierPhoneNumber: number;
+  SupplierAddress: string;
 }

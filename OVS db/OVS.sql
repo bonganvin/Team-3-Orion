@@ -401,7 +401,7 @@ Order_ID int foreign key references [Order](Order_ID)
 
  create table Unit (
  Unit_ID int identity(1,1) primary key not null,
- Unit_Quantity int not null,
+ Unit_Measurement varchar(50) not null,
  )
 
  Create table Raw_Material (

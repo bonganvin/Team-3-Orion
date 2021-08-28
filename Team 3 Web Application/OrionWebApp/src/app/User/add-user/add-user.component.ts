@@ -6,6 +6,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ServicesService } from 'src/app/service/Services/services.service';
 import { OpenDialogComponent } from 'src/app/Dialog/open-dialog/open-dialog.component';
+import { Observable } from 'rxjs';
+import { UserAccess } from 'src/app/service/Interface/interfaces.service';
 
 @Component({
   selector: 'app-add-user',
@@ -17,13 +19,28 @@ export class AddUserComponent implements OnInit {
   form: FormGroup = this.fb.group({
     UserName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     UserPassword: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+    UserAccessPermissionID: ['', Validators.compose([Validators.required])]
   });
+
+  observeUserAccess: Observable<UserAccess[]> = this.service.getUserPermission();
+  UserAccessData!: UserAccess[];
+UserAccessparams: UserAccess=
+  {
+    UserAccessPermissionID:0,
+UserRoleName: "",
+UserRoleDescription:"",
+  }
 
   constructor(private service: ServicesService, private fb: FormBuilder, 
     private snack: MatSnackBar, private dialogRef: MatDialogRef<AddUserComponent>,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.observeUserAccess.subscribe(res => {
+      this.UserAccessData = res;
+      console.log(res);
+     
+    })
   }
 
 

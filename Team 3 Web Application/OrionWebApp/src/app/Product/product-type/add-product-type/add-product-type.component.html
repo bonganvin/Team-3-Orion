@@ -1,0 +1,51 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="CreateProductType()">
+    <mat-dialog-content class="mat-typography">
+      <div class="controls">
+        <br />
+        <h2 mat-dialog-title>Create Product Type</h2>
+
+        <br />
+        <mat-form-field appearance="outline">
+          <mat-label>Product Type Name</mat-label>
+          <input
+            type="string"
+            matInput
+            placeholder="Furniture care"
+            formControlName="ProductTypeName"
+          />
+          <mat-hint>Product Type Name</mat-hint>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <mat-label>Select Category</mat-label>
+            <mat-select [(value)]="CategoryParams.ProductCategoryID" formControlName="ProductCategoryID">
+                <mat-option *ngFor="let item of CategoryData" [value] = "item.ProductCategoryID">
+                {{item.ProductCategoryName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <br />
+        <mat-dialog-actions align="end">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            cdkFocusInitial
+            [disabled]="!form.valid"
+          >
+            Create Product Type
+          </button>
+          &nbsp;&nbsp; &nbsp;
+
+          <button mat-raised-button color="primary" (click)="back()">
+            Cancel
+          </button>
+        </mat-dialog-actions>
+      </div>
+    </mat-dialog-content>
+  </form>
+</div>
+
+

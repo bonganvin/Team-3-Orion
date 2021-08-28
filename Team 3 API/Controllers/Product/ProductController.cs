@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using static System.Net.WebRequestMethods;
 using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
 using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
 using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
@@ -30,21 +31,23 @@ namespace OVS_Team_3_API.Controllers.Product
         public List<ProductVM> GetProduct()
         {
             db.Configuration.ProxyCreationEnabled = false;
+
+
             return db.Products.Select(zz => new ProductVM
             {
-                Product_ID = zz.Product_ID,
-                Product_Name = zz.Product_Name,
-                Product_Description = zz.Product_Description,
-                Product_Image = zz.Product_Image,
-                Product_Type_ID = zz.Product_Type_ID,
-                Quantity_on_hand = zz.Quantity_on_hand
+                ProductID = zz.Product_ID,
+                ProductName = zz.Product_Name,
+                ProductDescription = zz.Product_Description,
+                ProductImage = zz.Product_Image,
+                ProductTypeID = zz.Product_Type_ID,
+                Quantityonhand = zz.Quantity_on_hand
 
             }).ToList();
         }
 
-        // Get Product by ID
+            // Get Product by ID
 
-        [System.Web.Http.Route("getProductByID/{id:int}")]
+            [System.Web.Http.Route("getProductByID/{id:int}")]
         [System.Web.Mvc.HttpPost]
         [HttpPost]
         public object getProduct(int id)
@@ -62,25 +65,30 @@ namespace OVS_Team_3_API.Controllers.Product
         //Add: Product
         [Route("CreateProduct")]
         [HttpPost]
-        public ViewModels.ResponseObject CreateProduct([FromBody] ProductVM product)
+        public ViewModels.ResponseObject CreateProduct( )
         {
             
             db.Configuration.ProxyCreationEnabled = false;
-            var response = new ViewModels.ResponseObject();
-            var Newpord = new Models.Product
-            {
-              
-                Product_Name = product.Product_Name,
-                Product_Description = product.Product_Description,
-                Product_Image = product.Product_Image,
-                //System.Text.Encoding.UTF8.GetBytes( WriteImage(product.Product_Image)),
-                Product_Type_ID = product.Product_Type_ID,
-                Quantity_on_hand = product.Quantity_on_hand,
-            };
 
+            HttpPostedFile postedFile = HttpContext.Current.Request.Files[0];
+
+    
+
+            var response = new ViewModels.ResponseObject();
+    
+            var form = HttpContext.Current.Request.Form;
+            var prd = new Models.Product { };
+            prd.Product_Name = form.Get("ProductName");
+            prd.Product_Description = form.Get("ProductDescription");
+            prd.Product_Image = new byte[postedFile.ContentLength];
+            postedFile.InputStream.Read(prd.Product_Image, 0, postedFile.ContentLength);
+   
+            prd.Product_Type_ID =Convert.ToInt32 (form.Get("ProductTypeID"));
+            prd.Quantity_on_hand = Convert.ToInt32( form.Get("Quantityonhand"));
             try
             {
-                db.Products.Add(Newpord);
+                // db.Products.Add(Newpord);
+                db.Products.Add(prd);
                 db.SaveChanges();
 
                 response.Success = true;
@@ -110,7 +118,7 @@ namespace OVS_Team_3_API.Controllers.Product
             var response = new ViewModels.ResponseObject();
 
             var toUpdate = db.Products.Where(zz => zz.Product_ID
-            == product.Product_ID).FirstOrDefault();
+            == product.ProductID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -121,11 +129,11 @@ namespace OVS_Team_3_API.Controllers.Product
 
             try
             {
-                toUpdate.Product_Name = product.Product_Name;
-                toUpdate.Product_Description = product.Product_Description;
-                toUpdate.Product_Image = product.Product_Image;
-                toUpdate.Product_Type_ID = product.Product_Type_ID;
-                toUpdate.Quantity_on_hand = product.Quantity_on_hand;
+                toUpdate.Product_Name = product.ProductName;
+                toUpdate.Product_Description = product.ProductDescription;
+                toUpdate.Product_Image = product.ProductImage;
+                toUpdate.Product_Type_ID = product.ProductTypeID;
+                toUpdate.Quantity_on_hand = product.Quantityonhand;
 
                 db.SaveChanges();
 

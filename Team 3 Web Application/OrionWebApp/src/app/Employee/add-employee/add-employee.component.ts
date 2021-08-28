@@ -1,3 +1,4 @@
+import { EmployeeType } from './../../service/Interface/interfaces.service';
 import { ServicesService } from './../../service/Services/services.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -6,6 +7,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { OpenDialogComponent } from 'src/app/Dialog/open-dialog/open-dialog.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-employee',
@@ -19,18 +21,29 @@ export class AddEmployeeComponent implements OnInit {
     EmployeeSurname: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     EmployeePhoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     EmployeeEmailAddress: ['', Validators.compose([Validators.required, Validators.email])],
+    EmployeeTypeID: ['', Validators.compose([Validators.required])],
   });
 
   constructor(private service: ServicesService, private fb: FormBuilder, 
     private snack: MatSnackBar, private dialogRef: MatDialogRef<AddEmployeeComponent>,
     private router: Router) { }
 
+    observeData: Observable<EmployeeType[]> = this.service.getEmployeeType();
+    EmployeeTypeData!: EmployeeType[];
+    EmployeeTypeParams : EmployeeType = {
+      EmployeeTypeID: 0,
+      EmployeeTypeDescription:'',
+    }
+
   ngOnInit(): void {
+    this.observeData.subscribe(res => {
+      this.EmployeeTypeData = res;
+    })
   }
 
   RegisterEmployee() {
     this.service.RegisterEmployee(this.form.value).subscribe((res:any) => {
-      this.dialogRef.close();
+     
 
       if (res.Success===false)
       {
@@ -67,7 +80,7 @@ export class AddEmployeeComponent implements OnInit {
         verticalPosition: 'bottom',
         duration: 3000
       });
-     this.dialogRef.close();
+  
     })
   }
 

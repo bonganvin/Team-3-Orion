@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace OVS_Team_3_API.ViewModels.Customer_Subsystem
 {
-    public class QuoteStatusVM : Controller
+    public class QuoteStatusVM 
     {
         // GET: QuoteStatusVM
-        public int Quote_Status_ID { get; set; }
-        public string Quote_Status_Description { get; set; }
+        public int QuoteStatusID { get; set; }
+        public string QuoteStatusDescription { get; set; }
     }
 }

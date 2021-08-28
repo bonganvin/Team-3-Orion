@@ -1,7 +1,8 @@
+import { User, UserAccess } from './../../service/Interface/interfaces.service';
 import { RegisterComponent } from './../../Customer/RegisterCusomter/register/register.component';
 import { ServicesService } from './../../service/Services/services.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -16,15 +17,27 @@ import { Observable } from 'rxjs';
 export class LoginComponent implements OnInit {
 
   loginGroup: FormGroup = this.fb.group({
+    UserAccessPermissionID:  [],
     UserName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     UserPassword: ['', Validators.compose([Validators.required, Validators.maxLength(12), Validators.minLength(8)])],
   });
 
+  @Input()
+  b!: UserAccess;
+
+  observeUserAccess: Observable<UserAccess[]> = this.service.getUserPermission();
+  UserAccessData!: UserAccess[];
+  UserData!: User[];
+  UserAccessID!: number;
+
   constructor(private fb: FormBuilder,
     private service: ServicesService, private snack: MatSnackBar,
-    private router: Router, private dialog: MatDialog) { }
+    private router: Router, private dialog: MatDialog,) { }
 
   ngOnInit(): void {
+    this.observeUserAccess.subscribe(res => {
+      this.UserAccessData = res;
+    })
   }
 
   Login(): void {
@@ -46,8 +59,20 @@ export class LoginComponent implements OnInit {
 
       else if (res.Success===true)
       {
-        
-        this.router.navigateByUrl('');
+      
+          console.log(res);
+        //  if(res.UserAccessPermissionID == 1)
+       //   {
+            this.router.navigateByUrl("")
+        //  }
+          //else 
+          if(this.b.UserAccessPermissionID == 2){
+            this.router.navigateByUrl("Employee")
+          }
+          else if(this.b.UserAccessPermissionID == 3){
+            this.router.navigateByUrl("Manager")
+          }
+    
       }
      
     }, (error: HttpErrorResponse) => {

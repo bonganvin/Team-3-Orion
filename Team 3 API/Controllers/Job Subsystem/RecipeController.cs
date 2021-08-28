@@ -30,10 +30,10 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             db.Configuration.ProxyCreationEnabled = false;
             return db.Recipes.Select(zz => new RecipeVM
             {
-                Recipe_ID = zz.Recipe_ID,
-                Recipe_Description = zz.Recipe_Description,
-                Quantity_produced = zz.Quantity_produced,
-                Recipe_Name = zz.Recipe_Name
+                RecipeID = zz.Recipe_ID,
+                RecipeDescription = zz.Recipe_Description,
+                Quantityproduced = zz.Quantity_produced,
+                RecipeName = zz.Recipe_Name
 
             }).ToList();
         }
@@ -67,10 +67,10 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
             var Newrecipe = new Recipe
             {
-                Recipe_ID = recipe.Recipe_ID,
-                Recipe_Description = recipe.Recipe_Description,
-                Quantity_produced = recipe.Quantity_produced,
-                Recipe_Name = recipe.Recipe_Name
+                Recipe_ID = recipe.RecipeID,
+                Recipe_Description = recipe.RecipeDescription,
+                Quantity_produced = recipe.Quantityproduced,
+                Recipe_Name = recipe.RecipeName
             };
 
             try
@@ -102,7 +102,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             var response = new ResponseObject();
 
             var toUpdate = db.Recipes.Where(zz => zz.Recipe_ID
-            == recipe.Recipe_ID).FirstOrDefault();
+            == recipe.RecipeID).FirstOrDefault();
 
             if (toUpdate == null)
             {
@@ -113,10 +113,10 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
             try
             {
-                toUpdate.Recipe_ID = recipe.Recipe_ID;
-                toUpdate.Recipe_Description = recipe.Recipe_Description;
-                toUpdate.Quantity_produced = recipe.Quantity_produced;
-                toUpdate.Recipe_Name = recipe.Recipe_Name;
+                toUpdate.Recipe_ID = recipe.RecipeID;
+                toUpdate.Recipe_Description = recipe.RecipeDescription;
+                toUpdate.Quantity_produced = recipe.Quantityproduced;
+                toUpdate.Recipe_Name = recipe.RecipeName;
 
                 db.SaveChanges();
 
@@ -137,26 +137,36 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
         [System.Web.Http.Route("DeleteRecipe/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteRecipe(int id)
+        public ViewModels.ResponseObject DeleteRecipe(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
+            var response = new ViewModels.ResponseObject();
 
             Recipe recipe = db.Recipes.Find(id);
             if (recipe == null)
             {
-                return NotFound();
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
             }
-            db.Recipes.Remove(recipe);
-            db.SaveChanges();
+            try
+            {
+                db.Recipes.Remove(recipe);
+                db.SaveChanges();
 
-            return "Recipe deleted";
+                response.Success = true;
+                response.ErrorMessage = null;
+                return response;
+            }
+             
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+                return response;
+            }
 
         }
-
-
-
-
-
 
     }
 }

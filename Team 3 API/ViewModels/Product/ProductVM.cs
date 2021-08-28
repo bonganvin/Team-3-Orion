@@ -7,11 +7,11 @@ namespace OVS_Team_3_API.ViewModels.Product
 {
     public class ProductVM
     {
-        public int Product_ID { get; set; }
-        public string Product_Name { get; set; }
-        public string Product_Description { get; set; }
-        public byte[] Product_Image { get; set; }
-        public Nullable<int> Quantity_on_hand { get; set; }
-        public Nullable<int> Product_Type_ID { get; set; }
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+        public string ProductDescription { get; set; }
+        public byte[] ProductImage { get; set; }
+        public int? Quantityonhand { get; set; }
+        public int? ProductTypeID { get; set; }
     }
 }

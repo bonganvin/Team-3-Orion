@@ -21,6 +21,11 @@ export class ManagerComponent implements OnInit {
   {
     this.router.navigateByUrl("Branch")
   }
+
+  ManageProducts()
+  {
+    this.router.navigateByUrl("ManageProducts")
+  }
   CashRegister()
   {
     this.router.navigateByUrl("CashRegster")
@@ -40,6 +45,32 @@ export class ManagerComponent implements OnInit {
   VAT()
   {
     this.router.navigateByUrl("VAT")
+  }
+  RawMaterials(){
+    this.router.navigateByUrl("RawMaterials")
+  }
+  Discount(){
+    this.router.navigateByUrl("Discount")
+  }
+  EmployeeType(){
+    this.router.navigateByUrl("Employee")
+  }
+  ProductCatagory(){
+    this.router.navigateByUrl("ProductCategory")
+  }
+  ProductType(){
+    this.router.navigateByUrl("ProductType")
+  }
+  Recipe(){
+    this.router.navigateByUrl("Recipe")
+  }
+
+  ManageUsers(){
+    this.router.navigateByUrl("ManageUsers")
+  }
+
+  Suppliers(){
+    this.router.navigateByUrl("Suppliers")
   }
 
 }

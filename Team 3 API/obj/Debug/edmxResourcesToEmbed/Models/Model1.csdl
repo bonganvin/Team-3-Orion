@@ -647,7 +647,7 @@
       <PropertyRef Name="Unit_ID" />
     </Key>
     <Property Name="Unit_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Unit_Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Unit_Measurement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Raw_Mater__Unit___282DF8C2" FromRole="Unit" ToRole="Raw_Material" />
   </EntityType>
   <EntityType Name="User">

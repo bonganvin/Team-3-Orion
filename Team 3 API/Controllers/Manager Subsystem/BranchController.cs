@@ -35,6 +35,7 @@ namespace OVS_Team_3_API.Controllers.Manager_Subsystem
         [HttpPost]
         public object GetBranchByID(int id)
         {
+          
 
             db.Configuration.ProxyCreationEnabled = false;
 
@@ -117,19 +118,34 @@ namespace OVS_Team_3_API.Controllers.Manager_Subsystem
         //DeleteBranch
         [Route("DeleteBranch/{id:int}")]
         [HttpDelete]
-        public object DeleteBranch(int id)
+        public ViewModels.ResponseObject DeleteBranch(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
+            var response = new ViewModels.ResponseObject();
 
-            Branch brh = db.Branches.Find(id);
-            if (brh == null)
+            Branch branch = db.Branches.Find(id);
+            if (branch == null)
             {
-                return NotFound();
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
             }
-            db.Branches.Remove(brh);
-            db.SaveChanges();
+            try
+            {
+                db.Branches.Remove(branch);
+                db.SaveChanges();
 
-            return "The Branch record has been deleted";
+                response.Success = true;
+                response.ErrorMessage = null;
+                return response;
+            }
+
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+                return response;
+            }
 
         }
 

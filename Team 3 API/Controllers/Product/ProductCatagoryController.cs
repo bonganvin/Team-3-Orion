@@ -85,6 +85,7 @@ namespace OVS_Team_3_API.Controllers.Product
         [HttpPut]
         public ViewModels.ResponseObject UpdateProductCatagory([FromBody] ProductCatagoryVM product)
         {
+
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ViewModels.ResponseObject();
 
@@ -118,21 +119,43 @@ namespace OVS_Team_3_API.Controllers.Product
 
         //Delete ProductCatagory
         [System.Web.Http.Route("DeleteProductCatagory/{id:int}")]
-        [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteProductCatagory(int id)
+        public ViewModels.ResponseObject DeleteProductCatagory(int id)
         {
+        
             db.Configuration.ProxyCreationEnabled = false;
+            var response = new ViewModels.ResponseObject();
 
-            Models.Product_Category product = db.Product_Category.Find(id);
+        Product_Category product = db.Product_Category.Find(id);
             if (product == null)
             {
-                return NotFound();
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
             }
-            db.Product_Category.Remove(product);
-            db.SaveChanges();
 
-            return "DeleteProductCatagory deleted";
+            try
+            {
+                db.Product_Category.Remove(product);
+                db.SaveChanges();
+
+                response.Success = true;
+                response.ErrorMessage = null;
+                return response;
+
+               
+                
+            }
+             
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+                return response;
+            }
+
+          
+
 
         }
     }

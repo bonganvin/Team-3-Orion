@@ -1,4 +1,4 @@
-import { ProductType } from './../../service/Interface/interfaces.service';
+import { Product, ProductType } from './../../service/Interface/interfaces.service';
 import { OpenDialogComponent } from './../../Dialog/open-dialog/open-dialog.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -20,6 +20,9 @@ export class ProductsComponent implements OnInit {
   observeProductType: Observable<ProductType[]> = this.service.getProductTypes();
   TypeData!: ProductType[];
 
+  observeProduct: Observable<Product[]> = this.service.getProducts();
+  ProductData!: Product[];
+
   check: boolean = true;
   
   constructor(private route: Router , private service : ServicesService , private interfaces : InterfacesService) { }
@@ -31,6 +34,12 @@ export class ProductsComponent implements OnInit {
 
     this.observeProductType.subscribe(res => {
       this.TypeData = res;
+    })
+
+    this.observeProduct.subscribe(res => {
+      this.ProductData = res;
+      console.log(res);
+      
     })
   }
   
