@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Login/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import jsPDF from 'jspdf';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';

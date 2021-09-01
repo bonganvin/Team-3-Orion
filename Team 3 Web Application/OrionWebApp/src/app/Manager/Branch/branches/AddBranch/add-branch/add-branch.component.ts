@@ -30,7 +30,7 @@ export class AddBranchComponent implements OnInit {
     } 
 
     this.branchForm = this.fb.group({
-      BranchID: 0,
+  
       BranchName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
       BranchLocationStorageCapacity: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
       BranchAddress: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],

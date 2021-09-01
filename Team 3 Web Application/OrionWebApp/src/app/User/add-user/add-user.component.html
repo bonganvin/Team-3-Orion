@@ -31,7 +31,7 @@
           <mat-form-field>
             <mat-label>Select User Role</mat-label>
             <mat-select [(value)]="UserAccessparams.UserAccessPermissionID" formControlName="UserAccessPermissionID">
-              <mat-option *ngFor="let item of UserAccessData" [value]="item.UserAccessPermissionID">
+              <mat-option *ngFor="let item of UserAccessData" [value]="item.UserAccessPermissionID" >
                 {{ item.UserRoleName }}
               </mat-option>
             </mat-select>

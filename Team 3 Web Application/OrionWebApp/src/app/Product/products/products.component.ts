@@ -1,7 +1,7 @@
 import { Product, ProductType } from './../../service/Interface/interfaces.service';
 import { OpenDialogComponent } from './../../Dialog/open-dialog/open-dialog.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServicesService } from 'src/app/service/Services/services.service';
 import { InterfacesService , ProductCategory } from 'src/app/service/Interface/interfaces.service';
 import { Observable } from 'rxjs';
@@ -22,15 +22,20 @@ export class ProductsComponent implements OnInit {
 
   observeProduct: Observable<Product[]> = this.service.getProducts();
   ProductData!: Product[];
+  productId!: number; 
 
   
 pID =0;
-  observeProductDetails: Observable<Product[]> = this.service.GetProductByID(this.pID);
-  ProductDetailsData!: Product[];
+  observeProductDetails = this.service.GetProductByID(this.pID);
+  ProductDetailsData!: any;
 
   check: boolean = true;
   
-  constructor(private route: Router , private service : ServicesService , private interfaces : InterfacesService) { }
+  constructor(private route: Router , private service : ServicesService , private interfaces : InterfacesService,private _avRoute: ActivatedRoute) {
+    if (this._avRoute.snapshot.params["id"]) {  
+      this.productId = this._avRoute.snapshot.params["id"];  
+  } 
+   }
 
   ngOnInit(): void {
     this.observeCategories.subscribe(res => {
@@ -67,12 +72,17 @@ pID =0;
     this.service.GetProductByID(catid).subscribe(x=>
     {
       console.log(x);
-      this.ProductData=x;
-  ProductID= x.map(x => x.ProductID);
+      this.ProductDetailsData=x;
+  
 
     })
     this.route.navigateByUrl("Product-Details")
   }
+
+ViewProductDetails()
+{
+  this.route.navigateByUrl("Product-Details")
+}
 
   DisplayProductCat(catid : number)
   {

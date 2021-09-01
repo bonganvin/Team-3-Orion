@@ -246,7 +246,9 @@ const routes: Routes = [
     path: 'Product-Details',
     component: ProductDetailsComponent
   },
-  { path: 'branch/edit/:id', component: AddBranchComponent },
+  { path: 'branch/edit/:id', component: AddBranchComponent }
+  ,
+  { path: 'Product/details/:id', component: ProductDetailsComponent },
 ]
 
 @NgModule({

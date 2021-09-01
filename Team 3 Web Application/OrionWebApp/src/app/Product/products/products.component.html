@@ -8,7 +8,7 @@
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <span>Product</span>
+    <span>Products</span>
     <span class="example-spacer"></span>
     <button
       (click)="openLogin()"
@@ -100,7 +100,8 @@
           <button
             mat-raised-button
             class="buttons"
-            (click)="DisplayProductDetails(item.ProductID)"
+            [routerLink]="['/Product/details/', item.ProductID]"
+            
             color="primary"
           >
             View {{ item.ProductName }} Details

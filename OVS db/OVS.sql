@@ -19,6 +19,10 @@ User_Role_Name varchar(50) not null,
 User_Role_Description varchar(100)not null
 )
 
+ INSERT [User_Access_Permission] ( User_Role_Name ,User_Role_Description) VALUES ( 'Customer', 'Allow customers to browse and buy products')
+ INSERT [User_Access_Permission] ( User_Role_Name ,User_Role_Description) VALUES ( 'Employee', 'Allow employees to navigate through the system')
+ INSERT [User_Access_Permission] ( User_Role_Name ,User_Role_Description) VALUES ( 'Manager', 'Allow managers to navigate through the system')
+
 Create table [User]
 ([User_ID] int primary key identity(1,1),
 [User_Password] varchar(12)not null,
@@ -26,6 +30,10 @@ Create table [User]
  User_Access_Permission_ID int foreign key references User_Access_Permission (User_Access_Permission_ID))
  Alter table [User]
 alter column  User_Password varchar (256) not null
+
+
+ INSERT [User] ( [User_Password] ,[User_Name],[User_Access_Permission_ID]) VALUES ( 'ManagerOVS10', 'ManagerOVS',3)
+
 
 create table Employee_Type(
 Employee_Type_ID int identity(1,1) primary key not null,
@@ -94,6 +102,8 @@ create table Size (
 Size_ID int identity(1,1) primary key not null,
 Size_Description varchar (20) not null
 )
+
+
 
 create table Price (
 Price_ID int identity(1,1) primary key not null,
@@ -215,6 +225,14 @@ CREATE TABLE [dbo].[Customer](
 Order_Status_Description varchar(50) 
  )
 
+
+INSERT [Order_Status] ( Order_Status_Description) VALUES ( 'Placed')
+INSERT [Order_Status] ( Order_Status_Description) VALUES ( 'Packed')
+INSERT [Order_Status] ( Order_Status_Description) VALUES ( 'Dispatched')
+INSERT [Order_Status] ( Order_Status_Description) VALUES ( 'Delivered')
+INSERT [Order_Status] ( Order_Status_Description) VALUES ( 'Returned')
+INSERT [Order_Status] ( Order_Status_Description) VALUES ( 'Cancelled')
+
  Create table [Order]
  (
  Order_ID int primary key identity(1,1),
@@ -282,6 +300,9 @@ Create table Quote_Status
 Quote_Status_ID int primary key identity(1,1) not null,
 Quote_Status_Description varchar(50)
 )
+
+INSERT [Quote_Status] ( Quote_Status_Description) VALUES ( 'Rejected')
+INSERT [Quote_Status] ( Quote_Status_Description) VALUES ( 'Accepted')
 
 Create table Request_Quote
 (
@@ -352,6 +373,10 @@ Sale_Payment_Status_ID int primary key identity(1,1) not null,
 Sale_Payment_Status_Desc varchar(50)
 )
 
+INSERT [Sale_Payment_Status] ( Sale_Payment_Status_Desc) VALUES ( 'Processing')
+INSERT [Sale_Payment_Status] ( Sale_Payment_Status_Desc) VALUES ( 'Awaiting Payment')
+INSERT [Sale_Payment_Status] ( Sale_Payment_Status_Desc) VALUES ( 'Paid')
+
 Create table Payment_Type
 (
 Payment_Type_ID int primary key identity(1,1) not null,
@@ -375,6 +400,9 @@ Create table Order_Payment_Status
 Order_Payment_Status_ID int primary key identity(1,1) not null,
 Order_Payment_Status_Description varchar(50)
 )
+
+
+
 
 Create table Order_Payment
 (

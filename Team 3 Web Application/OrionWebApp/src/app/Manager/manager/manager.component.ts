@@ -53,7 +53,7 @@ export class ManagerComponent implements OnInit {
     this.router.navigateByUrl("Discount")
   }
   EmployeeType(){
-    this.router.navigateByUrl("Employee")
+    this.router.navigateByUrl("EmployeeType")
   }
   ProductCatagory(){
     this.router.navigateByUrl("ProductCategory")

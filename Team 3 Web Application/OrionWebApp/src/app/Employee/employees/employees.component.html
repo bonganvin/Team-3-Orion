@@ -68,7 +68,7 @@
 </button>
 <br />
 <br />
-<table class="table table-hover table-dark">
+<table class="table table-hover table-dark printformClass" id="printIt">
   <thead>
     <tr>
       <th scope="col">Employee ID</th>
@@ -94,3 +94,8 @@
     </tr>
   </tbody>
 </table>
+
+
+<button mat-raised-button color="primary" (click)="getPDF()">
+Generate Employee List
+</button>

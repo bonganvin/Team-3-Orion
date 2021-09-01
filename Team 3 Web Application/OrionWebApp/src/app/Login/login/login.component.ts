@@ -96,9 +96,7 @@ export class LoginComponent implements OnInit {
   // }
 
   OpenRegister() {
-    const register = this.dialog.open(RegisterComponent, {
-      disableClose: true
-    });
+    this.router.navigateByUrl('Register')
   }
 
 }

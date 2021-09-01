@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 export class AddVATComponent implements OnInit {
 
   form: FormGroup = this.fb.group({
-    VATDate: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
-    VATPercentage: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+    VATDate: ['', Validators.compose([Validators.required])],
+    VATPercentage: ['', Validators.compose([Validators.required, Validators.maxLength(2), Validators.minLength(1)])],
   });
 
   constructor(private service: ServicesService, private fb: FormBuilder, 
@@ -27,9 +27,10 @@ export class AddVATComponent implements OnInit {
   CreateVAT(){
     this.service.CreateVAT(this.form.value).subscribe((res:any) => {
       //this.dialogRef.close();
-
+console.log(res);
       if (res.Success===false)
       {
+        console.log(res);
         this.snack.open('VAT not added.', 'OK', {
           verticalPosition: 'bottom',
           horizontalPosition: 'center',

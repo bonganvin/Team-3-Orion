@@ -10,17 +10,20 @@
     <br>
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
-        <input type="text" matInput placeholder="Joe" formControlName = "CustomerName"/>
+        <input type="text" matInput placeholder="Joe" formControlName = "CustomerName"
+        pattern = "[a-zA-Z][a-zA-Z\s]*"/>
         <mat-hint>Your name</mat-hint>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Surname</mat-label>
-        <input type="text" matInput placeholder="Smith" formControlName = "CustomerSurname"/>
+        <input type="text" matInput placeholder="Smith" formControlName = "CustomerSurname"
+        pattern = "[a-zA-Z][a-zA-Z\s]*"/>
         <mat-hint>Your Surname</mat-hint>
       </mat-form-field>
             <mat-form-field appearance="outline">
         <mat-label>Cellphone Number</mat-label>
-        <input type="number" matInput placeholder="01234567" formControlName = "CustomerCellphoneNumber"/>
+        <input type="number" matInput placeholder="01234567" formControlName = "CustomerCellphoneNumber"
+        pattern = "[0-9]"/>
         <mat-hint>Your number</mat-hint>
       </mat-form-field>
         <mat-form-field appearance="outline">

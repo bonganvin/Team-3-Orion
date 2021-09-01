@@ -45,24 +45,28 @@ namespace OVS_Team_3_API.Controllers.Product
             }).ToList();
         }
 
-            // Get Product by ID
+        // Get Product by ID
 
-      
+
 
         [Route("GetProductsByID/{id:int}")]
-        [HttpGet]
-        public dynamic GetProductsByID([FromUri] int ProductID)
+        [HttpPost]
+        public object GetProductByID(int id)
         {
+
+
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Products.Where(zz => zz.Product_ID == ProductID).Select(zz => new ProductVM
+
+            Models.Product product = db.Products.Find(id);
+            if (product == null)
             {
-                ProductTypeID = zz.Product_ID,
-                ProductName = zz.Product_Name,
-                ProductDescription = zz.Product_Description,
-                ProductImage =zz.Product_Image,
-                Quantityonhand = zz.Quantity_on_hand,
-            }).FirstOrDefault();
+                return NotFound();
+            }
+            return product;
+
         }
+
+
 
         //Add: Product
         [Route("CreateProduct")]
