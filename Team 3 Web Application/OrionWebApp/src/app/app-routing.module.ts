@@ -1,3 +1,4 @@
+import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { QuoteComponent } from './Employee/employee-duties/quote/quote.component';
 import { EmployeeDutiesComponent } from './Employee/employee-duties/employee-duties.component';
 import { AddSupplierComponent } from './Manager/supplier/add-supplier/add-supplier.component';
@@ -241,6 +242,11 @@ const routes: Routes = [
     path: 'Quote',
     component: QuoteComponent
   },
+  {
+    path: 'Product-Details',
+    component: ProductDetailsComponent
+  },
+  { path: 'branch/edit/:id', component: AddBranchComponent },
 ]
 
 @NgModule({

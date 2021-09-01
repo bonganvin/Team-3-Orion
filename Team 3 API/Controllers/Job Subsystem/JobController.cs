@@ -16,7 +16,7 @@ using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
 namespace OVS_Team_3_API.Controllers.Job_Subsystem
 {
-    [RoutePrefix("api/Job_Instance")]
+    [RoutePrefix("api/Job")]
     public class JobController : ApiController
     {
         OVSEntities5 db = new OVSEntities5();

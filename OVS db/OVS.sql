@@ -444,11 +444,19 @@ Order_ID int foreign key references [Order](Order_ID)
  Job_Status_ID int identity(1,1) primary key not null,
  Job_Status_Description varchar (100) not null
  )
+INSERT [Job_Status] ( [Job_Status_Description]) VALUES ( 'Not Initiated')
+INSERT [Job_Status] ( [Job_Status_Description]) VALUES ( 'Incomplete')
+INSERT [Job_Status] ( [Job_Status_Description]) VALUES ( 'Completed')
+
 
   Create table Job_Task_Status(
  Job_Task_Status_ID int identity(1,1) primary key not null,
  Job_Task_Description_Status varchar (100) not null
  )
+
+ INSERT [Job_Task_Status] ( [Job_Task_Description_Status]) VALUES ( 'Not Initiated')
+ INSERT [Job_Task_Status] ( [Job_Task_Description_Status]) VALUES ( 'Completed')
+
 
   Create table Task(
  Task_ID int identity(1,1) primary key not null,
@@ -459,6 +467,9 @@ Order_ID int foreign key references [Order](Order_ID)
   Job_Task_Type_ID int identity(1,1) primary key not null,
  Job_Task_Type_Description varchar (50) not null
  )
+
+  INSERT Job_Task_Type ( Job_Task_Type_Description) VALUES ( 'Production')
+
 
  create Table Job(
   Job_ID int identity(1,1) primary key not null,

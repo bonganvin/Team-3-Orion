@@ -30,7 +30,7 @@ namespace OVS_Team_3_API.Controllers.Product
                 ProductCategoryID = zz.Product_Category_ID,
                 ProductCategoryName = zz.Product_Category_Name,
 
-            }).ToList();
+            }).Where(zz => zz.ProductCategoryID == zz.ProductCategoryID).ToList();
         }
 
         // Get ProductCatagory by ID

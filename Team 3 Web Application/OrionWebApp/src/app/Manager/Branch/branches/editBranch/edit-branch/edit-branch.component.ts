@@ -17,6 +17,7 @@ export class EditBranchComponent implements OnInit {
 
   @ViewChild(BranchesComponent) edit: any;
 
+  id!: number;
 
   dataSaved = false;
   branchForm: any;
@@ -35,6 +36,7 @@ export class EditBranchComponent implements OnInit {
       BranchAddress: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     });
     this.loadAllBranches();
+    this.id = +this.r.snapshot.params['id']
     
     this.r.paramMap.subscribe(parameterMap =>{
       const id = parameterMap.get('BranchID');

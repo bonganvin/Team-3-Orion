@@ -16,13 +16,13 @@ using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
 namespace OVS_Team_3_API.Controllers.Job_Subsystem
 {
-    [RoutePrefix("api/Job_Instance")]
+    [RoutePrefix("api/JobStatus")]
     public class Job_StatusController : ApiController
     {
         OVSEntities5 db = new OVSEntities5();
 
         // GET: Job_Status
-        [Route("GetJob_Status")]
+        [Route("GetJobStatus")]
         [HttpGet]
         public List<Job_StatusVM> GetJob_Status()
         {

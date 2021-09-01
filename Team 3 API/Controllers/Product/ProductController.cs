@@ -47,19 +47,21 @@ namespace OVS_Team_3_API.Controllers.Product
 
             // Get Product by ID
 
-            [System.Web.Http.Route("getProductByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
-        [HttpPost]
-        public object getProduct(int id)
+      
+
+        [Route("GetProductsByID/{id:int}")]
+        [HttpGet]
+        public dynamic GetProductsByID([FromUri] int ProductID)
         {
             db.Configuration.ProxyCreationEnabled = false;
-
-            Models.Product product = db.Products.Find(id);
-            if (product == null)
+            return db.Products.Where(zz => zz.Product_ID == ProductID).Select(zz => new ProductVM
             {
-                return NotFound();
-            }
-            return product;
+                ProductTypeID = zz.Product_ID,
+                ProductName = zz.Product_Name,
+                ProductDescription = zz.Product_Description,
+                ProductImage =zz.Product_Image,
+                Quantityonhand = zz.Quantity_on_hand,
+            }).FirstOrDefault();
         }
 
         //Add: Product
@@ -149,7 +151,30 @@ namespace OVS_Team_3_API.Controllers.Product
             }
         }
 
+        [Route("getProductByCatTypeID/{id:int}")]
+        [HttpGet]
+        public object GetProductByCatTypeID(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
 
+            var ProductTypes = db.Products.Join(db.Product_Type,
+                a => a.Product_Type_ID,
+                t => t.Product_Type_ID,
+                (a, t) => new
+                {
+                    ProductName = a.Product_Name,
+                    ProductDescription = a.Product_Description,
+                    ProductImage = a.Product_Image,
+                    ProductTypeID= a.Product_Type_ID,
+                    Quantityonhand=a.Quantity_on_hand
+
+                }).Where(pp => pp.ProductTypeID == id);
+
+            return Ok(ProductTypes);
+
+
+
+        }
 
         //Delete Product
         [System.Web.Http.Route("DeleteProduct/{id:int}")]

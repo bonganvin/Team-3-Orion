@@ -9,5 +9,7 @@ namespace OVS_Team_3_API.ViewModels
     {
         public bool Success { get; set; }
         public string ErrorMessage { get; set; }
+
+        public int? UserAccessPermissionID { get; set; }
     }
 }

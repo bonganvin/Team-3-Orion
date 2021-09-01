@@ -132,3 +132,16 @@ export interface Supplier{
   SupplierPhoneNumber: number;
   SupplierAddress: string;
 }
+
+
+export interface Job {
+  JobID : number;
+  JobDescription : string;
+  JobStatusID : number;
+  ProductID : number;
+}
+
+export interface JobStatus{
+  JobStatusID : number;
+  JobStatusDescription : string;
+}

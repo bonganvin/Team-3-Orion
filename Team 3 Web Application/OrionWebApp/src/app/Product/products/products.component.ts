@@ -23,6 +23,11 @@ export class ProductsComponent implements OnInit {
   observeProduct: Observable<Product[]> = this.service.getProducts();
   ProductData!: Product[];
 
+  
+pID =0;
+  observeProductDetails: Observable<Product[]> = this.service.GetProductByID(this.pID);
+  ProductDetailsData!: Product[];
+
   check: boolean = true;
   
   constructor(private route: Router , private service : ServicesService , private interfaces : InterfacesService) { }
@@ -54,6 +59,36 @@ export class ProductsComponent implements OnInit {
     this.route.navigateByUrl("Login")
   }
 
+  DisplayProductDetails(catid : number)
+  {
+    let ProductTypeID: number[] =  [];
+    let ProductTypeName: string[] =  [];
+    let ProductID: number[] =  [];
+    this.service.GetProductByID(catid).subscribe(x=>
+    {
+      console.log(x);
+      this.ProductData=x;
+  ProductID= x.map(x => x.ProductID);
+
+    })
+    this.route.navigateByUrl("Product-Details")
+  }
+
+  DisplayProductCat(catid : number)
+  {
+    let ProductTypeID: number[] =  [];
+    let ProductTypeName: string[] =  [];
+    let CatagoryID: number[] =  [];
+    this.service.GetProductTypesByCatID(catid).subscribe(x=>
+    {
+      console.log(x);
+      this.TypeData=x;
+  ProductTypeID= x.map(x => x.ProductTypeID);
+    ProductTypeName = x.map(x => x.ProductTypeName);
+ CatagoryID= x.map(x => x.ProductCategoryID);
+    })
+  }
+
   displayProductCategory(){
 
     let CatagoryID: number[] =  [];
@@ -78,4 +113,21 @@ export class ProductsComponent implements OnInit {
       CatagoryID = ProductTypeID;
     })
   }
+
+
+  DisplayProducts(catid : number)
+  {
+    let ProductTypeID: number[] =  [];
+    let ProductTypeName: string[] =  [];
+    let CatagoryID: number[] =  [];
+    this.service.GetProductByTypeID(catid).subscribe(x=>
+    {
+      console.log(x);
+      this.ProductData=x;
+
+    })
+  }
+
+
+  
 }

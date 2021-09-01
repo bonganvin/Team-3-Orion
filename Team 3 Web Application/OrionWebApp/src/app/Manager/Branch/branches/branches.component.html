@@ -64,7 +64,7 @@
       <td>{{ branch.BranchLocationStorageCapacity }}</td>
       <td>{{ branch.BranchAddress }}</td>
       <td>
-        <button mat-button color="accent" (click)="editBranch()">
+        <button mat-button color="accent" [routerLink]="['/branch/edit/', branch.BranchID]">
           <mat-icon>edit</mat-icon>
         </button>
         &nbsp;

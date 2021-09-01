@@ -109,16 +109,18 @@ namespace OVS_Team_3_API.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public ResponseObject Login([FromBody] UserVM vm)
+        public ResponseObject Login([FromBody] UserVM User)
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
+          
 
 
-           string hashedPassword = this.ComputeSha256Hash(vm.UserPassword);
-           var user = db.Users.Where(zz => zz.User_Name == vm.UserName && zz.User_Password == hashedPassword).FirstOrDefault();
+            string hashedPassword = this.ComputeSha256Hash(User.UserPassword);
+           var user = db.Users.Where(zz => zz.User_Name == User.UserName && zz.User_Password == hashedPassword).FirstOrDefault();
+            var id = db.Users.Where(zz =>  zz.User_Access_Permission_ID == User.UserAccessPermissionID );
 
-           // var user = db.Users.Where(zz => zz.User_Name == vm.User_Name && zz.User_Password == zz.User_Password).FirstOrDefault();
+
             if (user == null)
             {
                 response.Success = false;
@@ -126,7 +128,8 @@ namespace OVS_Team_3_API.Controllers
                 return response;
             }
             response.Success = true;
-            return response; 
+            response.UserAccessPermissionID = user.User_Access_Permission_ID;
+            return (response);
 
             //return Ok(vm);
         }

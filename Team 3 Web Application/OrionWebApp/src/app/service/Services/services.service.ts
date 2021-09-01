@@ -1,4 +1,4 @@
-import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier } from './../Interface/interfaces.service';
+import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier, JobStatus, Job } from './../Interface/interfaces.service';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -81,11 +81,21 @@ export class ServicesService {
     }
   }
 
+  
+
   //Product 
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.server}Product/GetProduct`)
       .pipe(map(res => res));
+  }
+
+  GetProductByTypeID(typeID: number) {
+    return this.http.get<Product[]>(`${this.server}Product/getProductByCatTypeID/ ${typeID}`).pipe(map(res => res));
+  }
+
+  GetProductByID(ID: number) {
+    return this.http.get<Product[]>(`${this.server}Product/GetProductsByID/${ID}`).pipe(map(res => res));
   }
 
 
@@ -125,7 +135,10 @@ export class ServicesService {
     return this.http.get<ProductType[]>(`${this.server}ProductType/GetProductType`)
       .pipe(map(res => res));
   }
-
+  // get Product Types by Cat id
+  GetProductTypesByCatID(CatID: number) {
+    return this.http.get<ProductType[]>(`${this.server}ProductType/getProductTypeCategoryID/ ${CatID}`).pipe(map(res => res));
+  }
   //Create Product type
   CreateProductType(type: ProductType) {
     return this.http.post(`${this.server}ProductType/CreateProductType`, type, this.httpOptions);
@@ -354,5 +367,17 @@ export class ServicesService {
     deleteSupplier(Supplierid: number) {
       return this.http.delete(`${this.server}Supplier/DeleteSupplier/` +Supplierid,
         this.httpOptions);
+    }
+
+//Job Status
+    getJobStatus(): Observable<JobStatus[]> {
+      return this.http.get<JobStatus[]>(`${this.server}JobStatus/GetJobStatus`)
+        .pipe(map(res => res));
+    }
+  
+  
+  //Create Job
+    CreateJob(job: Job) {
+      return this.http.post(`${this.server}Job/CreateJob`, job, this.httpOptions);
     }
 }

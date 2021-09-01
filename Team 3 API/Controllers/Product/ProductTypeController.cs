@@ -42,15 +42,43 @@ namespace OVS_Team_3_API.Controllers.Product
         public List<ProductTypeVM> GetProductType()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Product_Type.Select(zz => new ProductTypeVM
+            var productTypes= db.Product_Type.Select(zz => new ProductTypeVM
             {
                 ProductTypeID = zz.Product_Type_ID,
                 ProductTypeName = zz.Product_Type_Name,
                 ProductCategoryID = zz.Product_Category_ID,
 
-            }).Where(zz => zz.ProductCategoryID == zz.ProductTypeID).ToList();
+            });
             // )
 
+            return productTypes.Where(zz => zz.ProductCategoryID== zz.ProductCategoryID).ToList();
+
+        }
+
+
+        // Get Product Types By Category ID
+
+        [System.Web.Http.Route("getProductTypeCategoryID/{id:int}")]
+        [HttpGet]
+        public object getProductTypeByCategoryID(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+
+            var ProductTypes = db.Product_Type.Join(db.Product_Category,
+                a => a.Product_Category_ID,
+                t => t.Product_Category_ID,
+                (a, t) => new
+                {
+                    ProductCategoryID = a.Product_Category_ID,
+                    ProductTypeName = a.Product_Type_Name,
+                    ProductTypeID = a.Product_Type_ID
+                 
+                }).Where(pp => pp.ProductCategoryID == id);
+
+            return Ok(ProductTypes);
+
+       
+         
         }
 
         // Get ProductType by ID

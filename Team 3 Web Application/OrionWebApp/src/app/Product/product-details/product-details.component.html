@@ -8,7 +8,7 @@
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <span>Product</span>
+    <span>Product Details</span>
     <span class="example-spacer"></span>
     <button
       (click)="openLogin()"
@@ -50,37 +50,6 @@
   </button>
 </mat-menu>
 
-<div class="heading">
-  <section>
-    <div class="example-button-row">
-      <button
-        mat-button
-        [matMenuTriggerFor]="menuu"
-        #menuTrigger="matMenuTrigger"
-       
-        *ngFor="let item of CategoryData"
-        [value]="item.ProductCategoryID"
-
-        (click)="DisplayProductCat(item.ProductCategoryID)"
-      >
-        {{ item.ProductCategoryName }}
-      </button>
-      <mat-menu #menuu="matMenu" [overlapTrigger]="false">
-        <button
-          mat-menu-item
-       *ngFor="let type of TypeData"
-          [value]="type.ProductTypeID " 
-           (click)="DisplayProducts(type.ProductTypeID)"
-        >
-        <span>{{ type.ProductTypeName }}</span>
-        </button>
-      </mat-menu>
-
-      &nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-  </section>
-</div>
-
 
 <div class="container">
   <div class="col" *ngFor="let item of ProductData">
@@ -96,11 +65,11 @@
         />
       </div>
       <mat-card-actions>
-        <div class="button" >
+        <div class="button">
           <button
             mat-raised-button
             class="buttons"
-            (click)="DisplayProductDetails(item.ProductID)"
+           
             color="primary"
           >
             View {{ item.ProductName }} Details

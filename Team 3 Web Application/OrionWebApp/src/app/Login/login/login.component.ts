@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
 export class LoginComponent implements OnInit {
 
   loginGroup: FormGroup = this.fb.group({
-    UserAccessPermissionID:  [],
+    UserAccessPermissionID: [],
     UserName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     UserPassword: ['', Validators.compose([Validators.required, Validators.maxLength(12), Validators.minLength(8)])],
   });
@@ -41,13 +41,12 @@ export class LoginComponent implements OnInit {
   }
 
   Login(): void {
-    this.service.sendUserLogin(this.loginGroup.value).subscribe((res:any) => {
+    this.service.sendUserLogin(this.loginGroup.value).subscribe((res: any) => {
       // route to home
       localStorage.setItem('user', JSON.stringify(res));
       console.log(res);
 
-      if (res.Success===false)
-      {
+      if (res.Success === false) {
         this.snack.open('Invalid credentials.', 'OK', {
           verticalPosition: 'bottom',
           horizontalPosition: 'center',
@@ -57,24 +56,21 @@ export class LoginComponent implements OnInit {
         return;
       }
 
-      else if (res.Success===true)
-      {
-      
+      else if (res.Success === true) {
+        
+        if (res.UserAccessPermissionID == 1) {
           console.log(res);
-        //  if(res.UserAccessPermissionID == 1)
-       //   {
-            this.router.navigateByUrl("")
-        //  }
-          //else 
-          if(this.b.UserAccessPermissionID == 2){
-            this.router.navigateByUrl("Employee")
-          }
-          else if(this.b.UserAccessPermissionID == 3){
-            this.router.navigateByUrl("Manager")
-          }
-    
+          this.router.navigateByUrl("")
+        }
+        else if (res.UserAccessPermissionID == 2) {
+          this.router.navigateByUrl("Employee")
+        }
+        else if (res.UserAccessPermissionID == 3) {
+          this.router.navigateByUrl("Manager")
+        }
+
       }
-     
+
     }, (error: HttpErrorResponse) => {
 
       if (error.status === 404) {
@@ -99,7 +95,7 @@ export class LoginComponent implements OnInit {
   //   this.router.navigateByUrl("Register")
   // }
 
-OpenRegister() {
+  OpenRegister() {
     const register = this.dialog.open(RegisterComponent, {
       disableClose: true
     });
