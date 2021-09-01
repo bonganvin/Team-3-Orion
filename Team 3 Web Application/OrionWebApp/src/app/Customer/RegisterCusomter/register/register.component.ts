@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup = this.fb.group({
     CustomerName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     CustomerSurname: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
-    CustomerCellphoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+    CustomerCellphoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength(10)])],
     CustomerEmailAddress: ['', Validators.compose([Validators.required, Validators.email])],
     CustomerPhysicalAddress: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     CustomerDateOfBirth: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
 
   Register() {
     this.service.RegisterCustomer(this.form.value).subscribe((res:any)=> {
-      this.dialogRef.close();
+     
       console.log(res);
     
 
@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
         verticalPosition: 'bottom',
         duration: 3000
       });
-      this.dialogRef.close();
+  
     })
   }
 

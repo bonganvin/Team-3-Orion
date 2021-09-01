@@ -15,7 +15,7 @@ export class AddSupplierComponent implements OnInit {
 
   form: FormGroup = this.fb.group({
     SupplierName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
-    SupplierPhoneNumber: ['', Validators.compose([Validators.required])],
+    SupplierPhoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength(10)])],
     SupplierAddress: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
   });
 

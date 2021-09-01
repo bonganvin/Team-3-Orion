@@ -10,6 +10,9 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
   ></script>
+
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
 </head>
 
 <p>
@@ -47,7 +50,8 @@
 </button>
 <br />
 <br />
-<table class="table table-hover table-dark">
+
+<table class="table table-hover table-dark printformClass" id="printIt">
   <thead>
     <tr>
       <th scope="col">Product ID</th>
@@ -64,17 +68,36 @@
       <th scope="row">{{ product.ProductID }}</th>
       <td>{{ product.ProductName }}</td>
       <td>{{ product.ProductDescription }}</td>
-      <td><img class="image" src="data:image/jpg;base64,{{product.ProductImage}}"></td>      <td>{{ product.Quantityonhand }}</td>
+      <td>
+        <img
+          class="image"
+          src="data:image/jpg;base64,{{ product.ProductImage }}"
+        />
+      </td>
+      <td>{{ product.Quantityonhand }}</td>
       <td>{{ product.ProductTypeID }}</td>
       <td>
         <button mat-button color="accent" (click)="editProduct()">
           <mat-icon>edit</mat-icon>
         </button>
         &nbsp;
-        <button mat-button color="warn" (click)="deleteProduct(product.ProductID)">
+        <button
+          mat-button
+          color="warn"
+          (click)="deleteProduct(product.ProductID)"
+        >
           <mat-icon>delete</mat-icon>
         </button>
       </td>
     </tr>
   </tbody>
 </table>
+
+<br />
+<br />
+
+<button mat-raised-button color="primary" (click)="getPDF()">
+Generate Product List
+</button>
+
+

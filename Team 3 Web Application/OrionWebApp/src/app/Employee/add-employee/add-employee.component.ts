@@ -19,7 +19,7 @@ export class AddEmployeeComponent implements OnInit {
   form: FormGroup = this.fb.group({
     EmployeeName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     EmployeeSurname: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
-    EmployeePhoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+    EmployeePhoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength(10)])],
     EmployeeEmailAddress: ['', Validators.compose([Validators.required, Validators.email])],
     EmployeeTypeID: ['', Validators.compose([Validators.required])],
   });

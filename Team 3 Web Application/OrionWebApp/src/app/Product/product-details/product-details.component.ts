@@ -11,9 +11,9 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-
-  observeProductDetails: Observable<Product[]> = this.service.getProducts();
-  ProductData!: Product[];
+productID!: number;
+  observeProductDetails = this.service.GetProductByID(this.productID);
+  ProductData!:any;
   constructor(private route: Router , private service : ServicesService , private interfaces : InterfacesService) { }
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class ProductDetailsComponent implements OnInit {
     {
       console.log(x);
       this.ProductData=x;
-      ProductID= x.map(x => x.ProductID);
+     
 
     })
   }
