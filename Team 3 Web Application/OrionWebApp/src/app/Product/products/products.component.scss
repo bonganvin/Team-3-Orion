@@ -1,6 +1,8 @@
 .image {
     height:200px;
     width:200px;
+    display: flex;
+    justify-content: center;
   }
   .example-card {
     width: 250px;
@@ -60,6 +62,13 @@
   
   color:SOLID BLACK;
   background-color:lightgrey;
+  display: flex;
+  justify-content: center;
+    }
+
+    .button{
+      display: flex;
+      justify-content: center;
     }
   
-    
+ 

@@ -12,16 +12,16 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 })
 export class ProductDetailsComponent implements OnInit {
 productID!: number;
-  observeProductDetails = this.service.GetProductByID(this.productID);
+ // observeProductDetails = this.service.GetProductByID(this.productID);
   ProductData!:any;
   constructor(private route: Router , private service : ServicesService , private interfaces : InterfacesService) { }
 
   ngOnInit(): void {
-    this.observeProductDetails.subscribe(res => {
-      this.ProductData = res;
-      console.log(res);
+    // this.observeProductDetails.subscribe(res => {
+    //   this.ProductData = res;
+    //   console.log(res);
       
-    })
+    // })
   }
 
 

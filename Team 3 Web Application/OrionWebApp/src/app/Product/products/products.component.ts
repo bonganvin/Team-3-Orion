@@ -79,6 +79,11 @@ pID =0;
     this.route.navigateByUrl("Product-Details")
   }
 
+ViewProductDetails()
+{
+  this.route.navigateByUrl("Product-Details")
+}
+
   DisplayProductCat(catid : number)
   {
     let ProductTypeID: number[] =  [];

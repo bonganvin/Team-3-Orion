@@ -243,12 +243,12 @@ const routes: Routes = [
     component: QuoteComponent
   },
   {
-    path: 'Product/:id',
+    path: 'Product-Details',
     component: ProductDetailsComponent
   },
   { path: 'branch/edit/:id', component: AddBranchComponent }
   ,
-  { path: 'Product/details/:id', component: ProductsComponent },
+  { path: 'Product/details/:id', component: ProductDetailsComponent },
 ]
 
 @NgModule({
