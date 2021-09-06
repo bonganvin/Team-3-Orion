@@ -101,7 +101,7 @@
             mat-raised-button
             class="buttons"
             [routerLink]="['/Product/details/', item.ProductID]"
-            
+            (click)="DisplayProductDetails(item.ProductID)"
             color="primary"
           >
             View {{ item.ProductName }} Details
