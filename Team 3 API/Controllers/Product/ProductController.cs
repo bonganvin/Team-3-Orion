@@ -50,7 +50,7 @@ namespace OVS_Team_3_API.Controllers.Product
 
 
         [Route("GetProductsByID/{id:int}")]
-        [HttpPost]
+        [HttpGet]
         public object GetProductByID(int id)
         {
 
