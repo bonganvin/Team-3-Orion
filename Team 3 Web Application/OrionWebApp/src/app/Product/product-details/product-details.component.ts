@@ -14,14 +14,19 @@ export class ProductDetailsComponent implements OnInit {
 productID!: number;
  // observeProductDetails = this.service.GetProductByID(this.productID);
   ProductData!:any;
+
+
+  observeProduct: Observable<any> = this.service.GetProductByID(this.productID);
+ // ProductData!: Product[];
+  productId!: number; 
   constructor(private route: Router , private service : ServicesService , private interfaces : InterfacesService) { }
 
   ngOnInit(): void {
-    // this.observeProductDetails.subscribe(res => {
-    //   this.ProductData = res;
-    //   console.log(res);
+    this.observeProduct.subscribe(res => {
+      this.ProductData = res;
+      console.log(res);
       
-    // })
+    })
   }
 
 

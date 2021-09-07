@@ -95,7 +95,8 @@ export class ServicesService {
   }
 
   GetProductByID(ID: number) {
-    return this.http.post(`${this.server}Product/GetProductsByID/`+ ID ,this.httpOptions);
+    return this.http.get<Product[]>(`${this.server}Product/GetProductsByID/ ${ID}`).pipe(map(res => res));
+    //return this.http.post(`${this.server}Product/GetProductsByID/`+ ID ,this.httpOptions);
   }
 
 

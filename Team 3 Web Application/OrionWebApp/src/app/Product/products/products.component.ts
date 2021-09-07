@@ -24,9 +24,12 @@ export class ProductsComponent implements OnInit {
   ProductData!: Product[];
   productId!: number; 
 
+  observeProductD: Observable<any> = this.service.GetProductByID(this.productId);
+  ProductdData!:any ;
+
   
 pID =0;
-  observeProductDetails = this.service.GetProductByID(this.pID);
+
   ProductDetailsData!: any;
 
   check: boolean = true;
@@ -72,7 +75,7 @@ pID =0;
     this.service.GetProductByID(catid).subscribe(x=>
     {
       console.log(x);
-      this.ProductDetailsData=x;
+      this.ProductdData=x;
   
 
     })
@@ -99,30 +102,8 @@ ViewProductDetails()
     })
   }
 
-  displayProductCategory(){
 
-    let CatagoryID: number[] =  [];
-    let CatagoryName: string[] =  [];
 
-    this.service.getCategories().subscribe(x => {
-       CatagoryID= x.map(x => x.ProductCategoryID);
-       CatagoryName = x.map(x => x.ProductCategoryName)
-    })
-  }
-
-  displayProductType(){
-    let ProductTypeID: number[] =  [];
-    let ProductTypeName: string[] =  [];
-    let CatagoryID: number[] =  [];
-
-    this.service.getProductTypes().subscribe(x => {
-      ProductTypeID= x.map(x => x.ProductTypeID);
-      ProductTypeName = x.map(x => x.ProductTypeName);
-      CatagoryID= x.map(x => x.ProductCategoryID);
-
-      CatagoryID = ProductTypeID;
-    })
-  }
 
 
   DisplayProducts(catid : number)
