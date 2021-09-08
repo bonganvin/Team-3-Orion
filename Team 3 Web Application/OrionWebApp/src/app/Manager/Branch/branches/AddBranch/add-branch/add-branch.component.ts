@@ -30,7 +30,7 @@ export class AddBranchComponent implements OnInit {
     } 
 
     this.branchForm = this.fb.group({
-  
+      BranchID: [''],
       BranchName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
       BranchLocationStorageCapacity: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
       BranchAddress: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
@@ -49,8 +49,17 @@ export class AddBranchComponent implements OnInit {
   if (this.branchId > 0) {  
       this.title = "Edit Branch";  
       this.service.GetBranchByID(this.branchId)  
-          .subscribe(resp => this.branchForm.setValue({resp})  
-          , error => this.errorMessage = error);  
+          .subscribe(resp =>{
+            console.log(resp)
+            this.branchForm = this.fb.group({
+              BranchID: [resp.Branch_ID],
+              BranchName: [resp.Branch_Name, Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+              BranchLocationStorageCapacity: [resp.Branch_Location_Storage_Capacity, Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+              BranchAddress: [resp.Branch_Address, Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
+            });
+
+          })  
+        
        
   }  
 
@@ -93,7 +102,8 @@ export class AddBranchComponent implements OnInit {
     }  
     else if (this.title == "Edit Branch") {  
         this.service.UpdateBranch(this.branchForm.value)   
-            .subscribe((data) => {  
+            .subscribe((data : any) => {  
+              console.log(data); 
                 this.router.navigate(['/Branch']);  
             }, error => this.errorMessage = error)  
     }  

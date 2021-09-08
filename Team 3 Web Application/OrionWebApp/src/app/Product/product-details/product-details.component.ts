@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router , ActivatedRoute} from '@angular/router';
 import { ServicesService } from 'src/app/service/Services/services.service';
 import { InterfacesService , Product, ProductCategory } from 'src/app/service/Interface/interfaces.service';
 import { Observable } from 'rxjs';
-import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
+
+
 
 @Component({
   selector: 'app-product-details',
@@ -11,38 +12,56 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-productID!: number;
- // observeProductDetails = this.service.GetProductByID(this.productID);
-  ProductData!:any;
+
+  productID!: number;
+  product_id!: string;
+  ProductName!: string;
+ observeProductD: Observable<any> = this.service.GetProductByID(this.productID);
+ ProductdData!:any ;
+ product!: Product[];
+
+ observeProduct: Observable<Product[]> = this.service.getProducts();
+ ProductData!: any;
 
 
-  observeProduct: Observable<any> = this.service.GetProductByID(this.productID);
- // ProductData!: Product[];
-  productId!: number; 
-  constructor(private route: Router , private service : ServicesService , private interfaces : InterfacesService) { }
+  constructor(private route: Router , 
+    private service : ServicesService ,
+     private interfaces : InterfacesService,
+     private actRoute: ActivatedRoute) { 
+      if (this.actRoute.snapshot.params["id"]) {  
+        this.productID = this.actRoute.snapshot.params["id"];  
+    } 
+    this.product_id = this.actRoute.snapshot.params.id;
+    this.ProductName = this.actRoute.snapshot.params.id;
+     }
 
   ngOnInit(): void {
-    this.observeProduct.subscribe(res => {
-      this.ProductData = res;
-      console.log(res);
+    // this.observeProduct.subscribe(res => {
+    //   this.ProductData = res;
+    //   console.log(res);
       
-    })
+    // })
+
+    this.service.GetProductByID(this.productID).subscribe(x=>
+      {
+        console.log(x);
+        this.ProductData=x;
+    
+      })
+  
   }
 
-
-  DisplayProduct(catid : number)
+  DisplayProductDetails(catid : number)
   {
-    let ProductTypeID: number[] =  [];
-    let ProductTypeName: string[] =  [];
-    let ProductID: number[] =  [];
     this.service.GetProductByID(catid).subscribe(x=>
     {
       console.log(x);
       this.ProductData=x;
-     
-
+  
     })
+ 
   }
+
 
   openLogin(){
     this.route.navigateByUrl("Login")

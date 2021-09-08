@@ -95,7 +95,7 @@ export class ServicesService {
   }
 
   GetProductByID(ID: number) {
-    return this.http.get<Product[]>(`${this.server}Product/GetProductsByID/ ${ID}`).pipe(map(res => res));
+    return this.http.get<any>(`${this.server}Product/GetProductsByID/ ${ID}`).pipe(map(res => res));
     //return this.http.post(`${this.server}Product/GetProductsByID/`+ ID ,this.httpOptions);
   }
 
@@ -213,7 +213,8 @@ export class ServicesService {
   }
   // get branch by id
   GetBranchByID(BranchID: number) {
-    return this.http.post(`${this.server}Branch/GetBranchByID/` + BranchID, this.httpOptions);
+    //return this.http.post(`${this.server}Branch/GetBranchByID/` + BranchID, this.httpOptions);
+    return this.http.get<any>(`${this.server}Branch/GetBranchByID/ ${BranchID}`).pipe(map(res => res));
   }
 
   //Create Branch
