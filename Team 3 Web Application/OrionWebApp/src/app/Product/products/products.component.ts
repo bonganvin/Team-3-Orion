@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
   ProductdData!:any ;
 
   
-pID =0;
+
 
   ProductDetailsData!: any;
 
@@ -67,25 +67,19 @@ pID =0;
     this.route.navigateByUrl("Login")
   }
 
-  DisplayProductDetails(catid : number)
+  DisplayProductDetails(id : number)
   {
-    let ProductTypeID: number[] =  [];
-    let ProductTypeName: string[] =  [];
-    let ProductID: number[] =  [];
-    this.service.GetProductByID(catid).subscribe(x=>
+
+    this.service.GetProductByID(id).subscribe(x=>
     {
       console.log(x);
       this.ProductdData=x;
   
-
     })
-    this.route.navigateByUrl("Product-Details")
+ 
   }
 
-ViewProductDetails()
-{
-  this.route.navigateByUrl("Product-Details")
-}
+
 
   DisplayProductCat(catid : number)
   {

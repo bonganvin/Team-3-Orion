@@ -32,7 +32,7 @@ namespace OVS_Team_3_API.Controllers.Manager_Subsystem
         }
 
         [Route("GetBranchByID/{id:int}")]
-        [HttpPost]
+        [HttpGet]
         public object GetBranchByID(int id)
         {
           
