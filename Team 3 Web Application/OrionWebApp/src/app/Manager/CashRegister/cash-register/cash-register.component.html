@@ -63,7 +63,7 @@
      
       <td  >{{ register.BranchID}}</td>
       <td>
-        <button mat-button color="accent" (click)="EditCashRegster()">
+        <button mat-button color="accent" [routerLink]="['/CashRegster/edit/', register.RegisterID]">
           <mat-icon>edit</mat-icon>
         </button>
         &nbsp;

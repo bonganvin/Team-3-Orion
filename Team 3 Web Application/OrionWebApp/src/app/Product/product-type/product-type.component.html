@@ -62,7 +62,7 @@
       <td>{{ item.ProductTypeName }}</td>
       <td>{{ item.ProductCategoryID }}</td>
       <td>
-        <button mat-button color="accent">
+        <button mat-button color="accent" [routerLink]="['/ProductType/edit/', item.ProductTypeID]">
           <mat-icon>edit</mat-icon>
         </button>
         &nbsp;

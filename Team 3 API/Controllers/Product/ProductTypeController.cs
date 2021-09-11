@@ -84,7 +84,7 @@ namespace OVS_Team_3_API.Controllers.Product
         // Get ProductType by ID
 
         [System.Web.Http.Route("getProductTypeByID/{id:int}")]
-        [HttpPost]
+        [HttpGet]
         public object getProductTypeByID(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;

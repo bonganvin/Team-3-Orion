@@ -36,8 +36,7 @@ namespace OVS_Team_3_API.Controllers.Product
         // Get ProductCatagory by ID
 
         [System.Web.Http.Route("getProductCategoryByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
-        [HttpPost]
+        [HttpGet]
         public object getProductCatagoryByID(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;

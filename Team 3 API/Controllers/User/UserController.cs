@@ -43,8 +43,7 @@ namespace OVS_Team_3_API.Controllers
         // Get User by ID
 
         [System.Web.Http.Route("getUserByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
-        [HttpPost]
+        [HttpGet]
         public object getUserByID(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
@@ -143,7 +142,7 @@ namespace OVS_Team_3_API.Controllers
         {
             db.Configuration.ProxyCreationEnabled = false;
             var response = new ResponseObject();
-
+            string hashedPassword = this.ComputeSha256Hash(user.UserPassword);
             var toUpdate = db.Users.Where(zz => zz.User_ID
             == user.UserID).FirstOrDefault();
 

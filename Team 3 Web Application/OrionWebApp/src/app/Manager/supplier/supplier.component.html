@@ -64,7 +64,7 @@
       <td>{{ supplier.SupplierPhoneNumber }}</td>
       <td>{{ supplier.SupplierAddress }}</td>
       <td>
-        <button mat-button color="accent" (click)="editSupplier()">
+        <button mat-button color="accent" [routerLink]="['/Suppliers/edit/', supplier.SupplierID]">
           <mat-icon>edit</mat-icon>
         </button>
         &nbsp;

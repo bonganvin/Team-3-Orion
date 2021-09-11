@@ -1,9 +1,9 @@
 <div class="container">
-  <form [formGroup]="form" (ngSubmit)="CreateEmployeeType()">
+  <form [formGroup]="form" (ngSubmit)="CreateEmployeeType()" #formDir="ngForm" novalidate>
     <mat-dialog-content class="mat-typography">
       <div class="controls">
         <br />
-        <h2 mat-dialog-title>Create Employee Type</h2>
+        <h2 mat-dialog-title>{{title}}</h2>
 
         <br />
         <mat-form-field appearance="outline">
@@ -28,7 +28,7 @@
             cdkFocusInitial
             [disabled]="!form.valid"
           >
-            Create Employee Type
+            Save Employee Type
           </button>
           &nbsp;&nbsp; &nbsp;
 

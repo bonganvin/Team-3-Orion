@@ -34,6 +34,7 @@ export class ProductTypeComponent implements OnInit {
     this.router.navigateByUrl("AddProductType")
   }
 
+ 
   deleteProductType(TypeID: number) {
     this.service.DeleteProductType(TypeID).subscribe((res: any) => {
       console.log(res);

@@ -64,7 +64,7 @@
       <td>{{ recipe.RecipeDescription }}</td>
       <td>{{ recipe.RecipeName }}</td>
       <td>
-        <button mat-button color="accent" (click)="editRecipe()">
+        <button mat-button color="accent" [routerLink]="['/Recipe/edit/', recipe.RecipeID]">
           <mat-icon>edit</mat-icon>
         </button>
         &nbsp;

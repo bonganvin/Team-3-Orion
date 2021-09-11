@@ -77,7 +77,7 @@
       <td>{{ product.Quantityonhand }}</td>
       <td>{{ product.ProductTypeID }}</td>
       <td>
-        <button mat-button color="accent" (click)="editProduct()">
+        <button mat-button color="accent" [routerLink]="['/ManageProducts/edit/', product.ProductID]">
           <mat-icon>edit</mat-icon>
         </button>
         &nbsp;

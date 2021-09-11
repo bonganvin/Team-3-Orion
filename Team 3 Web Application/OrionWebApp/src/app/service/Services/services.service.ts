@@ -26,6 +26,16 @@ export class ServicesService {
     return this.http.post(`${this.server}User/CreateUser`, user, this.httpOptions);
   }
 
+  GetUserByID(ID: number) {
+    return this.http.get<any>(`${this.server}User/getUserByID/ ${ID}`).pipe(map(res => res));
+
+  }
+
+    //Update User
+    UpdateUser(branches: User): Observable<User> {
+      return this.http.put<User>(`${this.server}User/UpdateUser`, branches, this.httpOptions);
+    }
+
   GetUser(): Observable<User[]> {
     return this.http.get<User[]>(`${this.server}User/GetUser`).pipe(map(res => res));
   }
@@ -81,7 +91,7 @@ export class ServicesService {
     }
   }
 
-  
+
 
   //Product 
 
@@ -99,7 +109,10 @@ export class ServicesService {
     //return this.http.post(`${this.server}Product/GetProductsByID/`+ ID ,this.httpOptions);
   }
 
-
+  //Update Product
+  UpdateProduct(products: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.server}Product/UpdateProduct`, products, this.httpOptions);
+  }
 
   DeleteProducts(productId: number) {
     return this.http.delete(`${this.server}Product/DeleteProduct/` + productId,
@@ -125,6 +138,16 @@ export class ServicesService {
     return this.http.post(`${this.server}ProductCategory/CreateProductCategory`, category, this.httpOptions);
   }
 
+  // Get  Category by ID
+  GetProductCategoryByID(ID: number) {
+    return this.http.get<any>(`${this.server}ProductCategory/getProductCategoryByID/ ${ID}`).pipe(map(res => res));
+
+  }
+
+  UpdateProductCategory(type: ProductCategory): Observable<any> {
+    return this.http.put(`${this.server}ProductCategory/UpdateProductCategory`, type, this.httpOptions);
+  }
+
 
   DeleteCategory(catId: number) {
     return this.http.delete(`${this.server}ProductCategory/DeleteProductCatagory/` + catId,
@@ -146,10 +169,18 @@ export class ServicesService {
     return this.http.post(`${this.server}ProductType/CreateProductType`, type, this.httpOptions);
   }
 
+  GetTypeByID(ID: number) {
+    //return this.http.post(`${this.server}Branch/GetBranchByID/` + BranchID, this.httpOptions);
+    return this.http.get<any>(`${this.server}ProductType/getProductTypeByID/ ${ID}`).pipe(map(res => res));
+  }
 
   DeleteProductType(typeId: number) {
     return this.http.delete(`${this.server}ProductType/DeleteProductType/` + typeId,
       this.httpOptions);
+  }
+
+  UpdateProductType(type: ProductType): Observable<any> {
+    return this.http.put(`${this.server}ProductType/UpdateProductType`, type, this.httpOptions);
   }
 
 
@@ -168,6 +199,17 @@ export class ServicesService {
       this.httpOptions);
   }
 
+  //Update EmployeeType
+  UpdateEmployeeType(employee: EmployeeType): Observable<any> {
+    return this.http.put(`${this.server}EmployeeType/EditEmployeeType`, employee, this.httpOptions);
+  }
+
+  // Get an employee type ID
+  GetEmployeeTypeByID(ID: number) {
+    return this.http.get<any>(`${this.server}EmployeeType/GetEmployeeTypeByID/ ${ID}`).pipe(map(res => res));
+    //return this.http.post(`${this.server}Product/GetProductsByID/`+ ID ,this.httpOptions);
+  }
+
   //Employee
 
   //Get Employee
@@ -181,9 +223,14 @@ export class ServicesService {
     return this.http.post(`${this.server}Employee/CreateEmployee`, employee, this.httpOptions);
   }
 
+  GetEmployeeByID(ID: number) {
+    return this.http.get<any>(`${this.server}Employee/GetEmployeeByID/ ${ID}`).pipe(map(res => res));
+    //return this.http.post(`${this.server}Product/GetProductsByID/`+ ID ,this.httpOptions);
+  }
+
   //Update Employee
   UpdateEmployee(employee: Employee): Observable<any> {
-    return this.http.post(`${this.server}Employee/UpdateEmployee`, employee, this.httpOptions);
+    return this.http.put(`${this.server}Employee/UpdateEmployee`, employee, this.httpOptions);
   }
 
   //Delete Employee
@@ -243,14 +290,20 @@ export class ServicesService {
   }
 
 
-  //Create Branch
+  //Create Cash Register
   CreateCashRegister(register: CashRegister) {
     return this.http.post(`${this.server}CashRegister/CreateCashRegister`, register, this.httpOptions);
   }
 
+  // Get  get Cash Register By ID
+  GetCashRegisterByID(ID: number) {
+    return this.http.get<any>(`${this.server}CashRegister/GetCashRegisterByID/ ${ID}`).pipe(map(res => res));
+
+  }
+
   //Update Branch
   UpdateCashRegister(register: CashRegister): Observable<any> {
-    return this.http.post(`${this.server}CashRegister/UpdateCashRegister`, register, this.httpOptions);
+    return this.http.put(`${this.server}CashRegister/UpdateCashRegister`, register, this.httpOptions);
   }
 
   //Remove Cash Register
@@ -276,9 +329,15 @@ export class ServicesService {
     return this.http.post(`${this.server}rawmaterials/CreateRawMaterial`, rawmaterials, this.httpOptions);
   }
 
+  // Get  ge tRawMaterial By ID
+  GetRawMaterialByID(ID: number) {
+    return this.http.get<any>(`${this.server}rawmaterials/getRawMaterialByID/ ${ID}`).pipe(map(res => res));
+
+  }
+
   //Update Raw Materials
   UpdateRawMaterials(rawmaterials: RawMaterial): Observable<any> {
-    return this.http.post(`${this.server}rawmaterials/UpdateRawMaterial`, rawmaterials, this.httpOptions);
+    return this.http.put(`${this.server}rawmaterials/UpdateRawMaterial`, rawmaterials, this.httpOptions);
   }
 
   //Delete Raw Materials 
@@ -329,10 +388,11 @@ export class ServicesService {
       .pipe(map(res => res));
   }
   // get Recipe by id
-  GetRecipeByID(RecipeID: number) {
-    return this.http.post(`${this.server}Recipe/getRecipeByID/` + RecipeID, this.httpOptions);
-  }
 
+  GetRecipeByID(ID: number) {
+    return this.http.get<any>(`${this.server}Recipe/getRecipeByID/ ${ID}`).pipe(map(res => res));
+
+  }
   //Create Recipe
   CreateRecipe(Recipe: Recipe) {
     return this.http.post(`${this.server}Recipe/CreateRecipe`, Recipe, this.httpOptions);
@@ -350,37 +410,42 @@ export class ServicesService {
   }
 
 
-    //Get Supplier
-    getSupplier(): Observable<Supplier[]> {
-      return this.http.get<Supplier[]>(`${this.server}Supplier/GetSupplierr`)
-        .pipe(map(res => res));
-    }
-  
-    //Create Supplier
-    RegisterSupplier(Supplier: Supplier) {
-      return this.http.post(`${this.server}Supplier/CreateSupplier`, Supplier, this.httpOptions);
-    }
-  
-    //Update Supplier
-    UpdateSupplier(Supplier: Supplier): Observable<any> {
-      return this.http.post(`${this.server}Supplier/UpdateSupplier`, Supplier, this.httpOptions);
-    }
-  
-    //Delete Supplier
-    deleteSupplier(Supplierid: number) {
-      return this.http.delete(`${this.server}Supplier/DeleteSupplier/` +Supplierid,
-        this.httpOptions);
-    }
+  //Get Supplier
+  getSupplier(): Observable<Supplier[]> {
+    return this.http.get<Supplier[]>(`${this.server}Supplier/GetSupplierr`)
+      .pipe(map(res => res));
+  }
 
-//Job Status
-    getJobStatus(): Observable<JobStatus[]> {
-      return this.http.get<JobStatus[]>(`${this.server}JobStatus/GetJobStatus`)
-        .pipe(map(res => res));
-    }
-  
-  
+  GetSupplierByID(ID: number) {
+    return this.http.get<any>(`${this.server}Supplier/getSupplierByID/ ${ID}`).pipe(map(res => res));
+
+  }
+
+  //Create Supplier
+  RegisterSupplier(Supplier: Supplier) {
+    return this.http.post(`${this.server}Supplier/CreateSupplier`, Supplier, this.httpOptions);
+  }
+
+  //Update Supplier
+  UpdateSupplier(Supplier: Supplier): Observable<any> {
+    return this.http.put(`${this.server}Supplier/UpdateSupplier`, Supplier, this.httpOptions);
+  }
+
+  //Delete Supplier
+  deleteSupplier(Supplierid: number) {
+    return this.http.delete(`${this.server}Supplier/DeleteSupplier/` + Supplierid,
+      this.httpOptions);
+  }
+
+  //Job Status
+  getJobStatus(): Observable<JobStatus[]> {
+    return this.http.get<JobStatus[]>(`${this.server}JobStatus/GetJobStatus`)
+      .pipe(map(res => res));
+  }
+
+
   //Create Job
-    CreateJob(job: Job) {
-      return this.http.post(`${this.server}Job/CreateJob`, job, this.httpOptions);
-    }
+  CreateJob(job: Job) {
+    return this.http.post(`${this.server}Job/CreateJob`, job, this.httpOptions);
+  }
 }

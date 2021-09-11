@@ -39,8 +39,7 @@ namespace OVS_Team_3_API.Controllers.Supplier
         // Get Supplier by ID
 
         [System.Web.Http.Route("getSupplierByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
-        [HttpPost]
+        [HttpGet]
         public object getSupplierByID(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;

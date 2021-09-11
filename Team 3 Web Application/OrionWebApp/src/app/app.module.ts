@@ -68,6 +68,7 @@ import { EmployeeDutiesComponent } from './Employee/employee-duties/employee-dut
 import { QuoteComponent } from './Employee/employee-duties/quote/quote.component';
 import { AddJobComponent } from './Manager/Jobs/add-job/add-job.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
+import { EditEmployeeTypeComponent } from './Product/product-type/edit-employee-type/edit-employee-type.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +120,8 @@ import { ProductDetailsComponent } from './Product/product-details/product-detai
     EmployeeDutiesComponent,
     QuoteComponent,
     AddJobComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    EditEmployeeTypeComponent
   ],
   imports: [
     BrowserModule,

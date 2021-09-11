@@ -30,7 +30,7 @@ namespace OVS_Team_3_API.Controllers.Manager_Subsystem
         }
 
         [Route("GetCashRegisterByID/{id:int}")]
-        [HttpPost]
+        [HttpGet]
         public object GetCashRegisterByID(int id)
         {
 

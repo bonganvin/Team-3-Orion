@@ -42,8 +42,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
         // Get Recipe by ID
 
         [System.Web.Http.Route("getRecipeByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
-        [HttpPost]
+        [HttpGet]
         public object getRecipe(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;

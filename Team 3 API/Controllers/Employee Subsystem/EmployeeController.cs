@@ -33,7 +33,7 @@ namespace OVS_Team_3_API.Controllers.Employee_Subsystem
         }
 
         [Route("GetEmployeeByID/{id:int}")]
-        [HttpPost]
+        [HttpGet]
         public object GetEmployeeByID(int id)
         {
 

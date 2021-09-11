@@ -72,6 +72,12 @@ const routes: Routes = [
     path: 'AddEmployee',
     component: AddEmployeeComponent
   },
+  { path: 'Employee/edit/:id', component: AddEmployeeComponent }
+  ,
+  {
+    path: 'ManageUsers/edit/:id',
+    component: AddUserComponent
+  },
   {
     path: 'AddUser',
     component: AddUserComponent
@@ -94,6 +100,10 @@ const routes: Routes = [
   },
   {
     path: 'AddCashRegster',
+    component: AddCashRegisterComponent
+  },
+  {
+    path: 'CashRegster/edit/:id',
     component: AddCashRegisterComponent
   },
   {
@@ -141,11 +151,19 @@ const routes: Routes = [
     component: AddProductCategoryComponent
   },
   {
+    path: 'ProductCategory/edit/:id',
+    component: AddProductCategoryComponent
+  },
+  {
     path: 'ProductType',
     component: ProductTypeComponent
   },
   {
     path: 'AddProductType',
+    component: AddProductTypeComponent
+  },
+  {
+    path: 'ProductType/edit/:id',
     component: AddProductTypeComponent
   },
   {
@@ -156,6 +174,9 @@ const routes: Routes = [
     path: 'AddProduct',
     component: AddProductComponent
   },
+  
+  { path: 'ManageProducts/edit/:id', component: AddProductComponent }
+  ,
   {
     path: 'EditProduct',
     component: EditProductComponent
@@ -174,6 +195,10 @@ const routes: Routes = [
   },
   {
     path: 'AddRawMaterial',
+    component: AddRawMaterialComponent
+  },
+  {
+    path: 'RawMaterials/edit/:id',
     component: AddRawMaterialComponent
   },
   {
@@ -206,12 +231,18 @@ const routes: Routes = [
     component: AddEmployeeTypeComponent
 
   },
+  { path: 'EmployeeType/edit/:id', component: AddEmployeeTypeComponent }
+  ,
   {
     path: 'Recipe',
     component: RecipeComponent
   },
   {
     path: 'AddRecipe',
+    component: AddRecipeComponent
+  },
+  {
+    path: 'Recipe/edit/:id',
     component: AddRecipeComponent
   },
   {
@@ -231,6 +262,10 @@ const routes: Routes = [
     component: AddSupplierComponent
   },
   {
+    path: 'Suppliers/edit/:id',
+    component: AddSupplierComponent
+  },
+  {
     path: 'EditSuppliers',
     component: SupplierComponent
   },
@@ -247,6 +282,7 @@ const routes: Routes = [
     component: ProductDetailsComponent
   },
   { path: 'branch/edit/:id', component: AddBranchComponent }
+ 
 
 ]
 

@@ -37,8 +37,7 @@ namespace OVS_Team_3_API.Controllers.Raw_Materials
         // Get Raw Materials by ID
 
         [System.Web.Http.Route("getRawMaterialByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
-        [HttpPost]
+        [HttpGet]
         public object getRawMaterial(int id)
 
         {
