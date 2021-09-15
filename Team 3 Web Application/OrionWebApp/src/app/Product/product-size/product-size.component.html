@@ -53,27 +53,30 @@
       <th scope="col">Product Size ID</th>
       <th scope="col">Product</th>
       <th scope="col">Size</th>
-      <th scope="col">Price Amount</th>
+      <!-- <th scope="col">Price Amount</th> -->
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of productSizeData">
       <th scope="row">{{ item.ProductSizeID }}</th>
-      <td  >{{ item.ProductID }}</td>
-     
-      <td  >{{ item.SizeID}}</td>
-           <td  >{{ item.PriceAmount}}</td>
+      <td>{{ item.ProductID }}</td>
+
+      <td>{{ item.SizeID }}</td>
+      <!-- <td  >{{ item.PriceAmount}}</td> -->
       <td>
-        <button mat-button color="accent" [routerLink]="['/ProductSize/edit/', item.ProductSizeID]">
+        <button
+          mat-button
+          color="accent"
+          [routerLink]="['/ProductSize/edit/', item.ProductSizeID]"
+        >
           <mat-icon>edit</mat-icon>
         </button>
         &nbsp;
-        <button mat-button color="warn" >
+        <button mat-button color="warn">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
     </tr>
   </tbody>
 </table>
-
