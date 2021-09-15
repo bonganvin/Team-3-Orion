@@ -18,17 +18,18 @@ namespace OVS_Team_3_API.Models
         public Product_Size()
         {
             this.Colours = new HashSet<Colour>();
+            this.Prices = new HashSet<Price>();
             this.Product_Special = new HashSet<Product_Special>();
         }
     
         public int Product_Size_ID { get; set; }
-        public Nullable<int> Price_ID { get; set; }
         public Nullable<int> Product_ID { get; set; }
         public Nullable<int> Size_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Colour> Colours { get; set; }
-        public virtual Price Price { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Price> Prices { get; set; }
         public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product_Special> Product_Special { get; set; }

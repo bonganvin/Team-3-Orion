@@ -145,3 +145,22 @@ export interface JobStatus{
   JobStatusID : number;
   JobStatusDescription : string;
 }
+
+export interface Size{
+  SizeID : number;
+  SizeDescription : string;
+}
+
+export interface Price{
+  PriceID : number;
+  PriceAmount:number;
+  PriceDate: Date;
+  ProductSizeID: number
+}
+
+export interface ProductSize{
+  ProductSizeID : number;
+  ProductID: number;
+  SizeID: number;
+  PriceAmount:number;
+}

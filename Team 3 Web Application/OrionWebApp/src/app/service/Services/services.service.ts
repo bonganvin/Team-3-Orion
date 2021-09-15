@@ -1,4 +1,4 @@
-import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier, JobStatus, Job } from './../Interface/interfaces.service';
+import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier, JobStatus, Job, Size, ProductSize, Price } from './../Interface/interfaces.service';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -31,10 +31,10 @@ export class ServicesService {
 
   }
 
-    //Update User
-    UpdateUser(branches: User): Observable<User> {
-      return this.http.put<User>(`${this.server}User/UpdateUser`, branches, this.httpOptions);
-    }
+  //Update User
+  UpdateUser(branches: User): Observable<User> {
+    return this.http.put<User>(`${this.server}User/UpdateUser`, branches, this.httpOptions);
+  }
 
   GetUser(): Observable<User[]> {
     return this.http.get<User[]>(`${this.server}User/GetUser`).pipe(map(res => res));
@@ -448,4 +448,72 @@ export class ServicesService {
   CreateJob(job: Job) {
     return this.http.post(`${this.server}Job/CreateJob`, job, this.httpOptions);
   }
+
+
+  //Get Sizes
+  getSizes(): Observable<Size[]> {
+    return this.http.get<Size[]>(`${this.server}Size/GetSize`)
+      .pipe(map(res => res));
+  }
+  // get Size by id
+
+  GetSizeByID(ID: number) {
+    return this.http.get<any>(`${this.server}Size/getSizeByID/ ${ID}`).pipe(map(res => res));
+
+  }
+  //Create Size
+  CreateSize(size: Size) {
+    return this.http.post(`${this.server}Size/CreateSize`, size, this.httpOptions);
+  }
+
+  //Update Size
+  UpdateSize(size: Size): Observable<Size> {
+    return this.http.put<Size>(`${this.server}Size/UpdateSize`, size, this.httpOptions);
+  }
+
+  //Delete Size
+  DeleteSize(ID: number) {
+    return this.http.delete(`${this.server}Size/DeleteSize/` + ID,
+      this.httpOptions);
+  }
+
+
+  //Get Product Sizes
+  getProductSizes(): Observable<ProductSize[]> {
+    return this.http.get<ProductSize[]>(`${this.server}ProductSize/GetProductSize`)
+      .pipe(map(res => res));
+  }
+
+  //Create Product Size
+  CreateProductSize(Psize: ProductSize) {
+    return this.http.post(`${this.server}ProductSize/CreateProductSize`, Psize, this.httpOptions);
+  }
+//Get Product Size by ID
+  GetProductSizeByID(ID: number) {
+    return this.http.get<any>(`${this.server}ProductSize/getProductSizeByID/ ${ID}`).pipe(map(res => res));
+
+  }
+
+   //Update Size
+   UpdateProductSize(size: ProductSize): Observable<ProductSize> {
+    return this.http.put<ProductSize>(`${this.server}ProductSize/UpdateProductSize`, size, this.httpOptions);
+  }
+
+
+    //Get Price
+    getPrices(): Observable<Price[]> {
+      return this.http.get<Price[]>(`${this.server}Price/GetPrice`)
+        .pipe(map(res => res));
+    }
+  
+    //Create Price
+    CreatePrice(Psize: Price) {
+      return this.http.post(`${this.server}Price/CreatePrice`, Psize, this.httpOptions);
+    }
+
+    UpdatePrice(Price: Price): Observable<Price> {
+      return this.http.put<Price>(`${this.server}Price/UpdatePrice`, Price, this.httpOptions);
+    }
+
+
 }

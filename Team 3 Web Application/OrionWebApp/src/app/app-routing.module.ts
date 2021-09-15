@@ -1,3 +1,6 @@
+import { AddPriceComponent } from './Product/price/add-price/add-price.component';
+import { AddProductSizeComponent } from './Product/product-size/add-product-size/add-product-size.component';
+import { SizeComponent } from './Product/size/size.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { QuoteComponent } from './Employee/employee-duties/quote/quote.component';
 import { EmployeeDutiesComponent } from './Employee/employee-duties/employee-duties.component';
@@ -46,6 +49,9 @@ import { ManageProductsComponent } from './Manager/manager/manage-products/manag
 import { DiscountComponent } from './Manager/discount/discount.component';
 import { AddEditDiscountComponent } from './Manager/discount/add-edit-discount/add-edit-discount.component';
 import { AddEmployeeTypeComponent } from './Manager/EmployeeType/add-employee-type/add-employee-type.component';
+import { AddSizesComponent } from './Product/size/add-sizes/add-sizes.component';
+import { ProductSizeComponent } from './Product/product-size/product-size.component';
+import { PriceComponent } from './Product/price/price.component';
 
 const routes: Routes = [
   {
@@ -282,8 +288,30 @@ const routes: Routes = [
     component: ProductDetailsComponent
   },
   { path: 'branch/edit/:id', component: AddBranchComponent }
- 
-
+  ,
+  { path: 'size', component: SizeComponent },
+  {
+    path: 'AddSize',
+    component: AddSizesComponent
+  },
+  { path: 'size/edit/:id', component: AddSizesComponent }
+  ,
+  { path: 'ProductSize', component: ProductSizeComponent },
+  {
+    path: 'AddProductSize',
+    component: AddProductSizeComponent
+  },
+  { path: 'ProductSize/edit/:id', component: AddProductSizeComponent }
+  ,
+  { path: 'price', component: PriceComponent },
+  {
+    path: 'AddPrice',
+    component: AddPriceComponent
+  },
+  {
+    path: 'price/edit/:id',
+    component: AddPriceComponent
+  },
 ]
 
 @NgModule({

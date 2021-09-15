@@ -11,5 +11,8 @@ namespace OVS_Team_3_API.ViewModels.Product
         public Nullable<int> PriceID { get; set; }
         public Nullable<int> ProductID { get; set; }
         public Nullable<int> SizeID { get; set; }
+
+        public double PriceAmount { get; set; }
+     
     }
 }

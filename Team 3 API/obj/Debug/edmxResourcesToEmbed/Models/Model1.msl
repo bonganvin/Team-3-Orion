@@ -263,6 +263,7 @@
           <ScalarProperty Name="Price_ID" ColumnName="Price_ID" />
           <ScalarProperty Name="Price_Amount" ColumnName="Price_Amount" />
           <ScalarProperty Name="Price_Date" ColumnName="Price_Date" />
+          <ScalarProperty Name="Product_Size_ID" ColumnName="Product_Size_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -290,7 +291,6 @@
       <EntityTypeMapping TypeName="OVSModel.Product_Size">
         <MappingFragment StoreEntitySet="Product_Size">
           <ScalarProperty Name="Product_Size_ID" ColumnName="Product_Size_ID" />
-          <ScalarProperty Name="Price_ID" ColumnName="Price_ID" />
           <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
           <ScalarProperty Name="Size_ID" ColumnName="Size_ID" />
         </MappingFragment>

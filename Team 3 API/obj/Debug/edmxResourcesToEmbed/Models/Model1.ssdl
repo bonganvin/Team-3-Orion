@@ -237,6 +237,7 @@
     <Property Name="Price_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Price_Amount" Type="real" Nullable="false" />
     <Property Name="Price_Date" Type="date" Nullable="false" />
+    <Property Name="Product_Size_ID" Type="int" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -261,7 +262,6 @@
       <PropertyRef Name="Product_Size_ID" />
     </Key>
     <Property Name="Product_Size_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Price_ID" Type="int" />
     <Property Name="Product_ID" Type="int" />
     <Property Name="Size_ID" Type="int" />
   </EntityType>
@@ -934,6 +934,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Price__Product_S__34C8D9D1">
+    <End Role="Product_Size" Type="Self.Product_Size" Multiplicity="0..1" />
+    <End Role="Price" Type="Self.Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Size">
+        <PropertyRef Name="Product_Size_ID" />
+      </Principal>
+      <Dependent Role="Price">
+        <PropertyRef Name="Product_Size_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Product__Product__2A4B4B5E">
     <End Role="Product_Type" Type="Self.Product_Type" Multiplicity="0..1" />
     <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -946,19 +958,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Product_S__Price__32E0915F">
-    <End Role="Price" Type="Self.Price" Multiplicity="0..1" />
-    <End Role="Product_Size" Type="Self.Product_Size" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Price">
-        <PropertyRef Name="Price_ID" />
-      </Principal>
-      <Dependent Role="Product_Size">
-        <PropertyRef Name="Price_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Product_S__Produ__33D4B598">
+  <Association Name="FK__Product_S__Produ__30F848ED">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
     <End Role="Product_Size" Type="Self.Product_Size" Multiplicity="*" />
     <ReferentialConstraint>
@@ -982,7 +982,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Product_S__Size___34C8D9D1">
+  <Association Name="FK__Product_S__Size___31EC6D26">
     <End Role="Size" Type="Self.Size" Multiplicity="0..1" />
     <End Role="Product_Size" Type="Self.Product_Size" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1643,15 +1643,15 @@
       <End Role="Payment_Type" EntitySet="Payment_Type" />
       <End Role="Order_Payment" EntitySet="Order_Payment" />
     </AssociationSet>
+    <AssociationSet Name="FK__Price__Product_S__34C8D9D1" Association="Self.FK__Price__Product_S__34C8D9D1">
+      <End Role="Product_Size" EntitySet="Product_Size" />
+      <End Role="Price" EntitySet="Price" />
+    </AssociationSet>
     <AssociationSet Name="FK__Product__Product__2A4B4B5E" Association="Self.FK__Product__Product__2A4B4B5E">
       <End Role="Product_Type" EntitySet="Product_Type" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
-    <AssociationSet Name="FK__Product_S__Price__32E0915F" Association="Self.FK__Product_S__Price__32E0915F">
-      <End Role="Price" EntitySet="Price" />
-      <End Role="Product_Size" EntitySet="Product_Size" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Product_S__Produ__33D4B598" Association="Self.FK__Product_S__Produ__33D4B598">
+    <AssociationSet Name="FK__Product_S__Produ__30F848ED" Association="Self.FK__Product_S__Produ__30F848ED">
       <End Role="Product" EntitySet="Product" />
       <End Role="Product_Size" EntitySet="Product_Size" />
     </AssociationSet>
@@ -1659,7 +1659,7 @@
       <End Role="Product_Size" EntitySet="Product_Size" />
       <End Role="Product_Special" EntitySet="Product_Special" />
     </AssociationSet>
-    <AssociationSet Name="FK__Product_S__Size___34C8D9D1" Association="Self.FK__Product_S__Size___34C8D9D1">
+    <AssociationSet Name="FK__Product_S__Size___31EC6D26" Association="Self.FK__Product_S__Size___31EC6D26">
       <End Role="Size" EntitySet="Size" />
       <End Role="Product_Size" EntitySet="Product_Size" />
     </AssociationSet>

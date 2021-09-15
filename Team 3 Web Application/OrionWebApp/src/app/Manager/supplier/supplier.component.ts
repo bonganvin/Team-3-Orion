@@ -17,9 +17,9 @@ export class SupplierComponent implements OnInit {
   observeData: Observable<Supplier[]> = this.service.getSupplier();
   SupplierData!: Supplier[];
 
-  supplierForm : any; 
+  supplierForm: any;
 
-  constructor(private service: ServicesService, private fb: FormBuilder, 
+  constructor(private service: ServicesService, private fb: FormBuilder,
     private snack: MatSnackBar, private dialogRef: MatDialog,
     private router: Router) { }
 
@@ -28,7 +28,7 @@ export class SupplierComponent implements OnInit {
       this.SupplierData = res;
     })
 
-    
+
     this.supplierForm = this.fb.group({
       BranchName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
       BranchLocationStorageCapacity: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
@@ -36,11 +36,11 @@ export class SupplierComponent implements OnInit {
     });
   }
 
-  AddSupplier(){
+  AddSupplier() {
     this.router.navigateByUrl("AddSupplier")
   }
 
-  editSupplier(){
+  editSupplier() {
     this.router.navigateByUrl("Supplier")
     // this.router.navigateByUrl("editBranch/" + this.service.GetBranchByID(this.b.BranchID).subscribe((branch : any)=>{
     //   console.log(branch);
@@ -48,23 +48,21 @@ export class SupplierComponent implements OnInit {
     // }))
   }
 
-deleteSupplier(Supplierid:number){
-  
-    this.service.deleteSupplier(Supplierid).subscribe((res:any)=>{
+  deleteSupplier(Supplierid: number) {
+
+    this.service.deleteSupplier(Supplierid).subscribe((res: any) => {
       console.log(res);
-      if (res.Success===false)
-      {
+      if (res.Success === false) {
         this.snack.open('Supplier not Deleted.', 'OK', {
           verticalPosition: 'bottom',
           horizontalPosition: 'center',
           duration: 3000
         });
-      
+
         return;
       }
 
-      else if (res.Success===true)
-      {
+      else if (res.Success === true) {
         this.snack.open('Successful Deleted Supplier', 'OK', {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
@@ -73,7 +71,7 @@ deleteSupplier(Supplierid:number){
       }
       window.location.reload();
     });
-    
+
   }
 
 }

@@ -1,4 +1,5 @@
 ﻿using OVS_Team_3_API.Models;
+using OVS_Team_3_API.ViewModels;
 using OVS_Team_3_API.ViewModels.Product;
 using System;
 using System.Collections.Generic;
@@ -37,8 +38,7 @@ namespace OVS_Team_3_API.Controllers.Product
         // Get Size by ID
 
         [System.Web.Http.Route("getSizeByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
-        [HttpPost]
+        [HttpGet]
         public object getSizeByID(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
@@ -120,21 +120,39 @@ namespace OVS_Team_3_API.Controllers.Product
 
         //Delete Size
         [System.Web.Http.Route("DeleteSize/{id:int}")]
-        [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteSize(int id)
+        public ResponseObject DeleteSize(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
+            var response = new ViewModels.ResponseObject();
 
             Models.Size size = db.Sizes.Find(id);
             if (size == null)
             {
-                return NotFound();
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
             }
-            db.Sizes.Remove(size);
-            db.SaveChanges();
+          
 
-            return "Size deleted";
+            try
+            {
+                db.Sizes.Remove(size);
+                db.SaveChanges();
+
+                response.Success = true;
+                response.ErrorMessage = "Size deleted";
+                return response;
+
+            }
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+                return response;
+            }
+
+        
 
         }
     }

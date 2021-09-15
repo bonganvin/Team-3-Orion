@@ -30,7 +30,7 @@ namespace OVS_Team_3_API.Controllers.Product
             {
                 ProductID = zz.Product_ID,
                 ProductSizeID = zz.Product_Size_ID,
-                PriceID = zz.Price_ID,
+               
                 SizeID = zz.Size_ID
 
             }).ToList();
@@ -39,8 +39,8 @@ namespace OVS_Team_3_API.Controllers.Product
         // Get ProductSize by ID
 
         [System.Web.Http.Route("getProductSizeByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
-        [HttpPost]
+     
+        [HttpGet]
         public object getProductSizeByID(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
@@ -65,14 +65,22 @@ namespace OVS_Team_3_API.Controllers.Product
                 Product_ID = product.ProductID,
                 Product_Size_ID = product.ProductSizeID,
                 Size_ID = product.SizeID,
-                Price_ID = product.PriceID
+
+             
             };
 
             try
             {
                 db.Product_Size.Add(Newpord);
                 db.SaveChanges();
-
+                var newPrice = new Models.Price
+                {
+                    Product_Size_ID = Newpord.Product_Size_ID,
+                    Price_Amount = (float)product.PriceAmount,
+                    Price_Date = DateTime.Now.Date
+                };
+                db.Prices.Add(newPrice);
+                db.SaveChanges();
                 response.Success = true;
                 response.ErrorMessage = null;
                 return response;
@@ -107,9 +115,14 @@ namespace OVS_Team_3_API.Controllers.Product
             try
             {
                 toUpdate.Product_ID = product.ProductID;
-                toUpdate.Price_ID = product.PriceID;
+          
                 toUpdate.Size_ID = product.SizeID;
 
+                db.SaveChanges();
+
+                var UpdatePrice = db.Prices.Where(zz => zz.Price_ID == product.PriceID && zz.Price_ID ==zz.Product_Size_ID).FirstOrDefault();
+                UpdatePrice.Price_Amount = (float)product.PriceAmount;
+                UpdatePrice.Price_Date = DateTime.Now.Date;
                 db.SaveChanges();
 
                 response.Success = true;

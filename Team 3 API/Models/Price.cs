@@ -14,17 +14,11 @@ namespace OVS_Team_3_API.Models
     
     public partial class Price
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Price()
-        {
-            this.Product_Size = new HashSet<Product_Size>();
-        }
-    
         public int Price_ID { get; set; }
         public float Price_Amount { get; set; }
         public System.DateTime Price_Date { get; set; }
+        public Nullable<int> Product_Size_ID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product_Size> Product_Size { get; set; }
+        public virtual Product_Size Product_Size { get; set; }
     }
 }

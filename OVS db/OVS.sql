@@ -108,7 +108,9 @@ Size_Description varchar (20) not null
 create table Price (
 Price_ID int identity(1,1) primary key not null,
 Price_Amount float (10) not null,
-Price_Date date not null
+Price_Date date not null,
+Product_Size_ID int foreign key references Product_Size(Product_Size_ID)
+
 )
 
 create table Special (
@@ -121,7 +123,7 @@ Create table Product_Size (
 Product_Size_ID int identity(1,1) primary key not null,
 Price_ID int foreign key references Price(Price_ID),
 Product_ID int foreign key references Product(Product_ID),
-Size_ID int foreign key references Size(Size_ID)
+
 )
 
 Create table Product_Special (

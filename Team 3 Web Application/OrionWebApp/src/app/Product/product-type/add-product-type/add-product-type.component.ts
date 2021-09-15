@@ -75,8 +75,9 @@ export class AddProductTypeComponent implements OnInit {
       return;
     }
 
-    if (this.title == "Create Branch") {
+    if (this.title == "Add Product Type") {
     this.service.CreateProductType(this.form.value).subscribe((res:any) => {
+      console.log(res);
       if (res.Success===false)
       {
         this.snack.open('Product Type not created.', 'OK', {
