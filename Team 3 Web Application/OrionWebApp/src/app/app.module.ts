@@ -76,6 +76,7 @@ import { AddProductSizeComponent } from './Product/product-size/add-product-size
 import { PriceComponent } from './Product/price/price.component';
 import { AddPriceComponent } from './Product/price/add-price/add-price.component';
 
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 @NgModule({
   declarations: [
     AppComponent,
@@ -156,11 +157,12 @@ import { AddPriceComponent } from './Product/price/add-price/add-price.component
     MatCardModule,
     MatButtonModule, 
     HttpClientModule,
-    
+    ScheduleModule,
+    RecurrenceEditorModule
   ],
   providers: [{provide: MatDialogRef,
-    useValue: {}}
-    
+    useValue: {}}, 
+    DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
