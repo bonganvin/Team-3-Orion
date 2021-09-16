@@ -32,7 +32,7 @@ namespace OVS_Team_3_API.Controllers.Product
                 PriceAmount = zz.Price_Amount,
                 PriceDate = zz.Price_Date,
                 ProductSizeID=zz.Product_Size_ID,
-                ProductSize=zz.Product_Size
+               // ProductSize=zz.Product_Size
 
             }).ToList();
         }

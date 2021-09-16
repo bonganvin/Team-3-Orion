@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OVS_Team_3_API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,8 @@ namespace OVS_Team_3_API.ViewModels.Product
         public byte[] ProductImage { get; set; }
         public int? Quantityonhand { get; set; }
         public int? ProductTypeID { get; set; }
+
+        public virtual ICollection<Product_Size> ProductSize { get; set; }
+
     }
 }

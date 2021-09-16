@@ -13,6 +13,7 @@ import { ServicesService } from 'src/app/service/Services/services.service';
   styleUrls: ['./product-size.component.scss']
 })
 export class ProductSizeComponent implements OnInit {
+  [x: string]: any;
 
   observeData: Observable<ProductSize[]> = this.service.getProductSizes();
   productSizeData!: ProductSize[];
@@ -34,6 +35,7 @@ export class ProductSizeComponent implements OnInit {
       ProductImage: '',
       ProductTypeID: 0,
       Quantityonhand: 0,
+
     }
   
   

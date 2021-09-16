@@ -82,6 +82,7 @@ export interface Product{
   ProductImage: any;
   ProductTypeID: number;
   Quantityonhand:number;
+ // ProductSize: [ProductSize];
 }
 
 
@@ -163,4 +164,5 @@ export interface ProductSize{
   ProductID: number;
   SizeID: number;
   PriceAmount:number;
+ // size: [];
 }

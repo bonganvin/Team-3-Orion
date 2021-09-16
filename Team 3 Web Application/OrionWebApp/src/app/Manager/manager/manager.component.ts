@@ -73,4 +73,13 @@ export class ManagerComponent implements OnInit {
     this.router.navigateByUrl("Suppliers")
   }
 
+  Sizes(){
+    this.router.navigateByUrl("size")
+  }
+
+
+  ProductSizes(){
+    this.router.navigateByUrl("ProductSize")
+  }
+
 }

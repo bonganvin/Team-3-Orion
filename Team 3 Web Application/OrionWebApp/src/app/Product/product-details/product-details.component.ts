@@ -5,7 +5,6 @@ import { InterfacesService , Product, ProductCategory } from 'src/app/service/In
 import { Observable } from 'rxjs';
 
 
-
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -61,6 +60,17 @@ export class ProductDetailsComponent implements OnInit {
     })
  
   }
+
+  DisplayProductSizes(id : number)
+  {
+    this.service.GetProductSizesBySizeID(id).subscribe(x=>
+      {
+        this.ProductData=x;
+      })
+
+  }
+
+  
 
 
   openLogin(){

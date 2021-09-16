@@ -10,6 +10,7 @@ import { User, UserAccess, Customer, ProductType, ProductCategory, Employee, VAT
   providedIn: 'root'
 })
 export class ServicesService {
+  [x: string]: any;
 
   //Local host server
   server = 'https://localhost:44387/api/';
@@ -515,5 +516,10 @@ export class ServicesService {
       return this.http.put<Price>(`${this.server}Price/UpdatePrice`, Price, this.httpOptions);
     }
 
+
+      // Get ProductSizes By SizeID
+  GetProductSizesBySizeID(ID: number) {
+    return this.http.get<ProductSize[]>(`${this.server}ProductSize/getProductSIzeBySizeID/ ${ID}`).pipe(map(res => res));
+  }
 
 }

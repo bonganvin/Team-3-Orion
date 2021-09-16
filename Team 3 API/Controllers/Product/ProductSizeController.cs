@@ -30,7 +30,7 @@ namespace OVS_Team_3_API.Controllers.Product
             {
                 ProductID = zz.Product_ID,
                 ProductSizeID = zz.Product_Size_ID,
-               
+                Size = zz.Size,
                 SizeID = zz.Size_ID
 
             }).ToList();
@@ -51,6 +51,56 @@ namespace OVS_Team_3_API.Controllers.Product
                 return NotFound();
             }
             return product;
+        }
+
+        [System.Web.Http.Route("getProductSIzeByProductID/{id:int}")]
+        [HttpGet]
+        public object getProductSIzeByProductID(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+
+            var productsizes = db.Product_Size.Join(db.Products,
+                a => a.Product_ID,
+                t => t.Product_ID,
+                (a, t) => new
+                {
+
+                    SizeID = a.Size_ID,
+                    ProductID = a.Product_ID,
+                    ProductSizeID = a.Product_Size_ID
+
+                }).Where(pp => pp.ProductID == id);
+
+            return Ok(productsizes);
+
+
+
+        }
+
+
+
+        [System.Web.Http.Route("getProductSIzeBySizeID/{id:int}")]
+        [HttpGet]
+        public object getProductSIzeBySizeID(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+
+            var productsizes = db.Product_Size.Join(db.Sizes,
+                a => a.Size_ID,
+                t => t.Size_ID,
+                (a, t) => new
+                {
+                    
+                    SizeID = a.Size_ID,
+                    ProductID = a.Product_ID,
+                     ProductSizeID= a.Product_Size_ID
+
+                }).Where(pp => pp.SizeID == id);
+
+            return Ok(productsizes);
+
+
+
         }
 
         //Add: ProductSize
@@ -120,10 +170,10 @@ namespace OVS_Team_3_API.Controllers.Product
 
                 db.SaveChanges();
 
-                var UpdatePrice = db.Prices.Where(zz => zz.Price_ID == product.PriceID && zz.Price_ID ==zz.Product_Size_ID).FirstOrDefault();
-                UpdatePrice.Price_Amount = (float)product.PriceAmount;
-                UpdatePrice.Price_Date = DateTime.Now.Date;
-                db.SaveChanges();
+               // var UpdatePrice = db.Prices.Where(zz => zz.Price_ID == product.PriceID && zz.Price_ID ==zz.Product_Size_ID).FirstOrDefault();
+              //  UpdatePrice.Price_Amount = (float)product.PriceAmount;
+              //  UpdatePrice.Price_Date = DateTime.Now.Date;
+               // db.SaveChanges();
 
                 response.Success = true;
                 response.ErrorMessage = null;

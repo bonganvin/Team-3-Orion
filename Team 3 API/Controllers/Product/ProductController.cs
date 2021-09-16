@@ -40,13 +40,13 @@ namespace OVS_Team_3_API.Controllers.Product
                 ProductDescription = zz.Product_Description,
                 ProductImage = zz.Product_Image,
                 ProductTypeID = zz.Product_Type_ID,
-                Quantityonhand = zz.Quantity_on_hand
+                Quantityonhand = zz.Quantity_on_hand,
+                ProductSize = zz.Product_Size
 
             }).ToList();
         }
 
         // Get Product by ID
-
 
 
         [Route("GetProductsByID/{id:int}")]

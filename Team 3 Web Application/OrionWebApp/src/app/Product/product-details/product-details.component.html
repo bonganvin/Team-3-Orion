@@ -50,13 +50,12 @@
   </button>
 </mat-menu>
 
-
 <div class="container">
-  <div class="col" >
+  <div class="col">
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>{{ ProductData.Product_Name }}</mat-card-title>
-                <mat-card-title>{{ ProductData.Product_Description }}</mat-card-title>
+       
         <mat-card-subtitle></mat-card-subtitle>
       </mat-card-header>
       <div>
@@ -65,14 +64,13 @@
           src="data:image/jpg;base64,{{ ProductData.Product_Image }}"
         />
       </div>
+      <mat-card-content>
+        <h3>{{ ProductData.Product_Description }}</h3>
+        <mat-card-title>{{ ProductData.ProductSize }}</mat-card-title>
+      </mat-card-content>
       <mat-card-actions>
         <div class="button">
-          <button
-            mat-raised-button
-            class="buttons"
-           
-            color="primary"
-          >
+          <button mat-raised-button class="buttons" color="primary">
             View {{ ProductData.Product_Name }} Details
           </button>
         </div>
@@ -80,7 +78,3 @@
     </mat-card>
   </div>
 </div>
-
-  
-
-

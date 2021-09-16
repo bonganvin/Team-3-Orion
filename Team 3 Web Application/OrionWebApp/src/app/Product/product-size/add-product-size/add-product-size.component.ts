@@ -14,6 +14,7 @@ import { ServicesService } from 'src/app/service/Services/services.service';
   styleUrls: ['./add-product-size.component.scss']
 })
 export class AddProductSizeComponent implements OnInit {
+  [x: string]: any;
 
   title: string = "Add Product Size";
   productSizeId!: number;
@@ -47,6 +48,7 @@ export class AddProductSizeComponent implements OnInit {
     ProductImage: '',
     ProductTypeID: 0,
     Quantityonhand: 0,
+
   }
 
 
