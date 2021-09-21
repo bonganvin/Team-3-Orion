@@ -15,7 +15,6 @@ import { DeleteRawMaterialComponent } from './Manager/raw-materials/delete-raw-m
 import { UpdateRawMaterialComponent } from './Manager/raw-materials/update-raw-material/update-raw-material.component';
 import { AddRawMaterialComponent } from './Manager/raw-materials/add-raw-material/add-raw-material.component';
 import { RawMaterialsComponent } from './Manager/raw-materials/raw-materials.component';
-import { DeleteProductComponent } from './Product/products/deleteProduct/delete-product/delete-product.component';
 import { EditProductComponent } from './Product/products/editProduct/edit-product/edit-product.component';
 import { ProductCategoryComponent } from './Product/product-category/product-category.component';
 import { AddVATComponent } from './Manager/VAT/add-vat/add-vat.component';
@@ -187,10 +186,7 @@ const routes: Routes = [
     path: 'EditProduct',
     component: EditProductComponent
   },
-  {
-    path: 'DeleteProduct',
-    component: DeleteProductComponent
-  },
+
   {
     path: 'ManageProducts',
     component: ManageProductsComponent

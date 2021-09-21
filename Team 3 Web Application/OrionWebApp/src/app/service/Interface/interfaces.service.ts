@@ -164,5 +164,10 @@ export interface ProductSize{
   ProductID: number;
   SizeID: number;
   PriceAmount:number;
+  PriceID : number;
+  ProductImage: any;
+  SizeDescription : string;
+  ProductName : string;
+  ProductDescription: string;
  // size: [];
 }

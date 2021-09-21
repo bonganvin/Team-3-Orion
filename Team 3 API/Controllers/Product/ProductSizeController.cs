@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Data.Entity;
 using System.Web.Mvc;
 using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
 using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
@@ -26,12 +27,17 @@ namespace OVS_Team_3_API.Controllers.Product
         public List<ProductSizeVM> GetProductSize()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Product_Size.Select(zz => new ProductSizeVM
+            return db.Product_Size.Include(X => X.Product ).Include(x=> x.Prices).Include(x=>x.Size).Select(zz => new ProductSizeVM
             {
                 ProductID = zz.Product_ID,
                 ProductSizeID = zz.Product_Size_ID,
-                Size = zz.Size,
-                SizeID = zz.Size_ID
+                ProductName = zz.Product.Product_Name,
+                ProductImage=zz.Product.Product_Image,
+                ProductDescription = zz.Product.Product_Description,
+                PriceAmount =zz.Prices.Where(x=> x.Product_Size.Product_ID== zz.Product_ID).OrderByDescending(x=> x.Price_Date).Select(x=> x.Price_Amount).FirstOrDefault(),
+                SizeDescription= zz.Size.Size_Description,
+                SizeID = zz.Size_ID,
+                PriceID=zz.Prices.Where(x => x.Product_Size.Product_ID == zz.Product_ID).OrderByDescending(x => x.Price_Date).Select(x => x.Price_ID).FirstOrDefault(),
 
             }).ToList();
         }
@@ -59,19 +65,19 @@ namespace OVS_Team_3_API.Controllers.Product
         {
             db.Configuration.ProxyCreationEnabled = false;
 
-            var productsizes = db.Product_Size.Join(db.Products,
-                a => a.Product_ID,
-                t => t.Product_ID,
-                (a, t) => new
-                {
+            return db.Product_Size.Include(X => X.Product).Include(x => x.Prices).Include(x => x.Size).Select(zz => new ProductSizeVM
+            {
+                ProductID = zz.Product_ID,
+                ProductSizeID = zz.Product_Size_ID,
+                ProductName = zz.Product.Product_Name,
+                ProductImage = zz.Product.Product_Image,
+                ProductDescription = zz.Product.Product_Description,
+                PriceAmount = zz.Prices.Where(x => x.Product_Size.Product_ID == zz.Product_ID).OrderByDescending(x => x.Price_Date).Select(x => x.Price_Amount).FirstOrDefault(),
+                SizeDescription = zz.Size.Size_Description,
+                SizeID = zz.Size_ID,
+                PriceID = zz.Prices.Where(x => x.Product_Size.Product_ID == zz.Product_ID).OrderByDescending(x => x.Price_Date).Select(x => x.Price_ID).FirstOrDefault(),
 
-                    SizeID = a.Size_ID,
-                    ProductID = a.Product_ID,
-                    ProductSizeID = a.Product_Size_ID
-
-                }).Where(pp => pp.ProductID == id);
-
-            return Ok(productsizes);
+            }).Where(x => x.ProductID ==id).FirstOrDefault();
 
 
 

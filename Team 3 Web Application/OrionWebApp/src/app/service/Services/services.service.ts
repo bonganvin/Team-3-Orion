@@ -495,6 +495,11 @@ export class ServicesService {
 
   }
 
+  GetProductSizeByProductID(ID: number) {
+    return this.http.get<any>(`${this.server}ProductSize/getProductSIzeByProductID/ ${ID}`).pipe(map(res => res));
+
+  }
+
    //Update Size
    UpdateProductSize(size: ProductSize): Observable<ProductSize> {
     return this.http.put<ProductSize>(`${this.server}ProductSize/UpdateProductSize`, size, this.httpOptions);

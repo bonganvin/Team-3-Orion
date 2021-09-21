@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
 import { ServicesService } from 'src/app/service/Services/services.service';
-import { InterfacesService , Product, ProductCategory } from 'src/app/service/Interface/interfaces.service';
+import { InterfacesService, Product, ProductCategory, ProductSize } from 'src/app/service/Interface/interfaces.service';
 import { Observable } from 'rxjs';
 
 
@@ -17,9 +17,9 @@ export class ProductDetailsComponent implements OnInit {
   ProductName!: string;
  observeProductD: Observable<any> = this.service.GetProductByID(this.productID);
  ProductdData!:any ;
- product!: Product[];
+// product!: Product[];
 
- observeProduct: Observable<Product[]> = this.service.getProducts();
+ observeProduct: Observable<ProductSize[]> = this.service.getProductSizes();
  ProductData!: any;
 
 
@@ -35,13 +35,8 @@ export class ProductDetailsComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    // this.observeProduct.subscribe(res => {
-    //   this.ProductData = res;
-    //   console.log(res);
-      
-    // })
 
-    this.service.GetProductByID(this.productID).subscribe(x=>
+    this.service.GetProductSizeByProductID(this.productID).subscribe(x=>
       {
         console.log(x);
         this.ProductData=x;
@@ -61,14 +56,14 @@ export class ProductDetailsComponent implements OnInit {
  
   }
 
-  DisplayProductSizes(id : number)
-  {
-    this.service.GetProductSizesBySizeID(id).subscribe(x=>
-      {
-        this.ProductData=x;
-      })
+  // DisplayProductSizes(id : number)
+  // {
+  //   this.service.GetProductSizesBySizeID(id).subscribe(x=>
+  //     {
+  //       this.ProductData=x;
+  //     })
 
-  }
+  // }
 
   
 

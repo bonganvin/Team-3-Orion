@@ -49,7 +49,7 @@ import { AddProductTypeComponent } from './Product/product-type/add-product-type
 import { AddProductComponent } from './Product/products/add-product/add-product.component';
 import { ManageProductsComponent } from './Manager/manager/manage-products/manage-products.component';
 import { EditProductComponent } from './Product/products/editProduct/edit-product/edit-product.component';
-import { DeleteProductComponent } from './Product/products/deleteProduct/delete-product/delete-product.component';
+
 import { RawMaterialsComponent } from './Manager/raw-materials/raw-materials.component';
 import { AddRawMaterialComponent } from './Manager/raw-materials/add-raw-material/add-raw-material.component';
 import { UpdateRawMaterialComponent } from './Manager/raw-materials/update-raw-material/update-raw-material.component';
@@ -108,7 +108,7 @@ import { AddPriceComponent } from './Product/price/add-price/add-price.component
     AddProductComponent,
     ManageProductsComponent,
     EditProductComponent,
-    DeleteProductComponent,
+
     RawMaterialsComponent,
     AddRawMaterialComponent,
     UpdateRawMaterialComponent,
