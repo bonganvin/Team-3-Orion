@@ -1,4 +1,4 @@
-import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier, JobStatus, Job, Size, ProductSize, Price } from './../Interface/interfaces.service';
+import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier, JobStatus, Job, Size, ProductSize, Price, CartLine } from './../Interface/interfaces.service';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -527,4 +527,9 @@ export class ServicesService {
     return this.http.get<ProductSize[]>(`${this.server}ProductSize/getProductSIzeBySizeID/ ${ID}`).pipe(map(res => res));
   }
 
+
+    //Add to Cart
+    AddtoCart(cart: CartLine) {
+      return this.http.post(`${this.server}cartline/CreateCartLine`, cart, this.httpOptions);
+    }
 }

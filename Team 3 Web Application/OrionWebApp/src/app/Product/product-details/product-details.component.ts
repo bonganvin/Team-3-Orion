@@ -56,14 +56,10 @@ export class ProductDetailsComponent implements OnInit {
  
   }
 
-  // DisplayProductSizes(id : number)
-  // {
-  //   this.service.GetProductSizesBySizeID(id).subscribe(x=>
-  //     {
-  //       this.ProductData=x;
-  //     })
-
-  // }
+  addToCart ()
+  {
+    
+  }
 
   
 

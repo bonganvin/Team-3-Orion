@@ -62,7 +62,8 @@ namespace OVS_Team_3_API.Controllers.Order
             {
                 Product_ID = cartLine.ProductID,
                 Cart_ID = cartLine.CartID,
-                Quantity= cartLine.Quantity
+                Quantity= cartLine.Quantity,
+                Cart_Line_ID =cartLine.CartLineID
 
             };
 
@@ -71,6 +72,17 @@ namespace OVS_Team_3_API.Controllers.Order
                 db.Cart_Line.Add(newCartLine);
                 db.SaveChanges();
 
+
+                var newCart = new Models.Cart
+                {
+                    Cart_ID = (int)newCartLine.Cart_ID,
+                  
+                    Customer_ID = cartLine.CustomerID,
+                    User_ID = cartLine.UserID,
+
+                };
+                db.Carts.Add(newCart);
+                db.SaveChanges();
                 response.Success = true;
                 response.ErrorMessage = null;
                 return response;

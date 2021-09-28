@@ -171,3 +171,12 @@ export interface ProductSize{
   ProductDescription: string;
  // size: [];
 }
+
+export interface CartLine {
+  CartLineID : number;
+  ProductID : number;
+  CartID : number;
+  Quantity : number;
+  UserID : number;
+  CustomerID : number;
+}
