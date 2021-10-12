@@ -12,7 +12,8 @@ namespace OVS_Team_3_API.ViewModels.Product
         public string ProductTypeName { get; set; }
         public int? ProductCategoryID { get; set; }
 
-      
+        public string ProductCategoryName { get; set; }
+
         public virtual Product_Category Product_Category { get; set; }
 
 

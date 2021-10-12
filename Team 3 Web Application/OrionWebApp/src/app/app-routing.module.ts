@@ -1,3 +1,4 @@
+import { AddCustomerTypeComponent } from './Customer/customers/customer-type/add-customer-type/add-customer-type.component';
 import { AddPriceComponent } from './Product/price/add-price/add-price.component';
 import { AddProductSizeComponent } from './Product/product-size/add-product-size/add-product-size.component';
 import { SizeComponent } from './Product/size/size.component';
@@ -51,6 +52,7 @@ import { AddEmployeeTypeComponent } from './Manager/EmployeeType/add-employee-ty
 import { AddSizesComponent } from './Product/size/add-sizes/add-sizes.component';
 import { ProductSizeComponent } from './Product/product-size/product-size.component';
 import { PriceComponent } from './Product/price/price.component';
+import { CustomerTypeComponent } from './Customer/customers/customer-type/customer-type.component';
 
 const routes: Routes = [
   {
@@ -104,8 +106,16 @@ const routes: Routes = [
     component: CashRegisterComponent
   },
   {
-    path: 'AddCashRegster',
-    component: AddCashRegisterComponent
+    path: 'CustomerType',
+    component: CustomerTypeComponent
+  },
+  {
+    path: 'AddCustomerType',
+    component: AddCustomerTypeComponent
+  },
+  {
+    path: 'CustomerType/edit/:id',
+    component: AddCustomerTypeComponent
   },
   {
     path: 'CashRegster/edit/:id',

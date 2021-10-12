@@ -35,7 +35,7 @@ export class ProductSizeComponent implements OnInit {
       ProductImage: '',
       ProductTypeID: 0,
       Quantityonhand: 0,
-
+      ProductTypeName: ''
     }
   
   
@@ -73,4 +73,33 @@ export class ProductSizeComponent implements OnInit {
     this.router.navigateByUrl("AddProductSize")
   }
 
+
+  deleteProductSize(id:number){
+  
+    this.service.DeleteProductSize(id).subscribe((res:any)=>{
+      console.log(res);
+      if (res.Success===false)
+      {
+        this.snack.open('Product Size not Deleted.', 'OK', {
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center',
+          duration: 3000
+        });
+      
+        return;
+      }
+
+      else if (res.Success===true)
+      {
+        this.snack.open('Successful Deleted Product Size', 'OK', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 3000
+        });
+        console.log(res);
+      }
+      window.location.reload();
+    });
+    
+  }
 }

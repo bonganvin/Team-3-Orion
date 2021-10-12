@@ -11,5 +11,7 @@ namespace OVS_Team_3_API.ViewModels
         public string UserPassword { get; set; }
         public string UserName { get; set; }
         public Nullable<int> UserAccessPermissionID { get; set; }
+
+        public string UserRoleName { get; set; }
     }
 }

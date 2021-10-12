@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using System.Data.Entity;
 using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
 using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
 using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
@@ -30,12 +31,13 @@ namespace OVS_Team_3_API.Controllers
         public List<UserVM> GetUser()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Users.Select(zz => new UserVM
+            return db.Users.Include(x => x.User_Access_Permission).Select(zz => new UserVM
             {
                 UserID = zz.User_ID,
                 UserName = zz.User_Name,
                 UserPassword = zz.User_Password,
-                UserAccessPermissionID = zz.User_Access_Permission_ID
+                UserAccessPermissionID = zz.User_Access_Permission_ID,
+                UserRoleName=zz.User_Access_Permission.User_Role_Name
 
             }).ToList();
         }

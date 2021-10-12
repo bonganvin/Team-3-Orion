@@ -1,4 +1,4 @@
-import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier, JobStatus, Job, Size, ProductSize, Price, CartLine } from './../Interface/interfaces.service';
+import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier, JobStatus, Job, Size, ProductSize, Price, CartLine,  CustomerType } from './../Interface/interfaces.service';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -506,6 +506,13 @@ export class ServicesService {
   }
 
 
+    //Delete Product  Size
+    DeleteProductSize(ID: number) {
+      return this.http.delete(`${this.server}ProductSize/DeleteProductSize/` + ID,
+        this.httpOptions);
+    }
+
+
     //Get Price
     getPrices(): Observable<Price[]> {
       return this.http.get<Price[]>(`${this.server}Price/GetPrice`)
@@ -532,4 +539,32 @@ export class ServicesService {
     AddtoCart(cart: CartLine) {
       return this.http.post(`${this.server}cartline/CreateCartLine`, cart, this.httpOptions);
     }
+
+
+      //Create Customer Type
+  CreateCustomerType(type: CustomerType) {
+    return this.http.post(`${this.server}CustomerType/CreateCustomerType`, type, this.httpOptions);
+  }
+
+  //Update Customer Type
+  UpdateCustomerType(type: CustomerType): Observable<CustomerType> {
+    return this.http.put<CustomerType>(`${this.server}CustomerType/updatecustomertype`, type, this.httpOptions);
+  }
+
+  //Delete Customer Type
+  DeleteCustomerType(ID: number) {
+    return this.http.delete(`${this.server}CustomerType/DeleteCustomerType/` + ID,
+      this.httpOptions);
+  }
+
+   //Get Customer Type
+   getCustomerType(): Observable<CustomerType[]> {
+    return this.http.get<CustomerType[]>(`${this.server}CustomerType/GetCustomerType`)
+      .pipe(map(res => res));
+  }
+
+  GetCustomerTypeByID(ID: number) {
+    return this.http.get<any>(`${this.server}CustomerType/getCustomerTypeByID/ ${ID}`).pipe(map(res => res));
+   
+  }
 }

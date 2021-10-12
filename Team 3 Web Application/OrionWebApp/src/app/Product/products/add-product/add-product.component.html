@@ -1,9 +1,16 @@
 <div class="container">
-  <form [formGroup]="form" (ngSubmit)="CreateProduct()" #formDir="ngForm" novalidate>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="CreateProduct()"
+    #formDir="ngForm"
+    novalidate
+  >
     <mat-dialog-content class="mat-typography">
       <div class="controls">
         <br />
-        <h2 mat-dialog-title><h1>{{title}}</h1></h2>
+        <h2 mat-dialog-title>
+          <h1>{{ title }}</h1>
+        </h2>
 
         <br />
         <mat-form-field appearance="outline">
@@ -12,7 +19,6 @@
             type="string"
             matInput
             placeholder="Floor Cleaner"
-
             formControlName="ProductName"
             pattern="[a-zA-Z][a-zA-Z\s]*"
           />
@@ -41,17 +47,22 @@
           <mat-hint>Quantity On Hand</mat-hint>
         </mat-form-field>
         <br />
+     
+        <!-- <mat-form-field appearance="outline">
+          <ngx-mat-file-input formControlName="ProductImage" placeholder="Select image"   (change)="SelectFile($event)" ></ngx-mat-file-input>
+          <mat-icon matSuffix>folder</mat-icon>
+        </mat-form-field> -->
 
 
-          <input
-            type="file"
-            (change)="SelectFile($event)"
-            placeholder="Images"
-            formControlName="ProductImage"
-          />
-
+        <input
+          type="file"
+          (change)="SelectFile($event)"
+          placeholder="Images"
+          formControlName="ProductImage"
+        />
+   
         <br />
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Select Product Type </mat-label>
           <mat-select
             [(value)]="typeparams.ProductTypeID"
@@ -75,7 +86,7 @@
             cdkFocusInitial
             [disabled]="!form.valid"
           >
-            Save Product 
+            Save Product
           </button>
           &nbsp;&nbsp; &nbsp;
 

@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Data.Entity;
 using System.Web.Mvc;
 using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
 using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
@@ -42,11 +43,12 @@ namespace OVS_Team_3_API.Controllers.Product
         public List<ProductTypeVM> GetProductType()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            var productTypes= db.Product_Type.Select(zz => new ProductTypeVM
+            var productTypes= db.Product_Type.Include(x=>x.Product_Category).Select(zz => new ProductTypeVM
             {
                 ProductTypeID = zz.Product_Type_ID,
                 ProductTypeName = zz.Product_Type_Name,
                 ProductCategoryID = zz.Product_Category_ID,
+                ProductCategoryName=zz.Product_Category.Product_Category_Name
 
             });
             // )
@@ -192,8 +194,6 @@ namespace OVS_Team_3_API.Controllers.Product
                 response.Success = true;
                 response.ErrorMessage = null;
                 return response;
-
-
 
             }
 

@@ -63,7 +63,7 @@ namespace OVS_Team_3_API.Controllers.Order
                 Product_ID = cartLine.ProductID,
                 Cart_ID = cartLine.CartID,
                 Quantity= cartLine.Quantity,
-                Cart_Line_ID =cartLine.CartLineID
+             
 
             };
 

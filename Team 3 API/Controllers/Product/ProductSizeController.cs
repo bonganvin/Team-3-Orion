@@ -13,6 +13,7 @@ using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
 using HttpPutAttribute = System.Web.Http.HttpPutAttribute;
 using RouteAttribute = System.Web.Http.RouteAttribute;
 using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
+using OVS_Team_3_API.ViewModels;
 
 namespace OVS_Team_3_API.Controllers.Product
 {
@@ -197,19 +198,37 @@ namespace OVS_Team_3_API.Controllers.Product
         [System.Web.Http.Route("DeleteProductSize/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteProductSize(int id)
+        public ResponseObject DeleteProductSize(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
+            var response = new ViewModels.ResponseObject();
 
             Models.Product_Size product = db.Product_Size.Find(id);
             if (product == null)
             {
-                return NotFound();
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
             }
-            db.Product_Size.Remove(product);
-            db.SaveChanges();
 
-            return "ProductSize deleted";
+
+            try
+            {
+                db.Product_Size.Remove(product);
+                db.SaveChanges();
+
+                response.Success = true;
+                response.ErrorMessage = null;
+                return response;
+
+            }
+
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+                return response;
+            }
 
         }
     }

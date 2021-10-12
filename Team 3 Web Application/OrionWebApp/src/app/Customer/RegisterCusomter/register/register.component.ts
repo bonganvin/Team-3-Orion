@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { CustomerType } from 'src/app/service/Interface/interfaces.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -15,15 +17,25 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+
   form: FormGroup = this.fb.group({
     CustomerName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     CustomerSurname: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
-    CustomerCellphoneNumber: ['', Validators.compose([Validators.required, Validators.maxLength(10), Validators.minLength(10)])],
+    CustomerCellphoneNumber: ['', Validators.compose([Validators.required])],
     CustomerEmailAddress: ['', Validators.compose([Validators.required, Validators.email])],
     CustomerPhysicalAddress: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
     CustomerDateOfBirth: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
  
   });
+
+  observeCustomerType: Observable<CustomerType[]> = this.service.getCustomerType();
+  CustomerTypeData!: CustomerType[];
+  parameter : CustomerType={
+    CustomerTypeID: 0,
+    CustomerTypeDescription: '',
+    DiscountID: 0,
+    DiscountName: ''
+  };
 
   constructor(private service: ServicesService, private fb: FormBuilder, 
     private snack: MatSnackBar, private dialogRef: MatDialogRef<RegisterComponent>,
