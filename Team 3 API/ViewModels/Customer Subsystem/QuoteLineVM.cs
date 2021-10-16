@@ -13,5 +13,15 @@ namespace OVS_Team_3_API.ViewModels.Customer_Subsystem
         public Nullable<int> ProductID { get; set; }
         public Nullable<int> RequestQuoteID { get; set; }
 
+        public System.DateTime Date { get; set; }
+        public int? QuoteStatusID { get; set; }
+
+        public string QuoteStatusDescription { get; set; }
+
+        public double PriceAmount { get; set; }
+
+        public string ProductName { get; set; }
+        public string ProductDescription { get; set; }
+
     }
 }

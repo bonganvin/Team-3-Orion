@@ -14,6 +14,8 @@ namespace OVS_Team_3_API.ViewModels.Raw_Materials
         public string Rawmaterialdescription { get; set; }
         public Nullable<int> UnitID { get; set; }
 
+        public string UnitMeasurement { get; set; }
+
         public virtual Unit Unit { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using OVS_Team_3_API.ViewModels.Raw_Materials;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -20,14 +21,15 @@ namespace OVS_Team_3_API.Controllers.Raw_Materials
         public List<RawMaterialVM> GetUserAccess()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Raw_Material.Select(zz => new RawMaterialVM
+            return db.Raw_Material.Include(z=>z.Unit).Select(zz => new RawMaterialVM
             {
                 RawMaterialID = zz.Raw_Material_ID,
                 RawMaterialName = zz.Raw_Material_Name,
                 Rawmaterialdescription = zz.Raw_material_description,
                 QuantityOnhand=zz.Quantity_on_hand,
                 UnitID=zz.Unit_ID,
-                Unit=zz.Unit
+                UnitMeasurement=zz.Unit.Unit_Measurement,
+                Unit =zz.Unit
 
             }).ToList();
         }
