@@ -77,6 +77,10 @@ import { PriceComponent } from './Product/price/price.component';
 import { AddPriceComponent } from './Product/price/add-price/add-price.component';
 import { CustomerTypeComponent } from './Customer/customers/customer-type/customer-type.component';
 import { AddCustomerTypeComponent } from './Customer/customers/customer-type/add-customer-type/add-customer-type.component';
+import { SaleComponent } from './Product/sale/sale.component';
+import { ProductQuoteComponent } from './Product/product-quote/product-quote.component';
+import { AddQuoteComponent } from './Product/product-quote/add-quote/add-quote.component';
+import { ViewQoutesComponent } from './Product/product-quote/view-qoutes/view-qoutes.component';
 
 //import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 @NgModule({
@@ -138,7 +142,11 @@ import { AddCustomerTypeComponent } from './Customer/customers/customer-type/add
     PriceComponent,
     AddPriceComponent,
     CustomerTypeComponent,
-    AddCustomerTypeComponent
+    AddCustomerTypeComponent,
+    SaleComponent,
+    ProductQuoteComponent,
+    AddQuoteComponent,
+    ViewQoutesComponent
   ],
   imports: [
     BrowserModule,

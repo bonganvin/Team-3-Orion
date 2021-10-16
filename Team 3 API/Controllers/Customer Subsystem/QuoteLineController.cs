@@ -78,6 +78,14 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
                 db.Quote_Line.Add(Newquoteline);
                 db.SaveChanges();
 
+                var newQuote = new Request_Quote
+                {
+                    Date = DateTime.Now.Date,
+                    Quote_Status_ID = quoteline.QuoteStatusID
+                };
+                db.Request_Quote.Add(newQuote);
+                db.SaveChanges();
+
                 response.Success = true;
                 response.ErrorMessage = null;
                 return response;

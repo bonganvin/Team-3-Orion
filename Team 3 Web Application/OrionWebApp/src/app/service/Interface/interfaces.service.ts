@@ -101,6 +101,7 @@ export interface RawMaterial{
   QuantityOnhand : number;
   Rawmaterialdescription: string;
   UnitID : number;
+  UnitMeasurement : string;
 }
 
 

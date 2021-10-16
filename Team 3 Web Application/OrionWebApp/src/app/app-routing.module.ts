@@ -1,3 +1,5 @@
+import { ProductQuoteComponent } from './Product/product-quote/product-quote.component';
+import { SaleComponent } from './Product/sale/sale.component';
 import { AddCustomerTypeComponent } from './Customer/customers/customer-type/add-customer-type/add-customer-type.component';
 import { AddPriceComponent } from './Product/price/add-price/add-price.component';
 import { AddProductSizeComponent } from './Product/product-size/add-product-size/add-product-size.component';
@@ -318,6 +320,10 @@ const routes: Routes = [
     path: 'price/edit/:id',
     component: AddPriceComponent
   },
+  { path: 'sale', component: SaleComponent }
+  ,
+  { path: 'productquote', component: ProductQuoteComponent }
+
 ]
 
 @NgModule({
