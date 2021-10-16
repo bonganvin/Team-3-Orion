@@ -8,6 +8,17 @@
     <h2 mat-dialog-title>Register Customer</h2>
 
     <br>
+         <mat-form-field appearance="outline">
+          <mat-label>Select Customer Type</mat-label>
+          <mat-select
+            [(value)]="parameter.CustomerTypeID"
+            formControlName="CustomerTypeID"
+          >
+            <mat-option *ngFor="let item of CustomerTypeData" [value]="item.CustomerTypeID">
+              {{ item.CustomerTypeDescription }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input type="text" matInput placeholder="Joe" formControlName = "CustomerName"

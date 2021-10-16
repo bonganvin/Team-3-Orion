@@ -1,4 +1,5 @@
 ﻿using OVS_Team_3_API.Models;
+using OVS_Team_3_API.ViewModels;
 using OVS_Team_3_API.ViewModels.Product;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Data.Entity;
 using System.Web.Mvc;
 using static System.Net.WebRequestMethods;
 using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
@@ -33,7 +35,7 @@ namespace OVS_Team_3_API.Controllers.Product
             db.Configuration.ProxyCreationEnabled = false;
 
 
-            return db.Products.Select(zz => new ProductVM
+            return db.Products.Include(X=> X.Product_Type).Select(zz => new ProductVM
             {
                 ProductID = zz.Product_ID,
                 ProductName = zz.Product_Name,
@@ -41,7 +43,8 @@ namespace OVS_Team_3_API.Controllers.Product
                 ProductImage = zz.Product_Image,
                 ProductTypeID = zz.Product_Type_ID,
                 Quantityonhand = zz.Quantity_on_hand,
-                ProductSize = zz.Product_Size
+                ProductSize = zz.Product_Size,
+                ProductTypeName=zz.Product_Type.Product_Type_Name
 
             }).ToList();
         }
@@ -184,19 +187,39 @@ namespace OVS_Team_3_API.Controllers.Product
         [System.Web.Http.Route("DeleteProduct/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteProduct(int id)
+        public ResponseObject DeleteProduct(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
+            var response = new ViewModels.ResponseObject();
 
             Models.Product product = db.Products.Find(id);
             if (product == null)
             {
-                return NotFound();
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
             }
-            db.Products.Remove(product);
-            db.SaveChanges();
+          
 
-            return "Product deleted";
+            try
+            {
+                db.Products.Remove(product);
+                db.SaveChanges();
+
+                response.Success = true;
+                response.ErrorMessage = null;
+                return response;
+
+
+
+            }
+
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+                return response;
+            }
 
         }
 

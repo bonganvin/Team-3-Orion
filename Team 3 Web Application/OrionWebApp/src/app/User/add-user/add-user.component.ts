@@ -57,7 +57,7 @@ export class AddUserComponent implements OnInit {
     })
 
     if (this.userId > 0) {
-      this.title = "Edit Employee Type";
+      this.title = "Edit User";
       this.service.GetUserByID(this.userId)
         .subscribe(resp => {
           console.log(resp)

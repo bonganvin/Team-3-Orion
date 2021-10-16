@@ -56,10 +56,14 @@ export class ProductDetailsComponent implements OnInit {
  
   }
 
-  addToCart ()
-  {
-    
-  }
+  // addToCart ()
+  // {
+  //   this.service.AddtoCart().subscribe(x=>
+  //     {
+
+  //     })
+
+  // }
 
   
 

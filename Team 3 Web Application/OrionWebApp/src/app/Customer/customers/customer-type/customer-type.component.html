@@ -22,8 +22,9 @@
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <span>Product Sizes</span>
+    <span>Customer Type</span>
     <span class="example-spacer"></span>
+   
   </mat-toolbar>
 </p>
 
@@ -42,41 +43,38 @@
   </button>
 </mat-menu>
 
-<button mat-raised-button color="primary" (click)="AddProductSize()">
-  Add Product Size
+<button mat-raised-button color="primary" (click)="AddCustomerType()">
+  Add Customer Type
 </button>
 <br />
 <br />
-<table class="table table-hover table-dark">
+<table class="table table-hover table-dark printformClass" id="printIt">
   <thead>
     <tr>
-      <th scope="col">Product Size ID</th>
-      <th scope="col">Product</th>
-      <th scope="col">Size</th>
-      <!-- <th scope="col">Price Amount</th> -->
+      <th scope="col">Customer Type ID</th>
+      <th scope="col">Customer Type Name</th>
+      <th scope="col">Discount Name</th>
+
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of productSizeData">
-      <th scope="row">{{ item.ProductSizeID }}</th>
-      <td>{{ item.ProductName }}</td>
+    <tr *ngFor="let item of CustomerTypeData">
+      <th scope="row">{{ item.CustomerTypeID }}</th>
+      <td>{{ item.CustomerTypeDescription }}</td>
+      <td>{{ item.DiscountName }}</td>
 
-      <td>{{ item.SizeDescription }}</td>
-      <!-- <td  >{{ item.PriceAmount}}</td> -->
       <td>
-        <button
-          mat-button
-          color="accent"
-          [routerLink]="['/ProductSize/edit/', item.ProductSizeID]"
-        >
-          <mat-icon>edit</mat-icon>
-        </button>
+        <button mat-button color="accent" [routerLink]="['/CustomerType/edit/', item.CustomerTypeID]"><mat-icon>edit</mat-icon></button>
         &nbsp;
-        <button mat-button color="warn" (click)="deleteProductSize(item.ProductSizeID)">
-          <mat-icon>delete</mat-icon>
-        </button>
+        <button mat-button color="warn" (click)="deleteCustomerType(item.CustomerTypeID)"><mat-icon>delete</mat-icon></button>
       </td>
     </tr>
   </tbody>
 </table>
+
+
+<!-- 
+<button mat-raised-button color="primary" (click)="getPDF()">
+Generate Employee List
+</button> -->

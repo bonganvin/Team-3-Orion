@@ -48,7 +48,7 @@ export class AddProductSizeComponent implements OnInit {
     ProductImage: '',
     ProductTypeID: 0,
     Quantityonhand: 0,
-
+    ProductTypeName: ''
   }
 
 

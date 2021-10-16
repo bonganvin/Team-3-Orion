@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 
 namespace OVS_Team_3_API.Controllers.Customer_Subsystem
 {
@@ -20,11 +21,12 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
         public List<CustomerTypeVM> GetCustomerType()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Customer_Type.Select(zz => new CustomerTypeVM
+            return db.Customer_Type.Include(x => x.Discount).Select(zz => new CustomerTypeVM
             {
                 CustomerTypeID= zz.Customer_Type_ID,
                 CustomerTypeDescription = zz.Customer_Type_Description,
-                DiscountID = zz.Discount_ID
+                DiscountID = zz.Discount_ID,
+                DiscountName = zz.Discount.Discount_Name
 
             }).ToList();
         }
@@ -33,8 +35,8 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
         // Get Customer Type by ID
 
         [System.Web.Http.Route("getCustomerTypeByID/{id:int}")]
-        [System.Web.Mvc.HttpPost]
-        [HttpPost]
+
+        [HttpGet]
         public object GetCustomerTypeByID(int id)
 
         {
@@ -124,19 +126,38 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
         [System.Web.Http.Route("DeleteCustomerType/{id:int}")]
         [System.Web.Mvc.HttpDelete]
         [HttpDelete]
-        public object DeleteCustomerType(int id)
+        public ResponseObject DeleteCustomerType(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
+            var response = new ViewModels.ResponseObject();
 
             Customer_Type c_Type = db.Customer_Type.Find(id);
             if (c_Type == null)
             {
-                return NotFound();
+                response.Success = false;
+                response.ErrorMessage = "Not found";
+                return response;
             }
-            db.Customer_Type.Remove(c_Type);
-            db.SaveChanges();
+           
+      
 
-            return "The Customer type has been deleted";
+            try
+            {
+                db.Customer_Type.Remove(c_Type);
+                db.SaveChanges();
+
+                response.Success = true;
+                response.ErrorMessage = null;
+                return response;
+
+            }
+
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+                return response;
+            }
 
         }
 

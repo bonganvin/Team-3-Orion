@@ -60,7 +60,7 @@
     <tr *ngFor="let user of userData">
       <th scope="row">{{user.UserID}}</th>
       <td>{{ user.UserName }}</td>
-            <td>{{ user.UserAccessPermissionID }}</td>
+            <td>{{ user.UserRoleName }}</td>
       <td>
         <button mat-button color="accent" [routerLink]="['/ManageUsers/edit/', user.UserID]">
           <mat-icon>edit</mat-icon>

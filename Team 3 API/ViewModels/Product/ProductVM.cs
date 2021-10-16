@@ -15,6 +15,8 @@ namespace OVS_Team_3_API.ViewModels.Product
         public int? Quantityonhand { get; set; }
         public int? ProductTypeID { get; set; }
 
+        public string ProductTypeName { get; set; }
+
         public virtual ICollection<Product_Size> ProductSize { get; set; }
 
     }

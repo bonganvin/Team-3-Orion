@@ -27,10 +27,11 @@ export class AddProductComponent implements OnInit {
   ProductTypeData!: ProductType[];
   typeparams: ProductType =
     {
-      ProductTypeID: 0,
-      ProductTypeName: '',
-      ProductCategoryID: 0,
-    }
+    ProductTypeID: 0,
+    ProductTypeName: '',
+    ProductCategoryID: 0,
+    ProductCategoryName: ''
+  }
 
 
   constructor(private service: ServicesService, private fb: FormBuilder,

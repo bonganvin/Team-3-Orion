@@ -14,6 +14,7 @@ export interface User {
   UserPassword: string;
   UserName: string;
   UserRoleDesc: string;
+  UserRoleName : string;
   UserAccessPermissionID: number;
 }
 
@@ -46,6 +47,7 @@ export interface ProductType {
   ProductTypeID: number;
   ProductTypeName: string;
   ProductCategoryID: number;
+  ProductCategoryName: string;
 }
 
 export interface Employee{
@@ -82,6 +84,7 @@ export interface Product{
   ProductImage: any;
   ProductTypeID: number;
   Quantityonhand:number;
+  ProductTypeName: string;
  // ProductSize: [ProductSize];
 }
 
@@ -179,4 +182,12 @@ export interface CartLine {
   Quantity : number;
   UserID : number;
   CustomerID : number;
+}
+
+export interface CustomerType
+{
+  CustomerTypeID : number;
+  CustomerTypeDescription: string;
+  DiscountID: number;
+  DiscountName: string;
 }
