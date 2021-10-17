@@ -18,7 +18,7 @@
           <mat-hint>Cash RegisterName</mat-hint>
         </mat-form-field>
         <br/>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
             <mat-label>Select Branch</mat-label>
             <mat-select [(value)]="BranchParams.BranchID" formControlName="BranchID">
                 <mat-option *ngFor="let item of BranchData" [value] = "item.BranchID">

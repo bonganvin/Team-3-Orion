@@ -318,6 +318,7 @@ Create table Quote_Line
 Quote_Line_ID int primary key identity(1,1) not null,
 Quantity int not null,
 Product_ID int foreign key references Product(Product_ID),
+Product_Size_ID int foreign key references Product_Size(Product_Size_ID),
 Request_Quote_ID int foreign key references Request_Quote(Request_Quote_ID)
 )
 

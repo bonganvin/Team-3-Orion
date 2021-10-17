@@ -30,20 +30,17 @@ namespace OVS_Team_3_API.Controllers.Customer_Subsystem
         public List<QuoteLineVM> GetQuoteLine()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Quote_Line.Include(zz => zz.Request_Quote).Include(zz => zz.Product).Select(zz => new QuoteLineVM
+            return db.Quote_Line.Include(zz => zz.Request_Quote).Include(zz=>zz.Product_Size).Include(zz => zz.Product).Select(zz => new QuoteLineVM
             {
                 QuoteLineID = zz.Quote_Line_ID,
                 Quantity = zz.Quantity,
                 ProductID = zz.Product_ID,
                 RequestQuoteID = zz.Product_ID,
-                Date = zz.Request_Quote.Date,
-                QuoteStatusDescription=zz.Request_Quote.Quote_Status.Quote_Status_Description,
+                Date = DateTime.Now.Date,
+                QuoteStatusDescription =zz.Request_Quote.Quote_Status.Quote_Status_Description,
                 ProductName=zz.Product.Product_Name,
                 ProductDescription=zz.Product.Product_Description,
-
                 
-
-
             }).ToList();
         }
 

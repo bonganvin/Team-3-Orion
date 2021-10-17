@@ -291,8 +291,8 @@
       <EntityTypeMapping TypeName="OVSModel.Product_Size">
         <MappingFragment StoreEntitySet="Product_Size">
           <ScalarProperty Name="Product_Size_ID" ColumnName="Product_Size_ID" />
-          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
           <ScalarProperty Name="Size_ID" ColumnName="Size_ID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -321,6 +321,7 @@
           <ScalarProperty Name="Quote_Line_ID" ColumnName="Quote_Line_ID" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Product_Size_ID" ColumnName="Product_Size_ID" />
           <ScalarProperty Name="Request_Quote_ID" ColumnName="Request_Quote_ID" />
         </MappingFragment>
       </EntityTypeMapping>

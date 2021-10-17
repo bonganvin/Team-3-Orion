@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Product, RawMaterial } from 'src/app/service/Interface/interfaces.service';
 import { ServicesService } from 'src/app/service/Services/services.service';
 
 @Component({
@@ -19,7 +21,28 @@ export class AddRecipeComponent implements OnInit {
   branchList: Array<any> = [];
   form!: FormGroup;
 
+  observeData: Observable<RawMaterial[]> = this.service.getRawMaterials();
+  MaterialData!: RawMaterial[];
+  RawParams: RawMaterial = {
+    RawMaterialID: 0,
+    RawMaterialName: '',
+    QuantityOnhand: 0,
+    Rawmaterialdescription: '',
+    UnitID: 0,
+    UnitMeasurement: ''
+  }
 
+  observePData: Observable<Product[]> = this.service.getProducts();
+  ProductData!: Product[];
+  ProductParams: Product = {
+    ProductID: 0,
+    ProductName: '',
+    ProductDescription: '',
+    ProductImage: undefined,
+    ProductTypeID: 0,
+    Quantityonhand: 0,
+    ProductTypeName: ''
+  }
 
   constructor(private service: ServicesService, private fb: FormBuilder,
     private snack: MatSnackBar, private dialogRef: MatDialogRef<AddRecipeComponent>,
@@ -38,6 +61,13 @@ export class AddRecipeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.observePData.subscribe(res => {
+      this.ProductData = res;
+    })
+    this.observeData.subscribe(res => {
+      this.MaterialData = res;
+      })
 
     if (this.recipeId > 0) {
       this.title = "Edit Recipe";

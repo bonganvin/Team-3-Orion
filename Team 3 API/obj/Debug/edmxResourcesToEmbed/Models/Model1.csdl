@@ -41,7 +41,7 @@
     <Property Name="Cash_Register_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Branch_ID" Type="Int32" />
     <NavigationProperty Name="Branch" Relationship="Self.FK__Cash_Regi__Branc__4316F928" FromRole="Cash_Register" ToRole="Branch" />
-    <NavigationProperty Name="Sale_Payment" Relationship="Self.FK__Sale_Paym__Regis__17F790F9" FromRole="Cash_Register" ToRole="Sale_Payment" />
+    <NavigationProperty Name="Sale_Payment" Relationship="Self.FK__Sale_Paym__Regis__18EBB532" FromRole="Cash_Register" ToRole="Sale_Payment" />
   </EntityType>
   <EntityType Name="Colour">
     <Key>
@@ -81,7 +81,7 @@
     <NavigationProperty Name="User" Relationship="Self.FK__Customer__User_I__534D60F1" FromRole="Customer" ToRole="User" />
     <NavigationProperty Name="Orders" Relationship="Self.FK__Order__Customer___6754599E" FromRole="Customer" ToRole="Order" />
     <NavigationProperty Name="Return_Order_Request" Relationship="Self.FK__Return_Or__Custo__6FE99F9F" FromRole="Customer" ToRole="Return_Order_Request" />
-    <NavigationProperty Name="Return_Sale_Request" Relationship="Self.FK__Return_Sa__Custo__0A9D95DB" FromRole="Customer" ToRole="Return_Sale_Request" />
+    <NavigationProperty Name="Return_Sale_Request" Relationship="Self.FK__Return_Sa__Custo__0B91BA14" FromRole="Customer" ToRole="Return_Sale_Request" />
     <NavigationProperty Name="Wishlists" Relationship="Self.FK__Wishlist__Custom__5DCAEF64" FromRole="Customer" ToRole="Wishlist" />
   </EntityType>
   <EntityType Name="Customer_Type">
@@ -156,9 +156,9 @@
     <Property Name="Job_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Job_Status_ID" Type="Int32" />
     <Property Name="Product_ID" Type="Int32" />
-    <NavigationProperty Name="Job_Status" Relationship="Self.FK__Job__Job_Status___40058253" FromRole="Job" ToRole="Job_Status" />
-    <NavigationProperty Name="Product" Relationship="Self.FK__Job__Product_ID__40F9A68C" FromRole="Job" ToRole="Product" />
-    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_task__Job_ID__43D61337" FromRole="Job" ToRole="Job_task" />
+    <NavigationProperty Name="Job_Status" Relationship="Self.FK__Job__Job_Status___40F9A68C" FromRole="Job" ToRole="Job_Status" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Job__Product_ID__41EDCAC5" FromRole="Job" ToRole="Product" />
+    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_task__Job_ID__44CA3770" FromRole="Job" ToRole="Job_task" />
   </EntityType>
   <EntityType Name="Job_Instance">
     <Key>
@@ -169,9 +169,9 @@
     <Property Name="Shift_Branch_Employee_ID" Type="Int32" />
     <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Job_Instance_Task" Relationship="Self.FK__Job_Insta__Job_I__4E53A1AA" FromRole="Job_Instance" ToRole="Job_Instance_Task" />
-    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_Insta__Job_t__498EEC8D" FromRole="Job_Instance" ToRole="Job_task" />
-    <NavigationProperty Name="Shift_Branch_Employee" Relationship="Self.FK__Job_Insta__Shift__4A8310C6" FromRole="Job_Instance" ToRole="Shift_Branch_Employee" />
+    <NavigationProperty Name="Job_Instance_Task" Relationship="Self.FK__Job_Insta__Job_I__4F47C5E3" FromRole="Job_Instance" ToRole="Job_Instance_Task" />
+    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_Insta__Job_t__4A8310C6" FromRole="Job_Instance" ToRole="Job_task" />
+    <NavigationProperty Name="Shift_Branch_Employee" Relationship="Self.FK__Job_Insta__Shift__4B7734FF" FromRole="Job_Instance" ToRole="Shift_Branch_Employee" />
   </EntityType>
   <EntityType Name="Job_Instance_Task">
     <Key>
@@ -182,8 +182,8 @@
     <Property Name="Job_Instance_ID" Type="Int32" />
     <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Job_Instance" Relationship="Self.FK__Job_Insta__Job_I__4E53A1AA" FromRole="Job_Instance_Task" ToRole="Job_Instance" />
-    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_Insta__Job_t__4D5F7D71" FromRole="Job_Instance_Task" ToRole="Job_task" />
+    <NavigationProperty Name="Job_Instance" Relationship="Self.FK__Job_Insta__Job_I__4F47C5E3" FromRole="Job_Instance_Task" ToRole="Job_Instance" />
+    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_Insta__Job_t__4E53A1AA" FromRole="Job_Instance_Task" ToRole="Job_task" />
   </EntityType>
   <EntityType Name="Job_Status">
     <Key>
@@ -191,7 +191,7 @@
     </Key>
     <Property Name="Job_Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Job_Status_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__Job_Status___40058253" FromRole="Job_Status" ToRole="Job" />
+    <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__Job_Status___40F9A68C" FromRole="Job_Status" ToRole="Job" />
   </EntityType>
   <EntityType Name="Job_task">
     <Key>
@@ -202,12 +202,12 @@
     <Property Name="Task_ID" Type="Int32" />
     <Property Name="Job_Task_Status_ID" Type="Int32" />
     <Property Name="Job_Task_Type_ID" Type="Int32" />
-    <NavigationProperty Name="Job" Relationship="Self.FK__Job_task__Job_ID__43D61337" FromRole="Job_task" ToRole="Job" />
-    <NavigationProperty Name="Job_Instance" Relationship="Self.FK__Job_Insta__Job_t__498EEC8D" FromRole="Job_task" ToRole="Job_Instance" />
-    <NavigationProperty Name="Job_Instance_Task" Relationship="Self.FK__Job_Insta__Job_t__4D5F7D71" FromRole="Job_task" ToRole="Job_Instance_Task" />
-    <NavigationProperty Name="Job_Task_Status" Relationship="Self.FK__Job_task__Job_Ta__45BE5BA9" FromRole="Job_task" ToRole="Job_Task_Status" />
-    <NavigationProperty Name="Job_Task_Type" Relationship="Self.FK__Job_task__Job_Ta__46B27FE2" FromRole="Job_task" ToRole="Job_Task_Type" />
-    <NavigationProperty Name="Task" Relationship="Self.FK__Job_task__Task_I__44CA3770" FromRole="Job_task" ToRole="Task" />
+    <NavigationProperty Name="Job" Relationship="Self.FK__Job_task__Job_ID__44CA3770" FromRole="Job_task" ToRole="Job" />
+    <NavigationProperty Name="Job_Instance" Relationship="Self.FK__Job_Insta__Job_t__4A8310C6" FromRole="Job_task" ToRole="Job_Instance" />
+    <NavigationProperty Name="Job_Instance_Task" Relationship="Self.FK__Job_Insta__Job_t__4E53A1AA" FromRole="Job_task" ToRole="Job_Instance_Task" />
+    <NavigationProperty Name="Job_Task_Status" Relationship="Self.FK__Job_task__Job_Ta__46B27FE2" FromRole="Job_task" ToRole="Job_Task_Status" />
+    <NavigationProperty Name="Job_Task_Type" Relationship="Self.FK__Job_task__Job_Ta__47A6A41B" FromRole="Job_task" ToRole="Job_Task_Type" />
+    <NavigationProperty Name="Task" Relationship="Self.FK__Job_task__Task_I__45BE5BA9" FromRole="Job_task" ToRole="Task" />
   </EntityType>
   <EntityType Name="Job_Task_Status">
     <Key>
@@ -215,7 +215,7 @@
     </Key>
     <Property Name="Job_Task_Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Job_Task_Description_Status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_task__Job_Ta__45BE5BA9" FromRole="Job_Task_Status" ToRole="Job_task" />
+    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_task__Job_Ta__46B27FE2" FromRole="Job_Task_Status" ToRole="Job_task" />
   </EntityType>
   <EntityType Name="Job_Task_Type">
     <Key>
@@ -223,7 +223,7 @@
     </Key>
     <Property Name="Job_Task_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Job_Task_Type_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_task__Job_Ta__46B27FE2" FromRole="Job_Task_Type" ToRole="Job_task" />
+    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_task__Job_Ta__47A6A41B" FromRole="Job_Task_Type" ToRole="Job_task" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -239,7 +239,7 @@
     <NavigationProperty Name="Customer" Relationship="Self.FK__Order__Customer___6754599E" FromRole="Order" ToRole="Customer" />
     <NavigationProperty Name="Employee" Relationship="Self.FK__Order__Employee___693CA210" FromRole="Order" ToRole="Employee" />
     <NavigationProperty Name="Order_Status" Relationship="Self.FK__Order__Order_Sta__68487DD7" FromRole="Order" ToRole="Order_Status" />
-    <NavigationProperty Name="Order_Payment" Relationship="Self.FK__Order_Pay__Order__1EA48E88" FromRole="Order" ToRole="Order_Payment" />
+    <NavigationProperty Name="Order_Payment" Relationship="Self.FK__Order_Pay__Order__1F98B2C1" FromRole="Order" ToRole="Order_Payment" />
     <NavigationProperty Name="Return_Order_Request" Relationship="Self.FK__Return_Or__Order__70DDC3D8" FromRole="Order" ToRole="Return_Order_Request" />
     <NavigationProperty Name="Order_Line" Relationship="Self.FK_Order_ID" FromRole="Order" ToRole="Order_Line" />
   </EntityType>
@@ -265,9 +265,9 @@
     <Property Name="Payment_Type_ID" Type="Int32" />
     <Property Name="Order_Payment_Status_ID" Type="Int32" />
     <Property Name="Order_ID" Type="Int32" />
-    <NavigationProperty Name="Order" Relationship="Self.FK__Order_Pay__Order__1EA48E88" FromRole="Order_Payment" ToRole="Order" />
-    <NavigationProperty Name="Order_Payment_Status" Relationship="Self.FK__Order_Pay__Order__1DB06A4F" FromRole="Order_Payment" ToRole="Order_Payment_Status" />
-    <NavigationProperty Name="Payment_Type" Relationship="Self.FK__Order_Pay__Payme__1CBC4616" FromRole="Order_Payment" ToRole="Payment_Type" />
+    <NavigationProperty Name="Order" Relationship="Self.FK__Order_Pay__Order__1F98B2C1" FromRole="Order_Payment" ToRole="Order" />
+    <NavigationProperty Name="Order_Payment_Status" Relationship="Self.FK__Order_Pay__Order__1EA48E88" FromRole="Order_Payment" ToRole="Order_Payment_Status" />
+    <NavigationProperty Name="Payment_Type" Relationship="Self.FK__Order_Pay__Payme__1DB06A4F" FromRole="Order_Payment" ToRole="Payment_Type" />
   </EntityType>
   <EntityType Name="Order_Payment_Status">
     <Key>
@@ -275,7 +275,7 @@
     </Key>
     <Property Name="Order_Payment_Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Order_Payment_Status_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Order_Payment" Relationship="Self.FK__Order_Pay__Order__1DB06A4F" FromRole="Order_Payment_Status" ToRole="Order_Payment" />
+    <NavigationProperty Name="Order_Payment" Relationship="Self.FK__Order_Pay__Order__1EA48E88" FromRole="Order_Payment_Status" ToRole="Order_Payment" />
   </EntityType>
   <EntityType Name="Order_Status">
     <Key>
@@ -292,8 +292,8 @@
     <Property Name="Payment_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Payment_Type_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Payment_Type_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Order_Payment" Relationship="Self.FK__Order_Pay__Payme__1CBC4616" FromRole="Payment_Type" ToRole="Order_Payment" />
-    <NavigationProperty Name="Sale_Payment" Relationship="Self.FK__Sale_Paym__Payme__17036CC0" FromRole="Payment_Type" ToRole="Sale_Payment" />
+    <NavigationProperty Name="Order_Payment" Relationship="Self.FK__Order_Pay__Payme__1DB06A4F" FromRole="Payment_Type" ToRole="Order_Payment" />
+    <NavigationProperty Name="Sale_Payment" Relationship="Self.FK__Sale_Paym__Payme__17F790F9" FromRole="Payment_Type" ToRole="Sale_Payment" />
   </EntityType>
   <EntityType Name="Price">
     <Key>
@@ -303,7 +303,7 @@
     <Property Name="Price_Amount" Type="Single" Nullable="false" />
     <Property Name="Price_Date" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Product_Size_ID" Type="Int32" />
-    <NavigationProperty Name="Product_Size" Relationship="Self.FK__Price__Product_S__34C8D9D1" FromRole="Price" ToRole="Product_Size" />
+    <NavigationProperty Name="Product_Size" Relationship="Self.FK__Price__Product_S__32E0915F" FromRole="Price" ToRole="Product_Size" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -316,13 +316,13 @@
     <Property Name="Quantity_on_hand" Type="Int32" />
     <Property Name="Product_Type_ID" Type="Int32" />
     <NavigationProperty Name="Cart_Line" Relationship="Self.FK__Cart_Line__Produ__5AEE82B9" FromRole="Product" ToRole="Cart_Line" />
-    <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__Product_ID__40F9A68C" FromRole="Product" ToRole="Job" />
+    <NavigationProperty Name="Jobs" Relationship="Self.FK__Job__Product_ID__41EDCAC5" FromRole="Product" ToRole="Job" />
     <NavigationProperty Name="Order_Line" Relationship="Self.FK_Product_ID" FromRole="Product" ToRole="Order_Line" />
     <NavigationProperty Name="Product_Type" Relationship="Self.FK__Product__Product__2A4B4B5E" FromRole="Product" ToRole="Product_Type" />
-    <NavigationProperty Name="Product_Size" Relationship="Self.FK__Product_S__Produ__30F848ED" FromRole="Product" ToRole="Product_Size" />
+    <NavigationProperty Name="Product_Size" Relationship="Self.FK__Product_S__Produ__300424B4" FromRole="Product" ToRole="Product_Size" />
     <NavigationProperty Name="Quote_Line" Relationship="Self.FK__Quote_Lin__Produ__00200768" FromRole="Product" ToRole="Quote_Line" />
-    <NavigationProperty Name="Sale_Line" Relationship="Self.FK__Sale_Line__Produ__06CD04F7" FromRole="Product" ToRole="Sale_Line" />
-    <NavigationProperty Name="Supplier_Order_Line" Relationship="Self.FK__Supplier___Produ__2BFE89A6" FromRole="Product" ToRole="Supplier_Order_Line" />
+    <NavigationProperty Name="Sale_Line" Relationship="Self.FK__Sale_Line__Produ__07C12930" FromRole="Product" ToRole="Sale_Line" />
+    <NavigationProperty Name="Supplier_Order_Line" Relationship="Self.FK__Supplier___Produ__2CF2ADDF" FromRole="Product" ToRole="Supplier_Order_Line" />
     <NavigationProperty Name="Wishlist_Product" Relationship="Self.FK__Wishlist___Produ__60A75C0F" FromRole="Product" ToRole="Wishlist_Product" />
   </EntityType>
   <EntityType Name="Product_Category">
@@ -338,13 +338,14 @@
       <PropertyRef Name="Product_Size_ID" />
     </Key>
     <Property Name="Product_Size_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Product_ID" Type="Int32" />
     <Property Name="Size_ID" Type="Int32" />
+    <Property Name="Product_ID" Type="Int32" />
     <NavigationProperty Name="Colours" Relationship="Self.FK__Colour__Product___3B75D760" FromRole="Product_Size" ToRole="Colour" />
-    <NavigationProperty Name="Prices" Relationship="Self.FK__Price__Product_S__34C8D9D1" FromRole="Product_Size" ToRole="Price" />
-    <NavigationProperty Name="Product" Relationship="Self.FK__Product_S__Produ__30F848ED" FromRole="Product_Size" ToRole="Product" />
+    <NavigationProperty Name="Prices" Relationship="Self.FK__Price__Product_S__32E0915F" FromRole="Product_Size" ToRole="Price" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Product_S__Produ__300424B4" FromRole="Product_Size" ToRole="Product" />
     <NavigationProperty Name="Product_Special" Relationship="Self.FK__Product_S__Produ__37A5467C" FromRole="Product_Size" ToRole="Product_Special" />
-    <NavigationProperty Name="Size" Relationship="Self.FK__Product_S__Size___31EC6D26" FromRole="Product_Size" ToRole="Size" />
+    <NavigationProperty Name="Size" Relationship="Self.FK__Product_S__Size___2F10007B" FromRole="Product_Size" ToRole="Size" />
+    <NavigationProperty Name="Quote_Line" Relationship="Self.FK__Quote_Lin__Produ__01142BA1" FromRole="Product_Size" ToRole="Quote_Line" />
   </EntityType>
   <EntityType Name="Product_Special">
     <Key>
@@ -374,9 +375,11 @@
     <Property Name="Quote_Line_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="Product_ID" Type="Int32" />
+    <Property Name="Product_Size_ID" Type="Int32" />
     <Property Name="Request_Quote_ID" Type="Int32" />
     <NavigationProperty Name="Product" Relationship="Self.FK__Quote_Lin__Produ__00200768" FromRole="Quote_Line" ToRole="Product" />
-    <NavigationProperty Name="Request_Quote" Relationship="Self.FK__Quote_Lin__Reque__01142BA1" FromRole="Quote_Line" ToRole="Request_Quote" />
+    <NavigationProperty Name="Product_Size" Relationship="Self.FK__Quote_Lin__Produ__01142BA1" FromRole="Quote_Line" ToRole="Product_Size" />
+    <NavigationProperty Name="Request_Quote" Relationship="Self.FK__Quote_Lin__Reque__02084FDA" FromRole="Quote_Line" ToRole="Request_Quote" />
   </EntityType>
   <EntityType Name="Quote_Status">
     <Key>
@@ -395,9 +398,9 @@
     <Property Name="Quantity_on_hand" Type="Int32" Nullable="false" />
     <Property Name="Raw_material_description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Unit_ID" Type="Int32" />
-    <NavigationProperty Name="Unit" Relationship="Self.FK__Raw_Mater__Unit___282DF8C2" FromRole="Raw_Material" ToRole="Unit" />
-    <NavigationProperty Name="Reciple_Line" Relationship="Self.FK__Reciple_L__Raw_M__3493CFA7" FromRole="Raw_Material" ToRole="Reciple_Line" />
-    <NavigationProperty Name="Supplier_Order_Line" Relationship="Self.FK__Supplier___Raw_M__2CF2ADDF" FromRole="Raw_Material" ToRole="Supplier_Order_Line" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK__Raw_Mater__Unit___29221CFB" FromRole="Raw_Material" ToRole="Unit" />
+    <NavigationProperty Name="Reciple_Line" Relationship="Self.FK__Reciple_L__Raw_M__3587F3E0" FromRole="Raw_Material" ToRole="Reciple_Line" />
+    <NavigationProperty Name="Supplier_Order_Line" Relationship="Self.FK__Supplier___Raw_M__2DE6D218" FromRole="Raw_Material" ToRole="Supplier_Order_Line" />
   </EntityType>
   <EntityType Name="Recipe">
     <Key>
@@ -407,7 +410,7 @@
     <Property Name="Recipe_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Quantity_produced" Type="Int32" Nullable="false" />
     <Property Name="Recipe_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Reciple_Line" Relationship="Self.FK__Reciple_L__Recip__339FAB6E" FromRole="Recipe" ToRole="Reciple_Line" />
+    <NavigationProperty Name="Reciple_Line" Relationship="Self.FK__Reciple_L__Recip__3493CFA7" FromRole="Recipe" ToRole="Reciple_Line" />
   </EntityType>
   <EntityType Name="Recipe_Line_Unit">
     <Key>
@@ -415,7 +418,7 @@
     </Key>
     <Property Name="Recipe_Line_unit_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Unit" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Reciple_Line" Relationship="Self.FK__Reciple_L__Recip__3587F3E0" FromRole="Recipe_Line_Unit" ToRole="Reciple_Line" />
+    <NavigationProperty Name="Reciple_Line" Relationship="Self.FK__Reciple_L__Recip__367C1819" FromRole="Recipe_Line_Unit" ToRole="Reciple_Line" />
   </EntityType>
   <EntityType Name="Reciple_Line">
     <Key>
@@ -426,9 +429,9 @@
     <Property Name="Recipe_ID" Type="Int32" />
     <Property Name="Raw_Material_ID" Type="Int32" />
     <Property Name="Recipe_Line_unit_ID" Type="Int32" />
-    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Reciple_L__Raw_M__3493CFA7" FromRole="Reciple_Line" ToRole="Raw_Material" />
-    <NavigationProperty Name="Recipe" Relationship="Self.FK__Reciple_L__Recip__339FAB6E" FromRole="Reciple_Line" ToRole="Recipe" />
-    <NavigationProperty Name="Recipe_Line_Unit" Relationship="Self.FK__Reciple_L__Recip__3587F3E0" FromRole="Reciple_Line" ToRole="Recipe_Line_Unit" />
+    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Reciple_L__Raw_M__3587F3E0" FromRole="Reciple_Line" ToRole="Raw_Material" />
+    <NavigationProperty Name="Recipe" Relationship="Self.FK__Reciple_L__Recip__3493CFA7" FromRole="Reciple_Line" ToRole="Recipe" />
+    <NavigationProperty Name="Recipe_Line_Unit" Relationship="Self.FK__Reciple_L__Recip__367C1819" FromRole="Reciple_Line" ToRole="Recipe_Line_Unit" />
   </EntityType>
   <EntityType Name="Request_Quote">
     <Key>
@@ -437,9 +440,9 @@
     <Property Name="Request_Quote_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Quote_Status_ID" Type="Int32" />
-    <NavigationProperty Name="Quote_Line" Relationship="Self.FK__Quote_Lin__Reque__01142BA1" FromRole="Request_Quote" ToRole="Quote_Line" />
+    <NavigationProperty Name="Quote_Line" Relationship="Self.FK__Quote_Lin__Reque__02084FDA" FromRole="Request_Quote" ToRole="Quote_Line" />
     <NavigationProperty Name="Quote_Status" Relationship="Self.FK__Request_Q__Quote__7D439ABD" FromRole="Request_Quote" ToRole="Quote_Status" />
-    <NavigationProperty Name="Sales" Relationship="Self.FK__Sale__Request_Qu__03F0984C" FromRole="Request_Quote" ToRole="Sale" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK__Sale__Request_Qu__04E4BC85" FromRole="Request_Quote" ToRole="Sale" />
   </EntityType>
   <EntityType Name="Return_Order_Request">
     <Key>
@@ -473,7 +476,7 @@
     <Property Name="Return_Sale_Request_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Return_Request_Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Customer_ID" Type="Int32" />
-    <NavigationProperty Name="Customer" Relationship="Self.FK__Return_Sa__Custo__0A9D95DB" FromRole="Return_Sale_Request" ToRole="Customer" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Return_Sa__Custo__0B91BA14" FromRole="Return_Sale_Request" ToRole="Customer" />
     <NavigationProperty Name="Return_Sale_Request_Sale_Line" Relationship="Self.FK_Return_Sale_Request_ID" FromRole="Return_Sale_Request" ToRole="Return_Sale_Request_Sale_Line" />
   </EntityType>
   <EntityType Name="Return_Sale_Request_Sale_Line">
@@ -495,8 +498,8 @@
     <Property Name="Sale_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Sale_Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Request_Quote_ID" Type="Int32" />
-    <NavigationProperty Name="Request_Quote" Relationship="Self.FK__Sale__Request_Qu__03F0984C" FromRole="Sale" ToRole="Request_Quote" />
-    <NavigationProperty Name="Sale_Payment" Relationship="Self.FK__Sale_Paym__Sale___160F4887" FromRole="Sale" ToRole="Sale_Payment" />
+    <NavigationProperty Name="Request_Quote" Relationship="Self.FK__Sale__Request_Qu__04E4BC85" FromRole="Sale" ToRole="Request_Quote" />
+    <NavigationProperty Name="Sale_Payment" Relationship="Self.FK__Sale_Paym__Sale___17036CC0" FromRole="Sale" ToRole="Sale_Payment" />
     <NavigationProperty Name="Sale_Line" Relationship="Self.FK_Sale_ID" FromRole="Sale" ToRole="Sale_Line" />
   </EntityType>
   <EntityType Name="Sale_Line">
@@ -507,7 +510,7 @@
     <Property Name="Sale_ID" Type="Int32" />
     <Property Name="Product_ID" Type="Int32" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Product" Relationship="Self.FK__Sale_Line__Produ__06CD04F7" FromRole="Sale_Line" ToRole="Product" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Sale_Line__Produ__07C12930" FromRole="Sale_Line" ToRole="Product" />
     <NavigationProperty Name="Return_Sale_Request_Sale_Line" Relationship="Self.FK_Sale_Line_ID" FromRole="Sale_Line" ToRole="Return_Sale_Request_Sale_Line" />
     <NavigationProperty Name="Sale" Relationship="Self.FK_Sale_ID" FromRole="Sale_Line" ToRole="Sale" />
   </EntityType>
@@ -522,10 +525,10 @@
     <Property Name="Sale_ID" Type="Int32" />
     <Property Name="Payment_Type_ID" Type="Int32" />
     <Property Name="Register_ID" Type="Int32" />
-    <NavigationProperty Name="Cash_Register" Relationship="Self.FK__Sale_Paym__Regis__17F790F9" FromRole="Sale_Payment" ToRole="Cash_Register" />
-    <NavigationProperty Name="Payment_Type" Relationship="Self.FK__Sale_Paym__Payme__17036CC0" FromRole="Sale_Payment" ToRole="Payment_Type" />
-    <NavigationProperty Name="Sale" Relationship="Self.FK__Sale_Paym__Sale___160F4887" FromRole="Sale_Payment" ToRole="Sale" />
-    <NavigationProperty Name="Sale_Payment_Status" Relationship="Self.FK__Sale_Paym__Sale___151B244E" FromRole="Sale_Payment" ToRole="Sale_Payment_Status" />
+    <NavigationProperty Name="Cash_Register" Relationship="Self.FK__Sale_Paym__Regis__18EBB532" FromRole="Sale_Payment" ToRole="Cash_Register" />
+    <NavigationProperty Name="Payment_Type" Relationship="Self.FK__Sale_Paym__Payme__17F790F9" FromRole="Sale_Payment" ToRole="Payment_Type" />
+    <NavigationProperty Name="Sale" Relationship="Self.FK__Sale_Paym__Sale___17036CC0" FromRole="Sale_Payment" ToRole="Sale" />
+    <NavigationProperty Name="Sale_Payment_Status" Relationship="Self.FK__Sale_Paym__Sale___160F4887" FromRole="Sale_Payment" ToRole="Sale_Payment_Status" />
   </EntityType>
   <EntityType Name="Sale_Payment_Status">
     <Key>
@@ -533,7 +536,7 @@
     </Key>
     <Property Name="Sale_Payment_Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Sale_Payment_Status_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Sale_Payment" Relationship="Self.FK__Sale_Paym__Sale___151B244E" FromRole="Sale_Payment_Status" ToRole="Sale_Payment" />
+    <NavigationProperty Name="Sale_Payment" Relationship="Self.FK__Sale_Paym__Sale___160F4887" FromRole="Sale_Payment_Status" ToRole="Sale_Payment" />
   </EntityType>
   <EntityType Name="Shift">
     <Key>
@@ -564,7 +567,7 @@
     <Property Name="Shift_Branch_ID" Type="Int32" />
     <Property Name="Employee_ID" Type="Int32" />
     <NavigationProperty Name="Employee" Relationship="Self.FK__Shift_Bra__Emplo__4AB81AF0" FromRole="Shift_Branch_Employee" ToRole="Employee" />
-    <NavigationProperty Name="Job_Instance" Relationship="Self.FK__Job_Insta__Shift__4A8310C6" FromRole="Shift_Branch_Employee" ToRole="Job_Instance" />
+    <NavigationProperty Name="Job_Instance" Relationship="Self.FK__Job_Insta__Shift__4B7734FF" FromRole="Shift_Branch_Employee" ToRole="Job_Instance" />
     <NavigationProperty Name="Shift_Branch" Relationship="Self.FK__Shift_Bra__Shift__49C3F6B7" FromRole="Shift_Branch_Employee" ToRole="Shift_Branch" />
   </EntityType>
   <EntityType Name="Shift_Type">
@@ -581,7 +584,7 @@
     </Key>
     <Property Name="Size_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Size_Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Product_Size" Relationship="Self.FK__Product_S__Size___31EC6D26" FromRole="Size" ToRole="Product_Size" />
+    <NavigationProperty Name="Product_Size" Relationship="Self.FK__Product_S__Size___2F10007B" FromRole="Size" ToRole="Product_Size" />
   </EntityType>
   <EntityType Name="Special">
     <Key>
@@ -600,7 +603,7 @@
     <Property Name="Supplier_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Supplier_Phone_Number" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Supplier_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__236943A5" FromRole="Supplier" ToRole="Supplier_Order" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__245D67DE" FromRole="Supplier" ToRole="Supplier_Order" />
   </EntityType>
   <EntityType Name="Supplier_Order">
     <Key>
@@ -609,8 +612,8 @@
     <Property Name="Supplier_Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Supplier_Order_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Supplier_ID" Type="Int32" />
-    <NavigationProperty Name="Supplier" Relationship="Self.FK__Supplier___Suppl__236943A5" FromRole="Supplier_Order" ToRole="Supplier" />
-    <NavigationProperty Name="Supplier_Order_Line" Relationship="Self.FK__Supplier___Suppl__2B0A656D" FromRole="Supplier_Order" ToRole="Supplier_Order_Line" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK__Supplier___Suppl__245D67DE" FromRole="Supplier_Order" ToRole="Supplier" />
+    <NavigationProperty Name="Supplier_Order_Line" Relationship="Self.FK__Supplier___Suppl__2BFE89A6" FromRole="Supplier_Order" ToRole="Supplier_Order_Line" />
   </EntityType>
   <EntityType Name="Supplier_Order_Line">
     <Key>
@@ -621,9 +624,9 @@
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="Product_ID" Type="Int32" />
     <Property Name="Raw_Material_ID" Type="Int32" />
-    <NavigationProperty Name="Product" Relationship="Self.FK__Supplier___Produ__2BFE89A6" FromRole="Supplier_Order_Line" ToRole="Product" />
-    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Supplier___Raw_M__2CF2ADDF" FromRole="Supplier_Order_Line" ToRole="Raw_Material" />
-    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__2B0A656D" FromRole="Supplier_Order_Line" ToRole="Supplier_Order" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Supplier___Produ__2CF2ADDF" FromRole="Supplier_Order_Line" ToRole="Product" />
+    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Supplier___Raw_M__2DE6D218" FromRole="Supplier_Order_Line" ToRole="Raw_Material" />
+    <NavigationProperty Name="Supplier_Order" Relationship="Self.FK__Supplier___Suppl__2BFE89A6" FromRole="Supplier_Order_Line" ToRole="Supplier_Order" />
   </EntityType>
   <EntityType Name="Task">
     <Key>
@@ -631,7 +634,7 @@
     </Key>
     <Property Name="Task_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Task_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_task__Task_I__44CA3770" FromRole="Task" ToRole="Job_task" />
+    <NavigationProperty Name="Job_task" Relationship="Self.FK__Job_task__Task_I__45BE5BA9" FromRole="Task" ToRole="Job_task" />
   </EntityType>
   <EntityType Name="Time_Slot">
     <Key>
@@ -648,7 +651,7 @@
     </Key>
     <Property Name="Unit_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Unit_Measurement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Raw_Mater__Unit___282DF8C2" FromRole="Unit" ToRole="Raw_Material" />
+    <NavigationProperty Name="Raw_Material" Relationship="Self.FK__Raw_Mater__Unit___29221CFB" FromRole="Unit" ToRole="Raw_Material" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -772,7 +775,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Sale_Paym__Regis__17F790F9">
+  <Association Name="FK__Sale_Paym__Regis__18EBB532">
     <End Role="Cash_Register" Type="Self.Cash_Register" Multiplicity="0..1" />
     <End Role="Sale_Payment" Type="Self.Sale_Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -868,7 +871,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Return_Sa__Custo__0A9D95DB">
+  <Association Name="FK__Return_Sa__Custo__0B91BA14">
     <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
     <End Role="Return_Sale_Request" Type="Self.Return_Sale_Request" Multiplicity="*" />
     <ReferentialConstraint>
@@ -988,7 +991,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job__Job_Status___40058253">
+  <Association Name="FK__Job__Job_Status___40F9A68C">
     <End Role="Job_Status" Type="Self.Job_Status" Multiplicity="0..1" />
     <End Role="Job" Type="Self.Job" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1000,7 +1003,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job__Product_ID__40F9A68C">
+  <Association Name="FK__Job__Product_ID__41EDCAC5">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
     <End Role="Job" Type="Self.Job" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1012,7 +1015,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job_task__Job_ID__43D61337">
+  <Association Name="FK__Job_task__Job_ID__44CA3770">
     <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
     <End Role="Job_task" Type="Self.Job_task" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1024,7 +1027,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job_Insta__Job_I__4E53A1AA">
+  <Association Name="FK__Job_Insta__Job_I__4F47C5E3">
     <End Role="Job_Instance" Type="Self.Job_Instance" Multiplicity="0..1" />
     <End Role="Job_Instance_Task" Type="Self.Job_Instance_Task" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1036,7 +1039,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job_Insta__Job_t__498EEC8D">
+  <Association Name="FK__Job_Insta__Job_t__4A8310C6">
     <End Role="Job_task" Type="Self.Job_task" Multiplicity="0..1" />
     <End Role="Job_Instance" Type="Self.Job_Instance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1048,7 +1051,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job_Insta__Shift__4A8310C6">
+  <Association Name="FK__Job_Insta__Shift__4B7734FF">
     <End Role="Shift_Branch_Employee" Type="Self.Shift_Branch_Employee" Multiplicity="0..1" />
     <End Role="Job_Instance" Type="Self.Job_Instance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1060,7 +1063,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job_Insta__Job_t__4D5F7D71">
+  <Association Name="FK__Job_Insta__Job_t__4E53A1AA">
     <End Role="Job_task" Type="Self.Job_task" Multiplicity="0..1" />
     <End Role="Job_Instance_Task" Type="Self.Job_Instance_Task" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1072,7 +1075,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job_task__Job_Ta__45BE5BA9">
+  <Association Name="FK__Job_task__Job_Ta__46B27FE2">
     <End Role="Job_Task_Status" Type="Self.Job_Task_Status" Multiplicity="0..1" />
     <End Role="Job_task" Type="Self.Job_task" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1084,7 +1087,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job_task__Job_Ta__46B27FE2">
+  <Association Name="FK__Job_task__Job_Ta__47A6A41B">
     <End Role="Job_Task_Type" Type="Self.Job_Task_Type" Multiplicity="0..1" />
     <End Role="Job_task" Type="Self.Job_task" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1096,7 +1099,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Job_task__Task_I__44CA3770">
+  <Association Name="FK__Job_task__Task_I__45BE5BA9">
     <End Role="Task" Type="Self.Task" Multiplicity="0..1" />
     <End Role="Job_task" Type="Self.Job_task" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1120,7 +1123,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Order_Pay__Order__1EA48E88">
+  <Association Name="FK__Order_Pay__Order__1F98B2C1">
     <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
     <End Role="Order_Payment" Type="Self.Order_Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1180,7 +1183,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Order_Pay__Order__1DB06A4F">
+  <Association Name="FK__Order_Pay__Order__1EA48E88">
     <End Role="Order_Payment_Status" Type="Self.Order_Payment_Status" Multiplicity="0..1" />
     <End Role="Order_Payment" Type="Self.Order_Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1192,7 +1195,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Order_Pay__Payme__1CBC4616">
+  <Association Name="FK__Order_Pay__Payme__1DB06A4F">
     <End Role="Payment_Type" Type="Self.Payment_Type" Multiplicity="0..1" />
     <End Role="Order_Payment" Type="Self.Order_Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1204,7 +1207,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Sale_Paym__Payme__17036CC0">
+  <Association Name="FK__Sale_Paym__Payme__17F790F9">
     <End Role="Payment_Type" Type="Self.Payment_Type" Multiplicity="0..1" />
     <End Role="Sale_Payment" Type="Self.Sale_Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1216,7 +1219,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Price__Product_S__34C8D9D1">
+  <Association Name="FK__Price__Product_S__32E0915F">
     <End Role="Product_Size" Type="Self.Product_Size" Multiplicity="0..1" />
     <End Role="Price" Type="Self.Price" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1240,7 +1243,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Product_S__Produ__30F848ED">
+  <Association Name="FK__Product_S__Produ__300424B4">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
     <End Role="Product_Size" Type="Self.Product_Size" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1264,7 +1267,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Sale_Line__Produ__06CD04F7">
+  <Association Name="FK__Sale_Line__Produ__07C12930">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
     <End Role="Sale_Line" Type="Self.Sale_Line" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1276,7 +1279,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Supplier___Produ__2BFE89A6">
+  <Association Name="FK__Supplier___Produ__2CF2ADDF">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
     <End Role="Supplier_Order_Line" Type="Self.Supplier_Order_Line" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1324,7 +1327,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Product_S__Size___31EC6D26">
+  <Association Name="FK__Product_S__Size___2F10007B">
     <End Role="Size" Type="Self.Size" Multiplicity="0..1" />
     <End Role="Product_Size" Type="Self.Product_Size" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1333,6 +1336,18 @@
       </Principal>
       <Dependent Role="Product_Size">
         <PropertyRef Name="Size_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Quote_Lin__Produ__01142BA1">
+    <End Role="Product_Size" Type="Self.Product_Size" Multiplicity="0..1" />
+    <End Role="Quote_Line" Type="Self.Quote_Line" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Size">
+        <PropertyRef Name="Product_Size_ID" />
+      </Principal>
+      <Dependent Role="Quote_Line">
+        <PropertyRef Name="Product_Size_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1348,7 +1363,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Quote_Lin__Reque__01142BA1">
+  <Association Name="FK__Quote_Lin__Reque__02084FDA">
     <End Role="Request_Quote" Type="Self.Request_Quote" Multiplicity="0..1" />
     <End Role="Quote_Line" Type="Self.Quote_Line" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1372,7 +1387,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Raw_Mater__Unit___282DF8C2">
+  <Association Name="FK__Raw_Mater__Unit___29221CFB">
     <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
     <End Role="Raw_Material" Type="Self.Raw_Material" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1384,7 +1399,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reciple_L__Raw_M__3493CFA7">
+  <Association Name="FK__Reciple_L__Raw_M__3587F3E0">
     <End Role="Raw_Material" Type="Self.Raw_Material" Multiplicity="0..1" />
     <End Role="Reciple_Line" Type="Self.Reciple_Line" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1396,7 +1411,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Supplier___Raw_M__2CF2ADDF">
+  <Association Name="FK__Supplier___Raw_M__2DE6D218">
     <End Role="Raw_Material" Type="Self.Raw_Material" Multiplicity="0..1" />
     <End Role="Supplier_Order_Line" Type="Self.Supplier_Order_Line" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1408,7 +1423,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reciple_L__Recip__339FAB6E">
+  <Association Name="FK__Reciple_L__Recip__3493CFA7">
     <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
     <End Role="Reciple_Line" Type="Self.Reciple_Line" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1420,7 +1435,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reciple_L__Recip__3587F3E0">
+  <Association Name="FK__Reciple_L__Recip__367C1819">
     <End Role="Recipe_Line_Unit" Type="Self.Recipe_Line_Unit" Multiplicity="0..1" />
     <End Role="Reciple_Line" Type="Self.Reciple_Line" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1432,7 +1447,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Sale__Request_Qu__03F0984C">
+  <Association Name="FK__Sale__Request_Qu__04E4BC85">
     <End Role="Request_Quote" Type="Self.Request_Quote" Multiplicity="0..1" />
     <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1480,7 +1495,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Sale_Paym__Sale___160F4887">
+  <Association Name="FK__Sale_Paym__Sale___17036CC0">
     <End Role="Sale" Type="Self.Sale" Multiplicity="0..1" />
     <End Role="Sale_Payment" Type="Self.Sale_Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1504,7 +1519,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Sale_Paym__Sale___151B244E">
+  <Association Name="FK__Sale_Paym__Sale___160F4887">
     <End Role="Sale_Payment_Status" Type="Self.Sale_Payment_Status" Multiplicity="0..1" />
     <End Role="Sale_Payment" Type="Self.Sale_Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1552,7 +1567,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Supplier___Suppl__236943A5">
+  <Association Name="FK__Supplier___Suppl__245D67DE">
     <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
     <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1564,7 +1579,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Supplier___Suppl__2B0A656D">
+  <Association Name="FK__Supplier___Suppl__2BFE89A6">
     <End Role="Supplier_Order" Type="Self.Supplier_Order" Multiplicity="0..1" />
     <End Role="Supplier_Order_Line" Type="Self.Supplier_Order_Line" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1689,7 +1704,7 @@
       <End Role="Product" EntitySet="Products" />
       <End Role="Cart_Line" EntitySet="Cart_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Sale_Paym__Regis__17F790F9" Association="Self.FK__Sale_Paym__Regis__17F790F9">
+    <AssociationSet Name="FK__Sale_Paym__Regis__18EBB532" Association="Self.FK__Sale_Paym__Regis__18EBB532">
       <End Role="Cash_Register" EntitySet="Cash_Register" />
       <End Role="Sale_Payment" EntitySet="Sale_Payment" />
     </AssociationSet>
@@ -1721,7 +1736,7 @@
       <End Role="Customer" EntitySet="Customers" />
       <End Role="Return_Order_Request" EntitySet="Return_Order_Request" />
     </AssociationSet>
-    <AssociationSet Name="FK__Return_Sa__Custo__0A9D95DB" Association="Self.FK__Return_Sa__Custo__0A9D95DB">
+    <AssociationSet Name="FK__Return_Sa__Custo__0B91BA14" Association="Self.FK__Return_Sa__Custo__0B91BA14">
       <End Role="Customer" EntitySet="Customers" />
       <End Role="Return_Sale_Request" EntitySet="Return_Sale_Request" />
     </AssociationSet>
@@ -1761,43 +1776,43 @@
       <End Role="Employee" EntitySet="Employees" />
       <End Role="Shift_Branch_Employee" EntitySet="Shift_Branch_Employee" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job__Job_Status___40058253" Association="Self.FK__Job__Job_Status___40058253">
+    <AssociationSet Name="FK__Job__Job_Status___40F9A68C" Association="Self.FK__Job__Job_Status___40F9A68C">
       <End Role="Job_Status" EntitySet="Job_Status" />
       <End Role="Job" EntitySet="Jobs" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job__Product_ID__40F9A68C" Association="Self.FK__Job__Product_ID__40F9A68C">
+    <AssociationSet Name="FK__Job__Product_ID__41EDCAC5" Association="Self.FK__Job__Product_ID__41EDCAC5">
       <End Role="Product" EntitySet="Products" />
       <End Role="Job" EntitySet="Jobs" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job_task__Job_ID__43D61337" Association="Self.FK__Job_task__Job_ID__43D61337">
+    <AssociationSet Name="FK__Job_task__Job_ID__44CA3770" Association="Self.FK__Job_task__Job_ID__44CA3770">
       <End Role="Job" EntitySet="Jobs" />
       <End Role="Job_task" EntitySet="Job_task" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job_Insta__Job_I__4E53A1AA" Association="Self.FK__Job_Insta__Job_I__4E53A1AA">
+    <AssociationSet Name="FK__Job_Insta__Job_I__4F47C5E3" Association="Self.FK__Job_Insta__Job_I__4F47C5E3">
       <End Role="Job_Instance" EntitySet="Job_Instance" />
       <End Role="Job_Instance_Task" EntitySet="Job_Instance_Task" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job_Insta__Job_t__498EEC8D" Association="Self.FK__Job_Insta__Job_t__498EEC8D">
+    <AssociationSet Name="FK__Job_Insta__Job_t__4A8310C6" Association="Self.FK__Job_Insta__Job_t__4A8310C6">
       <End Role="Job_task" EntitySet="Job_task" />
       <End Role="Job_Instance" EntitySet="Job_Instance" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job_Insta__Shift__4A8310C6" Association="Self.FK__Job_Insta__Shift__4A8310C6">
+    <AssociationSet Name="FK__Job_Insta__Shift__4B7734FF" Association="Self.FK__Job_Insta__Shift__4B7734FF">
       <End Role="Shift_Branch_Employee" EntitySet="Shift_Branch_Employee" />
       <End Role="Job_Instance" EntitySet="Job_Instance" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job_Insta__Job_t__4D5F7D71" Association="Self.FK__Job_Insta__Job_t__4D5F7D71">
+    <AssociationSet Name="FK__Job_Insta__Job_t__4E53A1AA" Association="Self.FK__Job_Insta__Job_t__4E53A1AA">
       <End Role="Job_task" EntitySet="Job_task" />
       <End Role="Job_Instance_Task" EntitySet="Job_Instance_Task" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job_task__Job_Ta__45BE5BA9" Association="Self.FK__Job_task__Job_Ta__45BE5BA9">
+    <AssociationSet Name="FK__Job_task__Job_Ta__46B27FE2" Association="Self.FK__Job_task__Job_Ta__46B27FE2">
       <End Role="Job_Task_Status" EntitySet="Job_Task_Status" />
       <End Role="Job_task" EntitySet="Job_task" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job_task__Job_Ta__46B27FE2" Association="Self.FK__Job_task__Job_Ta__46B27FE2">
+    <AssociationSet Name="FK__Job_task__Job_Ta__47A6A41B" Association="Self.FK__Job_task__Job_Ta__47A6A41B">
       <End Role="Job_Task_Type" EntitySet="Job_Task_Type" />
       <End Role="Job_task" EntitySet="Job_task" />
     </AssociationSet>
-    <AssociationSet Name="FK__Job_task__Task_I__44CA3770" Association="Self.FK__Job_task__Task_I__44CA3770">
+    <AssociationSet Name="FK__Job_task__Task_I__45BE5BA9" Association="Self.FK__Job_task__Task_I__45BE5BA9">
       <End Role="Task" EntitySet="Tasks" />
       <End Role="Job_task" EntitySet="Job_task" />
     </AssociationSet>
@@ -1805,7 +1820,7 @@
       <End Role="Order_Status" EntitySet="Order_Status" />
       <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Order_Pay__Order__1EA48E88" Association="Self.FK__Order_Pay__Order__1EA48E88">
+    <AssociationSet Name="FK__Order_Pay__Order__1F98B2C1" Association="Self.FK__Order_Pay__Order__1F98B2C1">
       <End Role="Order" EntitySet="Orders" />
       <End Role="Order_Payment" EntitySet="Order_Payment" />
     </AssociationSet>
@@ -1825,19 +1840,19 @@
       <End Role="Product" EntitySet="Products" />
       <End Role="Order_Line" EntitySet="Order_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Order_Pay__Order__1DB06A4F" Association="Self.FK__Order_Pay__Order__1DB06A4F">
+    <AssociationSet Name="FK__Order_Pay__Order__1EA48E88" Association="Self.FK__Order_Pay__Order__1EA48E88">
       <End Role="Order_Payment_Status" EntitySet="Order_Payment_Status" />
       <End Role="Order_Payment" EntitySet="Order_Payment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Order_Pay__Payme__1CBC4616" Association="Self.FK__Order_Pay__Payme__1CBC4616">
+    <AssociationSet Name="FK__Order_Pay__Payme__1DB06A4F" Association="Self.FK__Order_Pay__Payme__1DB06A4F">
       <End Role="Payment_Type" EntitySet="Payment_Type" />
       <End Role="Order_Payment" EntitySet="Order_Payment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Sale_Paym__Payme__17036CC0" Association="Self.FK__Sale_Paym__Payme__17036CC0">
+    <AssociationSet Name="FK__Sale_Paym__Payme__17F790F9" Association="Self.FK__Sale_Paym__Payme__17F790F9">
       <End Role="Payment_Type" EntitySet="Payment_Type" />
       <End Role="Sale_Payment" EntitySet="Sale_Payment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Price__Product_S__34C8D9D1" Association="Self.FK__Price__Product_S__34C8D9D1">
+    <AssociationSet Name="FK__Price__Product_S__32E0915F" Association="Self.FK__Price__Product_S__32E0915F">
       <End Role="Product_Size" EntitySet="Product_Size" />
       <End Role="Price" EntitySet="Prices" />
     </AssociationSet>
@@ -1845,7 +1860,7 @@
       <End Role="Product_Type" EntitySet="Product_Type" />
       <End Role="Product" EntitySet="Products" />
     </AssociationSet>
-    <AssociationSet Name="FK__Product_S__Produ__30F848ED" Association="Self.FK__Product_S__Produ__30F848ED">
+    <AssociationSet Name="FK__Product_S__Produ__300424B4" Association="Self.FK__Product_S__Produ__300424B4">
       <End Role="Product" EntitySet="Products" />
       <End Role="Product_Size" EntitySet="Product_Size" />
     </AssociationSet>
@@ -1853,11 +1868,11 @@
       <End Role="Product" EntitySet="Products" />
       <End Role="Quote_Line" EntitySet="Quote_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Sale_Line__Produ__06CD04F7" Association="Self.FK__Sale_Line__Produ__06CD04F7">
+    <AssociationSet Name="FK__Sale_Line__Produ__07C12930" Association="Self.FK__Sale_Line__Produ__07C12930">
       <End Role="Product" EntitySet="Products" />
       <End Role="Sale_Line" EntitySet="Sale_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Supplier___Produ__2BFE89A6" Association="Self.FK__Supplier___Produ__2BFE89A6">
+    <AssociationSet Name="FK__Supplier___Produ__2CF2ADDF" Association="Self.FK__Supplier___Produ__2CF2ADDF">
       <End Role="Product" EntitySet="Products" />
       <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
     </AssociationSet>
@@ -1873,15 +1888,19 @@
       <End Role="Product_Size" EntitySet="Product_Size" />
       <End Role="Product_Special" EntitySet="Product_Special" />
     </AssociationSet>
-    <AssociationSet Name="FK__Product_S__Size___31EC6D26" Association="Self.FK__Product_S__Size___31EC6D26">
+    <AssociationSet Name="FK__Product_S__Size___2F10007B" Association="Self.FK__Product_S__Size___2F10007B">
       <End Role="Size" EntitySet="Sizes" />
       <End Role="Product_Size" EntitySet="Product_Size" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Quote_Lin__Produ__01142BA1" Association="Self.FK__Quote_Lin__Produ__01142BA1">
+      <End Role="Product_Size" EntitySet="Product_Size" />
+      <End Role="Quote_Line" EntitySet="Quote_Line" />
     </AssociationSet>
     <AssociationSet Name="FK__Product_S__Speci__38996AB5" Association="Self.FK__Product_S__Speci__38996AB5">
       <End Role="Special" EntitySet="Specials" />
       <End Role="Product_Special" EntitySet="Product_Special" />
     </AssociationSet>
-    <AssociationSet Name="FK__Quote_Lin__Reque__01142BA1" Association="Self.FK__Quote_Lin__Reque__01142BA1">
+    <AssociationSet Name="FK__Quote_Lin__Reque__02084FDA" Association="Self.FK__Quote_Lin__Reque__02084FDA">
       <End Role="Request_Quote" EntitySet="Request_Quote" />
       <End Role="Quote_Line" EntitySet="Quote_Line" />
     </AssociationSet>
@@ -1889,27 +1908,27 @@
       <End Role="Quote_Status" EntitySet="Quote_Status" />
       <End Role="Request_Quote" EntitySet="Request_Quote" />
     </AssociationSet>
-    <AssociationSet Name="FK__Raw_Mater__Unit___282DF8C2" Association="Self.FK__Raw_Mater__Unit___282DF8C2">
+    <AssociationSet Name="FK__Raw_Mater__Unit___29221CFB" Association="Self.FK__Raw_Mater__Unit___29221CFB">
       <End Role="Unit" EntitySet="Units" />
       <End Role="Raw_Material" EntitySet="Raw_Material" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reciple_L__Raw_M__3493CFA7" Association="Self.FK__Reciple_L__Raw_M__3493CFA7">
+    <AssociationSet Name="FK__Reciple_L__Raw_M__3587F3E0" Association="Self.FK__Reciple_L__Raw_M__3587F3E0">
       <End Role="Raw_Material" EntitySet="Raw_Material" />
       <End Role="Reciple_Line" EntitySet="Reciple_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Supplier___Raw_M__2CF2ADDF" Association="Self.FK__Supplier___Raw_M__2CF2ADDF">
+    <AssociationSet Name="FK__Supplier___Raw_M__2DE6D218" Association="Self.FK__Supplier___Raw_M__2DE6D218">
       <End Role="Raw_Material" EntitySet="Raw_Material" />
       <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reciple_L__Recip__339FAB6E" Association="Self.FK__Reciple_L__Recip__339FAB6E">
+    <AssociationSet Name="FK__Reciple_L__Recip__3493CFA7" Association="Self.FK__Reciple_L__Recip__3493CFA7">
       <End Role="Recipe" EntitySet="Recipes" />
       <End Role="Reciple_Line" EntitySet="Reciple_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reciple_L__Recip__3587F3E0" Association="Self.FK__Reciple_L__Recip__3587F3E0">
+    <AssociationSet Name="FK__Reciple_L__Recip__367C1819" Association="Self.FK__Reciple_L__Recip__367C1819">
       <End Role="Recipe_Line_Unit" EntitySet="Recipe_Line_Unit" />
       <End Role="Reciple_Line" EntitySet="Reciple_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Sale__Request_Qu__03F0984C" Association="Self.FK__Sale__Request_Qu__03F0984C">
+    <AssociationSet Name="FK__Sale__Request_Qu__04E4BC85" Association="Self.FK__Sale__Request_Qu__04E4BC85">
       <End Role="Request_Quote" EntitySet="Request_Quote" />
       <End Role="Sale" EntitySet="Sales" />
     </AssociationSet>
@@ -1925,7 +1944,7 @@
       <End Role="Sale_Line" EntitySet="Sale_Line" />
       <End Role="Return_Sale_Request_Sale_Line" EntitySet="Return_Sale_Request_Sale_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Sale_Paym__Sale___160F4887" Association="Self.FK__Sale_Paym__Sale___160F4887">
+    <AssociationSet Name="FK__Sale_Paym__Sale___17036CC0" Association="Self.FK__Sale_Paym__Sale___17036CC0">
       <End Role="Sale" EntitySet="Sales" />
       <End Role="Sale_Payment" EntitySet="Sale_Payment" />
     </AssociationSet>
@@ -1933,7 +1952,7 @@
       <End Role="Sale" EntitySet="Sales" />
       <End Role="Sale_Line" EntitySet="Sale_Line" />
     </AssociationSet>
-    <AssociationSet Name="FK__Sale_Paym__Sale___151B244E" Association="Self.FK__Sale_Paym__Sale___151B244E">
+    <AssociationSet Name="FK__Sale_Paym__Sale___160F4887" Association="Self.FK__Sale_Paym__Sale___160F4887">
       <End Role="Sale_Payment_Status" EntitySet="Sale_Payment_Status" />
       <End Role="Sale_Payment" EntitySet="Sale_Payment" />
     </AssociationSet>
@@ -1949,11 +1968,11 @@
       <End Role="Shift_Branch" EntitySet="Shift_Branch" />
       <End Role="Shift_Branch_Employee" EntitySet="Shift_Branch_Employee" />
     </AssociationSet>
-    <AssociationSet Name="FK__Supplier___Suppl__236943A5" Association="Self.FK__Supplier___Suppl__236943A5">
+    <AssociationSet Name="FK__Supplier___Suppl__245D67DE" Association="Self.FK__Supplier___Suppl__245D67DE">
       <End Role="Supplier" EntitySet="Suppliers" />
       <End Role="Supplier_Order" EntitySet="Supplier_Order" />
     </AssociationSet>
-    <AssociationSet Name="FK__Supplier___Suppl__2B0A656D" Association="Self.FK__Supplier___Suppl__2B0A656D">
+    <AssociationSet Name="FK__Supplier___Suppl__2BFE89A6" Association="Self.FK__Supplier___Suppl__2BFE89A6">
       <End Role="Supplier_Order" EntitySet="Supplier_Order" />
       <End Role="Supplier_Order_Line" EntitySet="Supplier_Order_Line" />
     </AssociationSet>

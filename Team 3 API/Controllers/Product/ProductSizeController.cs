@@ -77,6 +77,7 @@ namespace OVS_Team_3_API.Controllers.Product
                 SizeDescription = zz.Size.Size_Description,
                 SizeID = zz.Size_ID,
                 PriceID = zz.Prices.Where(x => x.Product_Size.Product_ID == zz.Product_ID).OrderByDescending(x => x.Price_Date).Select(x => x.Price_ID).FirstOrDefault(),
+                Quantityonhand=zz.Product.Quantity_on_hand
 
             }).Where(x => x.ProductID ==id).FirstOrDefault();
 

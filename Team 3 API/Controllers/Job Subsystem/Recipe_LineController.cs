@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 using System.Web.Http;
 using System.Web.Mvc;
 using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
@@ -16,13 +17,13 @@ using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
 namespace OVS_Team_3_API.Controllers.Job_Subsystem
 {
-    [RoutePrefix("api/Recipe_Line")]
+    [RoutePrefix("api/RecipeLine")]
     public class Recipe_LineController : ApiController
     {
         OVSEntities5 db = new OVSEntities5();
 
         // GET: Recipe_Line
-        [Route("GetRecipe_Line")]
+        [Route("GetRecipeLine")]
         [HttpGet]
         public List<Recipe_LineVM> GetRecipe_Line()
         {
@@ -61,7 +62,7 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
 
 
         //Add: Recipe_Line
-        [Route("CreateRecipe_Line")]
+        [Route("CreateRecipeLine")]
         [HttpPost]
         public ResponseObject CreateRecipe_Line([FromBody] Recipe_LineVM recipeline)
         {
@@ -79,6 +80,16 @@ namespace OVS_Team_3_API.Controllers.Job_Subsystem
             try
             {
                 db.Reciple_Line.Add(Newrecipeline);
+                db.SaveChanges();
+
+                var newrecipe = new Models.Recipe
+                {
+                    Recipe_Description = recipeline.RecipeDescription,
+                    Quantity_produced=recipeline.QuantityProduced,
+                    Recipe_Name=recipeline.RecipeName,
+                  
+                };
+                db.Recipes.Add(newrecipe);
                 db.SaveChanges();
 
                 response.Success = true;

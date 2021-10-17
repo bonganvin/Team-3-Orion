@@ -11,12 +11,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-
+ count: number=0;
   productID!: number;
   product_id!: string;
   ProductName!: string;
  observeProductD: Observable<any> = this.service.GetProductByID(this.productID);
  ProductdData!:any ;
+ ProductSizes : ProductSize[]= [];
 // product!: Product[];
 
  observeProduct: Observable<ProductSize[]> = this.service.getProductSizes();
@@ -35,7 +36,7 @@ export class ProductDetailsComponent implements OnInit {
      }
 
   ngOnInit(): void {
-
+    this.count = this.service.itemCount;
     this.service.GetProductSizeByProductID(this.productID).subscribe(x=>
       {
         console.log(x);
@@ -56,12 +57,49 @@ export class ProductDetailsComponent implements OnInit {
  
   }
 
-  // addToCart ()
-  // {
-  //   this.service.AddtoCart().subscribe(x=>
+  // select(category:string){
+  //   this.service.getProducts().subscribe( product =>{
+  //     this.ProductdData = product;
+  //     if(category==="All"){
+  //       this.category = this.ProductSizes;  
+  //     }else
   //     {
+  //     this.category = this.ProductdData.filter(pro =>(pro.category=== category));
+  //     }
+  //     console.log(this.category);
+  //   }) 
+  // }
 
-  //     })
+  addItem(product:ProductSize){
+    // alert(product.name+' has been added to Cart');
+   // console.log(this.count);
+    this.count = this.service.addProduct(product);
+    console.log(this.count);
+    
+  }
+  // addToWishlist(product:Product){
+  //   // alert(product.name+' has been added to wishlist');
+  //   this.wishlistCount = this.wishlistServise.addWishlist(product);
+  // }
+ 
+  // openCart(): void {
+  //   const dialogRef = this.dialog.open(CartComponent, 
+  //     {
+  //       width: '80%',
+  //      });
+  //   dialogRef.afterClosed().subscribe(res => {
+  //     this.count = this.dataService.itemCount;
+  //   });
+
+  // } 
+  // openWishList(): void {
+  //   const dialogRef = this.dialog.open(WishlistComponent, 
+  //     {
+  //       width: '80%',
+  //      });
+  //   dialogRef.afterClosed().subscribe(res => {
+  //     this.wishlistCount = this.wishlistServise.wishlistCount;
+  //   });
 
   // }
 
