@@ -321,6 +321,7 @@ Product_ID int foreign key references Product(Product_ID),
 Request_Quote_ID int foreign key references Request_Quote(Request_Quote_ID)
 )
 
+
 Create table Sale
 (
 Sale_ID int primary key identity(1,1) not null,
