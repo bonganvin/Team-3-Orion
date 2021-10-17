@@ -16,5 +16,6 @@ namespace OVS_Team_3_API.ViewModels
         public string CustomerPhysicalAddress { get; set; }
         public Nullable<int> CustomerTypeID { get; set; }
         public Nullable<int> UserID { get; set; }
+        public string CustomerTypeDescription { get; set; }
     }
 }

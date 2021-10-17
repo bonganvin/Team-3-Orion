@@ -3,6 +3,7 @@ using OVS_Team_3_API.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -25,7 +26,7 @@ namespace OVS_Team_3_API.Controllers
         public List<CustomerVM> GetCustomer()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Customers.Select(zz => new CustomerVM
+            return db.Customers.Include(zz=>zz.Customer_Type).Select(zz => new CustomerVM
             {
                 CustomerID = zz.Customer_ID,
                 CustomerName = zz.Customer_Name,
@@ -35,7 +36,8 @@ namespace OVS_Team_3_API.Controllers
                 CustomerEmailAddress = zz.Customer_Email_Address,
                 CustomerPhysicalAddress = zz.Customer_Physical_Address,
                 CustomerTypeID = zz.Customer_Type_ID,
-                UserID = zz.User_ID
+                UserID = zz.User_ID,
+                CustomerTypeDescription=zz.Customer_Type.Customer_Type_Description
 
             }).ToList();
         }

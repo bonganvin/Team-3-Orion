@@ -81,6 +81,8 @@ import { SaleComponent } from './Product/sale/sale.component';
 import { ProductQuoteComponent } from './Product/product-quote/product-quote.component';
 import { AddQuoteComponent } from './Product/product-quote/add-quote/add-quote.component';
 import { ViewQoutesComponent } from './Product/product-quote/view-qoutes/view-qoutes.component';
+import { ManageCustomersComponent } from './Manager/manager/manage-customers/manage-customers.component';
+
 
 //import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 @NgModule({
@@ -146,7 +148,8 @@ import { ViewQoutesComponent } from './Product/product-quote/view-qoutes/view-qo
     SaleComponent,
     ProductQuoteComponent,
     AddQuoteComponent,
-    ViewQoutesComponent
+    ViewQoutesComponent,
+    ManageCustomersComponent
   ],
   imports: [
     BrowserModule,
@@ -168,7 +171,7 @@ import { ViewQoutesComponent } from './Product/product-quote/view-qoutes/view-qo
     MatDialogModule,
     MatCardModule,
     MatButtonModule, 
-    HttpClientModule,
+    HttpClientModule
   //  ScheduleModule,
    // RecurrenceEditorModule
   ],

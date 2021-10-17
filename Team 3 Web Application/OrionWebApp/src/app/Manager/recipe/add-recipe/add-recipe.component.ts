@@ -54,6 +54,8 @@ export class AddRecipeComponent implements OnInit {
 
     this.form = this.fb.group({
       RecipeID: [''],
+      ProductID: [''],
+      RawMaterialID: [''],
       RecipeName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
       RecipeDescription: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
       QuantityProduced: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],

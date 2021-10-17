@@ -32,6 +32,7 @@ CustomerCellphoneNumber : number ;
 CustomerDateOfBirth : Date;
 CustomerEmailAddress: string ;
 CustomerPhysicalAddress : string ;
+CustomerTypeDescription : string;
 }
 
 
