@@ -45,7 +45,8 @@ export class AddRawMaterialComponent implements OnInit {
       RawMaterialName: ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
       QuantityOnhand: ['', Validators.compose([Validators.required, Validators.maxLength(50), Validators.minLength(2)])],
       Rawmaterialdescription: ['', Validators.compose([Validators.required])],
-      UnitID: ['', Validators.compose([Validators.required])],
+      
+      UnitMeasurement:  ['', Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(1)])],
     });
   }
 
@@ -66,7 +67,7 @@ export class AddRawMaterialComponent implements OnInit {
             RawMaterialName: [resp.Raw_Material_Name, Validators.compose([Validators.required, Validators.maxLength(20), Validators.minLength(2)])],
             QuantityOnhand: [resp.Quantity_on_hand, Validators.compose([Validators.required, Validators.maxLength(50), Validators.minLength(2)])],
             Rawmaterialdescription: [resp.Raw_material_description, Validators.compose([Validators.required])],
-            UnitID: [resp.Unit_ID, Validators.compose([Validators.required])],
+            
           });
 
         })

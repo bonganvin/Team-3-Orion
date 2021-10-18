@@ -43,7 +43,19 @@
         </mat-form-field>
         <br />
 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Raw Material Unit</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="750"
+            formControlName="UnitMeasurement"
+          />
+          <mat-hint>Raw Material Unit Measurement</mat-hint>
+        </mat-form-field>
+        <br />
+
+        <!-- <mat-form-field>
           <mat-label>Select Unit</mat-label>
           <mat-select
             [(value)]="Unitparams.UnitID"
@@ -53,7 +65,7 @@
               {{ item.UnitMeasurement }}
             </mat-option>
           </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <br />
         <mat-dialog-actions align="end">
