@@ -7,6 +7,21 @@
 
         <br />
 
+                <mat-form-field>
+          <mat-label>Select Size</mat-label>
+          <mat-select
+            [(value)]="sizesParams.SizeID"
+            formControlName="SizeID"
+          >
+            <mat-option *ngFor="let item of SizesData" [value]="item.SizeID">
+              {{ item.SizeDescription }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+<button mat-raised-button color="primary" (click)="AddSize()">
+  Add Size
+</button>
+
         <mat-form-field>
           <mat-label>Select Product</mat-label>
           <mat-select
@@ -19,17 +34,6 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Select Size</mat-label>
-          <mat-select
-            [(value)]="sizesParams.SizeID"
-            formControlName="SizeID"
-          >
-            <mat-option *ngFor="let item of SizesData" [value]="item.SizeID">
-              {{ item.SizeDescription }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
 
         <br />
         <mat-form-field appearance="outline">
