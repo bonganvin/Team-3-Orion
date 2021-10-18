@@ -5,6 +5,19 @@
         <br />
         <h2 mat-dialog-title>{{title}}</h2>
 
+                <mat-form-field appearance="outline">
+            <mat-label>Select Branch</mat-label>
+            <mat-select [(value)]="BranchParams.BranchID" formControlName="BranchID">
+                <mat-option *ngFor="let item of BranchData" [value] = "item.BranchID">
+                {{item.BranchName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="AddBranch()">
+  Add Branch
+</button>
+
         <br />
         <mat-form-field appearance="outline">
           <mat-label>Cash Register Name</mat-label>
@@ -18,14 +31,7 @@
           <mat-hint>Cash RegisterName</mat-hint>
         </mat-form-field>
         <br/>
-        <mat-form-field appearance="outline">
-            <mat-label>Select Branch</mat-label>
-            <mat-select [(value)]="BranchParams.BranchID" formControlName="BranchID">
-                <mat-option *ngFor="let item of BranchData" [value] = "item.BranchID">
-                {{item.BranchName}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+
 
         <br />
         <mat-dialog-actions align="end">
