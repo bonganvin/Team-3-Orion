@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl("")
         }
         else if (res.UserAccessPermissionID == 2) {
-          this.router.navigateByUrl("Employee")
+          this.router.navigateByUrl("EmployeeDuties")
         }
         else if (res.UserAccessPermissionID == 3) {
           this.router.navigateByUrl("Manager")
