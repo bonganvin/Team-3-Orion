@@ -127,6 +127,10 @@ const routes: Routes = [
     component: AddCustomerTypeComponent
   },
   {
+    path: 'AddCashRegster',
+    component: AddCashRegisterComponent
+  },
+  {
     path: 'CashRegster/edit/:id',
     component: AddCashRegisterComponent
   },
