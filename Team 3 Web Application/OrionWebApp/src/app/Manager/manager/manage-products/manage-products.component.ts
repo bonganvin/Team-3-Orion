@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { jsPDF } from "jspdf";
 import { autoTable } from 'jspdf-autotable'; 
 import html2canvas from 'html2canvas';
+import * as XLSX from 'xlsx'; 
 
 
 
@@ -19,6 +20,8 @@ import html2canvas from 'html2canvas';
 })
 export class ManageProductsComponent implements OnInit {
   name = 'Angular';
+
+ 
 
   @ViewChild('content', { static: false })
   content!: ElementRef;

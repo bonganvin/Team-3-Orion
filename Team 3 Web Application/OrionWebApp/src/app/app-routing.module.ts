@@ -1,3 +1,4 @@
+import { ManageCustomersComponent } from './Manager/manager/manage-customers/manage-customers.component';
 import { ProductQuoteComponent } from './Product/product-quote/product-quote.component';
 import { SaleComponent } from './Product/sale/sale.component';
 import { AddCustomerTypeComponent } from './Customer/customers/customer-type/add-customer-type/add-customer-type.component';
@@ -67,8 +68,14 @@ const routes: Routes = [
   },
   {
     path: 'AddCustomer',
-    component: CustomersComponent
+    component: RegisterComponent
   },
+  {
+    path: 'Customers',
+    component: ManageCustomersComponent
+  },
+  { path: 'Customers/edit/:id', component: RegisterComponent }
+  ,
   {
     path: 'Register',
     component: RegisterComponent
@@ -118,6 +125,10 @@ const routes: Routes = [
   {
     path: 'CustomerType/edit/:id',
     component: AddCustomerTypeComponent
+  },
+  {
+    path: 'AddCashRegster',
+    component: AddCashRegisterComponent
   },
   {
     path: 'CashRegster/edit/:id',

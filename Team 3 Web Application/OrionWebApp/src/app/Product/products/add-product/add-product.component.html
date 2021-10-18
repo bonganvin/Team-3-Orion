@@ -13,6 +13,26 @@
         </h2>
 
         <br />
+                <mat-form-field appearance="outline">
+          <mat-label>Select Product Type </mat-label>
+          <mat-select
+            [(value)]="typeparams.ProductTypeID"
+            formControlName="ProductTypeID"
+          >
+            <mat-option
+              *ngFor="let item of ProductTypeData"
+              [value]="item.ProductTypeID"
+            >
+              {{ item.ProductTypeName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="AddProductType()">
+  Add Product Type
+</button>
+
+        <br />
         <mat-form-field appearance="outline">
           <mat-label>Product Name</mat-label>
           <input
@@ -62,22 +82,7 @@
         />
    
         <br />
-        <mat-form-field appearance="outline">
-          <mat-label>Select Product Type </mat-label>
-          <mat-select
-            [(value)]="typeparams.ProductTypeID"
-            formControlName="ProductTypeID"
-          >
-            <mat-option
-              *ngFor="let item of ProductTypeData"
-              [value]="item.ProductTypeID"
-            >
-              {{ item.ProductTypeName }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
 
-        <br />
         <mat-dialog-actions align="end">
           <button
             mat-raised-button

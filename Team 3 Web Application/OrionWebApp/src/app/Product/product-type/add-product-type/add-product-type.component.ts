@@ -68,6 +68,10 @@ export class AddProductTypeComponent implements OnInit {
     }
   }
 
+  AddCategory(){
+    this.router.navigateByUrl("AddCategory")
+  }
+
   CreateProductType()
   {
 

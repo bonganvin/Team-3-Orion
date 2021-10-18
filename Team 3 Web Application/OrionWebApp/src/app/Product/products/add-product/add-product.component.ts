@@ -79,6 +79,10 @@ export class AddProductComponent implements OnInit {
     }
   }
 
+  AddProductType(){
+    this.router.navigateByUrl("AddProductType")
+  }
+
   CreateProduct() {
     if (!this.form.valid) {
       return;

@@ -22,29 +22,9 @@
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <span>Employee</span>
+    <span>Customers</span>
     <span class="example-spacer"></span>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>account_circle</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>shopping_cart</mat-icon>
-    </button>
+    
   </mat-toolbar>
 </p>
 
@@ -63,33 +43,33 @@
   </button>
 </mat-menu>
 
-<button mat-raised-button color="primary" (click)="AddEmployee()">
-  Add Employee
+<button mat-raised-button color="primary" (click)="AddCustomer()">
+  Add Customer
 </button>
 <br />
 <br />
 <table class="table table-hover table-dark printformClass" id="printIt">
   <thead>
     <tr>
-      <th scope="col">Employee ID</th>
-      <th scope="col">Employee Name</th>
-      <th scope="col">Employee Surname</th>
-      <th scope="col">Employee Phone Number</th>
-      <th scope="col">Employee Email Address</th>
+      <th scope="col">Customer ID</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Customer Surname</th>
+      <th scope="col">Customer Phone Number</th>
+      <th scope="col">Customer Type Description</th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let employee of EmployeeData">
-      <th scope="row">{{ employee.EmployeeID }}</th>
-      <td>{{ employee.EmployeeName }}</td>
-      <td>{{ employee.EmployeeSurname }}</td>
-      <td>{{ employee.EmployeePhoneNumber }}</td>
-      <td>{{ employee.EmployeeEmailAddress }}</td>
+    <tr *ngFor="let item of customerData">
+      <th scope="row">{{ item.CustomerId }}</th>
+      <td>{{ item.CustomerName }}</td>
+      <td>{{ item.CustomerSurname }}</td>
+      <td>{{ item.CustomerCellphoneNumber }}</td>
+      <td>{{ item.CustomerTypeDescription }}</td>
       <td>
-        <button mat-button color="accent" [routerLink]="['/Employee/edit/', employee.EmployeeID]"><mat-icon>edit</mat-icon></button>
+        <button mat-button color="accent" [routerLink]="['/Customers/edit/', item.CustomerId]"><mat-icon>edit</mat-icon></button>
         &nbsp;
-        <button mat-button color="warn" (click)="deleteEmployee(employee.EmployeeID)"><mat-icon>delete</mat-icon></button>
+        
       </td>
     </tr>
   </tbody>
@@ -97,7 +77,7 @@
 
 
 <button mat-raised-button color="primary" (click)="getPDF()">
-Generate Employee List as PDF
+Generate Customer List as PDF
 </button>
  &nbsp;
   &nbsp;
@@ -105,5 +85,6 @@ Generate Employee List as PDF
     &nbsp;
      &nbsp;
 <button mat-raised-button color="primary" (click)="exportexcel()">
-Generate Employee List as excel file
+Generate Generate Customer List as PDF
+ List as excel file
 </button>

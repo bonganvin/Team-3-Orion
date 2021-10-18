@@ -1,27 +1,24 @@
-import { ServicesService } from './../../service/Services/services.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormBuilder } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Route, Router } from '@angular/router';
-import { OpenDialogComponent } from 'src/app/Dialog/open-dialog/open-dialog.component';
-import { Employee } from 'src/app/service/Interface/interfaces.service';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Customer } from 'src/app/service/Interface/interfaces.service';
+import { ServicesService } from 'src/app/service/Services/services.service';
+import * as XLSX from 'xlsx'; 
 import { jsPDF } from "jspdf";
 import { autoTable } from 'jspdf-autotable'; 
 import html2canvas from 'html2canvas';
-import * as XLSX from 'xlsx'; 
 
 @Component({
-  selector: 'app-employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.scss']
+  selector: 'app-manage-customers',
+  templateUrl: './manage-customers.component.html',
+  styleUrls: ['./manage-customers.component.scss']
 })
-export class EmployeesComponent implements OnInit {
+export class ManageCustomersComponent implements OnInit {
 
-   /*name of the excel-file which will be downloaded. */ 
-fileName= 'ExcelSheet.xlsx';
+  fileName= 'ExcelSheet.xlsx';
 
 exportexcel(): void 
     {
@@ -38,31 +35,27 @@ exportexcel(): void
 			
     }
 
-  observeEmployees: Observable<Employee[]> = this.service.getEmployee();
-  EmployeeData!: Employee[];
+  observeCustomers: Observable<Customer[]> = this.service.getCustomer();
+  customerData!: Customer[];
 
   constructor(private router: Router,
     private service: ServicesService,
     private fb: FormBuilder,
     private snack: MatSnackBar,
-    private dialogRef: MatDialog,) { }
+    private dialogRef: MatDialog) { }
 
   ngOnInit(): void {
-    this.observeEmployees.subscribe(res => {
-      this.EmployeeData = res;
+    this.observeCustomers.subscribe(res => {
+      this.customerData = res;
     })
   }
 
-  AddEmployee() {
+  AddCustomer() {
 
 
-    this.router.navigateByUrl("AddEmployee")
+    this.router.navigateByUrl("AddCustomer")
   }
-
-  
-
-  
-  editEmployee() {
+  editCustomer() {
     this.router.navigateByUrl("EditEmployee")
   }
 
@@ -104,29 +97,5 @@ exportexcel(): void
         pdf.save("HTML-Document.pdf");
            });
     };
-  deleteEmployee(EmployeeID: number) {
-    this.service.deleteEmployee(EmployeeID).subscribe((res: any) => {
-      console.log(res);
-      if (res.Success === false) {
-        this.snack.open('Employee not deleted.', 'OK', {
-          verticalPosition: 'bottom',
-          horizontalPosition: 'center',
-          duration: 3000
-        });
 
-        return;
-      }
-
-      else if (res.Success === true) {
-        this.snack.open('Successful Deleted Employee', 'OK', {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 3000
-        });
-      }
-      window.location.reload();
-    });
-
-  }
 }
-

@@ -72,6 +72,10 @@ export class AddEmployeeComponent implements OnInit {
     }
   }
 
+  AddEmployeeType(){
+    this.router.navigateByUrl("AddEmployeeType")
+  }
+
   RegisterEmployee() {
 
     if (!this.form.valid) {

@@ -17,9 +17,11 @@ namespace OVS_Team_3_API.Models
         public int Quote_Line_ID { get; set; }
         public int Quantity { get; set; }
         public Nullable<int> Product_ID { get; set; }
+        public Nullable<int> Product_Size_ID { get; set; }
         public Nullable<int> Request_Quote_ID { get; set; }
     
         public virtual Product Product { get; set; }
+        public virtual Product_Size Product_Size { get; set; }
         public virtual Request_Quote Request_Quote { get; set; }
     }
 }

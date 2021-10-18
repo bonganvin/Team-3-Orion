@@ -20,11 +20,12 @@ namespace OVS_Team_3_API.Models
             this.Colours = new HashSet<Colour>();
             this.Prices = new HashSet<Price>();
             this.Product_Special = new HashSet<Product_Special>();
+            this.Quote_Line = new HashSet<Quote_Line>();
         }
     
         public int Product_Size_ID { get; set; }
-        public Nullable<int> Product_ID { get; set; }
         public Nullable<int> Size_ID { get; set; }
+        public Nullable<int> Product_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Colour> Colours { get; set; }
@@ -34,5 +35,7 @@ namespace OVS_Team_3_API.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product_Special> Product_Special { get; set; }
         public virtual Size Size { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Quote_Line> Quote_Line { get; set; }
     }
 }

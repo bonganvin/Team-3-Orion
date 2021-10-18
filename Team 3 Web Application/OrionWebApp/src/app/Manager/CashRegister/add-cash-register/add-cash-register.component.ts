@@ -68,6 +68,10 @@ export class AddCashRegisterComponent implements OnInit {
     }
   }
 
+  AddBranch(){
+    this.router.navigateByUrl("AddBranch")
+  }
+
   CreateCashRegister() {
 
     if (!this.form.valid) {

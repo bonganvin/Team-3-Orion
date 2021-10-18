@@ -13,6 +13,16 @@ export class ManagerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  customers()
+  {
+    this.router.navigateByUrl("Customers")
+  }
+
+  customertype()
+  {
+    this.router.navigateByUrl("CustomerType")
+  }
+
   employee()
   {
     this.router.navigateByUrl("Employee")

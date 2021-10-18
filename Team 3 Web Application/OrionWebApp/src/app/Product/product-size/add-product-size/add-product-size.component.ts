@@ -87,6 +87,10 @@ export class AddProductSizeComponent implements OnInit {
     }
   }
 
+  AddSize(){
+    this.router.navigateByUrl("AddSize")
+  }
+
 
   Save() {
 

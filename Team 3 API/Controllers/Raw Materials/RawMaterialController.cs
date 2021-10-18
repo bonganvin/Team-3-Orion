@@ -77,6 +77,16 @@ namespace OVS_Team_3_API.Controllers.Raw_Materials
             {
                 db.Raw_Material.Add(newraw);
                 db.SaveChanges();
+                var newUnit = new Models.Unit
+                {
+                    
+                    Unit_Measurement=raw.UnitMeasurement
+
+                };
+                db.Units.Add(newUnit);
+                db.SaveChanges();
+
+
 
                 response.Success = true;
                 response.ErrorMessage = null;

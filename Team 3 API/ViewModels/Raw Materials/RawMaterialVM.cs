@@ -16,6 +16,8 @@ namespace OVS_Team_3_API.ViewModels.Raw_Materials
 
         public string UnitMeasurement { get; set; }
 
+      
+
         public virtual Unit Unit { get; set; }
     }
 }

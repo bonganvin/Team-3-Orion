@@ -32,6 +32,7 @@ CustomerCellphoneNumber : number ;
 CustomerDateOfBirth : Date;
 CustomerEmailAddress: string ;
 CustomerPhysicalAddress : string ;
+CustomerTypeDescription : string;
 }
 
 
@@ -129,6 +130,10 @@ export interface Recipe{
   RecipeDescription: string;
   QuantityProduced: number;
   RecipeName: string;
+  RecipeLineUnitID : number;
+  RawMaterialID : number;
+  Quantity : number;
+  RecipleLineID : number;
 }
 
 export interface Supplier{
@@ -173,6 +178,7 @@ export interface ProductSize{
   SizeDescription : string;
   ProductName : string;
   ProductDescription: string;
+  Quantityonhand :number;
  // size: [];
 }
 
@@ -192,3 +198,21 @@ export interface CustomerType
   DiscountID: number;
   DiscountName: string;
 }
+
+export interface CartItem
+{
+  ProductSizeID : number;
+  ProductID: number;
+  SizeID: number;
+  PriceAmount:number;
+  PriceID : number;
+  ProductImage: any;
+  SizeDescription : string;
+  ProductName : string;
+  ProductDescription: string;
+  Quantityonhand :number;
+  total_price: number;
+
+  
+}
+

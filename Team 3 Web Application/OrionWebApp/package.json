@@ -24,6 +24,7 @@
     "@syncfusion/ej2-angular-schedule": "^19.2.60",
     "bootstrap": "^5.1.0",
     "cors": "^2.8.5",
+    "file-saver": "^2.0.5",
     "from-html": "^0.3.4",
     "jasmine": "^2.8.0",
     "jquery": "^3.6.0",
@@ -36,6 +37,7 @@
     "rxjs": "~6.6.0",
     "save": "^2.4.0",
     "tslib": "^2.1.0",
+    "xlsx": "^0.17.3",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

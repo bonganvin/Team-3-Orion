@@ -1,4 +1,4 @@
-import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier, JobStatus, Job, Size, ProductSize, Price, CartLine,  CustomerType } from './../Interface/interfaces.service';
+import { Branches, CashRegister, Discount, EmployeeType, Product, RawMaterial, Unit, Recipe, Supplier, JobStatus, Job, Size, ProductSize, Price, CartLine,  CustomerType, CartItem } from './../Interface/interfaces.service';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -11,7 +11,8 @@ import { User, UserAccess, Customer, ProductType, ProductCategory, Employee, VAT
 })
 export class ServicesService {
   [x: string]: any;
-
+  public itemCount!:number;
+  cart: CartItem[]=[];
   //Local host server
   server = 'https://localhost:44387/api/';
 
@@ -395,8 +396,12 @@ export class ServicesService {
 
   }
   //Create Recipe
+  // CreateRecipe(Recipe: Recipe) {
+  //   return this.http.post(`${this.server}Recipe/CreateRecipe`, Recipe, this.httpOptions);
+  // }
+
   CreateRecipe(Recipe: Recipe) {
-    return this.http.post(`${this.server}Recipe/CreateRecipe`, Recipe, this.httpOptions);
+    return this.http.post(`${this.server}RecipeLine/CreateRecipeLine`, Recipe, this.httpOptions);
   }
 
   //Update Discount
@@ -566,5 +571,61 @@ export class ServicesService {
   GetCustomerTypeByID(ID: number) {
     return this.http.get<any>(`${this.server}CustomerType/getCustomerTypeByID/ ${ID}`).pipe(map(res => res));
    
+  }
+
+  addProduct(product: ProductSize):number{
+    let added = false;
+    for (let p of this.cart) {
+      if (p.ProductID === product.ProductID) {
+        p.Quantityonhand += 1;
+        product.Quantityonhand -=1;
+        added = true;
+        break;
+      }
+    }
+    if (!added) {
+      this.cart.push(
+        {ProductName: product.ProductName,
+        ProductID: product.ProductID,
+        PriceAmount: product.PriceAmount,
+        Quantityonhand: product.Quantityonhand,
+        ProductImage: product.ProductImage,
+        // category: product.,
+        ProductDescription: product.ProductDescription,
+        total_price: product.PriceAmount,
+        SizeDescription : product.SizeDescription,
+        SizeID: product.SizeID,
+        ProductSizeID: product.ProductSizeID,
+        PriceID: product.PriceID,
+       });
+      console.log(product.ProductName +  ' - ' + product.Quantityonhand + ' added to cart');
+    }
+    this.itemCount +=1;
+    this.cartItemCount.next(this.cartItemCount.value + 1);
+    console.log(this.itemCount);
+    return this.itemCount;
+  }
+  removeItem(product: Product){
+   // alert(product.ProductName + " has been deleted successfully!");
+    for (let [index, p] of this.cart.entries()) {
+      if (p.ProductID === product.ProductID) {
+        this.itemCount -= p.Quantityonhand;
+        this.cartItemCount.next(this.cartItemCount.value - p.Quantityonhand);
+        this.cart.splice(index, 1);
+      }
+    }
+    console.log(this.itemCount);
+    return this.itemCount;
+  }
+  getCart(){
+    return this.cart;
+  }
+  getTotal(){
+    return this.cart.reduce((i : any, j: any) => i + j.price * j.quantity, 0);
+  }
+  resetCart(){
+    this.cartItemCount.next(this.cartItemCount.value * 0);
+    this.itemCount = 0;
+    return this.cart=[];
   }
 }

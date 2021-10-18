@@ -44,6 +44,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  AddCustomerType() {
+    this.router.navigateByUrl("AddCustomerType")
+  }
+
   Register() {
     this.service.RegisterCustomer(this.form.value).subscribe((res:any)=> {
      
